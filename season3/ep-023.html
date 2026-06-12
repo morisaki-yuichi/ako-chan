@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Classification — Ep 23</title>
+  <title>Anomaly Classification — Ep 23</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,25 +40,94 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 23</div>
-      <h1>Classification</h1>
+      <h1>Anomaly Classification</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-023.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The next morning, the boy sat at his desk and read the page again.</p>
-      <p>Three lines. Same elements each time. The corgi. The tortoise. A woman. Recording failed.</p>
-      <p>He had good data on the corgi and the tortoise. Both the same individuals, he was certain. The corgi's markings, the way it moved. The tortoise's shell. The same each time.</p>
-      <p>The woman: coat, glasses, a bag. He could not confirm more than that.</p>
-      <p>He held his pencil.</p>
-      <p>In his records, every open pattern had eventually closed. He had never needed a holding entry before. But this pattern had appeared three times and had not closed, and he did not know when it would.</p>
-      <p>He wrote one more line below the three entries.</p>
-      <p><em>Pattern A — recurring anomaly. Cause: unknown. Continue recording.</em></p>
-      <p>He read the entry. It was not a conclusion. It was a category. He had made a category for something he did not understand.</p>
-      <p>He turned to a new page. He opened his window. The cranes were starting below.</p>
-      <p>He began the morning count.</p>
+      <p>The next morning the boy reviewed the Pattern A page.</p>
+      <p>He read it slowly. Three rows. Three locations. Same result.</p>
+      <p>He thought about what kind of problem this was.</p>
+      <p>It was not a one-time thing. It had happened three times. Three times made it recurring.</p>
+      <p>He wrote: recurring anomaly.</p>
+      <p>It was not a problem with his tools. He had checked his tools. They worked on everything else. Everything else closed.</p>
+      <p>He wrote: cause unknown.</p>
+      <p>He was not going to stop. He had more data to collect.</p>
+      <p>He wrote: continue recording.</p>
+      <p>He drew a line under all three.</p>
+      <p>He sat back.</p>
+      <p>Most open questions in his notebooks closed within a few days. A measurement came in. A field guide confirmed the species. A pattern repeated and became clear.</p>
+      <p>Pattern A had not closed. Three entries. Zero explanation.</p>
+      <p>He wrote one more line: status open.</p>
+      <p>He looked at the page for a while. Then he put the notebook down and went to the pier. He had morning tides to record. The day's numbers were waiting.</p>
     </section>
     <nav class="nav">
       <a href="ep-022.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 23 / 99</a>
+      <a class="dc" href="index.html">Ep 23 / 24</a>
       <a href="ep-024.html">Next →</a>
     </nav>
   </article>
