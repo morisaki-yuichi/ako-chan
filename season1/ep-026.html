@@ -42,25 +42,92 @@
       <div class="date-label">Season 1 · Ep 26</div>
       <h1>A House of His Own</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-026.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia worked through most of the night. By morning, a new object sat beside the path.</p>
-      <p>It was a small shelter — a low frame of light metal, with a dark panel on the top. Inside, there was a soft warm floor. The walls held in heat. The whole thing was exactly the right size.</p>
-      <p>Ako-chan watched Obia make the last adjustment. "A solar panel?" she asked, looking at the dark top.</p>
-      <p>"Yes. It collects heat in the day. An element inside releases it through the night."</p>
-      <p>Daru had been watching from the backpack. He had not said anything for almost ten minutes, which was unusual.</p>
-      <p>Now he climbed down. He walked to the shelter and looked in through the front.</p>
-      <p>The inside smelled warm and dry. The floor was the right temperature. There was just enough room to turn around.</p>
-      <p>Daru stepped in.</p>
-      <p>He looked at the walls. He looked at the ceiling. He looked at the warm floor under his feet.</p>
-      <p>"My house!" he said. He turned around twice. He sat down. "This is my house."</p>
-      <p>Obia said, "The temperature can be adjusted with this switch."</p>
-      <p>"My house," said Daru again, more quietly this time.</p>
-      <p>He rode on the top of the backpack for the rest of the day, but that evening he slept inside the shelter.</p>
+      <p>In the morning, something new was beside the path.</p>
+      <p>It was small. Light metal. Curved on top. It had a thin solar panel on one side and a warm floor inside.</p>
+      <p>Daru looked at it for a moment. Then he walked up and looked through the opening. Then he walked inside.</p>
+      <p>He turned around once. Then again.</p>
+      <p>"My house!" he said. He said it quietly the second time. Like he was settling something.</p>
+      <p>Ako-chan watched from nearby. She was smiling.</p>
+      <p>"Is it warm?" she asked.</p>
+      <p>"Yes," said Daru. "And the floor is smooth." He walked a small circle inside. "There is just enough room."</p>
+      <p>Dango sniffed the outside carefully. Then he put his nose through the opening.</p>
+      <p>Daru looked at him. "This is mine," said Daru.</p>
+      <p>Dango pulled his nose out.</p>
+      <p>Obia was checking the small panel at the back.</p>
+      <p>"It will warm itself each morning from the sun," said Obia. "On cold nights it will keep the heat inside."</p>
+      <p>Daru walked out and looked at the shelter from outside. Then he walked back in.</p>
+      <p>"Mine," he said again. Softer this time.</p>
     </section>
     <nav class="nav">
       <a href="ep-025.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 26 / 120</a>
+      <a class="dc" href="index.html">Ep 26 / 41</a>
       <a href="ep-027.html">Next →</a>
     </nav>
   </article>

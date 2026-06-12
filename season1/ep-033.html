@@ -42,30 +42,94 @@
       <div class="date-label">Season 1 · Ep 33</div>
       <h1>The Question</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-033.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Evening. The others were asleep or resting. Gabu was awake.</p>
-      <p>He walked to where Obia stood, a little apart from the group, facing the dark.</p>
-      <p>"I want to ask you something," Gabu said.</p>
-      <p>"Yes," said Obia.</p>
-      <p>Gabu thought for a moment. His way of beginning — always the pause, always the thought first. "Do you know what you are?"</p>
-      <p>Obia was quiet.</p>
-      <p>"Not what you can do," said Gabu. "What you are."</p>
-      <p>Obia looked at him. "I know some things," it said at last. "There are others I cannot tell you. Not yet."</p>
-      <p>Gabu considered this. A tortoise can hold a thought for a very long time. He stood still with it.</p>
-      <p>"Who made you?" he asked.</p>
-      <p>"I cannot tell you that either."</p>
-      <p>"Why not?"</p>
-      <p>"Because the moment is not right. When it is, I will."</p>
-      <p>Gabu looked up at the stars for a while. "I understand," he said. "I am patient. It is one of the useful things about being a tortoise."</p>
-      <p>"I have noticed," said Obia.</p>
-      <p>Gabu looked at Obia. "I have noticed things about you too," he said. "I will keep noticing."</p>
-      <p>"Yes," said Obia. "I expect you will."</p>
-      <p>Gabu turned and walked back to his shelter. Obia watched him go.</p>
+      <p>That night, Gabu walked to where Obia was sitting.</p>
+      <p>Everyone else was asleep.</p>
+      <p>Gabu sat down near Obia. Not too close. He looked at the ground for a while.</p>
+      <p>"Do you know what you are?" he said.</p>
+      <p>Obia was quiet for a long time.</p>
+      <p>"Not yet," said Obia.</p>
+      <p>Gabu looked at the stars above. The night was very still.</p>
+      <p>"I cannot tell you everything," said Obia. "Not yet. There are things I have not found the right words for."</p>
+      <p>Gabu nodded slowly. "That is all right," he said. "I will wait."</p>
+      <p>"You are certain?" said Obia.</p>
+      <p>Gabu looked at it. "I am patient," he said. "It is one of the useful things about being a tortoise."</p>
+      <p>Obia turned its head toward him. "I have noticed," it said.</p>
+      <p>The sea made a small sound far below. A star moved slowly across the sky.</p>
+      <p>Gabu watched it go.</p>
+      <p>"I will keep noticing," he said. "Not to push you. Just because I am interested."</p>
+      <p>"I know," said Obia.</p>
+      <p>Gabu walked back to his shelter. Obia watched him go. Then it turned south again and stayed very still for a long time.</p>
     </section>
     <nav class="nav">
       <a href="ep-032.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 33 / 120</a>
+      <a class="dc" href="index.html">Ep 33 / 41</a>
       <a href="ep-034.html">Next →</a>
     </nav>
   </article>

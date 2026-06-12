@@ -42,28 +42,94 @@
       <div class="date-label">Season 1 · Ep 25</div>
       <h1>A Good Result</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-025.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia asked Daru to stay still. Daru stayed still — for about ten seconds. Then he looked down to see what Obia was holding.</p>
-      <p>"What is that?"</p>
-      <p>"A thermometer," said Obia. "Do not move, please."</p>
-      <p>Daru stayed still again. Mostly.</p>
-      <p>Obia checked his shell from every angle. It measured the length and width of his plastron — the flat underside. It pressed a sensor lightly to the back of his neck and waited.</p>
-      <p>"Body temperature," said Daru. "Right?"</p>
-      <p>"Yes."</p>
-      <p>"And?"</p>
-      <p>"Good. Shell in good condition. No soft spots. Water level balanced. Weight appropriate for your age."</p>
-      <p>Daru looked very pleased. "Does that mean I pass?"</p>
-      <p>Obia paused. Then it raised one front leg, flat, all digits extended. It was something between a wave and a signal.</p>
-      <p>Daru stared at it. "Is that a yes?"</p>
-      <p>"That is an OK," said Obia.</p>
-      <p>Daru's eyes lit up. He sat up very straight. "Then build it! Whatever you are going to build — I trust you. Build it."</p>
-      <p>Obia lowered its leg. "Very well," it said. It took out its tools.</p>
-      <p>Daru climbed back onto the backpack and watched from above with great authority.</p>
+      <p>Obia said it wanted to measure Daru.</p>
+      <p>"Measure?" said Daru.</p>
+      <p>"Your health," said Obia. "Your shell. Your weight. I want to know you are well."</p>
+      <p>Daru stood on a flat stone and held very still. This was hard for him.</p>
+      <p>Obia moved around him slowly. It measured his shell. It checked his eyes and legs. It listened to something near his head.</p>
+      <p>"Does it hurt?" said Daru.</p>
+      <p>"No," said Obia.</p>
+      <p>"Good," said Daru. "Am I done?"</p>
+      <p>"Almost," said Obia.</p>
+      <p>Daru tried to hold still a little longer. His tail moved. Then his head. Then he was completely still again.</p>
+      <p>"Done," said Obia.</p>
+      <p>"Did I pass?" said Daru.</p>
+      <p>Obia raised one leg. A simple OK sign.</p>
+      <p>Daru looked very pleased. "Good! I knew it." He stretched out on the warm stone. "Now what?"</p>
+      <p>"I will build you a shelter," said Obia. "For cold nights. And very hot ones."</p>
+      <p>Daru looked up at Obia. "All right," he said. "I trust you. Build it."</p>
+      <p>Obia said nothing. But it was already turning to look for the materials it needed.</p>
     </section>
     <nav class="nav">
       <a href="ep-024.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 25 / 120</a>
+      <a class="dc" href="index.html">Ep 25 / 41</a>
       <a href="ep-026.html">Next →</a>
     </nav>
   </article>

@@ -42,29 +42,95 @@
       <div class="date-label">Season 1 · Ep 32</div>
       <h1>Obia Stops Again</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-032.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>They were walking along a wide path above the sea when Obia stopped.</p>
-      <p>Not a slow stop. A sudden one. Mid-step, with one foot in the air.</p>
-      <p>Five seconds passed.</p>
-      <p>Dango reacted first. He trotted back and pressed his front paw firmly against Obia's leg. "Are you okay?"</p>
-      <p>No answer.</p>
-      <p>"Obia," said Dango. "Obia."</p>
-      <p>Daru leaned forward from the top of the backpack. "Is it broken?" he asked.</p>
-      <p>"It is not broken," said Ako-chan quickly. She had seen this before.</p>
-      <p>On the path ahead, Gabu had stopped too. He turned and looked. Then, without saying anything, he walked slowly back to where Obia stood. He walked to Obia's side. He stood there.</p>
-      <p>That was all. He did not touch anything. He did not speak.</p>
-      <p>Obia came back. One blink. Then normal movement returned. It set its foot down and straightened.</p>
-      <p>"A minor adjustment," it said.</p>
-      <p>Dango stepped back. "Same as before?"</p>
-      <p>"Same as before."</p>
-      <p>Dango looked at Gabu. Gabu was already walking back to his place at the rear of the group. He had not said a word.</p>
-      <p>Later, Ako-chan asked him why he had done it.</p>
-      <p>Gabu looked at her. "It seemed like the right thing to do," he said.</p>
+      <p>They were walking along a cliff road above the sea.</p>
+      <p>Obia was just ahead. Then it was not.</p>
+      <p>Ako-chan turned. Obia was standing in the middle of the path. Not moving. Not looking at anything. Just still.</p>
+      <p>Dango ran back to it. He bumped Obia's leg with his paw. "Are you okay?"</p>
+      <p>Obia did not answer.</p>
+      <p>Daru looked up from the backpack. "Is it broken?"</p>
+      <p>Ako-chan started to move toward Obia. But before she reached it, Gabu walked past her.</p>
+      <p>He walked to Obia's side and stood there.</p>
+      <p>He did not say anything. He did not touch Obia. He just stood beside it.</p>
+      <p>Four seconds passed. Five.</p>
+      <p>Then Obia moved again. It took a step forward. Then another.</p>
+      <p>"A minor adjustment," said Obia. "I am sorry."</p>
+      <p>Gabu walked back to his place in the line.</p>
+      <p>Ako-chan watched him.</p>
+      <p>"Why did you do that?" she asked.</p>
+      <p>Gabu thought for a moment. "It seemed like the right thing to do," he said.</p>
+      <p>Ako-chan looked at Obia. Obia had already started walking. It did not look back.</p>
+      <p>But its pace was very steady.</p>
     </section>
     <nav class="nav">
       <a href="ep-031.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 32 / 120</a>
+      <a class="dc" href="index.html">Ep 32 / 41</a>
       <a href="ep-033.html">Next →</a>
     </nav>
   </article>

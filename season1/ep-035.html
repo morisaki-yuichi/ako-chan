@@ -42,23 +42,93 @@
       <div class="date-label">Season 1 · Ep 35</div>
       <h1>The Anatolian Guard Dog</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-035.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The road passed through a wide valley. On a hill above them, a very large dog sat and watched. Its coat was thick and pale. Its eyes were calm. It was a Kangal dog — the kind that guards flocks in the mountains of Anatolia.</p>
-      <p>The dog came down slowly. It walked to where the group had stopped. It looked at each of them in turn.</p>
-      <p>Then it looked at Dango.</p>
-      <p>"You are very small," it said.</p>
-      <p>Dango stood still.</p>
-      <p>"But you have good eyes," the Kangal dog continued. "That is what matters in a dog. The eyes. Your eyes are good."</p>
-      <p>The Kangal dog looked at the hills for a moment. Then it turned and walked back up.</p>
-      <p>Dango watched it go. His collar turned a steady deep gold.</p>
-      <p>For the rest of that day, he walked a little ahead of the group. Not far — just enough to be first. He held his head up. He glanced back once to check that everyone was still there.</p>
-      <p>That evening, Ako-chan scratched his ear. "Good day?" she said.</p>
-      <p>Dango pressed his nose against her hand. "Yes," he said. "A very good day."</p>
+      <p>They had been in Turkey for three days when the dog came down the hill.</p>
+      <p>He was very large. His coat was thick and the colour of sand. He moved steadily, without hurry, the way animals move when they know they are in charge of their land.</p>
+      <p>He stopped in front of the group and looked at them one by one.</p>
+      <p>Then he looked at Dango for a long time.</p>
+      <p>Dango looked back. He did not move. He held still.</p>
+      <p>"Your eyes are good," said the large dog. "That is what matters in a dog. Eyes that pay attention. Eyes that do not look away."</p>
+      <p>He said it simply. Not to praise. Just as a fact.</p>
+      <p>He turned and walked back up the hill.</p>
+      <p>Dango watched him go.</p>
+      <p>For the rest of the afternoon, Dango walked ahead of the group. Not by much. Just enough.</p>
+      <p>His head was a little higher.</p>
+      <p>Gabu walked near the back. He had been watching.</p>
+      <p>"What did the dog say to you?" said Gabu.</p>
+      <p>Dango thought for a moment.</p>
+      <p>"He said my eyes are good," said Dango. "That is all."</p>
+      <p>Gabu nodded. "Yes," he said. "That is enough.</p>
     </section>
     <nav class="nav">
       <a href="ep-034.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 35 / 120</a>
+      <a class="dc" href="index.html">Ep 35 / 41</a>
       <a href="ep-036.html">Next →</a>
     </nav>
   </article>

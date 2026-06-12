@@ -12,7 +12,7 @@ All seasons, all parts. Use this to locate the target file and episode range bef
 |---|---|---|---|---|---|
 | 1 | England | ep 1–10 | 10 | `stories_s1_p01.py` | ✅ |
 | 2 | Through Europe | ep 11–22 | 12 | `stories_s1_p02.py` | ✅ |
-| 3 | Mediterranean | ep 23–41 | 19 | `stories_s1_p03.py` | ⬜ |
+| 3 | Mediterranean | ep 23–41 | 19 | `stories_s1_p03.py` | ✅ |
 | 4 | Japan | ep 42–49 | 8 | `stories_s1_p04.py` | ⬜ |
 | 5 | The North | ep 50–63 | 14 | `stories_s1_p05.py` | ⬜ |
 | 6 | South America | ep 64–78 | 15 | `stories_s1_p06.py` | ⬜ |

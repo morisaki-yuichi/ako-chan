@@ -42,25 +42,94 @@
       <div class="date-label">Season 1 · Ep 27</div>
       <h1>Eyes in the Leaves</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-027.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Ako-chan went to the olive grove alone one morning. Dango and Daru stayed further back with Obia.</p>
-      <p>She sat down a little way from the leaf pile. She took out her diary and opened it.</p>
-      <p>She did not look at the pile. She wrote.</p>
-      <p>The olive grove was quiet. A breeze moved the leaves overhead. Somewhere above the hill, a bird called once, then went silent.</p>
-      <p>Ako-chan kept writing. She did not look up.</p>
-      <p>After a while she had a feeling she sometimes got near animals — a weight of attention from a direction, the sense that something was watching. She did not move.</p>
-      <p>She kept her eyes on her page. She wrote slowly.</p>
-      <p>Then, without turning her head, she let her eyes move — just a little — toward the left edge of the leaf pile.</p>
-      <p>Two small eyes were looking at her.</p>
-      <p>They were pale and steady and very careful. They watched without blinking.</p>
-      <p>Ako-chan looked back at her diary. She wrote one more line. Then she closed the diary, stood up slowly, and walked back to the others.</p>
-      <p>"It is there," she said quietly. "And it is watching."</p>
-      <p>She looked back once. The leaf pile was still. But she knew.</p>
+      <p>In a grove of old olive trees there was a pile of leaves.</p>
+      <p>Someone had made it. Or something had.</p>
+      <p>Ako-chan sat down beside a tree root about three steps away. She did not look at the pile. She took out her small dark blue notebook and began to write.</p>
+      <p>Dango lay beside her.</p>
+      <p>Obia waited further back along the path.</p>
+      <p>An hour passed. The light moved through the leaves above. A bird went by. Ako-chan kept writing.</p>
+      <p>She did not look at the pile.</p>
+      <p>Another hour. The afternoon came.</p>
+      <p>Then she felt it. Something watching her.</p>
+      <p>She moved her eyes slowly. Not her head. Just her eyes.</p>
+      <p>Between two leaves at the top of the pile, she saw eyes. Small. Dark. Very still.</p>
+      <p>The eyes were looking at her.</p>
+      <p>Ako-chan looked back at her notebook. She wrote three more words. Then she slowly closed it.</p>
+      <p>The pile did not move. The eyes did not move.</p>
+      <p>But they stayed. The whole afternoon. Watching.</p>
+      <p>Ako-chan thought: something is in there. Something careful. Something that is not yet ready.</p>
+      <p>She would come back tomorrow.</p>
     </section>
     <nav class="nav">
       <a href="ep-026.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 27 / 120</a>
+      <a class="dc" href="index.html">Ep 27 / 41</a>
       <a href="ep-028.html">Next →</a>
     </nav>
   </article>

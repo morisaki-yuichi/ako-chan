@@ -42,31 +42,97 @@
       <div class="date-label">Season 1 · Ep 41</div>
       <h1>End of May</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-041.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>That evening, the mountains were closer. Tomorrow, they would reach the border.</p>
-      <p>Gabu came out of his shelter and sat at the edge of the camp. He looked east at the dark line of the mountains against the sky.</p>
-      <p>After a while, he said: "I did not think we would come this far."</p>
-      <p>Daru was nearby. He looked up. "I knew we would," he said.</p>
-      <p>Gabu turned to look at him. "Did you?"</p>
-      <p>"Every day," said Daru. "I woke up and I thought: yes. Today we go further." He tilted his head. "Did you not think that?"</p>
-      <p>Gabu was quiet.</p>
-      <p>"I thought: maybe," he said. "Every day, I thought maybe."</p>
-      <p>"And here we are," said Daru.</p>
-      <p>"Yes," said Gabu. "Here we are."</p>
-      <p>They were both quiet for a moment.</p>
-      <p>Then Daru said: "You are louder than when we first met."</p>
-      <p>Gabu thought about this. "Am I?"</p>
-      <p>"A little," said Daru.</p>
-      <p>Gabu looked at the mountains. The sky behind them was getting darker. Stars were beginning to show.</p>
+      <p>The last evening of May.</p>
+      <p>They sat near a stream in the hills close to the Georgian border. The fire was small. The sky was full of stars.</p>
+      <p>Daru looked at the horizon. "I knew we would get this far," he said. He said it as a simple fact.</p>
+      <p>Gabu looked at him. "Did you?"</p>
+      <p>"Yes," said Daru. "From the beginning."</p>
+      <p>Gabu thought about this for a while.</p>
+      <p>"I thought maybe," he said. "Every day I thought maybe. And then we were still going."</p>
+      <p>Daru looked at him. "Every day maybe. That sounds hard."</p>
+      <p>"No," said Gabu. "It was fine. Maybe got us here too."</p>
+      <p>They sat quietly for a moment.</p>
+      <p>"You are louder than when we first met," said Gabu.</p>
+      <p>Daru thought about it. "Is that good?"</p>
+      <p>Gabu moved his head side to side. "It is just true."</p>
+      <p>Daru grinned. Or as close to a grin as a tortoise can manage.</p>
+      <p>Ako-chan wrote in her notebook. The stream moved quietly beside them.</p>
       <p>"I want to know what is next," said Gabu.</p>
-      <p>Daru registered surprise. He looked at Gabu for a moment.</p>
-      <p>Then he grinned. "Now you sound like me," he said.</p>
+      <p>Everyone looked at him.</p>
+      <p>Gabu looked back at the fire.</p>
+      <p>"I want to know," he said again.</p>
     </section>
     <nav class="nav">
       <a href="ep-040.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 41 / 120</a>
-      <a href="ep-042.html">Next →</a>
+      <a class="dc" href="index.html">Ep 41 / 41</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>

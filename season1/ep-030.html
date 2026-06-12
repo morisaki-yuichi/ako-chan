@@ -42,29 +42,97 @@
       <div class="date-label">Season 1 · Ep 30</div>
       <h1>Hello, Gabu</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-030.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Gabu came forward.</p>
-      <p>The group was at the edge of the grove. Obia stood to one side. Dango sat with ears forward. Daru was on the ground, for once not on the backpack.</p>
-      <p>Gabu walked slowly out of the shadow and stopped. He looked at each of them in turn.</p>
-      <p>Then Daru took three fast steps forward. "You are here! I knew you would come! I could smell you from the backpack but I didn't say anything because —"</p>
+      <p>Obia, Daru, and Dango were at camp when Ako-chan arrived with Gabu.</p>
+      <p>Daru saw Gabu and ran forward. "Finally! I have been waiting for you!"</p>
+      <p>He stopped just in front of Gabu.</p>
+      <p>Gabu stopped. He took one step back.</p>
       <p>"Too close," said Gabu.</p>
-      <p>Daru stopped. He was about thirty centimetres from Gabu's nose.</p>
-      <p>He looked down at himself. Then he stepped back one pace. "Sorry," he said.</p>
-      <p>Gabu looked at him. "You are a Hermann's tortoise."</p>
-      <p>"Dalmatian," said Daru. "From further north."</p>
-      <p>"I see." Gabu looked at Dango, who was sitting very still. "Are you going to run at me also?"</p>
-      <p>"No," said Dango.</p>
-      <p>Gabu looked at Obia. Obia looked back without speaking.</p>
-      <p>"What is that?" said Gabu.</p>
-      <p>"Obia," said Ako-chan. "It travels with us."</p>
-      <p>Gabu watched Obia for a long moment. Then he looked at Daru, who had been waiting.</p>
-      <p>"You said you would let me know," said Daru.</p>
-      <p>"...I will let you know," said Gabu.</p>
+      <p>Daru stopped. He looked at Gabu. He looked at Ako-chan.</p>
+      <p>"Sorry," said Daru. He stepped back.</p>
+      <p>"Do you always move that fast?" said Gabu.</p>
+      <p>"Yes," said Daru. "Do you always move that slow?"</p>
+      <p>Gabu looked at him. "I will let you know," said Gabu.</p>
+      <p>Dango came up next. He walked in a wide circle around Gabu and then sat down a little way away.</p>
+      <p>Obia stood back and watched.</p>
+      <p>Gabu looked at Obia for a long time. Obia did not move. It waited.</p>
+      <p>"What is that?" Gabu asked Ako-chan.</p>
+      <p>"That is Obia," said Ako-chan. "It travels with us."</p>
+      <p>"It is not a dog," said Gabu.</p>
+      <p>"No," said Obia. "I am not a dog."</p>
+      <p>"What are you?" said Gabu.</p>
+      <p>"That is a good question," said Obia.</p>
+      <p>Gabu looked at it for a while longer. Then he walked to a warm rock and sat down. He kept watching.</p>
     </section>
     <nav class="nav">
       <a href="ep-029.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 30 / 120</a>
+      <a class="dc" href="index.html">Ep 30 / 41</a>
       <a href="ep-031.html">Next →</a>
     </nav>
   </article>
