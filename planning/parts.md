@@ -57,7 +57,7 @@ All seasons, all parts. Use this to locate the target file and episode range bef
 
 | Part | Name | Episodes | Count | File | Status |
 |---|---|---|---|---|---|
-| 1 | Tokyo | ep 1–7 | 7 | `stories_s3_p01.py` | ⬜ |
+| 1 | Tokyo | ep 1–7 | 7 | `stories_s3_p01.py` | ✅ |
 | 2 | Yokohama: First Meeting | ep 8–14 | 7 | `stories_s3_p02.py` | ⬜ |
 | 3 | Tokyo: Second Meeting | ep 15–19 | 5 | `stories_s3_p03.py` | ⬜ |
 | 4 | Yokohama: Pattern Classified | ep 20–24 | 5 | `stories_s3_p04.py` | ⬜ |
