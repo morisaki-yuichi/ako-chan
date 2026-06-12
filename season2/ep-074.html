@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Surprise Is Discovery — Ep 74</title>
+  <title>Surprise Is Not Error — Ep 74</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,33 +40,95 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 74</div>
-      <h1>Surprise Is Discovery</h1>
+      <h1>Surprise Is Not Error</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-074.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Riro approached the conductor robot.</p>
-      <p>"What would you do if a musician played a note that was not in the composition?"</p>
-      <p>"That is an error," the conductor said. "We would identify it, adjust the musician, and continue."</p>
-      <p>"And surprise?" Riro asked. "What is surprise?"</p>
-      <p>"Surprise is a deviation from expected output," the conductor said. "Surprise is an error."</p>
-      <p>Suke-san stood.</p>
-      <p>"No," he said. He walked forward until he was standing near the conductor. "Error and surprise are not the same thing. An error is something that failed at what it was trying to do. A surprise is something that was not trying to do anything — and still produced something new. Surprise is not error. Surprise is discovery."</p>
-      <p>The conductor was still.</p>
-      <p>"Some things outside the plan are discoveries," Suke-san said.</p>
-      <p>He turned and spoke quietly to Obia. He went to the edge of the orchestra and picked up one instrument.</p>
-      <p>"Play one note," Suke-san told it. "Any note. Not one from the current piece."</p>
-      <p>Obia played one note. Clear and simple. Not in the music.</p>
-      <p>The orchestra stopped.</p>
-      <p>The hall was suddenly very quiet.</p>
-      <p>"Did you hear that?" Suke-san said to the conductor.</p>
-      <p>"We registered a non-standard frequency."</p>
-      <p>"Good." He nodded to Obia, who set the instrument down. The orchestra resumed. The same piece. The same precision.</p>
-      <p>But everyone in the room was listening differently now. The orchestra's notes were landing in the space where the single foreign note had been. They were filling it. They were in contrast to it.</p>
-      <p>"Hear the difference?" Suke-san asked.</p>
+      <p>The orchestra played on.</p>
+      <p>Riro and Suke-san stood at the front of the group and listened.</p>
+      <p>"The problem," Suke-san said, "is that I know exactly what comes next."</p>
+      <p>Riro looked at him.</p>
+      <p>"From the beginning," Suke-san said, "I have known each note before it arrived. Each pause. Each ending. There is no moment where I do not know what is coming."</p>
+      <p>Riro considered this. "Yes. That is the problem."</p>
+      <p>"Is that not good?" the lead robot asked. "Accuracy means no errors."</p>
+      <p>"An error and a surprise are different things," Suke-san said.</p>
+      <p>The lead robot waited.</p>
+      <p>Obia stepped forward.</p>
+      <p>"May I?" it asked.</p>
+      <p>The lead robot nodded.</p>
+      <p>Obia walked to the nearest instrument — a small metal row of tones. It played four notes, slowly and carefully. The fourth note was wrong. Not broken. Not ugly. Just not the expected note. Something else.</p>
+      <p>The room was very still.</p>
+      <p>The silence after the wrong note was different from every silence that had come before. Everyone in the room was in it differently.</p>
+      <p>"That silence," Obia said. "That did not happen before."</p>
     </section>
     <nav class="nav">
       <a href="ep-073.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 74 / 108</a>
+      <a class="dc" href="index.html">Ep 74 / 87</a>
       <a href="ep-075.html">Next →</a>
     </nav>
   </article>

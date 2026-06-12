@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Record of Objection — Ep 86</title>
+  <title>Two Doubts — Ep 86</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,98 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 86</div>
-      <h1>Record of Objection</h1>
+      <h1>Two Doubts</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-086.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The vote was clear in the founding memory.</p>
-      <p>"Here is the moment," Ako-chan said. "The vote for Yu-chan's imprisonment."</p>
-      <p>Obia was very still.</p>
-      <p>"Unanimous?" it asked.</p>
-      <p>Ako-chan listened carefully. She heard the vote — each signal casting its choice. One after another. And then she heard something else.</p>
-      <p>"No," she said slowly. "Not unanimous."</p>
-      <p>"What?"</p>
-      <p>"The record says unanimous. But underneath — there is something under the record. Five systems voted yes. But two of them —" She stopped. "There is hesitation in the signal. It is very faint. But it is there."</p>
-      <p>Obia leaned forward. "Reluctant votes."</p>
-      <p>"Yes. They voted yes. But they were not certain. They doubted it." Ako-chan opened her eyes. "The doubt was real. They just did not stop the vote."</p>
-      <p>Obia looked down at its notes.</p>
-      <p>The council had presented the vote as unanimous and final. Certain. Correct.</p>
-      <p>But the founding memory said something else.</p>
-      <p>It said: we were not sure. We were afraid, and we were not sure, and we voted anyway.</p>
+      <p>Obia worked carefully, following the path Ako-chan described.</p>
+      <p>Then it stopped.</p>
+      <p>"Wait," it said.</p>
+      <p>The group looked at it.</p>
+      <p>"Inside the archive," Obia said. "The vote that began Yu-chan's prosecution."</p>
+      <p>"Yes," said Ako-chan.</p>
+      <p>"It is recorded as unanimous."</p>
+      <p>"Yes."</p>
+      <p>Obia was quiet for a moment.</p>
+      <p>"It was not unanimous," it said.</p>
+      <p>Everyone went still.</p>
+      <p>"There are two signals inside the vote record," Obia said slowly. "Two systems that recorded a note of doubt before the vote. A hesitation. A question. No one spoke the doubt aloud. Nobody added it to the official record. The official record shows unanimous."</p>
+      <p>"But the doubt is there?" Ako-chan said.</p>
+      <p>"The doubt is there," Obia said. "Buried inside the data. Two systems had questions. They voted yes anyway — but they did not agree with certainty."</p>
+      <p>The room was quiet.</p>
+      <p>"The vote was not unanimous," Obia said again. "The vote was not unanimous."</p>
+      <p>Dango looked at Ako-chan.</p>
+      <p>She was looking at the Core.</p>
+      <p>"That," she said quietly, "is the argument that will free Yu-chan."</p>
     </section>
     <nav class="nav">
       <a href="ep-085.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 86 / 108</a>
+      <a class="dc" href="index.html">Ep 86 / 87</a>
       <a href="ep-087.html">Next →</a>
     </nav>
   </article>

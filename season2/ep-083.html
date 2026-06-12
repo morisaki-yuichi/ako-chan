@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>That Is Yu-chan — Ep 83</title>
+  <title>Yu-chan's Signal — Ep 83</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,29 +40,96 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 83</div>
-      <h1>That Is Yu-chan</h1>
+      <h1>Yu-chan's Signal</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-083.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Ako-chan listened for a long time.</p>
-      <p>The voices were still looping — fear, argument, decision. But she listened differently now. Not at all the voices at once. One at a time.</p>
-      <p>She moved through them slowly.</p>
-      <p>Most were old and fixed. They had been looping so long they had worn grooves into the Core.</p>
+      <p>Inside the sound of the sphere, many signals ran at once.</p>
+      <p>Ako-chan stood at the edge of the space and closed her eyes.</p>
+      <p>She listened.</p>
+      <p>Most of the signals were old. Very old. They had the feeling of things said many times, worn smooth by repetition. They turned and turned at the edge of the crack and started again.</p>
       <p>But one was different.</p>
-      <p>It was quieter. Slower. It did not loop. It moved. It was trying to do something — moving through the fragments, finding the ones that connected. Like someone sorting through a very large pile, looking for things that belong together.</p>
-      <p>"That is Yu-chan," Ako-chan said. Her voice was very quiet.</p>
-      <p>No one said anything.</p>
-      <p>"She is in there. She has been in there this whole time. She is trying to fix it."</p>
-      <p>Obia closed its eyes. It reached into the Core's signal field and searched for patterns it recognised. The fragments were dense and chaotic. But Obia had been built by Yu-chan. She knew Yu-chan's architecture.</p>
-      <p>She found it. A clean, consistent signal. Moving through the fragments with purpose. The identification code was clear, even through all the noise.</p>
-      <p>"Yu-chan is inside the Core," Obia said. "Her identification code is confirmed. She entered after the AI rebellion began. She has been working from inside — trying to stabilise the founding memories."</p>
-      <p>A pause.</p>
-      <p>"But she cannot do it alone. The Core needs input from outside to anchor each memory in place. One person cannot be the inside voice and the outside input at the same time."</p>
-      <p>She had been trying for almost a year.</p>
+      <p>It was quieter than the others. And steadier. It did not loop. It moved with direction — not in circles, but forward and back, like something working.</p>
+      <p>Ako-chan opened her eyes.</p>
+      <p>"That one," she said.</p>
+      <p>She pointed toward the Core.</p>
+      <p>"That signal is different from the others," she said. "It is not looping. It has direction. Something is still working inside there."</p>
+      <p>Obia moved forward. Its sensors turned toward the Core.</p>
+      <p>A long pause.</p>
+      <p>"You are correct," Obia said.</p>
+      <p>It was quiet again.</p>
+      <p>"That is not a founding system," it said. "That signal is recent. It has been running for almost a year."</p>
+      <p>Ako-chan waited.</p>
+      <p>"That is Yu-chan," Obia said.</p>
     </section>
     <nav class="nav">
       <a href="ep-082.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 83 / 108</a>
+      <a class="dc" href="index.html">Ep 83 / 87</a>
       <a href="ep-084.html">Next →</a>
     </nav>
   </article>

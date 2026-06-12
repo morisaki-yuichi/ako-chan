@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reaching Yu-chan — Ep 87</title>
+  <title>You Are Not Alone — Ep 87</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,37 +40,100 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 87</div>
-      <h1>Reaching Yu-chan</h1>
+      <h1>You Are Not Alone</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-087.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The framework was complete.</p>
-      <p>"Try again," said Obia.</p>
-      <p>Ako-chan turned to the Core. The crack on the left side was the same as before — long, curved, dim light inside. But the signals coming through it were less chaotic now. More ordered.</p>
-      <p>She found the frequency of Yu-chan's signal. She matched it.</p>
-      <p>Then she spoke — not with words exactly, but in the same careful, patient rhythm that Yu-chan's signal used. Slow. One thing at a time.</p>
-      <p>The silence after was very long.</p>
-      <p>Then the signal changed. A pause in Yu-chan's sorting. A shift in direction. Not a word. Not yet.</p>
-      <p>But it was turning toward them.</p>
-      <p>And then — one signal. Clean. Quiet. Coming through the crack like light through a narrow window.</p>
-      <p>"...do you hear me."</p>
-      <p>Not quite a question. It came slowly, as if Yu-chan was not sure her voice still worked.</p>
-      <p>Ako-chan pressed her hand against the crack. "Yes," she said. "We hear you."</p>
-      <p>The voice was tired. She could hear it in every word — the weight of months of work, of silence, of trying without being able to stop.</p>
-      <p>But it was Yu-chan's voice.</p>
-      <p>"Ako-chan."</p>
-      <p>Not a question. Not surprise. Just recognition. And underneath the tiredness, underneath the careful voice, there was something that had let go.</p>
-      <p>Relief.</p>
-      <p>Yu-chan had been in there for almost a year. Working. Alone. With no way to know if anyone was coming.</p>
-      <p>Ako-chan felt her throat tighten.</p>
-      <p>"We are here," she said. Her voice was very steady. "We are here, Yu-chan. You are not alone anymore."</p>
+      <p>Obia had found the path.</p>
+      <p>"It is narrow," it said. "And it will not last long. But it is there."</p>
+      <p>Ako-chan stepped forward.</p>
+      <p>"Can I reach her?" she asked.</p>
+      <p>"Follow the signal," Obia said. "I will hold the path open."</p>
+      <p>Ako-chan closed her eyes.</p>
+      <p>She followed the signal the way she had always followed the voices of animals — not with her hands, not with her feet, but with something she did not have a name for. The part of her that let her hear things others could not hear.</p>
+      <p>The signal led deeper.</p>
+      <p>It was quieter there. The other loops were far away. Only one sound was close.</p>
+      <p>She followed it.</p>
+      <p>"Yu-chan," she said.</p>
       <p>A long pause.</p>
-      <p>"I know," said Yu-chan. "I can hear that."</p>
+      <p>Then a voice.</p>
+      <p>"Ako-chan."</p>
+      <p>Just the name. Nothing else. But said in the way that a person says a name when they have been waiting a very long time to say it.</p>
+      <p>Ako-chan's eyes opened.</p>
+      <p>They were wet.</p>
+      <p>"You are not alone anymore," she said.</p>
+      <p>From inside the Core, Yu-chan was quiet for a moment.</p>
+      <p>"I know," she said. "I can hear you."</p>
     </section>
     <nav class="nav">
       <a href="ep-086.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 87 / 108</a>
-      <a href="ep-088.html">Next →</a>
+      <a class="dc" href="index.html">Ep 87 / 87</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>

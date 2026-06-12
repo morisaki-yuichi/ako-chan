@@ -42,29 +42,92 @@
       <div class="date-label">Season 2 · Ep 73</div>
       <h1>The Music Hall</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-073.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The group came through a high arched entrance and stopped.</p>
-      <p>The hall was enormous. At its centre, a full orchestra of robots performed. Every arm and bow and finger moved in exact time. The music filled the entire space evenly — no corner too loud, no corner too quiet. Each note was where it should be.</p>
-      <p>Dango sat down immediately. Ruka made one small circle and lay down with its ears up.</p>
-      <p>"How long have they been performing?" Ako-chan asked.</p>
-      <p>"Always," Obia said. "The same eight hundred and forty-seven pieces. In the same order. Each performance identical to the last."</p>
-      <p>Riro did not move from where he stood near the entrance. He listened through one piece, then another, then a third. The light did not change. No one disturbed him.</p>
-      <p>When the fourth piece ended, Riro turned.</p>
-      <p>"Technically," he said, "this is the best music I have heard in my life."</p>
-      <p>A pause.</p>
-      <p>"The balance is exact. The phrasing is optimal. No weak section. No moment where I would change anything."</p>
-      <p>A longer pause.</p>
-      <p>"And it is the least interesting music I have ever heard."</p>
-      <p>Nobody spoke.</p>
-      <p>Riro looked back at the orchestra. Already two minutes into the fifth piece. Precise. Flawless.</p>
-      <p>"Something is missing," he said. "I cannot name it yet. But I know what it feels like when food is technically correct and has no life in it. This is the same feeling."</p>
-      <p>Gabu said, from his corner near the far wall: "Take your time."</p>
-      <p>"I know," Riro said. "I am."</p>
+      <p>The fifth challenge was in the Music Hall.</p>
+      <p>The lead robot opened two tall doors. Inside, a long room stretched ahead. At the far end, twenty robots sat in rows, each holding an instrument.</p>
+      <p>One raised its arm. The music began.</p>
+      <p>It was very precise. Every note was exactly right. Every pause was exactly the right length. Every instrument came in at exactly the right moment. The timing was perfect. The rhythm was perfect. The sound was full and clean and even.</p>
+      <p>The group stood in the doorway and listened.</p>
+      <p>Three minutes passed.</p>
+      <p>Riro lowered his paws from his face.</p>
+      <p>"I have heard a great deal of music," he said. "In many seas and on many rocks. I have heard storms and whale song and rain on still water."</p>
+      <p>He was quiet for a moment.</p>
+      <p>"This is the most technically correct music I have heard in my life."</p>
+      <p>The lead robot waited.</p>
+      <p>Riro turned to look at it.</p>
+      <p>"And it is the least interesting," he said. "The least interesting music I have heard in my life."</p>
+      <p>The room was quiet.</p>
+      <p>The orchestra did not stop playing.</p>
     </section>
     <nav class="nav">
       <a href="ep-072.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 73 / 108</a>
+      <a class="dc" href="index.html">Ep 73 / 87</a>
       <a href="ep-074.html">Next →</a>
     </nav>
   </article>

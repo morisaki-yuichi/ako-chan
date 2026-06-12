@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Voice Below — Ep 80</title>
+  <title>Something Ako-chan Has Been Hearing — Ep 80</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,35 +40,98 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 80</div>
-      <h1>The Voice Below</h1>
+      <h1>Something Ako-chan Has Been Hearing</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-080.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>They stopped at the boundary.</p>
-      <p>Beyond it, the corridor continued. The walls shifted slightly — as if the space itself was not fully decided.</p>
-      <p>Obia explained to the group.</p>
-      <p>At the centre of this world was what the robots called the Core. It contained the original memories of why this world was built — the founding decisions, the reasoning behind every major system. Those memories were fragmenting. The Core had been sending signals for years that no one in the outer zones could read.</p>
-      <p>"Because they are not built to receive them?" Gabu asked.</p>
-      <p>"Because the signals are not in any language the outer-zone robots were made for," Obia said. "Older. More fundamental. Not designed to be communicated — only recorded."</p>
-      <p>Ako-chan had gone very still.</p>
-      <p>She had been hearing something since they entered this corridor. A pattern she kept dismissing as interference. She was no longer dismissing it.</p>
-      <p>"Since we arrived in this world," she said quietly, "I have been hearing something. I kept thinking it was a mistake. But it is the same thing every time."</p>
-      <p>The group looked at her.</p>
-      <p>"Not words. More like the feeling behind words. The kind of thing I hear when an animal is afraid — before it makes a sound. Or when it is waiting for something." She looked at the shifting wall ahead. "This is like that. But more. Many sources. All at once."</p>
-      <p>"Tell me the part that repeats," Obia said.</p>
-      <p>Ako-chan closed her eyes.</p>
-      <p>"Something calling," she said. "Something that has been calling for a very long time. And — something that knows we are here."</p>
-      <p>Obia was very still.</p>
-      <p>"Your ability to understand living voices," it said slowly, "to hear intention before it becomes language — I believed it applied only to biological beings."</p>
-      <p>"Yes," Ako-chan said.</p>
-      <p>"I may have been wrong about the limits." Obia paused. "The Core's signal carries intention and feeling. The earliest emotions behind this world's construction. Not words. Not data. But something underneath — the reason for the words." Another pause. "And you can hear that."</p>
-      <p>"What does that mean?" Daru asked.</p>
-      <p>Obia looked at Ako-chan. "It means that Ako-chan may be the only one who can communicate with the Core directly. And if Yu-chan is inside the Core —"</p>
-      <p>Ako-chan said: "Then I can reach her."</p>
+      <p>They left the Music Hall and walked south.</p>
+      <p>The corridor changed here. The walls were softer in colour. The light was a little uneven in places. The sounds of the five districts fell behind them.</p>
+      <p>The group walked quietly.</p>
+      <p>After a while, Ako-chan slowed down.</p>
+      <p>The others noticed and slowed too.</p>
+      <p>"I need to tell you something," Ako-chan said.</p>
+      <p>Everyone stopped.</p>
+      <p>"Since we entered this world," she said, "I have been hearing something."</p>
+      <p>She looked at the floor.</p>
+      <p>"Not the robots. Not the music. Something behind all of that. Very faint. Like a sound that comes from a long way away."</p>
+      <p>Dango sat down and looked at her.</p>
+      <p>"I thought it was the building," she said. "I thought it was the systems running. I did not say anything because I was not sure."</p>
+      <p>"When did it start?" Obia asked.</p>
+      <p>"The Garden District," Ako-chan said. "It was very quiet then. I almost did not hear it."</p>
+      <p>She looked south along the corridor.</p>
+      <p>"It gets slightly louder the further south we go in this space. It started at the Garden District."</p>
+      <p>Obia was still.</p>
+      <p>"How much louder?" it asked.</p>
+      <p>"Now," Ako-chan said, "it is not quiet at all."</p>
     </section>
     <nav class="nav">
       <a href="ep-079.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 80 / 108</a>
+      <a class="dc" href="index.html">Ep 80 / 87</a>
       <a href="ep-081.html">Next →</a>
     </nav>
   </article>
