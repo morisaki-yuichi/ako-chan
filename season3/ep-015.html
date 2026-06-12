@@ -42,22 +42,92 @@
       <div class="date-label">Season 3 · Ep 15</div>
       <h1>Back in Tokyo</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-015.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The train arrived at Tokyo Station at 08:14.</p>
-      <p>The boy had been here before. He knew the platforms, the exits, the bus routes. But there was one section he had not finished — a cluster of streets in the southwest where the block numbers skipped. He had noticed this on his last day in the city. He had not gone back for it. Until now.</p>
-      <p>He went there directly.</p>
-      <p>The streets were wider than the rest of the grid. The block markers were out of sequence. Three numbers were missing from the east side, and the west side started from twelve instead of one. He spent the morning measuring gaps with his steps and working out the spacing from the numbers he could find.</p>
-      <p>In a small shop near the southern end of the section, he found two lengths of signal measurement cable on a shelf. He needed them. He paid and put them in his toolkit bag.</p>
-      <p>By afternoon the section was complete. He had a clean entry.</p>
-      <p><em>Section 7-SW. Block markers: irregular. Spacing: resolved. Data: complete.</em></p>
-      <p>He found a room near the station. In the evening he walked his old route past the shrine to see if anything had changed.</p>
-      <p>At the gate, the Shiba Inu was there. Same post. Same straight posture. It looked at him.</p>
-      <p>The boy kept walking.</p>
+      <p>The boy returned to Tokyo.</p>
+      <p>He had unfinished data in the southwest block. Three streets unmeasured. He had a list.</p>
+      <p>He walked from the station. The air was cooler than Yokohama. He counted his steps from the gate. The number was the same as before.</p>
+      <p>His route passed the shrine.</p>
+      <p>The small proud Shiba Inu was at the gate post. Same posture. Tail straight. Eyes forward.</p>
+      <p>It said something.</p>
+      <p>The boy reached for his notebook. He opened it. He wrote the time and the location. He tried to write what the dog had said.</p>
+      <p>He could not.</p>
+      <p>He put a dash. He looked at it. The dash was honest — it said that something had happened here that he could not record.</p>
+      <p>He looked at the dog. The dog looked at him.</p>
+      <p>He closed the notebook and walked on.</p>
+      <p>Behind him, the dog said something again. He kept walking.</p>
+      <p>He found the first unmeasured street and began his work. The numbers came easily. By midday the southwest block was one third done.</p>
+      <p>At the bottom of the page he wrote: six streets done. Nine remaining.</p>
+      <p>He did not go back to the shrine that afternoon.</p>
     </section>
     <nav class="nav">
       <a href="ep-014.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 15 / 99</a>
+      <a class="dc" href="index.html">Ep 15 / 19</a>
       <a href="ep-016.html">Next →</a>
     </nav>
   </article>

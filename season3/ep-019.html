@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Animals Cross — Ep 19</title>
+  <title>Confirmed — Ep 19</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,93 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 19</div>
-      <h1>The Animals Cross</h1>
+      <h1>Confirmed</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-019.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The next morning, the boy reviewed his records.</p>
-      <p>He had seen the same corgi twice — once at a pier in Yokohama, once in a park in Tokyo. He had seen the same tortoise both times too. He wanted to confirm they were the same animals.</p>
-      <p>He read the Yokohama notes. Male corgi: tan and white, medium build, the way it walked, the angle of the ears when alert. He read his Tokyo observations. All details matched. He checked three times.</p>
-      <p>Same individual. He wrote this beside the Yokohama entry.</p>
-      <p>He did the same for the tortoise. Shell markings, size, movement. Yokohama and Tokyo. Same individual.</p>
-      <p>Then he looked for what he had written about the woman.</p>
-      <p>Yokohama: one line. <em>Pier 3. Something happened here.</em></p>
-      <p>Tokyo: nothing.</p>
-      <p>He looked at both. Two cities. Same corgi, same tortoise, same woman — he was nearly certain of that. The animals had given him clear records. The woman had not.</p>
-      <p>He turned to a clean page. He wrote three lines.</p>
-      <p><em>Corgi: consistent. Tortoise: consistent. Person: unrecordable.</em></p>
-      <p>He sat with the page for a while.</p>
-      <p>The gap was the same in both cities.</p>
+      <p>In the morning the boy opened his Yokohama records.</p>
+      <p>He found the corgi entry. White and red coat. Gold collar. Long tail. Friendly. Name: Dango.</p>
+      <p>He turned to the park corgi. Same coat. Same collar. Same long tail. He wrote: Dango. Confirmed same individual.</p>
+      <p>He found the tortoise entry. Small. Western type. Slow movement. Name: Ruka.</p>
+      <p>He turned to the park tortoise. Same shell shape. Same movement. He wrote: Ruka. Confirmed same individual.</p>
+      <p>He turned to the woman's entry.</p>
+      <p>Glasses. Dark coat. Quiet voice. Animal communication confirmed.</p>
+      <p>He thought about the park. Same glasses. Same dark coat. Same quiet voice.</p>
+      <p>He wrote: woman. Confirmed same individual. Data entry: unrecordable. Classification: open.</p>
+      <p>He looked at the three lines side by side. Dango: confirmed, name present. Ruka: confirmed, name present. Woman: confirmed, entry unchanged.</p>
+      <p>He added one more line: two entries grow with each meeting. One does not.</p>
+      <p>He closed the notebook and thought about this.</p>
+      <p>Then he went back to the southwest block.</p>
     </section>
     <nav class="nav">
       <a href="ep-018.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 19 / 99</a>
-      <a href="ep-020.html">Next →</a>
+      <a class="dc" href="index.html">Ep 19 / 19</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>

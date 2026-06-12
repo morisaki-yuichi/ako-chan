@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Proud Dog Again — Ep 16</title>
+  <title>The Shrine Gate, Again — Ep 16</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,96 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 16</div>
-      <h1>The Proud Dog Again</h1>
+      <h1>The Shrine Gate, Again</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-016.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Three days later, the boy's route ran past the shrine again.</p>
-      <p>He could have turned north at the corner before it. He did not.</p>
-      <p>At the gate, the Shiba Inu was there. Its posture was exactly as before — very straight, tail curled over the back, chin slightly raised. It looked at him.</p>
+      <p>The next morning his route passed the shrine gate again.</p>
+      <p>He had not changed his plan. The remaining streets were on the same route. The data was there.</p>
+      <p>The Shiba Inu was at the gate post. Same time. Same posture.</p>
       <p>The boy stopped.</p>
-      <p>The dog said something.</p>
-      <p>He opened his notebook to the entry from the first visit.</p>
-      <p><em>Shiba Inu. Adult male. Sitting. Gate post, left side. Tail: curled. Posture: upright.</em></p>
-      <p>He held his pencil. He looked at the dog. The dog appeared to be waiting.</p>
-      <p>The dog said something again. It held its chin a little higher.</p>
-      <p>He put the pencil away. He closed the notebook. He stood at the gate a little while longer.</p>
-      <p>Then he walked on.</p>
-      <p>He had not added anything. This was the same as the first time. He turned north and found his route.</p>
-      <p>He thought about the entry. He had a complete description of the dog. He did not have a word for what the dog had been saying.</p>
-      <p>He kept walking.</p>
+      <p>He opened his notebook. He found yesterday's entry. The dash was still there.</p>
+      <p>He watched the dog.</p>
+      <p>The dog said something. Short. Direct. The same shape as before.</p>
+      <p>He wrote: Shiba Inu. Second observation. Same gate. Same posture. Same time. Same unrecordable utterance.</p>
+      <p>He drew a line under it.</p>
+      <p>He read the line back. It was accurate. But the sound was not in it.</p>
+      <p>The dog made the sound again.</p>
+      <p>He wrote one more word: repeated.</p>
+      <p>He closed the notebook and walked down the street.</p>
+      <p>The remaining southwest work took all morning. The measurements were clean. He checked each figure twice.</p>
+      <p>At midday he sat on a low wall and looked at his notebook. The southwest block was now half done. The numbers were all correct.</p>
+      <p>He turned back one page and looked at the word repeated.</p>
+      <p>He looked at it for a moment. Then he went back to work.</p>
     </section>
     <nav class="nav">
       <a href="ep-015.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 16 / 99</a>
+      <a class="dc" href="index.html">Ep 16 / 19</a>
       <a href="ep-017.html">Next →</a>
     </nav>
   </article>
