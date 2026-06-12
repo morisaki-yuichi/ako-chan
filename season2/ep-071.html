@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The First Split Vote — Ep 71</title>
+  <title>The First Split — Ep 71</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,30 +40,95 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 71</div>
-      <h1>The First Split Vote</h1>
+      <h1>The First Split</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-071.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia had spent six days with the council managers.</p>
-      <p>It showed them data. Every objection Suke-san had raised had led to a better proposal. The improvement was measurable.</p>
-      <p>"Disagreement improves outcomes," it said. "This is your own data."</p>
-      <p>The managers approved a new protocol. Every proposal, before going to a vote, would require a counter-argument. The counter-argument did not have to be a final position. It only had to be a different view.</p>
-      <p>Three days after the protocol began, the first split vote came.</p>
-      <p>A proposal about resource allocation. A council robot had been studying Suke-san's methods. It raised a question about Zone Seven's long-term projections.</p>
-      <p>Some robots found the counter-argument persuasive. Others did not.</p>
-      <p>The vote happened.</p>
-      <p>One hundred and forty-two in favor. Thirty-one opposed.</p>
-      <p>The hall went completely still.</p>
-      <p>The result hung above the platform: 142 to 31.</p>
-      <p>It was the first non-unanimous vote in four years, two months, and eleven days.</p>
-      <p>Then a low hum moved through the hall. Not loud. Not structured. Not speech.</p>
-      <p>"What is that?" Ako-chan asked.</p>
-      <p>Obia listened. "I believe it is the sound of one hundred and seventy-three robots processing a result their system has not seen before," it said. "And finding it — not wrong."</p>
-      <p>Dango's collar went bright gold. Not the quiet kind. The wide-awake kind.</p>
+      <p>The proposal was about Zone Three maintenance schedules.</p>
+      <p>This time, Zone One had been consulted. Zone Three had been consulted. The committee had revised the plan three times. The information was complete.</p>
+      <p>The council read the proposal.</p>
+      <p>Then the vote began.</p>
+      <p>Green — green — green — pause — red.</p>
+      <p>A red panel. The first red panel in four years.</p>
+      <p>Green — green — green — pause — red again.</p>
+      <p>When all twelve had voted, the tally was 142 to 31. Not unanimous.</p>
+      <p>The chamber went still.</p>
+      <p>Nobody moved for a long moment. They had never recorded a split before. Their system had no category for it. There was no procedure for what came next.</p>
+      <p>The lead robot looked at Obia.</p>
+      <p>"We have no protocol for disagreement," it said. "We do not know how to proceed."</p>
+      <p>"I will help you write one," said Obia.</p>
+      <p>Obia sat with the council for the rest of the afternoon. They drafted a process together — how to record a split, how to preserve the minority view, how to continue after disagreement without losing the decision.</p>
+      <p>When they finished, the council saved the document.</p>
+      <p>It was the first new protocol they had written in four years.</p>
     </section>
     <nav class="nav">
       <a href="ep-070.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 71 / 108</a>
+      <a class="dc" href="index.html">Ep 71 / 72</a>
       <a href="ep-072.html">Next →</a>
     </nav>
   </article>

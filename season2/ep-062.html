@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Obia's Reflection — Ep 62</title>
+  <title>Obia's Own Failure — Ep 62</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,92 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 62</div>
-      <h1>Obia's Reflection</h1>
+      <h1>Obia's Own Failure</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-062.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>After the celebration, Obia sat alone.</p>
-      <p>Ako-chan noticed. She went and sat beside her.</p>
-      <p>"You are quiet," Ako-chan said.</p>
-      <p>"I am thinking," Obia said. "About failure."</p>
-      <p>"Good things or difficult things?"</p>
-      <p>"Both." Obia was still for a moment. "I understand the cost of failure more clearly now. And I understand what it teaches." It paused. "But I am also thinking about my own failures. Whether I have learned from them as well as Unit Eleven learned from its blocks."</p>
-      <p>It was quiet for a moment longer.</p>
-      <p>"With Yu-chan," she said. "I was not honest for a long time. I observed. I recorded. I said nothing. I told myself it was not my role. But I knew something was wrong, and I did not say it." Obia paused. "That had a cost."</p>
-      <p>"You have never disappointed us," Ako-chan said. "Not me, not Dango, not anyone in this group."</p>
-      <p>"I disappointed Yu-chan," Obia said.</p>
-      <p>"Yes," Ako-chan said. "That is true. And it had a cost." She paused. "But you know it now. You said it clearly just now, to me. That is not nothing."</p>
-      <p>"Failure can be information," Ako-chan said. "You told the managers that today. It is also true for you."</p>
-      <p>Obia did not answer.</p>
-      <p>But after a while, the silver light behind its eyes became a little steadier.</p>
+      <p>The Development District was behind them now.</p>
+      <p>The group had gone to rest. Dango was asleep near the wall. Ruka had found her corner. The others sat quietly and said nothing.</p>
+      <p>Obia walked alone.</p>
+      <p>It walked slowly along the corridor. The walls were smooth and white. The light was even. There was no sound.</p>
+      <p>Obia thought about Unit Eleven.</p>
+      <p>Unit Eleven had been running the same steps for fifty years. The same tower. The same fall. The same beginning again. It had failed the same way, over and over, and learned nothing from any of it. Every failure was identical. So nothing changed.</p>
+      <p>Obia had kept a secret for twelve months.</p>
+      <p>It had not told Yu-chan the truth. Each month it sent its reports and said nothing about what it was becoming. Twelve months of the same choice, made again and again.</p>
+      <p>Obia stopped in the corridor.</p>
+      <p>"Unit Eleven was running failed steps for fifty years," it said quietly, to no one. "I kept one secret for twelve months."</p>
+      <p>It stood very still.</p>
+      <p>"The shape is the same."</p>
+      <p>Then it began to walk again.</p>
     </section>
     <nav class="nav">
       <a href="ep-061.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 62 / 108</a>
+      <a class="dc" href="index.html">Ep 62 / 72</a>
       <a href="ep-063.html">Next →</a>
     </nav>
   </article>

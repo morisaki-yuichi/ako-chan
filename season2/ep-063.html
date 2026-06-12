@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Fourth Challenge — Ep 63</title>
+  <title>The Governance Center — Ep 63</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,91 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 63</div>
-      <h1>The Fourth Challenge</h1>
+      <h1>The Governance Center</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-063.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The following morning, Obia briefed the group on Challenge Four.</p>
-      <p>"The fourth zone is the Governance Center," it said. "This is where all major decisions for this world are made. A council of forty-seven senior robots votes on every proposal."</p>
-      <p>"And the problem?" Suke-san said.</p>
-      <p>"All decisions are unanimous. Every vote for the past four years. Eight hundred and forty-seven consecutive unanimous decisions." Obia looked at its data. "Every new idea was quietly changed until it matched what already existed. Then it was approved."</p>
-      <p>Riro said: "The vote is real but the thinking is not."</p>
-      <p>"That is one way to say it," Obia said.</p>
-      <p>Suke-san had been quiet through the whole briefing.</p>
-      <p>When Obia finished, he said: "Unanimous?"</p>
-      <p>Everyone paused.</p>
-      <p>"All eight hundred and forty-seven votes were unanimous?" he said again.</p>
-      <p>"Yes," Obia said.</p>
-      <p>Suke-san turned this over. "That is wrong," he said. "When forty-seven people agree on every single thing, they are not thinking. They are following. Something made them stop disagreeing." He paused. "I do not know what. But that is the thing to find."</p>
-      <p>Obia said: "That is exactly the problem."</p>
-      <p>Suke-san nodded once. "Good. That means I will have something useful to do."</p>
+      <p>The lead robot brought them to a tall circular room.</p>
+      <p>Inside, a long curved table ran around the edge of the space. At the table sat twelve robots — larger than the ones in the Work District, with careful postures and slow movements. Each one had a small panel in front of it.</p>
+      <p>"This is the Governance Center," said the lead robot. "The fourth challenge is here."</p>
+      <p>"What is the challenge?" Ako-chan asked.</p>
+      <p>"Observe first," said the lead robot. "Then I will explain what we have identified."</p>
+      <p>Obia looked at the panel in front of each council robot. It read the record quickly — all four years of it.</p>
+      <p>"In four years," Obia said, "847 proposals have been brought before this council."</p>
+      <p>"Yes," said the lead robot.</p>
+      <p>"847 unanimous votes," said Obia. "Not one decision has been split. Not one disagreement in the record."</p>
+      <p>The room was quiet.</p>
+      <p>Ako-chan looked at the twelve council robots. They sat still and straight, facing forward, waiting for the next proposal to arrive.</p>
+      <p>"Not one," said Obia again. It looked at Ako-chan. "In four years."</p>
     </section>
     <nav class="nav">
       <a href="ep-062.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 63 / 108</a>
+      <a class="dc" href="index.html">Ep 63 / 72</a>
       <a href="ep-064.html">Next →</a>
     </nav>
   </article>

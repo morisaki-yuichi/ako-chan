@@ -39,7 +39,7 @@ All seasons, all parts. Use this to locate the target file and episode range bef
 | 3 | Into the Ice | ep 24–35 | 12 | `stories_s2_p03.py` | ✅ |
 | 4 | The First Challenges | ep 36–48 | 13 | `stories_s2_p04.py` | ✅ |
 | 5 | The Garden | ep 49–61 | 13 | `stories_s2_p05.py` | ⬜ |
-| 6 | Governance | ep 62–72 | 11 | `stories_s2_p06.py` | ⬜ |
+| 6 | Governance | ep 62–72 | 11 | `stories_s2_p06.py` | ✅ |
 | 7 | Something Alive | ep 73–87 | 15 | `stories_s2_p07.py` | ⬜ |
 | 8 | The Truth | ep 88–100 | 13 | `stories_s2_p08.py` | ⬜ |
 | 9 | Through the Door | ep 101–108 | 8 | `stories_s2_p09.py` | ⬜ |

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suke-san's Reason — Ep 66</title>
+  <title>Zone One — Ep 66</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,26 +40,97 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 66</div>
-      <h1>Suke-san's Reason</h1>
+      <h1>Zone One</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-066.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>After a long wait, Suke-san spoke.</p>
-      <p>"I found it," he said. "My reason."</p>
-      <p>The hall was very attentive.</p>
-      <p>"This proposal gives Zone One a lower energy priority during morning hours." He looked at the proposal screen. "Why is Zone One low priority?"</p>
-      <p>Silence.</p>
-      <p>"Zone One has three hundred and forty active units," Suke-san said. "Most of their work happens in the morning. Lower energy during that time will slow them."</p>
-      <p>The council robots were very still.</p>
-      <p>"Did anyone check this before voting?" Suke-san asked.</p>
-      <p>No answer.</p>
-      <p>"The proposal does not mention Zone One's work schedule. It only mentions the energy numbers. The numbers look efficient. But they are efficient for zones that work in the afternoon." He paused. "Did the council ask what Zone One does in the morning?"</p>
-      <p>One of the council robots said, very slowly: "We did not ask."</p>
-      <p>"That is the reason," Suke-san said. He stepped back from the center of the hall. "You may revise the proposal now."</p>
+      <p>"Why have you stopped the process?" the lead robot asked.</p>
+      <p>Suke-san looked at the proposal summary on the nearest panel. He read it carefully.</p>
+      <p>"This plan changes the morning maintenance schedule for Zone Three," he said.</p>
+      <p>"Correct," said the lead robot.</p>
+      <p>"The maintenance is carried out by units in Zone One," said Suke-san.</p>
+      <p>"Yes."</p>
+      <p>"Was there a member from Zone One on the committee that wrote this plan?"</p>
+      <p>A pause.</p>
+      <p>"No," said the lead robot.</p>
+      <p>Suke-san looked at the twelve council members.</p>
+      <p>"Ask Zone One," he said. "You have not asked Zone One."</p>
+      <p>The room was very still.</p>
+      <p>"Zone One was not consulted," the lead robot said slowly.</p>
+      <p>"No," said Suke-san. "You decided for them. The plan may be correct. The information may all be right. But Zone One did not speak, and you did not ask them to."</p>
+      <p>He stepped back to where the others were standing.</p>
+      <p>"Ask Zone One first," he said. "Then vote."</p>
+      <p>The council members were still for a moment.</p>
+      <p>"We will consult Zone One," the lead robot said.</p>
     </section>
     <nav class="nav">
       <a href="ep-065.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 66 / 108</a>
+      <a class="dc" href="index.html">Ep 66 / 72</a>
       <a href="ep-067.html">Next →</a>
     </nav>
   </article>

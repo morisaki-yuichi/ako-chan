@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Obia's New Role — Ep 69</title>
+  <title>Obia Says It — Ep 69</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,27 +40,95 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 69</div>
-      <h1>Obia's New Role</h1>
+      <h1>Obia Says It</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-069.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>From across the room, Dango had been watching.</p>
-      <p>He often watched things without appearing to. Eyes half closed, body relaxed, but following a whole conversation without moving.</p>
-      <p>Now he stood up.</p>
-      <p>He walked across the room slowly. Past Ruka, who was asleep. Past Daru, who was writing and did not look up. He reached Obia and sat down beside his. Close. His shoulder against his arm.</p>
-      <p>His collar was gold. Not the bright excited kind. Not orange. Just gold. Quiet and full. The colour it went when something was right.</p>
-      <p>Obia looked at the collar. Then at Dango.</p>
-      <p>Dango did not look back. He just sat there, solid and present.</p>
-      <p>Obia was quiet for a long time.</p>
-      <p>"I am a bridge," he said.</p>
-      <p>Not a question. A statement. Checking to see how it felt.</p>
-      <p>"I have always moved between different kinds of knowledge," he said. "Between technical systems and living things. Between what a machine can measure and what a creature can feel. I thought that was preparation for the real work."</p>
-      <p>He looked at Dango's collar. Still that same steady gold.</p>
-      <p>"But that was the real work," he said quietly. "I just did not see it."</p>
+      <p>Later, in the corridor, Dango came to find Obia.</p>
+      <p>He walked up quietly and sat down beside it. He did not ask anything. He did not lean against Obia or make a sound. He just sat.</p>
+      <p>Obia looked at Dango.</p>
+      <p>Dango looked ahead.</p>
+      <p>The others were further along the corridor. Ruka was asleep in her corner. Suke-san stood near the wall with his tail still. Ako-chan was writing in her journal. The sounds they made were too far away to hear clearly.</p>
+      <p>After a while, Obia put one paw on Dango's shoulder.</p>
+      <p>Dango's collar went to a warm gold.</p>
+      <p>They sat together without speaking.</p>
+      <p>Then Obia spoke.</p>
+      <p>"I am a bridge," it said.</p>
+      <p>It said the words quietly. Carefully. As if it was listening to them at the same time as saying them — testing whether they fit.</p>
+      <p>Dango did not move.</p>
+      <p>"Between the systems and the living things," Obia said. "Between the calculations and the feelings. Between what you all show and what they can understand."</p>
+      <p>It was quiet again.</p>
+      <p>"I am a bridge," it said once more.</p>
+      <p>Dango's collar held its gold.</p>
     </section>
     <nav class="nav">
       <a href="ep-068.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 69 / 108</a>
+      <a class="dc" href="index.html">Ep 69 / 72</a>
       <a href="ep-070.html">Next →</a>
     </nav>
   </article>

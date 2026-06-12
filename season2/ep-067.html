@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Obia's Crisis — Ep 67</title>
+  <title>Who Am I — Ep 67</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,26 +40,95 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 67</div>
-      <h1>Obia's Crisis</h1>
+      <h1>Who Am I</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-067.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>That night, Obia sat alone.</p>
-      <p>Ako-chan came to sit beside her.</p>
-      <p>"You are very quiet," Ako-chan said.</p>
-      <p>"I have been thinking," Obia said. "About this challenge."</p>
-      <p>Ako-chan waited.</p>
-      <p>"In the Work District, I analyzed the loop. I proposed technical interventions. In the Garden District, I designed the seasonal simulation. In the Development District, I changed the growth model." Obia paused. "Here, I have done none of those things."</p>
-      <p>Ako-chan said nothing.</p>
-      <p>"Suke-san stood in the center of the hall. Suke-san found the error. Suke-san changed the direction of the vote." Obia looked at its hands. "I have been watching. I have been translating when someone needed a word explained. But I have not built anything. I have not fixed anything."</p>
-      <p>She looked at Ako-chan. "I do not know what I am here for."</p>
-      <p>She was quiet for a moment. Then she continued.</p>
-      <p>"In the south, I built things that had never existed. That is who I was — the one who invented what was needed. Here, I cannot change this system's code. The tools I have do not reach that far."</p>
-      <p>She looked at the floor. "I was an inventor. But here, I cannot invent. And I do not know who I am if I am not that."</p>
+      <p>After the chamber session, Obia walked beside Ako-chan.</p>
+      <p>The others were ahead. Suke-san walked at his usual steady pace. Riro and Daru talked quietly. Dango trotted close to Ruka.</p>
+      <p>Obia was silent for a while.</p>
+      <p>Then it said: "I do not know who I am."</p>
+      <p>Ako-chan looked at it.</p>
+      <p>"In the Work District, I gave permission," Obia said. "In the Garden, I gave temperature. In the Development District, I noticed what Dango was doing and explained it."</p>
+      <p>It paused.</p>
+      <p>"But I did not stop Unit Nine. I did not dig in the garden. I did not bump the tower."</p>
+      <p>Obia looked at the corridor ahead.</p>
+      <p>"I build things," it said. "I invent. I solve problems with tools and calculations. That is what I am."</p>
+      <p>It was quiet for a moment.</p>
+      <p>"But here everything already exists. The systems here are beyond anything I can build or design. In this world, I have built nothing. I have invented nothing."</p>
+      <p>Obia stopped walking.</p>
+      <p>"What am I for," it said, "if I am not inventing?"</p>
+      <p>It was not a question for Ako-chan.</p>
+      <p>But Ako-chan had heard it.</p>
     </section>
     <nav class="nav">
       <a href="ep-066.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 67 / 108</a>
+      <a class="dc" href="index.html">Ep 67 / 72</a>
       <a href="ep-068.html">Next →</a>
     </nav>
   </article>

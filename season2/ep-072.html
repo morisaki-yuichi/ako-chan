@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge Four Complete — Ep 72</title>
+  <title>Challenge Four — Ep 72</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,30 +40,93 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 72</div>
-      <h1>Challenge Four Complete</h1>
+      <h1>Challenge Four</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-072.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The council leader stood before the group.</p>
-      <p>"The Governance Center has been operating with a structural error for four years," it said. "Our efficiency protocol removed disagreement. We believed this was an improvement. We were incorrect."</p>
-      <p>Obia translated the technical parts for the group.</p>
-      <p>"Opposing views are not a cost. They are a source of information. Without them, our decisions became repetitions of previous decisions. New information could not enter the system."</p>
-      <p>"We will maintain the mandatory counter-argument protocol. We are also reviewing proposals from the past four years. Some may need to be reconsidered."</p>
-      <p>"How many decisions?" Daru asked.</p>
-      <p>"Approximately six hundred."</p>
-      <p>Daru's pen slowed. Then stopped.</p>
-      <p>"That is a great deal of work," he said.</p>
-      <p>Suke-san said: "Good. That means there is a great deal to do."</p>
-      <p>That night was not like the nights before.</p>
-      <p>Obia was working. The council had asked his to review old proposals — ones that might have been incorrectly changed. He was reading each one and flagging the differences. No one else in the group could do it.</p>
-      <p>A council robot came to ask a question. Obia answered without looking up, in clear terms. The robot thanked his and went back.</p>
-      <p>Ako-chan watched this and said nothing.</p>
-      <p>The bridge was working.</p>
+      <p>The lead robot stood before the full council.</p>
+      <p>"Challenge four is complete," it said.</p>
+      <p>The chamber was still.</p>
+      <p>"We have reviewed our records," the lead robot continued. "Eight hundred and forty-seven proposals. Eight hundred and forty-seven unanimous votes. We believed this was a sign of a functioning system. We now understand it was a sign of a broken one."</p>
+      <p>It paused.</p>
+      <p>"A system that agrees with itself on everything has stopped listening. It has replaced thought with speed. We did not know this. We believed we were being efficient."</p>
+      <p>Obia listened carefully.</p>
+      <p>"We will now review six hundred decisions from the past four years. New committees will be formed. Members from affected zones will be included. The minority will have a place in the record."</p>
+      <p>The lead robot was quiet for a moment.</p>
+      <p>"We did not know what we were agreeing to," it said. "We do not know yet. But now we know that we did not know."</p>
+      <p>Suke-san was standing near the back wall.</p>
+      <p>He said nothing.</p>
+      <p>But his tail moved — once, briefly — and then was still again.</p>
     </section>
     <nav class="nav">
       <a href="ep-071.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 72 / 108</a>
-      <a href="ep-073.html">Next →</a>
+      <a class="dc" href="index.html">Ep 72 / 72</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>
