@@ -42,31 +42,90 @@
       <div class="date-label">Season 1 · Ep 49</div>
       <h1>The End of June</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-049.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>They made a fire on the flat ground near the cliff. The smoke went straight up in the still air. The stars were bright.</p>
-      <p>Six of them sat around the fire. Ako-chan, Dango, Obia, Daru, Gabu, Suke-san.</p>
-      <p>Daru was telling a story about the market in China. He was on the part where he was sitting on the shelf between the stone rabbit and the clay pot.</p>
-      <p>"The light really was excellent," he said. "Very warm. Very even."</p>
-      <p>"You always say that," said Dango.</p>
-      <p>"Because it was true," said Daru.</p>
-      <p>Gabu was watching the fire. Suke-san was sitting straight with his tail curled behind him.</p>
-      <p>After a while, Suke-san got up. He walked to the edge of the firelight. There was a bundle of dried kelp near the rocks. He had put it there earlier. He picked it up in his mouth and carried it back to the fire.</p>
-      <p>He set it down in the middle of the group.</p>
-      <p>Everyone looked at it.</p>
-      <p>"For the journey," said Suke-san.</p>
-      <p>"What is it for?" said Daru.</p>
-      <p>"I am not sure," said Suke-san. "But it is useful."</p>
-      <p>Ako-chan looked at the kelp. She was not sure what they would do with dried kelp. But she picked it up and put it carefully into the pack.</p>
-      <p>"Thank you," she said.</p>
-      <p>"You are welcome," said Suke-san.</p>
-      <p>He sat back down. The fire burned.</p>
-      <p>Below the cliff, the sea moved quietly in the dark. Tomorrow they would go down to the rocks. Something was waiting for them there.</p>
+      <p>A fox came at dusk.</p>
+      <p>"Below the east cliff," she said, "there is an otter on the rocks. Young. He has been there since last week's storm. I tried to help. He said no."</p>
+      <p>Ako-chan wrote it in her diary. "Alone for about a week?"</p>
+      <p>"More or less," said the fox. "He does not look sad. But I am not sure he knows the word for it."</p>
+      <p>After the fox left, Obia scanned the coast. "One heat source. Below the cliff. Small mammal. Juvenile sea otter." It paused. "We should go at low tide. Tomorrow morning."</p>
+      <p>Suke-san said, "I know where the tide goes low on that side. I will show you."</p>
+      <p>They built a fire on the cliff that evening. Six of them sat in a circle. The sea was below. The sky was going orange and purple.</p>
+      <p>Suke-san left and came back carrying something. A bundle of dried kelp. He set it down near the fire without saying why.</p>
+      <p>Everyone looked at the kelp.</p>
+      <p>Gabu said, "Sometimes things do not need a reason."</p>
+      <p>Suke-san sat and looked at the fire. His tail was curled.</p>
+      <p>Ako-chan wrote in her diary: *a bundle of kelp that felt right. Tomorrow we go to the east cliff. We are six. In the morning, perhaps, we will be seven.*</p>
     </section>
     <nav class="nav">
       <a href="ep-048.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 49 / 120</a>
-      <a href="ep-050.html">Next →</a>
+      <a class="dc" href="index.html">Ep 49 / 49</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>

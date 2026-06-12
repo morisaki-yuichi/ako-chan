@@ -42,34 +42,95 @@
       <div class="date-label">Season 1 · Ep 44</div>
       <h1>The Dog on the Hill</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-044.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The hill looked out over the sea. The grass was short and green and the wind moved through it in slow waves.</p>
-      <p>At the top of the hill, a small dog sat perfectly still. He faced the sea. His back was to them as they came up the path.</p>
-      <p>He did not turn.</p>
-      <p>They came closer. The dog was a Shiba Inu. Small and neat. His tail was curled tight. His posture was very correct.</p>
-      <p>They stopped a few steps behind him.</p>
-      <p>The dog spoke. He did not turn his head.</p>
+      <p>The hill above the sea was steep. The grass was short and green from the cold wind. Below, the water was very blue.</p>
+      <p>At the top, a small red dog sat facing the sea. He did not move. His tail was curled tight. He looked like he had been there for a long time.</p>
+      <p>The group stopped.</p>
+      <p>The dog did not turn around.</p>
       <p>"I knew you were coming," he said.</p>
-      <p>Ako-chan looked at Obia. Obia looked at the dog.</p>
-      <p>"How?" said Ako-chan.</p>
-      <p>"The birds," said the dog. "Also the fox. Also the wind, a little." A pause. "I have been watching this coast for a long time. I know when something new arrives."</p>
-      <p>He turned then. He was smaller than Dango. His face was calm and precise. His eyes went around the group.</p>
-      <p>When his eyes reached Obia, one ear moved. Just a little. It tilted back. Then it went straight again.</p>
-      <p>The dog's expression did not change.</p>
-      <p>"My name is Suke-san," he said.</p>
-      <p>"I am Ako-chan," she said. She introduced everyone in order.</p>
-      <p>Suke-san nodded once for each name. He looked at the sea again.</p>
-      <p>"You are going further east," he said. It was not a question.</p>
+      <p>Ako-chan walked up the slope. "You did?"</p>
+      <p>"The fox at the bottom of the hill told me two days ago."</p>
+      <p>He turned his head slowly.</p>
+      <p>He was a Shiba Inu. Small, with a pointed nose and bright, still eyes. His fur was the colour of the autumn hills. He looked at Dango. At Daru on Ako-chan's pack. At Gabu in his shelter. Then his eyes reached Obia.</p>
+      <p>One ear flicked back.</p>
+      <p>"My name is Suke-san," he said. "I have watched this coast for a long time."</p>
+      <p>He said it simply. Not as a boast. It was a fact.</p>
+      <p>Dango stepped forward and sniffed the air between them.</p>
+      <p>Suke-san sat very still while Dango sniffed. He looked at the sea.</p>
+      <p>"You have come far," said Suke-san.</p>
       <p>"Yes," said Ako-chan.</p>
-      <p>Suke-san said nothing for a moment.</p>
-      <p>"Good hill," said Daru cheerfully, from on top of the backpack.</p>
-      <p>"Yes," said Suke-san. "It is."</p>
-      <p>The wind came off the sea and pushed through the grass around them.</p>
+      <p>"I know," said Suke-san. "I can tell." He looked at the water again. "Sit down. The view is better from up here."</p>
+      <p>They sat down. The view was better from up there.</p>
     </section>
     <nav class="nav">
       <a href="ep-043.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 44 / 120</a>
+      <a class="dc" href="index.html">Ep 44 / 49</a>
       <a href="ep-045.html">Next →</a>
     </nav>
   </article>

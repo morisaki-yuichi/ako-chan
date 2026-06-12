@@ -42,31 +42,89 @@
       <div class="date-label">Season 1 · Ep 43</div>
       <h1>Heading North</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-043.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>They were on a train heading north toward Hokkaido. Outside, the forests were getting thicker. The light was lower and greener.</p>
-      <p>Obia came and sat beside Ako-chan.</p>
-      <p>"I want to show you something," it said.</p>
-      <p>It opened a small panel on its side and connected to the record device. A map appeared. It showed the coast of Hokkaido.</p>
-      <p>"The sea temperature here," said Obia. "It has been changing."</p>
-      <p>Ako-chan looked at the data. There were numbers and colours showing temperature zones.</p>
-      <p>"Is that the same as the Adriatic?" she said.</p>
-      <p>"Similar in structure," said Obia. "But larger in scale."</p>
-      <p>Ako-chan felt something settle in her chest. Not fear exactly. Recognition.</p>
-      <p>"The same kind of signal," she said. "Just bigger."</p>
-      <p>"Yes," said Obia.</p>
-      <p>She looked at the map for a long time. Turkey. Armenia. Kazakhstan. Shanghai. The Pacific. And now Hokkaido.</p>
-      <p>"It keeps getting closer to something," she said.</p>
-      <p>Obia did not answer that. It closed the panel.</p>
-      <p>Dango had been watching from her feet. He looked at the map and then at Obia.</p>
-      <p>"Is it bad?" said Dango.</p>
-      <p>"We do not know yet," said Obia. "That is why we are going."</p>
-      <p>Dango accepted this. He put his head back on his paws and watched the dark trees move past the window.</p>
-      <p>The train kept going north.</p>
+      <p>The train moved fast. Outside the window, rice paddies spread flat and green under a grey sky. Water lay between every row of plants.</p>
+      <p>Gabu pressed his nose against the glass. "Things grow in water?"</p>
+      <p>"Rice does," said Ako-chan. "It needs a lot of water to start."</p>
+      <p>Gabu watched for a long time. "Strange," he said. But it did not sound like a complaint.</p>
+      <p>In Tokyo, they stopped for one night. The streets were full. Dango noticed the small dogs that people carried in bags and arms. He sat down. He looked up at Ako-chan.</p>
+      <p>"Do you want to be carried?" she said.</p>
+      <p>Dango's collar went deep gold.</p>
+      <p>She picked him up. He put his chin on her shoulder. Gabu watched from his shelter. After a moment he said, "...yes. It did look nice."</p>
+      <p>A grey cat near the station told them: "In Hokkaido, there is a Shiba Inu on a hill above the sea. He says he is the bravest. But his tail droops when he looks at the water. He has been waiting for something — I think for a long time."</p>
+      <p>The next day they boarded the train north. When they stepped off at the last stop, Dango stood still and breathed in. His collar lit up brighter than it had in months. The air was cold and clean and full of things.</p>
+      <p>Gabu kept his head out of the shelter even though it was cold.</p>
+      <p>"Different," he said. He sounded pleased.</p>
     </section>
     <nav class="nav">
       <a href="ep-042.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 43 / 120</a>
+      <a class="dc" href="index.html">Ep 43 / 49</a>
       <a href="ep-044.html">Next →</a>
     </nav>
   </article>

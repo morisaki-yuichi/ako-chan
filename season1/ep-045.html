@@ -42,33 +42,95 @@
       <div class="date-label">Season 1 · Ep 45</div>
       <h1>Rival</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-045.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
       <p>The next morning, Suke-san walked up to Obia.</p>
-      <p>He stood straight. His tail was perfectly curled.</p>
-      <p>"I want to say something," said Suke-san.</p>
-      <p>"Yes," said Obia.</p>
-      <p>"You believe you are the most useful member of this group," said Suke-san. "I have seen how you work. You are good. But I am better."</p>
-      <p>Obia looked at him. "Is that so," it said. This was not a question.</p>
-      <p>"Yes," said Suke-san. "I have lived on this coast for a long time. I know the currents. I know the paths. I know the weather before it comes. I know where to shelter. I know where the dangerous rocks are in the water."</p>
-      <p>"That is useful," said Obia.</p>
-      <p>"I know," said Suke-san.</p>
-      <p>"I was not disagreeing," said Obia.</p>
-      <p>Suke-san looked at Obia carefully.</p>
-      <p>"You are not going to argue," he said.</p>
-      <p>"No," said Obia.</p>
-      <p>Suke-san waited a moment. Then he turned and walked back to his spot on the hill.</p>
-      <p>Ako-chan had heard the whole thing. She said nothing.</p>
-      <p>Dango came and sat beside Obia.</p>
-      <p>"That was Suke-san saying hello," said Dango.</p>
-      <p>"I understand," said Obia.</p>
-      <p>"He does that," said Dango. "I think."</p>
-      <p>"I think so too," said Obia.</p>
-      <p>The wind came off the sea. Suke-san sat at the top of the hill and looked at it, and said nothing more.</p>
+      <p>Obia was looking at the sea. It often did this. It was reading the water temperature, the current direction, the wave pattern.</p>
+      <p>Suke-san stopped in front of it.</p>
+      <p>"I have thought about this," said Suke-san. "I want to say: I am better than you. At everything."</p>
+      <p>Obia turned its head. Its glass eyes were calm.</p>
+      <p>"Is that so?" said Obia.</p>
+      <p>"Yes," said Suke-san. "I am faster on this terrain. I know this coast better than any device. I can find water and shelter and the best path over any hill. I have lived here my whole life."</p>
+      <p>Obia looked at him for a moment.</p>
+      <p>"I have noted your statement," said Obia.</p>
+      <p>Then it returned to looking at the sea.</p>
+      <p>Suke-san's tail moved once. He seemed to expect something more.</p>
+      <p>He waited. Obia did not say anything more.</p>
+      <p>Dango appeared beside Ako-chan.</p>
+      <p>"Is that how he says hello?" she said quietly.</p>
+      <p>Dango's collar glowed gold. He sat down and looked at Suke-san with a pleased expression.</p>
+      <p>Suke-san walked back to his spot on the hill and sat. His posture was perfect. His tail curled.</p>
+      <p>Obia also looked at the sea.</p>
+      <p>They were looking at the same water. From the same direction. From two very different positions.</p>
     </section>
     <nav class="nav">
       <a href="ep-044.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 45 / 120</a>
+      <a class="dc" href="index.html">Ep 45 / 49</a>
       <a href="ep-046.html">Next →</a>
     </nav>
   </article>

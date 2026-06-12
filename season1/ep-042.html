@@ -42,28 +42,91 @@
       <div class="date-label">Season 1 · Ep 42</div>
       <h1>Hakata Port</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-042.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The ferry docked at Hakata. They walked off the ramp and onto the ground of Japan.</p>
-      <p>The port was busy. There were people and cars and the sound of the sea still close by.</p>
-      <p>A cat was sitting on a low wall near the exit. It was black and white, with bright eyes. It looked at Ako-chan and spoke.</p>
-      <p>"Welcome," said the cat. In Japanese.</p>
-      <p>Ako-chan answered. In Japanese. "Thank you. We just arrived."</p>
-      <p>"From China?" said the cat.</p>
-      <p>"Yes," said Ako-chan.</p>
-      <p>"Long way," said the cat. "You look tired but all right."</p>
-      <p>Obia paused behind Ako-chan. It had noticed what just happened.</p>
-      <p>Ako-chan turned to the others. "The cat gave us directions to a good resting spot," she said. "It is not far."</p>
-      <p>Dango looked at the cat. The cat looked at Dango. They said nothing to each other. This was the usual way.</p>
-      <p>As they walked through the port, Ako-chan realised something. She had not thought even once about whether she could understand the cat. She had just understood.</p>
-      <p>English. German. French. Hungarian. Turkish. Kazakh. And now Japanese.</p>
-      <p>The language did not matter. It never had.</p>
-      <p>She wrote a short line in her diary that evening: *Any language. Any animal. Always the same.*</p>
-      <p>Obia read the note over her shoulder and said nothing. But it did not look away quickly.</p>
+      <p>The ferry came into the harbour early in the morning. Ako-chan stood at the front of the deck. The air smelled different. Warmer. Salt and rice and something sweet from the shore.</p>
+      <p>A small orange cat sat on the dock wall. It looked at the group with calm eyes.</p>
+      <p>"You came from far away," said the cat.</p>
+      <p>Ako-chan blinked. The words were Japanese. And she understood every one.</p>
+      <p>"Yes," she said. "We came from England."</p>
+      <p>The cat twitched one ear. "I heard you were coming. We all heard."</p>
+      <p>Dango sniffed the air. His collar glowed yellow.</p>
+      <p>Obia stepped off the ramp and looked around the harbour. "Hakata. We are in Kyushu."</p>
+      <p>"Follow me," said the cat. "My name is Mikan. There is a crow who knows which food stalls are best."</p>
+      <p>The crow was waiting at the end of a narrow lane. It had a large, heavy bill and very bright eyes.</p>
+      <p>"I have tested all of them," it said, without being asked. "That one." It pointed its bill at a small stall with a grill. "Go there."</p>
+      <p>Gabu said quietly, "He is very organized."</p>
+      <p>The food was good. Ako-chan ate and wrote in her diary. Any language. Any animal. Always the same.</p>
+      <p>She had known this for a long time. But today it felt new again.</p>
     </section>
     <nav class="nav">
       <a href="ep-041.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 42 / 120</a>
+      <a class="dc" href="index.html">Ep 42 / 49</a>
       <a href="ep-043.html">Next →</a>
     </nav>
   </article>

@@ -42,32 +42,93 @@
       <div class="date-label">Season 1 · Ep 47</div>
       <h1>Suke-san Sees the Map</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-047.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Ako-chan sat down beside Suke-san on the grass. She had the record device.</p>
-      <p>"Can I show you something?" she said.</p>
-      <p>Suke-san looked at the device. He said nothing, which meant yes.</p>
-      <p>She showed him the map. She showed him the path they had taken: England, France, the Netherlands, Germany, the Balkans, Turkey, Armenia, Georgia, Kazakhstan, China, Japan.</p>
-      <p>Then she showed him the anomaly points. The marks on water. The temperature readings. The signal data.</p>
-      <p>She told him about the fox in the mountains of China. The otter in Shanghai. The signals Obia had received.</p>
-      <p>Suke-san listened without speaking.</p>
-      <p>When she was done, he looked at the map for a long time.</p>
-      <p>"You are going further," he said. "Across the Pacific."</p>
-      <p>"Yes," said Ako-chan.</p>
-      <p>"To find the source."</p>
-      <p>"Yes. We think so."</p>
-      <p>Suke-san was quiet for a moment. He looked at the sea below the hill. Then he looked at the map again.</p>
-      <p>Then he looked at Ako-chan.</p>
-      <p>"I will come," he said.</p>
-      <p>He did not pause before saying it. He did not hesitate. His tail was curled tight and perfect.</p>
-      <p>"Thank you," said Ako-chan.</p>
-      <p>"Don't thank me," said Suke-san. "I have been watching this coast for a long time. I want to know what is happening to it."</p>
-      <p>He looked at the sea again. His voice was the same as always.</p>
-      <p>But his tail had not uncurled even slightly.</p>
+      <p>The evening air was cold. Obia had made a winter vest for Suke-san. Small and warm, with a strap under the belly.</p>
+      <p>Suke-san looked at it.</p>
+      <p>"Shiba Inus do not feel cold," he said.</p>
+      <p>Obia said nothing. It set the vest down near the camp.</p>
+      <p>In the morning, Suke-san was wearing it.</p>
+      <p>Daru looked at him. "Oh. You are wearing the vest."</p>
+      <p>"I was cold," said Suke-san. His voice was level. He did not look away.</p>
+      <p>Obia said, "Of course."</p>
+      <p>After that, Ako-chan spread the record device on the flat ground and showed Suke-san the full journey map. She explained the route from England. The anomalies across Europe and Asia. The electrical signal near this very coast.</p>
+      <p>Suke-san listened without speaking. He looked at each dot. He looked at the sea lines. He looked at where the line went next.</p>
+      <p>When Ako-chan finished, Suke-san was quiet for a moment.</p>
+      <p>Then he said: "I understand. I will come."</p>
+      <p>His tail was curled tight.</p>
+      <p>"I have watched this coast for a long time," he said. "Something has been wrong with it. I want to know what."</p>
+      <p>Obia said, "I know."</p>
+      <p>Suke-san's tail stayed curled. He looked at the sea. His ears were forward.</p>
     </section>
     <nav class="nav">
       <a href="ep-046.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 47 / 120</a>
+      <a class="dc" href="index.html">Ep 47 / 49</a>
       <a href="ep-048.html">Next →</a>
     </nav>
   </article>

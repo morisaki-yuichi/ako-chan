@@ -42,32 +42,94 @@
       <div class="date-label">Season 1 · Ep 48</div>
       <h1>Suke-san's Weakness</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-048.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia spread the route map on the ground. Everyone gathered around it.</p>
-      <p>"From here we cross to the Pacific," said Obia. "Then south and east across the open ocean."</p>
-      <p>Daru looked at the blue on the map. "That is a lot of blue," he said.</p>
-      <p>"Yes," said Obia. "Several weeks at sea."</p>
-      <p>Dango looked at the route. He had been at sea before, on the ferry. That was one night. Several weeks was different.</p>
-      <p>Gabu said nothing. He was looking at the part of the map that showed land ending.</p>
-      <p>Ako-chan looked at Suke-san.</p>
-      <p>Suke-san was looking at the map. His face was perfectly still.</p>
-      <p>But his tail tip was moving. Very slowly. It was going down. Just the tip.</p>
-      <p>He noticed her looking. His tail went back up.</p>
-      <p>"That is not a problem," said Suke-san.</p>
-      <p>"Of course not," said Ako-chan.</p>
-      <p>"I have looked at the sea my whole life," said Suke-san.</p>
-      <p>"I know," said Ako-chan.</p>
-      <p>"Looking at it and being on it are two different things," said Gabu quietly, from his spot near the shelter.</p>
-      <p>Suke-san turned to look at Gabu.</p>
-      <p>"Yes," said Suke-san, after a pause. "They are."</p>
-      <p>Nobody said anything more about it.</p>
-      <p>Obia began to explain the route in detail. The wind came off the sea. Suke-san's tail stayed mostly up.</p>
-      <p>Mostly.</p>
+      <p>The next morning, Obia showed the route. The line left Hokkaido and crossed open water. Many weeks of open water. Then South America. Then far south.</p>
+      <p>Suke-san looked at the line.</p>
+      <p>His tail did not drop. But the very tip moved. Just a little.</p>
+      <p>"That is not a problem," he said.</p>
+      <p>Everyone had seen the tip.</p>
+      <p>Gabu said quietly, "Looking at the sea and being on it are two different things."</p>
+      <p>Suke-san said, "...Yes. They are." He did not look away from the map.</p>
+      <p>That evening, Dango went and sat beside him. Nobody else was near.</p>
+      <p>"I was scared when we crossed the ocean before," said Dango. "My collar went orange for a long time."</p>
+      <p>Suke-san looked at the sea.</p>
+      <p>"But you crossed it," he said.</p>
+      <p>"Yes. Being together made it okay."</p>
+      <p>Suke-san did not answer for a while. The wind came off the water.</p>
+      <p>"...Thank you," said Suke-san.</p>
+      <p>Dango's collar glowed quiet gold. They sat together until the sky went dark.</p>
+      <p>The next day, Suke-san took them around the hill. He showed them where you could see both current lines and the coast at once. He showed them the root where you could shelter from a storm. The best warming rock. The hollow where he slept when the wind was bad.</p>
+      <p>He said nothing while he showed them. But showing them was enough.</p>
     </section>
     <nav class="nav">
       <a href="ep-047.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 48 / 120</a>
+      <a class="dc" href="index.html">Ep 48 / 49</a>
       <a href="ep-049.html">Next →</a>
     </nav>
   </article>
