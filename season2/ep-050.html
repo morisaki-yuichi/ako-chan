@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Garden District — Ep 50</title>
+  <title>Perfect and Still — Ep 50</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,27 +40,92 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 50</div>
-      <h1>The Garden District</h1>
+      <h1>Perfect and Still</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-050.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The guide robot led them through a tall door.</p>
-      <p>Inside, the space was enormous. It was full of plants. Trees with straight silver trunks. Low bushes with even rows of leaves. Climbing vines along the walls, each tendril in its place.</p>
-      <p>Every plant was the right size. Every leaf was the right shape.</p>
-      <p>Ako-chan walked forward and touched a leaf. It was smooth and exact. She moved it with her finger and let go. The leaf returned to its place at once.</p>
-      <p>He looked at Gabu.</p>
-      <p>"They do not move," he said.</p>
-      <p>"No," said Gabu. He had not moved yet. He was still standing at the entrance, looking at the whole garden at once.</p>
-      <p>Dango stood beside him. His collar was pale gold. Not worried. But not settled either.</p>
-      <p>Riro stood near the path. "Beautiful," he said. But his voice was careful.</p>
-      <p>Gabu walked into the garden slowly. He went between the trees, past the bushes, along the base of a tall trunk. He looked at everything.</p>
-      <p>All of it still. All of it exactly right.</p>
-      <p>He said the words again, quietly: "They do not move."</p>
-      <p>The second time, they had a different weight.</p>
+      <p>They walked into the Garden District.</p>
+      <p>It was very large. Plants stood in rows and in clusters. Some were tall. Some were low and round. Some had many leaves. Some had long stems. Every single one was the correct colour. Every one was the correct height. Every one was the correct shape.</p>
+      <p>The light was even and warm. There was no wind.</p>
+      <p>Nothing moved.</p>
+      <p>Ako-chan walked between two rows of plants and stopped. She looked at a leaf. It was smooth and flat and exactly the right shade of green. She touched it carefully. It did not shift. It did not bend.</p>
+      <p>It felt like touching something made of glass.</p>
+      <p>Gabu walked slowly through the garden. He stopped often. He looked at this plant and that one. He looked at the light. He looked at the ground. He stood very still for a moment.</p>
+      <p>"This is very well done," he said.</p>
+      <p>He looked around once more.</p>
+      <p>"And something is wrong with it."</p>
+      <p>The lead robot, which had followed them in, looked at Gabu.</p>
+      <p>"We have not been able to determine the nature of the problem," it said.</p>
+      <p>"I know," said Gabu. "But it is there."</p>
     </section>
     <nav class="nav">
       <a href="ep-049.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 50 / 108</a>
+      <a class="dc" href="index.html">Ep 50 / 61</a>
       <a href="ep-051.html">Next →</a>
     </nav>
   </article>

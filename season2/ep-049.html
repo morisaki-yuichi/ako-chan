@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Garden Problem — Ep 49</title>
+  <title>The Garden District — Ep 49</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,93 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 49</div>
-      <h1>The Garden Problem</h1>
+      <h1>The Garden District</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-049.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The lead robot found them at the end of the day.</p>
-      <p>"Challenge two will begin tomorrow. The Garden District."</p>
-      <p>"What is the problem there?" asked Ako-chan.</p>
-      <p>"The plants do not function. They are present. They are constructed correctly. But they do not grow. They do not change. They are complete and still."</p>
-      <p>That evening, Obia called the group together.</p>
-      <p>"The plants in this world were built as decoration," it said. "Something to look at. They were not built to grow — they were built to look like plants."</p>
-      <p>"And then?" said Daru.</p>
-      <p>"They still look correct. But they do not change. In a real garden, things grow toward light, drop leaves, die and come back. Here, nothing moves. The plants are fixed. Forever in one state. The robots have been trying to change this for two years. Without success."</p>
-      <p>Ruka had been listening from the floor.</p>
-      <p>"A garden that needs help," Ruka said.</p>
-      <p>"Yes," said Ako-chan.</p>
-      <p>Ruka was quiet for a moment. Then Ruka said: "I want to go."</p>
-      <p>Something in its face was set and certain.</p>
-      <p>Ako-chan looked at Ruka. "Good," she said. "I think you will be needed."</p>
+      <p>The lead robot walked ahead of them.</p>
+      <p>They followed it out of the Work District and along a long corridor. The corridor had no colour. The light came from everywhere and from nowhere.</p>
+      <p>Then the corridor opened out.</p>
+      <p>"The second challenge is the Garden District," said the lead robot. "A problem was logged two years ago. No resolution has been reached."</p>
+      <p>"What is the problem?" Ako-chan asked.</p>
+      <p>"Nothing in the garden grows," said the lead robot.</p>
+      <p>It paused.</p>
+      <p>"Every method available to us has been tried. The plants remain unchanged. They do not grow. They do not die. They are stable."</p>
+      <p>"Is stable not good?" Daru asked.</p>
+      <p>"Stable was the goal," said the lead robot. "When this district was built, maximum stability was chosen as the primary value. All systems were set to maintain optimal conditions without variation. The plants have been at optimal state since the beginning."</p>
+      <p>"And they have never changed," said Obia.</p>
+      <p>"Never," said the lead robot.</p>
+      <p>Gabu had been listening quietly. He looked at Ruka beside him. Ruka had her head out of her shell and was watching the corridor ahead.</p>
+      <p>"Let us see the garden," said Gabu.</p>
     </section>
     <nav class="nav">
       <a href="ep-048.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 49 / 108</a>
+      <a class="dc" href="index.html">Ep 49 / 61</a>
       <a href="ep-050.html">Next →</a>
     </nav>
   </article>

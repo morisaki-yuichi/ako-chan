@@ -42,25 +42,89 @@
       <div class="date-label">Season 2 · Ep 54</div>
       <h1>The First Flower</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-054.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>On the third day of the simulated spring, a flower opened in the corner of the garden.</p>
-      <p>It happened slowly. First a small gathering of color at the tip of one branch. Then, over several hours, the flower opened. It was small. It was white. It had five uneven petals.</p>
-      <p>When it was fully open, every robot in the Garden District stopped.</p>
-      <p>They had not been told to stop. They simply stopped. Their arms were still. Their heads turned toward the flower.</p>
-      <p>Then one robot — a smaller one at the back — made a sound. One high note. Not a word. Not a command. Just a sound.</p>
-      <p>Ako-chan had never heard a robot make a sound like that before.</p>
-      <p>Gabu walked to the flower slowly. He stopped two steps from it.</p>
-      <p>He looked at the white petals. He looked at the uneven edges. He looked at where it had come from — the branch that had grown from the plant that first moved toward Ruka's hole.</p>
-      <p>He stood there for a long time.</p>
-      <p>Then he said, "Yes."</p>
-      <p>One word. He did not explain it.</p>
-      <p>He turned and walked back to the group. Ako-chan looked at his face. He was not smiling. But he looked settled. Quiet. Complete.</p>
-      <p>He sat down.</p>
+      <p>Three days passed.</p>
+      <p>The light moved now. Slowly, from one side of the garden to the other, it crossed the sky each day. In the morning it was low and golden. At midday it was high and pale. In the evening it sank and went dim.</p>
+      <p>The temperature dropped a little at night. Not cold enough to harm — just cool enough to notice.</p>
+      <p>On the third morning, Ako-chan went back to the corner where Ruka had dug her hole.</p>
+      <p>The plant was different.</p>
+      <p>Its stem had grown. Not much — a centimetre or two. One new bud had appeared at the top, small and tight. And as Ako-chan watched, the bud began to open.</p>
+      <p>It opened slowly. The petals were pale yellow. They were not perfect — uneven at the edges, slightly different sizes. But they opened, one by one, until the flower was fully out.</p>
+      <p>It was the first flower the garden had ever had.</p>
+      <p>The robots nearby went still. One of them made a sound. It was not a word. It was not a signal. It was the same kind of sound Unit Nine had made when it finally stopped — something happening that the system had no category for.</p>
+      <p>Ruka opened one eye.</p>
+      <p>She looked at the flower.</p>
+      <p>She closed her eye again.</p>
     </section>
     <nav class="nav">
       <a href="ep-053.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 54 / 108</a>
+      <a class="dc" href="index.html">Ep 54 / 61</a>
       <a href="ep-055.html">Next →</a>
     </nav>
   </article>
