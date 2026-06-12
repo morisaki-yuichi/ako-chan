@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing — Ep 11</title>
+  <title>Hokkaido Meadow — Ep 11</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,92 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 11</div>
-      <h1>Landing</h1>
+      <h1>Hokkaido Meadow</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-011.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The flying boat came down in a meadow on a hillside.</p>
-      <p>The grass was winter-pale and stiff with cold. Below the hill, the sea spread out grey and wide. The pine trees on the slopes were dark green.</p>
-      <p>Obia brought the boat to a stop. The engine went quiet.</p>
-      <p>Ako-chan opened the door.</p>
-      <p>Cold air poured in. Real, still, pine-scented Hokkaido air.</p>
-      <p>Dango jumped out first. He landed in the frozen grass and immediately put his nose down. He was sniffing so fast it looked like work.</p>
-      <p>Ako-chan stepped out and stood still for a moment. She looked at the hill, the sky, the sea. It was the same place. The same slope, the same view. But years had passed. The pine trees were taller. The path to the top was more worn.</p>
-      <p>Ruka walked out carefully, testing the frozen ground with each foot.</p>
-      <p>"It is cold," Ruka said.</p>
-      <p>"Hokkaido in winter," said Ako-chan.</p>
-      <p>Ruka took a deep breath. "It smells different from England."</p>
-      <p>"Yes."</p>
-      <p>"Better?"</p>
-      <p>"Different," said Ako-chan. She smiled. "Come on. There is someone on this hill I want you to meet."</p>
+      <p>The flying boat descended through cold grey clouds and landed in a meadow on the edge of Hokkaido. The grass was brown and flat with winter frost.</p>
+      <p>Ruka stepped off the ramp first. She walked slowly across the ground. She stopped at a patch of dry grass near the edge of the meadow and sat down in it.</p>
+      <p>Dango ran four complete circuits of the meadow. He sniffed every corner. He checked behind the pine trees. He came back to the centre and sat beside Ruka.</p>
+      <p>His collar turned gold.</p>
+      <p>Ako-chan stood in the middle of the meadow and breathed. The air smelled of pine and cold salt. Somewhere nearby, the sea was grey and moving.</p>
+      <p>"This is Hokkaido," she said.</p>
+      <p>Ruka looked at the grass around her. She ate a small piece.</p>
+      <p>"Good," she said.</p>
+      <p>Dango sat very close to her. His ears were up. He had checked everything and everything was fine.</p>
+      <p>The meadow was quiet. Above them, clouds moved slowly east.</p>
+      <p>Obia came down the ramp last. The engine made a soft sound as it cooled.</p>
+      <p>"The hill is not far," said Ako-chan.</p>
+      <p>She picked up her bag. They walked together across the frost-flat grass toward the trees.</p>
     </section>
     <nav class="nav">
       <a href="ep-010.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 11 / 108</a>
+      <a class="dc" href="index.html">Ep 11 / 23</a>
       <a href="ep-012.html">Next →</a>
     </nav>
   </article>

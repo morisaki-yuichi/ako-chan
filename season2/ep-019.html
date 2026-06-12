@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daru — Ep 19</title>
+  <title>Daru Appears — Ep 19</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,37 +40,94 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 19</div>
-      <h1>Daru</h1>
+      <h1>Daru Appears</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-019.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The flying boat landed near the coast. The rocks were pale grey and warm in the sun.</p>
-      <p>Ako-chan and Dango walked up the path between the big stones. They looked everywhere. Nothing moved.</p>
-      <p>Then, from somewhere above, a voice.</p>
-      <p>"Where are you going?"</p>
-      <p>Everyone stopped.</p>
-      <p>"Can I come with you?"</p>
-      <p>Ako-chan looked up. A large tortoise was standing on a rock above them. He had round bright eyes and a very high shell.</p>
-      <p>Dango's tail wagged very fast.</p>
-      <p>"Daru," said Ako-chan.</p>
-      <p>Daru jumped off the rock. He landed and ran straight at the group. He ran around Ako-chan, around Dango, around Obia, and back. Then he stopped.</p>
-      <p>He looked down. Near Ako-chan's feet, something small and brown was looking up at him.</p>
-      <p>"You have a shell," he said.</p>
-      <p>"Yes," said Ruka. Its voice was flat.</p>
-      <p>Daru looked at Ako-chan. "Is Ruka coming with us?"</p>
-      <p>"This is Ruka," said Ako-chan. "Ruka is part of the group."</p>
-      <p>Daru nodded once. "All right. Come."</p>
-      <p>He turned and walked toward the boat.</p>
-      <p>Ruka watched him go. He looked at his shell. It was high and smooth, like a small hill.</p>
-      <p>He walked after him and began to climb.</p>
-      <p>Daru stood very still while he pulled himself up. When he was settled on top, he walked on.</p>
-      <p>"Good view?" he asked.</p>
-      <p>"Good view," said Ruka.</p>
-      <p>Daru kept walking. He did not mind at all.</p>
+      <p>They flew south for three days. The air grew warmer. The sea below turned from grey to blue.</p>
+      <p>When they came over the Mediterranean coast, Obia brought the flying boat low.</p>
+      <p>Below them, the rocks were bright white in the sun. The water was clear and green. There was a flat rock near the shoreline. On it sat a tortoise.</p>
+      <p>He was not hiding. He was not sleeping. He was sitting exactly in the centre of the rock, looking up at the sound of the engine, as if he had been waiting.</p>
+      <p>Obia landed in the water nearby.</p>
+      <p>Daru was at the rail before they had finished docking. He ran from one end to the other, saying hello to everyone very quickly.</p>
+      <p>Then he saw Ruka.</p>
+      <p>He stopped.</p>
+      <p>He looked at her. She was smaller than him. She was also Hermann's, but not the same subspecies. He could see the difference in the shell pattern.</p>
+      <p>"Hello, small one," he said.</p>
+      <p>Ruka looked at him. She was completely calm.</p>
+      <p>Daru walked up to her and sniffed the edge of her shell. Then he stood beside her.</p>
+      <p>"You can climb on my shell if you like," he said. "It is warm."</p>
+      <p>Ruka looked at his shell. "Maybe later," she said.</p>
+      <p>Daru looked satisfied. He turned to Ako-chan. "She is good," he said. "I can tell immediately."</p>
     </section>
     <nav class="nav">
       <a href="ep-018.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 19 / 108</a>
+      <a class="dc" href="index.html">Ep 19 / 23</a>
       <a href="ep-020.html">Next →</a>
     </nav>
   </article>

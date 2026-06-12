@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Six on Board — Ep 18</title>
+  <title>Six Is Ready — Ep 18</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,27 +40,95 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 18</div>
-      <h1>Six on Board</h1>
+      <h1>Six Is Ready</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-018.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>In the morning, Obia worked on the flying boat.</p>
-      <p>Suke-san needed a seat that was slightly raised. Obia added one. Riro needed a second water area, larger than the first. Obia added that too.</p>
-      <p>When the work was finished, Obia stepped back.</p>
-      <p>Suke-san walked to the boat. He did not rush. He went around the outside first, checking the hull. He looked at the joints. He pressed on the panels.</p>
-      <p>Then he climbed in and checked the inside. The seats. The walls. The section where Ruka slept. The controls that Obia used.</p>
-      <p>He climbed back out.</p>
-      <p>Everyone waited.</p>
-      <p>"Acceptable," said Suke-san.</p>
-      <p>Dango looked at Ako-chan. Ako-chan looked at Obia.</p>
-      <p>Obia's eyes lit up one fraction brighter. "Thank you," Obia said.</p>
-      <p>Riro had gone straight to his water section without inspecting anything else. He was already in it.</p>
-      <p>"It is fine," he called, without looking up.</p>
-      <p>Ruka had reclaimed the spot under the hull. The team was six. They were ready.</p>
+      <p>Obia had been working while they talked on the hill. When they came back to the flying boat, it was different.</p>
+      <p>The water unit was larger — twice the size it had been. Obia had extended the tank and added a filter system.</p>
+      <p>There were two new anchor points along the rail, low and strong, at Suke-san's height.</p>
+      <p>Ruka's bench had a raised edge on the left side to keep her in place during turns.</p>
+      <p>Everyone looked at their own section.</p>
+      <p>Suke-san walked to the rail and pressed one paw against the anchor. It held firm. He nodded.</p>
+      <p>Riro leaned over the edge of the tank. The water was exactly the right colour. He dipped one paw in. The temperature was right.</p>
+      <p>"Good," he said.</p>
+      <p>Ruka stepped onto her bench. She turned around once. She sat down.</p>
+      <p>"I know," she said.</p>
+      <p>Dango came on board and went to his rest area. He turned around twice and lay down.</p>
+      <p>Ako-chan stood at the entrance. She counted them — Obia at the controls, Dango in his place, Ruka on her bench, Suke-san at the rail, Riro in the water unit.</p>
+      <p>Six.</p>
+      <p>"We are ready," she said.</p>
+      <p>"We leave in the morning," said Obia.</p>
+      <p>The sea was very dark. The stars were coming out.</p>
     </section>
     <nav class="nav">
       <a href="ep-017.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 18 / 108</a>
+      <a class="dc" href="index.html">Ep 18 / 23</a>
       <a href="ep-019.html">Next →</a>
     </nav>
   </article>

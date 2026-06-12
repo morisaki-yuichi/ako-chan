@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riro and Ruka — Ep 15</title>
+  <title>The Warning — Ep 15</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,30 +40,96 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 15</div>
-      <h1>Riro and Ruka</h1>
+      <h1>The Warning</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-015.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>After Riro had finished his meal, he came back to shore.</p>
-      <p>He approached Ruka the way he approached a sea urchin he had not seen before — slowly, at an angle, without hurry.</p>
-      <p>"You are a tortoise," said Riro.</p>
+      <p>After lunch, Riro swam a circuit of the bay. When he came back, he sat on his rock and called Ruka over.</p>
+      <p>Ruka walked up to him.</p>
+      <p>Riro looked at her with the same careful expression he used for food. He spoke clearly and slowly.</p>
+      <p>"The group is going to the Mediterranean next," he said. "There is a tortoise there named Daru. He is a Hermann's tortoise, the eastern species. You are the western species."</p>
+      <p>Ruka listened.</p>
+      <p>"He is small and very fast," said Riro. "His opinions are immediate and permanent. When he decides something, he decides it completely. When he likes someone, he tells them immediately. When he does not, he also tells them immediately."</p>
+      <p>Ruka's eyes were half closed.</p>
+      <p>"Also," said Riro, "he talks a great deal. He narrates things."</p>
+      <p>Ruka yawned.</p>
+      <p>Riro looked at the yawn. He considered it.</p>
+      <p>"You heard me?" he said.</p>
       <p>"Yes," said Ruka.</p>
-      <p>"Which kind?"</p>
-      <p>"Western Hermann's."</p>
-      <p>Riro considered this. "The smaller of the two kinds."</p>
-      <p>"Yes," said Ruka. He did not seem bothered by this.</p>
-      <p>"There is a Dalmatian Hermann's tortoise travelling with us sometimes," said Riro. "Different coast. Different subspecies. But the same family."</p>
-      <p>"Daru," said Ruka.</p>
-      <p>Riro's eyes narrowed slightly. "You know Daru?"</p>
-      <p>"I know of Daru," said Ruka. "Ako-chan told me. We have not met yet."</p>
-      <p>Riro looked at Ruka for a long time. Then he said, "Daru talks very much. You should be prepared."</p>
-      <p>"I talk very much too," said Ruka.</p>
-      <p>Something that was almost a smile moved across Riro's face. He turned and went back to the water without saying more.</p>
-      <p>Ruka watched him go and filed this information away carefully.</p>
+      <p>"Hm." He looked at the sea for a moment. "He will probably like you," he added. "You are not afraid of things."</p>
+      <p>He turned back to his sea urchin. The conversation was over.</p>
+      <p>Ruka walked back to the group. Dango was watching her.</p>
+      <p>"Was it good?" he asked.</p>
+      <p>"He told me about Daru," said Ruka. "I think I will like Daru."</p>
     </section>
     <nav class="nav">
       <a href="ep-014.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 15 / 108</a>
+      <a class="dc" href="index.html">Ep 15 / 23</a>
       <a href="ep-016.html">Next →</a>
     </nav>
   </article>

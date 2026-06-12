@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riro's Verdict — Ep 16</title>
+  <title>Riro's Verdict on Ruka — Ep 16</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,29 +40,102 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 16</div>
-      <h1>Riro's Verdict</h1>
+      <h1>Riro's Verdict on Ruka</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-016.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Later that morning, Riro sat on a dry rock above the tide line.</p>
-      <p>He was watching Ruka.</p>
-      <p>Ruka was eating a piece of apple that Ako-chan had put out. Ruka ate with complete attention. Then Ruka finished, took two steps, and lay down in the pale winter sun and closed its eyes.</p>
-      <p>Riro watched all of this.</p>
-      <p>He watched for a long time after Ruka was fully asleep.</p>
-      <p>Ako-chan came and sat on the rock beside Riro.</p>
-      <p>"What do you think?" Ako-chan said.</p>
-      <p>Riro was quiet for a long moment.</p>
-      <p>"He eats well," said Riro finally. "He does not rush. He eats the whole piece and does not waste any."</p>
+      <p>The next morning, Riro went into the water early and stayed there for a long time. When he came back to the rock, he sat and dried his fur in the cold sun.</p>
+      <p>Then he swam another circuit of the bay. A longer one.</p>
+      <p>He came back. He sat on the rock again.</p>
+      <p>Dango watched him from the hill above.</p>
       <p>Ako-chan waited.</p>
-      <p>"He knows what he wants," Riro continued. "He looks at things before he touches them. And he sleeps without worry."</p>
-      <p>Another pause.</p>
+      <p>Finally, Riro looked up the slope at Ako-chan. He was ready to speak.</p>
+      <p>"The tortoise," he said.</p>
+      <p>"Ruka," said Ako-chan.</p>
+      <p>"Yes." Riro paused. "She is small."</p>
+      <p>"She is."</p>
+      <p>"She is young."</p>
+      <p>"Yes."</p>
+      <p>"She has her own thoughts." He stopped again. "She does not try to seem bigger than she is. That is rare."</p>
+      <p>Ako-chan waited.</p>
       <p>"Not bad," said Riro.</p>
-      <p>Ako-chan knew Riro well enough to understand. From Riro, "not bad" was not faint praise. It was the same word he used for a sea urchin that was exactly right.</p>
-      <p>Ruka, asleep in the sun, looked entirely at peace.</p>
+      <p>Dango's collar turned gold.</p>
+      <p>Ako-chan had travelled with Riro for a long time. She knew exactly what "not bad" meant. She had heard it only a few times — for the best meals, the clearest water, the finest moments on the journey.</p>
+      <p>She went to find Ruka.</p>
+      <p>"Riro likes you," she said.</p>
+      <p>Ruka looked up. "He said something?"</p>
+      <p>"He said 'not bad.'"</p>
+      <p>Ruka thought about this. "Is that good?" she asked.</p>
+      <p>"It is very good," said Ako-chan.</p>
     </section>
     <nav class="nav">
       <a href="ep-015.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 16 / 108</a>
+      <a class="dc" href="index.html">Ep 16 / 23</a>
       <a href="ep-017.html">Next →</a>
     </nav>
   </article>

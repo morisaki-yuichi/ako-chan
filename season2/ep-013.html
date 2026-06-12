@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suke-san's Answer — Ep 13</title>
+  <title>Suke-san Decides — Ep 13</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,96 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 13</div>
-      <h1>Suke-san's Answer</h1>
+      <h1>Suke-san Decides</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-013.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>In the evening, when the others had gone into the shelter of the trees, Ako-chan sat with Suke-san on the ridge.</p>
-      <p>She told him everything. The signal from Antarctica. Obia's analysis. The name and the word.</p>
-      <p>Suke-san listened without moving. He did not interrupt. He did not ask questions. He sat and looked at the sea and listened until it was done.</p>
-      <p>The wind had dropped. The sea was very dark.</p>
-      <p>"Yu-chan," said Suke-san.</p>
-      <p>"Yes."</p>
-      <p>He was quiet for a moment. "I remember," he said.</p>
-      <p>Ako-chan waited.</p>
-      <p>Suke-san looked at her. "I am going," he said.</p>
-      <p>That was all. No conditions. No questions about how long or how hard. The same flat, certain voice.</p>
-      <p>Ako-chan nodded. "Thank you."</p>
-      <p>"No need," said Suke-san. He stood up. "We should find Riro tomorrow. He will want to know."</p>
-      <p>He walked back along the ridge toward the shelter.</p>
-      <p>Ako-chan stayed a little longer and looked at the dark sea. One friend found. One more to go.</p>
+      <p>The next morning, they sat on the hill in the cold sun. Ako-chan told Suke-san everything.</p>
+      <p>She told him about the signal. She told him about the three words. She told him about the flying boat and the digital world Obia had described.</p>
+      <p>Suke-san listened with his eyes forward. He did not interrupt.</p>
+      <p>Ako-chan finished.</p>
+      <p>Suke-san was quiet for a moment.</p>
+      <p>"I am going," he said.</p>
+      <p>Ako-chan waited. She thought he might ask something — about the distance, or the danger, or how long it would take.</p>
+      <p>He did not.</p>
+      <p>"That is all?" Dango asked.</p>
+      <p>"Yes," said Suke-san.</p>
+      <p>Ako-chan had travelled with Riro and Gabu and Daru. Riro always thought carefully before deciding. Gabu usually said maybe first. Daru asked what the job would be.</p>
+      <p>Suke-san did not do any of these things. He had heard the information. He had decided.</p>
+      <p>Ruka was watching him from the edge of the group.</p>
+      <p>"How do you decide so fast?" she asked.</p>
+      <p>Suke-san looked at her. "I know enough," he said. "I do not need to know more to know the right thing."</p>
+      <p>Ruka nodded once. She looked thoughtful.</p>
+      <p>Dango's collar turned gold.</p>
     </section>
     <nav class="nav">
       <a href="ep-012.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 13 / 108</a>
+      <a class="dc" href="index.html">Ep 13 / 23</a>
       <a href="ep-014.html">Next →</a>
     </nav>
   </article>
