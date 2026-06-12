@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>High Tide — Ep 10</title>
+  <title>Pier 3 — Ep 10</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,22 +40,89 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 10</div>
-      <h1>High Tide</h1>
+      <h1>Pier 3</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-010.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>On the fourth morning, the tide was high.</p>
-      <p>The boy was at the pier wall at 7:04. He took out his calipers and measured from the current waterline to the stain in the concrete: 1.09 metres. Close to his earlier reading of 1.2. He noted the difference and wrote both numbers.</p>
-      <p>He had three days of tide times now. The pattern was clear. High tide came between seven and eight each morning. Low tide came in the early afternoon. He could already predict the next high tide: tomorrow at approximately 7:50.</p>
-      <p>He walked to the far end of the basin. He had not measured the tide mark at Pier 3 yet. He went there now. He crouched at the wall and measured: 1.3 metres. Higher than the main pier. The wall faced a different angle. The waves reached further here.</p>
-      <p>He noted the difference and walked back.</p>
-      <p>He looked at all his Yokohama entries so far. Crane counts, berth numbers, tide marks. Every pattern was building. Each one would have more tomorrow.</p>
-      <p>Three cranes were moving near Berths 4 and 9. He had not counted today's moves yet.</p>
-      <p>He opened to a clean page. There was still a great deal to record.</p>
+      <p>The boy tried all three piers.</p>
+      <p>Pier 1 was wide. But ships came and went too often. The water moved in all directions at once.</p>
+      <p>Pier 2 was quieter. But the wall on the east side blocked part of the sky. The data was incomplete.</p>
+      <p>Pier 3 was at the end of the harbour road. It was narrow and long. The view was open in all directions. The tide came in from the south and moved in a straight line.</p>
+      <p>He stayed at pier 3 for a full day.</p>
+      <p>He used the tide gauge eight times. Each time the number was clear. Each time the pattern held. Low tide. Rising. High tide. Falling. Low tide again. The interval was consistent.</p>
+      <p>At the end of the day he wrote: high-tide measurements today—8. Pattern: near-perfect. Interval: consistent.</p>
+      <p>He drew a small circle around pier 3 on his harbour map.</p>
+      <p>He wrote below it: pier 3—best location found.</p>
+      <p>Then he closed the notebook and walked home along the harbour road. The water was dark and steady. The tide was exactly where he expected it to be.</p>
     </section>
     <nav class="nav">
       <a href="ep-009.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 10 / 99</a>
+      <a class="dc" href="index.html">Ep 10 / 14</a>
       <a href="ep-011.html">Next →</a>
     </nav>
   </article>

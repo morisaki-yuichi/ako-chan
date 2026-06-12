@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Night Notes — Ep 12</title>
+  <title>He Stays — Ep 12</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,25 +40,92 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 12</div>
-      <h1>Night Notes</h1>
+      <h1>He Stays</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-012.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The morning after, the boy sat at his desk and looked at his bags.</p>
-      <p>He had planned to leave today. He had been in Yokohama for four days. The tide pattern was clear. The crane counts had settled into a range. He could predict most berth numbers before he reached the pier. The port was not new anymore.</p>
-      <p>He opened his notebook and turned to the last entry.</p>
-      <p><em>Pier 3. Something happened here.</em></p>
-      <p>He looked at it for a while. Then he closed the notebook.</p>
-      <p>He stood up. He did not pack. He went out instead.</p>
-      <p>He walked to Pier 3. He measured the tide mark with his calipers: 1.3 metres, the same as yesterday. He wrote the number. He looked at it. It was ordinary data.</p>
-      <p>He walked back toward the main basin. The cranes were moving. He counted them.</p>
-      <p>The train south left at 10:40. He had known this since the second day. He heard it from the road near the station.</p>
-      <p>He did not go back to pack. He walked to the pier again instead and watched the cranes until midday.</p>
-      <p>He did not write why he had stayed.</p>
+      <p>The boy's Yokohama data was almost complete.</p>
+      <p>He had measured the tides. He had counted the ships. He had mapped all three piers. Twelve pages since the first morning at pier 3.</p>
+      <p>The next day he planned to move on.</p>
+      <p>He packed his bag. He put on his coat. He walked down the stairs. He turned toward the station.</p>
+      <p>He stopped.</p>
+      <p>He stood on the pavement for a moment. Then he turned around. He walked back along the harbour road.</p>
+      <p>He did not know why.</p>
+      <p>At pier 3 he took out his notebook. He recorded the tide. He counted the ships. He wrote three lines of normal data.</p>
+      <p>Then he stopped writing. He looked at the end of the pier. No one was there.</p>
+      <p>He sat for a while.</p>
+      <p>When he left, he wrote one entry at the back of his notebook: returned to pier 3. Reason: unclear.</p>
+      <p>He put the pen down.</p>
+      <p>It was the first time he had written "unclear" for a reason. Usually he could not write a reason because it was not a number. This was different. He had not known the reason at all.</p>
     </section>
     <nav class="nav">
       <a href="ep-011.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 12 / 99</a>
+      <a class="dc" href="index.html">Ep 12 / 14</a>
       <a href="ep-013.html">Next →</a>
     </nav>
   </article>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>February Close — Ep 14</title>
+  <title>Unresolved — Ep 14</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,29 +40,94 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 14</div>
-      <h1>February Close</h1>
+      <h1>Unresolved</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-014.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>On the morning he decided to leave, the boy opened his notebook to the first Yokohama page.</p>
-      <p>He had been here longer than he planned. He counted back: eleven days. He had planned to stay five.</p>
-      <p>He turned through every page slowly. The crane counts. The tide records. The bus times. The berth numbers. He read each one. They were all complete. All closed.</p>
-      <p>Then he found the pier section.</p>
-      <p><em>Pier 3. Something happened here.</em></p>
-      <p>He turned to the next open page.</p>
-      <p><em>Asymmetry. Eight lines. Four lines. One line.</em></p>
-      <p>He looked at both pages. Everything else in the notebook had a result. These two did not.</p>
-      <p>He took his pencil and put a small mark at the top of each page. A small star.</p>
-      <p>Then he turned to a clean page and wrote:</p>
-      <p><em>Unresolved: 2 items.</em></p>
-      <p>He sat with that for a moment. Then he closed the notebook.</p>
-      <p>He did not write why he had stayed eleven days. The notebook did not have a page for that.</p>
-      <p>He began to pack.</p>
+      <p>On the eleventh day the boy reviewed his Yokohama notebooks.</p>
+      <p>He went through every page. Ship data: complete. Tide data: complete. Harbour map: complete. Bird data: complete. Weather notes: complete.</p>
+      <p>He checked every entry. He checked the notes at the back.</p>
+      <p>Usually there were no open items.</p>
+      <p>This time there were two.</p>
+      <p>The first: the pier 3 entry. One line where eight or four should be. The entry that would not grow.</p>
+      <p>The second: the return with no reason. He had walked back to pier 3 without being able to write why.</p>
+      <p>He looked at them for a long time.</p>
+      <p>He had never left a place with open items before.</p>
+      <p>He wrote: departed Yokohama. Harbour data: complete. Open items: 2. Method: continue recording.</p>
+      <p>He packed his bag. He walked to the station.</p>
+      <p>At the barrier he stopped and added one more line: these are the first unresolved items in all my notebooks.</p>
+      <p>He was not worried. He wrote it because it was true. A fact needed to be in the notebook, even when it was unusual.</p>
+      <p>He went through the barrier and got on the train.</p>
     </section>
     <nav class="nav">
       <a href="ep-013.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 14 / 99</a>
-      <a href="ep-015.html">Next →</a>
+      <a class="dc" href="index.html">Ep 14 / 14</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>
