@@ -6,7 +6,7 @@ Published on GitHub Pages.
 ## Titles
 
 - **Main**: Ako-chan
-- **Season 1**: Ako-chan and the Riddle Dog
+- **Season 1**: Ako-chan and the Robot Dog
 - **Season 2**: Ako-chan and the Hidden Door
 - **Season 3**: Ako-chan and the Boy with No Name
 
@@ -113,14 +113,55 @@ Voice: `en-GB-RyanNeural` (fixed — do not change).
 
 ## Story Writing Workflow
 
-### Writing new episodes
+### Writing a part (standard procedure)
 
-1. Read `planning/arc.md` for the season/part overview
-2. Read the relevant `canon/` or `canon_s{N}/` files
-3. Read the relevant `story_outlines_s{N}.py` for the episode outline
-4. Write the episode in the appropriate `stories_s{N}_p{NN}.py` file
-5. Run `python generate_stories.py s{N}` to preview
-6. Update `canon_s{N}/timeline.md` with new events after writing
+When starting a new writing session for a specific part:
+
+**1. Check the part list**
+Open `planning/parts.md` — find the target season and part number.
+Confirm: episode range, episode count, and which file to write to.
+
+**2. Read the arc**
+Open `planning/arc.md` — find the section for the target season and part.
+Read the part summary, setting, and key events.
+
+**3. Read the canon**
+| Season | Canon files to read |
+|---|---|
+| S1 | `canon/characters.md`, `canon/world.md`, `canon/timeline.md` |
+| S2 | `canon_s2/characters.md`, `canon_s2/world.md`, `canon_s2/timeline.md` |
+| S3 | `canon_s3/characters.md`, `canon_s3/world.md`, `canon_s3/timeline.md` |
+
+**4. Read the outlines**
+Open `scripts/story_outlines_s{N}.py`.
+Find the entries for the episodes you are about to write.
+If an outline entry is missing, write a brief outline before writing the story.
+
+**5. Read existing episodes in the part** (if the part is partially written)
+Open `scripts/stories_s{N}_p{NN}.py` and read what is already there.
+New episodes must follow naturally from the last written episode.
+
+**6. Write the episodes**
+Add new episodes to `scripts/stories_s{N}_p{NN}.py` following the data format:
+```python
+{
+    "ep": N,
+    "title": "...",
+    "text": "...",
+},
+```
+Follow CEFR A1 standard. Target ~200 words per episode.
+
+**7. Preview**
+```bash
+cd scripts
+python3 generate_stories.py s{N}
+```
+Open the generated HTML in a browser to check layout and flow.
+
+**8. Update canon**
+After writing, add new events to `canon_s{N}/timeline.md`.
+Update `canon_s{N}/characters.md` if a new character appears or changes.
 
 ### Episode numbering
 
@@ -132,10 +173,10 @@ Do not reorder or renumber episodes within a season.
 
 ```bash
 cd scripts
-python check_canon.py character "Ako-chan"     # all appearances across seasons
-python check_canon.py find "serial number"     # keyword search across seasons
-python check_canon.py facts s1                 # list all written S1 stories
-python check_canon.py facts                    # list all written stories
+python3 check_canon.py character "Ako-chan"    # all appearances across seasons
+python3 check_canon.py find "serial number"    # keyword search across seasons
+python3 check_canon.py facts s1                # list all written S1 stories
+python3 check_canon.py facts                   # list all written stories
 ```
 
 ## GitHub Pages
