@@ -42,28 +42,95 @@
       <div class="date-label">Season 1 · Ep 72</div>
       <h1>Suke-san in Santiago</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-072.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Santiago was a large city. The streets were wide, the buildings tall. There was glass and stone everywhere. The air smelled like metal and exhaust.</p>
-      <p>Suke-san walked slowly. His ears were forward but his tail was low.</p>
-      <p>After a while he stopped.</p>
-      <p>"There are no forests," he said. "Only stone and metal."</p>
-      <p>Dango looked at him. "Does that bother you?"</p>
-      <p>Suke-san was quiet for a moment.</p>
-      <p>"...A little," he said. Very quietly, as if admitting something small and private.</p>
-      <p>Dango thought about this. He looked at the tall stone buildings around them, the hard grey streets.</p>
-      <p>"When the journey is done," Dango said, "you could come to Hokkaido. Ako-chan's hill. There are a lot of trees there."</p>
-      <p>Suke-san looked at him.</p>
-      <p>"Visit?" he said.</p>
-      <p>"Yes. After."</p>
-      <p>Suke-san considered for a while. He looked at the city. He looked at Dango.</p>
-      <p>"It is allowed," he said.</p>
-      <p>He said it simply, without a big pause or a big decision. But he meant it. Dango knew he meant it.</p>
-      <p>They walked on through the stone streets together, and Suke-san's steps were a little lighter than before.</p>
+      <p>Santiago was stone and glass and wide roads.</p>
+      <p>Suke-san walked without speaking. He looked at the buildings. At his own feet on the pavement.</p>
+      <p>"There are no forests," he said. "No roots. No moss. No smell of rain in the ground."</p>
+      <p>Dango said nothing for a moment. Then: "I felt the same in Tokyo once. I wanted to leave after one day."</p>
+      <p>Suke-san was quiet.</p>
+      <p>After two days they left the city.</p>
+      <p>The road went south into the lake district. Trees stood tall and close together. The ground was dark. The air smelled of rain and roots and things growing.</p>
+      <p>Suke-san stopped walking.</p>
+      <p>Then he started running.</p>
+      <p>He ran through the trees for a long time. His tail went straight. He was not being careful. He just ran, full speed.</p>
+      <p>Dango ran beside him.</p>
+      <p>When they stopped, both of them stood breathing hard. Suke-san looked at the trees.</p>
+      <p>"This is correct," he said.</p>
+      <p>"Yes," said Dango.</p>
+      <p>Suke-san looked at him. "When this is over — you should come to the Hokkaido hill. You said you would come."</p>
+      <p>"You said it was allowed," said Dango.</p>
+      <p>"It is," said Suke-san.</p>
+      <p>He said it simply. His tail was fully curled. He meant it.</p>
     </section>
     <nav class="nav">
       <a href="ep-071.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 72 / 120</a>
+      <a class="dc" href="index.html">Ep 72 / 78</a>
       <a href="ep-073.html">Next →</a>
     </nav>
   </article>

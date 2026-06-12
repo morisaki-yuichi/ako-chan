@@ -42,26 +42,96 @@
       <div class="date-label">Season 1 · Ep 65</div>
       <h1>What the Whales Said</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-065.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia played the recording slowly. The deep sound came through the boat in long waves.</p>
-      <p>"I have analyzed it," Obia said. "This is my translation."</p>
-      <p>Everyone was still.</p>
+      <p>That evening, Obia played back the recording.</p>
+      <p>They all gathered on the deck. The sun was almost gone. The sea was dark.</p>
+      <p>Obia translated in its quiet, careful voice.</p>
       <p>"The cold place is changing. What was sleeping has woken up."</p>
-      <p>No one spoke.</p>
-      <p>"That is what the whales said?" Ako-chan asked.</p>
-      <p>"That is my best translation. The language is old. I may have missed some parts. But this is the core of it."</p>
-      <p>"What was sleeping?" said Dango.</p>
-      <p>"I do not know," said Obia.</p>
-      <p>Ako-chan looked south. "In the cold place. In the south." She said it quietly, mostly to herself.</p>
-      <p>Suke-san looked south. Riro looked south. Even Gabu turned his head slowly in that direction.</p>
-      <p>"We knew there was something," said Ako-chan. "Every bird, every fish, every wind pointed south. Now we know it moved."</p>
-      <p>The sea was flat and dark. The south was still a long way away.</p>
-      <p>No one moved for a while.</p>
+      <p>Nobody spoke for a long time.</p>
+      <p>Dango's collar stayed orange. Then it moved slowly to gold.</p>
+      <p>Daru said, "What was sleeping?"</p>
+      <p>"I do not know yet," said Obia.</p>
+      <p>"The cold place — that is the south," said Suke-san. "Antarctica."</p>
+      <p>"Yes," said Obia.</p>
+      <p>Gabu looked at the sea. He was very still. "It is a message," he said. "Not to us. They were singing it to each other. But we were there, so we heard it."</p>
+      <p>"Yes," said Obia again.</p>
+      <p>Ako-chan looked at the map on the record device. Every anomaly dot curved toward the south. She had known this for a long time. But now the shape of it was very clear.</p>
+      <p>"Something has been waiting there," she said.</p>
+      <p>Obia said nothing.</p>
+      <p>Riro pressed his paws flat against his face.</p>
+      <p>"Then we go south," said Suke-san.</p>
+      <p>He did not say it loudly. He said it like a fact.</p>
+      <p>Dango was already facing south.</p>
     </section>
     <nav class="nav">
       <a href="ep-064.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 65 / 120</a>
+      <a class="dc" href="index.html">Ep 65 / 78</a>
       <a href="ep-066.html">Next →</a>
     </nav>
   </article>

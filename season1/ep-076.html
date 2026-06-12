@@ -42,28 +42,94 @@
       <div class="date-label">Season 1 · Ep 76</div>
       <h1>Daru's Discovery</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-076.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>They were walking south along a wide valley. The sky was large and pale.</p>
-      <p>Daru stopped.</p>
+      <p>In Patagonia, the ground was flat and open.</p>
+      <p>Daru had climbed down from the backpack. He was walking beside the others, all four legs on the ground, because he liked the feel of new places under him.</p>
+      <p>Then he stopped.</p>
       <p>"Something is coming through my shell," he said.</p>
-      <p>Everyone looked at him.</p>
-      <p>"Like distant thunder," he said. "But not from above. From the ground. And from the south."</p>
-      <p>Obia walked over. It placed its sensors flat against Daru's shell and went still for a moment.</p>
-      <p>"Low-frequency vibration," Obia said. "Ground-transmitted. Coming from the south."</p>
-      <p>"What is it?" Ako-chan asked.</p>
-      <p>"A signal of some kind. Very long range. Very slow." Obia stepped back from Daru's shell. "Your body picks it up without choosing to, Daru. Your shell skeleton receives this frequency automatically. It is just what your body does."</p>
-      <p>"Is it dangerous?" Daru asked.</p>
-      <p>"No," said Obia. "Just present."</p>
-      <p>Obia recorded the reading carefully — direction, frequency, strength. Then it said nothing more.</p>
-      <p>Ako-chan waited for more. Obia did not add anything.</p>
-      <p>"Shall we keep moving?" Obia said.</p>
-      <p>They kept moving.</p>
-      <p>Daru walked for a while, listening to his own shell. The vibration was still there — low, steady, coming from somewhere far to the south.</p>
+      <p>The others stopped.</p>
+      <p>"Through your shell?" said Ako-chan.</p>
+      <p>"From below. Like a very deep sound. But not a sound — a feeling. Like the ground is humming, very slowly, a long way down."</p>
+      <p>Obia crouched beside him and placed its paw flat on the ground. It stayed still.</p>
+      <p>"Yes," it said. "Low-frequency vibration. Very regular. From the south."</p>
+      <p>Daru looked up at Obia. "Is it natural?"</p>
+      <p>Obia was quiet for a moment. "No," it said. "The pattern is too regular. Something is making it."</p>
+      <p>It stood and entered a reading in the ship's log.</p>
+      <p>Ako-chan looked at the shared terminal on the record device. The reading was not there.</p>
+      <p>She did not say anything. She wrote in her diary instead: *Obia recorded it. It did not share it.*</p>
+      <p>Daru pressed all four feet flat on the ground.</p>
+      <p>"It is still going," he said.</p>
+      <p>They walked on. South. Toward whatever was making it.</p>
     </section>
     <nav class="nav">
       <a href="ep-075.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 76 / 120</a>
+      <a class="dc" href="index.html">Ep 76 / 78</a>
       <a href="ep-077.html">Next →</a>
     </nav>
   </article>

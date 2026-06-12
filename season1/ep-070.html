@@ -42,23 +42,92 @@
       <div class="date-label">Season 1 · Ep 70</div>
       <h1>The Desert Fox</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-070.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>At dusk, a fox appeared on a rock above the path.</p>
-      <p>Its fur was pale yellow-gray, like the desert itself. Its ears were very large. It looked at Ako-chan for a moment, then sat down and curled its tail around its feet.</p>
+      <p>The Atacama Desert had almost no water in the air. The ground was pale and cracked. The rocks had not seen rain in a very long time.</p>
+      <p>Gabu walked beside the others. He lifted his head slowly.</p>
+      <p>"This ground," he said. "The dryness. It feels like near my olive tree in Greece."</p>
+      <p>"Yes?" said Ako-chan.</p>
+      <p>"Very dry. Pale. The same kind of quiet." He looked around. "I did not expect to find it here. Like the same word in a different language."</p>
+      <p>Then a large-eared fox stepped out from behind a rock.</p>
+      <p>It sat down and looked at Ako-chan.</p>
       <p>"You are going south," it said.</p>
       <p>"Yes," said Ako-chan.</p>
-      <p>"Then you should know something." The fox looked toward the south. "Every night, for many months, I have felt something coming from that direction. Not a sound exactly. More like a vibration. A regular trembling in the air and the ground. Always at the same time of night. Always from the same place."</p>
-      <p>"What is it?" Ako-chan asked.</p>
-      <p>"I do not know. But it is too regular to be natural. Animals are not that regular. Weather is not that regular. Only something made by hands is that regular." The fox's large ears turned. "Something is calling from the south. I do not know who it is calling to."</p>
-      <p>Ako-chan looked toward the south. There was only desert. And beyond that, mountains. And beyond that, more south.</p>
-      <p>"Thank you," she said.</p>
-      <p>"Be careful," said the fox.</p>
-      <p>It was gone before she could turn back.</p>
+      <p>"I have felt something from the south for many months," the fox said. "Every night. The same pattern. The same time. Too regular."</p>
+      <p>"What does it feel like?" said Ako-chan.</p>
+      <p>"Like a signal. But I do not know to whom." The fox looked south. "I have been here all my life. I know every sound this desert makes. This is not one of them."</p>
+      <p>It stood. "Something is calling from the south," it said. "I do not know who it is calling to."</p>
+      <p>It walked back into the rocks.</p>
+      <p>Ako-chan looked at what she had written. She looked at Obia. Obia was looking south.</p>
     </section>
     <nav class="nav">
       <a href="ep-069.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 70 / 120</a>
+      <a class="dc" href="index.html">Ep 70 / 78</a>
       <a href="ep-071.html">Next →</a>
     </nav>
   </article>

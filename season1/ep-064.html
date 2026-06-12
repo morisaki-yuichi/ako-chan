@@ -42,28 +42,94 @@
       <div class="date-label">Season 1 · Ep 64</div>
       <h1>The Whale Song</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-064.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>They heard it before they saw the whales.</p>
-      <p>A low sound, very deep, came through the bottom of the boat. Then another. Then another. Slow and even, like something breathing.</p>
-      <p>Then the whales appeared. Three of them, very large. They floated near the surface and moved alongside the boat.</p>
-      <p>Ako-chan leaned over the side and listened.</p>
-      <p>The sound came in long waves. She could only catch pieces of it. Most of it was too deep or too slow.</p>
-      <p>"Cold place," she heard.</p>
-      <p>The whales sang again.</p>
-      <p>"Cold place."</p>
-      <p>And again.</p>
-      <p>"What are they saying?" Dango asked.</p>
-      <p>"I can only hear part of it," said Ako-chan. "Something about a cold place. They keep saying it."</p>
-      <p>Obia stood very still beside her. Its face was turned toward the whales.</p>
-      <p>"Can you understand them?" Ako-chan asked.</p>
-      <p>"I am recording," said Obia.</p>
-      <p>The whales sang for a long time. Then they turned and went deep. The sound slowly faded.</p>
-      <p>The sea was quiet again.</p>
+      <p>They were three days from land.</p>
+      <p>The Pacific was wide and very still. The sky was pale. The boat moved slowly south.</p>
+      <p>Obia said, "Stop the boat."</p>
+      <p>Ako-chan cut the engine.</p>
+      <p>Three shapes rose from the water beside them. Sperm whales. Their bodies were long and dark and very calm. They did not move away.</p>
+      <p>Then the first one sang.</p>
+      <p>It was a low sound. Too low to feel in the air. But Ako-chan felt it through the hull. Through the deck. Through her feet.</p>
+      <p>She heard something inside the sound.</p>
+      <p>"Cold place," she said. "It keeps saying cold place."</p>
+      <p>Obia was very still. Its eyes were focused on the water.</p>
+      <p>The whales sang the same pattern again. And again. They did not leave.</p>
+      <p>Riro pressed his paws against his face. He was watching the largest whale very carefully.</p>
+      <p>"I know that kind of song," he said quietly. "They only sing that way when something has already happened."</p>
+      <p>The whales sang one more time.</p>
+      <p>Then they went under. One by one. Slow and certain.</p>
+      <p>Obia said, "I have the full recording."</p>
+      <p>Nobody spoke. The boat was very still on the water.</p>
     </section>
     <nav class="nav">
       <a href="ep-063.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 64 / 120</a>
+      <a class="dc" href="index.html">Ep 64 / 78</a>
       <a href="ep-065.html">Next →</a>
     </nav>
   </article>

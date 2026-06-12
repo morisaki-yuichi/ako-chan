@@ -42,25 +42,91 @@
       <div class="date-label">Season 1 · Ep 66</div>
       <h1>The Birds of Ecuador</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-066.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>South America appeared after many days at sea. Ako-chan could see green land far away. She stood at the bow and watched it grow larger.</p>
-      <p>Then the birds came.</p>
-      <p>They flew out from the shore in a long, curving line. Their wings were brown and wide. They circled the boat and called to each other and to Ako-chan.</p>
-      <p>"You are here," said one bird. "We were waiting for you."</p>
-      <p>Ako-chan looked up. "For us?"</p>
-      <p>"Yes. Seven of you. One girl. One small dog. One silver one. One turtle. One big brown dog. One wolf. One otter."</p>
-      <p>Ako-chan counted. The bird had every one right.</p>
-      <p>"How did you know we were coming?" she asked.</p>
-      <p>"We were told," the bird said. "Many weeks ago. Before you crossed the big ocean."</p>
-      <p>The birds circled three more times. Then they flew back toward the land.</p>
-      <p>Ako-chan stood at the bow for a long time. She could not decide what to think.</p>
-      <p>That evening, Obia was very quiet. It stood at the stern and looked at the water. It did not build anything. Dango went to sit beside it, but Obia did not move.</p>
-      <p>Ako-chan wrote in her diary: "The birds already knew we were coming. Someone told them."</p>
+      <p>They reached South America on a bright morning.</p>
+      <p>The coast of Ecuador rose from the sea. Green hills. Dark rocks. A long white beach.</p>
+      <p>Before they reached the shore, the birds came.</p>
+      <p>They flew out from the land in a wide arc — frigatebirds and boobies and many others Ako-chan did not know. They circled the boat once, then settled on the rail and the roof and Daru's shelter and even on Obia's back.</p>
+      <p>"Good," one of them said. "You arrived."</p>
+      <p>Ako-chan looked at the bird on the rail. "Were you waiting for us?"</p>
+      <p>"Yes," said the bird. "We all were. The word came north many months ago. Seven travelers. From the cold island in the west."</p>
+      <p>"England," said Ako-chan.</p>
+      <p>"Yes. That name. Seven colors."</p>
+      <p>Ako-chan looked back at the group. Dango's gold collar. Riro's reddish fur. Gabu's pale shell. Daru's high domed back. Suke-san's red coat. Obia's silver body.</p>
+      <p>Seven. All different.</p>
+      <p>That evening she opened her diary. She wrote: *The birds already knew we were coming. Someone told them.*</p>
+      <p>She looked at Obia.</p>
+      <p>Obia was looking at the coast. Its back was to her, but its sensors were turned on full.</p>
     </section>
     <nav class="nav">
       <a href="ep-065.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 66 / 120</a>
+      <a class="dc" href="index.html">Ep 66 / 78</a>
       <a href="ep-067.html">Next →</a>
     </nav>
   </article>

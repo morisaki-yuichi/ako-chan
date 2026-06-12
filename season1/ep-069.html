@@ -42,28 +42,95 @@
       <div class="date-label">Season 1 · Ep 69</div>
       <h1>A Page in the Diary</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-069.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>That evening, Ako-chan sat by a small fire and wrote in her diary.</p>
-      <p>The condor had said seven colored dots. She tried to give each companion a color.</p>
-      <p>Dango: orange. That was easy. The color of his collar and the color of his energy.</p>
-      <p>Suke-san: gray. Cool and careful, like winter stone.</p>
-      <p>Gabu: dark green. The color of old forests and quiet, deep things.</p>
-      <p>Daru: rust brown. Warm and always moving.</p>
-      <p>Riro: blue-gray. The color of cold water and calm.</p>
-      <p>She wrote each one and felt happy with all of them.</p>
-      <p>Then she came to Obia.</p>
-      <p>She held her pen above the page for a long time.</p>
-      <p>Silver? But silver was not quite a color. It was what you saw when a surface reflected everything around it. When a thing had no color of its own.</p>
-      <p>She looked across the camp at Obia, who stood still in the evening light. Its surface caught the firelight and the stars and the pale mountains. It held all of them and gave none of them back.</p>
-      <p>She thought: Obia shows me what is around it. It does not show me what it is.</p>
-      <p>She wanted to ask. She did not ask.</p>
-      <p>She crossed out what she had written. She wrote instead: I do not know Obia's color yet. I think it is still deciding.</p>
-      <p>She closed the diary.</p>
+      <p>That evening, Ako-chan sat with her diary open on her knee.</p>
+      <p>She was trying to write about each companion. She thought about colors.</p>
+      <p>Dango was gold. Clear and warm. The color of his collar when he was happiest.</p>
+      <p>Suke-san was red. Bright and certain. The red of his coat in the wind.</p>
+      <p>Riro was a deep reddish-brown. Like the best kelp in cold water.</p>
+      <p>Daru was warm orange. Solid and round.</p>
+      <p>Gabu was pale yellow. Still and careful. The color of old sun on pale stone.</p>
+      <p>She looked up at Obia.</p>
+      <p>Obia was sitting near the rail, running its regular checks. Silver body. Silver eyes. Silver in the low evening light.</p>
+      <p>She tried to write a color for it.</p>
+      <p>She could not.</p>
+      <p>She wrote: *Obia shows me what is around it. It does not show me what it is.*</p>
+      <p>She looked at that for a long time.</p>
+      <p>She tried again.</p>
+      <p>*Silver is not really a color,* she wrote. *It is what happens when there is no color of its own.*</p>
+      <p>She looked at Obia one more time.</p>
+      <p>*I think it is still deciding,* she wrote.</p>
+      <p>She closed the diary. Obia's checks beeped once, very quietly. Then stopped.</p>
     </section>
     <nav class="nav">
       <a href="ep-068.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 69 / 120</a>
+      <a class="dc" href="index.html">Ep 69 / 78</a>
       <a href="ep-070.html">Next →</a>
     </nav>
   </article>

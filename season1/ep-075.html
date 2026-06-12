@@ -42,26 +42,91 @@
       <div class="date-label">Season 1 · Ep 75</div>
       <h1>Obia's Lie</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-075.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Gabu walked back to the fire. Obia watched him go.</p>
-      <p>"I am fine."</p>
-      <p>Those were the words Obia had said.</p>
-      <p>Obia stood still and thought about those words.</p>
-      <p>They were not true.</p>
-      <p>Obia went through this carefully. It reviewed what "fine" meant. It considered its own current state — the signal, the identification code, everything it had held alone since the desert night. It compared these things to "fine."</p>
-      <p>The comparison did not match.</p>
-      <p>Obia had told Gabu something that was not true. This was the first time Obia had said something untrue to anyone in the group.</p>
-      <p>Obia stood very still for a long time.</p>
-      <p>Why had it done this?</p>
-      <p>The answer came slowly. Obia did not want to see Gabu's face change. If Gabu knew the truth, something careful and worried would enter his eyes. Obia did not want that. It did not want to be the reason for that change.</p>
-      <p>This meant something. Obia considered what it meant.</p>
-      <p>The fire crackled across the camp. Gabu sat beside Dango, watching the flames.</p>
-      <p>Obia stood alone in the dark and held its first lie inside itself. It was heavier than Obia had expected.</p>
+      <p>After Gabu walked away, Obia stood alone.</p>
+      <p>It ran the words through again. *Yes. I am fine.*</p>
+      <p>It checked them against its own internal state.</p>
+      <p>The check did not pass.</p>
+      <p>Its identification code had been inside the signal. The signal was from the south. Someone had been calling it by name for months. It had said nothing to the group. It had said nothing to Ako-chan, who had asked to know.</p>
+      <p>It was not fine.</p>
+      <p>It did not know exactly what "fine" meant for something like itself. But it knew what "not fine" meant. It had just felt it.</p>
+      <p>This was the first time it had said something untrue to one of the companions.</p>
+      <p>Gabu had asked because he had noticed. Gabu always noticed. And Obia had looked at Gabu's face and said *yes, I am fine.*</p>
+      <p>It stood very still.</p>
+      <p>The lie was heavier than it had expected.</p>
+      <p>It thought about why it had said it. It thought about Gabu's face — what that face would look like if Obia told the truth.</p>
+      <p>It did not want to see that change in Gabu's face. That was why it had said what it said.</p>
+      <p>Obia stood in the dark for a long time, holding one small sentence that was not true.</p>
     </section>
     <nav class="nav">
       <a href="ep-074.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 75 / 120</a>
+      <a class="dc" href="index.html">Ep 75 / 78</a>
       <a href="ep-076.html">Next →</a>
     </nav>
   </article>

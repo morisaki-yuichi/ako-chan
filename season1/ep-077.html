@@ -42,25 +42,92 @@
       <div class="date-label">Season 1 · Ep 77</div>
       <h1>Each One and Ako-chan</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-077.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The fire was small. The night was clear. The stars were thick and close overhead.</p>
-      <p>One by one, they came.</p>
-      <p>Dango came first. He sat beside Ako-chan and put his head on her knee. That was all. He stayed like that for a while and then moved away quietly.</p>
-      <p>Suke-san came next. He sat a little to the side. He was quiet for a moment. Then: "After this journey — I will come to Hokkaido." He said it as if confirming something already decided.</p>
-      <p>Riro came and set two fish near the fire. He sat for one minute. Then he left.</p>
-      <p>Gabu came slowly. He stood beside Ako-chan and closed his eyes. She put her hand on his shell.</p>
-      <p>Daru came last of the others and told her about the tortoise race in full detail, with great happiness and no shortening of any part. He left still laughing.</p>
+      <p>The fire in Patagonia was small. The stars were very bright.</p>
+      <p>One by one, each companion came to sit near Ako-chan.</p>
+      <p>Dango came first. He pressed against her side and stayed there for a long time. He said nothing.</p>
+      <p>Daru climbed onto her knee. "I am ready," he said. "I have been ready since Ecuador." He climbed down again and walked back.</p>
+      <p>Riro came from his unit and sat near her hand. "You have all come a very long way," he said. He returned without another word.</p>
+      <p>Gabu came last of the animals. He had spoken that afternoon with an old tortoise in the harbor — a quiet, private meeting. Now he stood beside Ako-chan and said: "Thank you. For the olive grove."</p>
+      <p>She understood. She said, "I am glad you came."</p>
+      <p>Gabu went back to his shelter.</p>
+      <p>Suke-san did not come to her. He stood near the fire and looked at the stars. But his tail was fully curled and his body was angled toward her.</p>
       <p>Then Obia came.</p>
-      <p>It stood near the fire and looked at her.</p>
-      <p>"Before the south," Obia said, "I will tell you everything — everything I know."</p>
-      <p>Ako-chan looked up at it. The firelight caught the long scratch on Obia's side, the one from the storm in August.</p>
-      <p>"Thank you," she said.</p>
-      <p>She meant it fully.</p>
+      <p>It stood by the fire. Very still.</p>
+      <p>"Before the south," it said, "I will tell you everything. Everything I know."</p>
+      <p>Ako-chan looked at it. "Everything?"</p>
+      <p>"Yes," said Obia.</p>
+      <p>She wrote it in her diary exactly as it had been said, and underlined it once.</p>
     </section>
     <nav class="nav">
       <a href="ep-076.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 77 / 120</a>
+      <a class="dc" href="index.html">Ep 77 / 78</a>
       <a href="ep-078.html">Next →</a>
     </nav>
   </article>

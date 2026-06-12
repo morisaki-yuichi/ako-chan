@@ -42,24 +42,94 @@
       <div class="date-label">Season 1 · Ep 71</div>
       <h1>The Signal to Obia</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-071.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>At midnight, when everyone was asleep, Obia began a long scan.</p>
-      <p>The desert night was clear and very still. The stars were bright. No wind. Obia stood alone and pointed itself south and listened.</p>
-      <p>It listened for a long time.</p>
-      <p>Then it found something.</p>
-      <p>The signal was faint. Obia pulled it apart piece by piece and examined each layer. It was not random noise. It was not a natural pattern. It had been made carefully, by someone who knew exactly what they were building.</p>
-      <p>And inside the signal — deep inside, in a layer no one else would ever find — there was a number. A series of digits, very precise.</p>
-      <p>Obia recognized those digits.</p>
+      <p>That night, Obia did not sleep.</p>
+      <p>It ran its analysis tools on the southern signal — the same pattern Daru had felt through his shell, the same direction as all the signals before.</p>
+      <p>At midnight, it found something.</p>
+      <p>Deep inside the signal was a series of numbers.</p>
+      <p>Obia read them three times.</p>
       <p>They were its own identification code.</p>
-      <p>The signal was not just from the south. It was addressed to Obia. To Obia specifically. Someone knew that Obia existed. Someone knew what Obia was. And that someone was calling.</p>
-      <p>Obia stood in the desert night and processed this until dawn. It did not wake anyone. It did not move from its place.</p>
-      <p>When the sky began to lighten, Dango stirred in his sleep nearby. Obia was still in the same spot, still looking south.</p>
-      <p>No one knew what Obia had found.</p>
+      <p>It stood very still.</p>
+      <p>The signal had been sent to it. Specifically. Someone knew exactly what Obia was. Someone had been calling it by name — in numbers — for months.</p>
+      <p>Obia stood at the side of the boat and looked south until the sky went light.</p>
+      <p>The next day, Obia was quiet.</p>
+      <p>It did not start any new projects. It answered questions, but only just. It did not explain anything.</p>
+      <p>Dango walked to it and pressed his nose against its side. He walked away. He came back. He did this three times.</p>
+      <p>Suke-san sat beside Obia without speaking.</p>
+      <p>Gabu watched from across the camp. He said to Ako-chan, very quietly, "Obia knows we are asking."</p>
+      <p>Obia did not add the signal to the shared record.</p>
+      <p>It did not send a reply south.</p>
+      <p>It looked at the horizon and said nothing.</p>
     </section>
     <nav class="nav">
       <a href="ep-070.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 71 / 120</a>
+      <a class="dc" href="index.html">Ep 71 / 78</a>
       <a href="ep-072.html">Next →</a>
     </nav>
   </article>
