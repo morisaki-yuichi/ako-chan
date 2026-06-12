@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Ice — Ep 24</title>
+  <title>Daru and Ruka — Ep 24</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,30 +40,93 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 24</div>
-      <h1>The Ice</h1>
+      <h1>Daru and Ruka</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-024.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Below, the colour changed to white.</p>
-      <p>First a little white at the edges. Then more. Then wide flat stretches of nothing but white.</p>
-      <p>Ruka pressed its face to the glass. "So white," Ruka said quietly.</p>
-      <p>The flying boat went lower. Obia checked the screen in front of it. "Near," it said.</p>
-      <p>Nobody spoke.</p>
-      <p>Riro floated in his tank with his fins spread wide. Gabu looked out once and then closed his eyes. Suke-san was very still. Daru woke up and looked out and made a sound that was not quite a word.</p>
-      <p>The flying boat came down.</p>
-      <p>Cold air came through the small gaps around the windows. It was sharp. It made the air taste different.</p>
-      <p>Ruka shivered. Daru felt it. He moved closer without saying anything and pressed his shell against its. He shivered again, then less, then he was still.</p>
-      <p>"I am not cold," Ruka said. But Ruka stayed pressed against him.</p>
-      <p>"I know," said Daru.</p>
-      <p>The flying boat landed softly on the ice. The door opened. Cold came in.</p>
-      <p>Suke-san turned his nose toward the cold air and breathed slowly.</p>
-      <p>"The air here does not smell like anywhere else," he said.</p>
-      <p>"No," said Obia. "It is the oldest air on the planet."</p>
-      <p>Nobody had an answer for that.</p>
+      <p>The flying boat flew south. The air grew colder with every hour.</p>
+      <p>Ruka sat on her bench. She had pulled her head a little into her shell. The cold came in through the sides of the boat.</p>
+      <p>Daru was on the deck nearby. He watched the air move. Then he watched Ruka.</p>
+      <p>Without a word, he got up and moved his position. He shifted until his shell was between Ruka and the direction of the cold wind. His shell was thick. It had been warm from the sun earlier that day.</p>
+      <p>Ruka looked at him.</p>
+      <p>Daru looked out at the sea below. He said nothing.</p>
+      <p>Ruka moved a little closer. She pressed one side of her shell against his. The warmth was there.</p>
+      <p>She fell asleep.</p>
+      <p>Daru did not move. He stayed exactly where he was and looked at the dark water. Above them, the clouds were very white. Below, the sea was getting darker and colder.</p>
+      <p>Suke-san noticed from the rail. He looked at Daru for a moment, then looked away.</p>
+      <p>Some things did not need words.</p>
+      <p>Ruka slept for a long time. When she woke up, the air was much colder.</p>
+      <p>"Thank you," she said.</p>
+      <p>"Yes," said Daru.</p>
     </section>
     <nav class="nav">
       <a href="ep-023.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 24 / 108</a>
+      <a class="dc" href="index.html">Ep 24 / 35</a>
       <a href="ep-025.html">Next →</a>
     </nav>
   </article>

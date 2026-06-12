@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pen-san, Grown — Ep 25</title>
+  <title>Pen-san — Ep 25</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,30 +40,95 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 25</div>
-      <h1>Pen-san, Grown</h1>
+      <h1>Pen-san</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-025.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Pen-san was standing at the entrance to the valley.</p>
-      <p>He was much taller than before. His head came up past Ako-chan's shoulder now. His flippers were long. His chest was broad and white.</p>
-      <p>But his eyes were still the same. Round and very dark and very attentive.</p>
-      <p>Ako-chan stopped a few steps away.</p>
-      <p>"I thought you would come back," said Pen-san.</p>
-      <p>The words were the same as before.</p>
-      <p>But the voice was different. Lower. It came from a larger chest.</p>
-      <p>Dango walked forward. Pen-san looked down at him. Then he bent his head and touched the top of his head gently with his beak.</p>
-      <p>Then he straightened and looked at all of them.</p>
-      <p>He looked at Suke-san. At Gabu. At Daru. At Riro, who was in a small portable tank Obia carried.</p>
-      <p>He looked for a long time at Ruka, who was on Daru's back.</p>
-      <p>Then Pen-san looked at Ako-chan.</p>
-      <p>"You brought many," he said.</p>
-      <p>"There is much to do," said Ako-chan.</p>
-      <p>Pen-san was quiet. Then he nodded once.</p>
-      <p>"Come inside the valley," he said. "It is warmer there. Slightly."</p>
+      <p>The flying boat landed in the valley. The snow was flat and very bright. The air was cold and still.</p>
+      <p>They stepped off one at a time.</p>
+      <p>The valley was quiet. Ice cliffs rose on both sides. The sky was pale and wide.</p>
+      <p>Then, from the far end of the valley, a penguin walked toward them.</p>
+      <p>The walk was slow and steady. Each step was placed with care. The penguin came closer.</p>
+      <p>Dango's collar turned gold.</p>
+      <p>Ako-chan watched. The last time she had been here, Pen-san was small — soft grey feathers, quick eyes, a chick still learning to stand. This penguin was tall. The feathers were black and white and smooth. The walk was certain.</p>
+      <p>But the eyes were the same.</p>
+      <p>Pen-san stopped in front of Ako-chan. She looked at each person in the group in turn. She took her time.</p>
+      <p>Then she bowed her head slightly.</p>
+      <p>"I thought you would come back," she said. Her voice was lower now. But the words were the same.</p>
+      <p>Ako-chan felt something tighten in her chest. "We came back," she said.</p>
+      <p>Pen-san looked at Ruka.</p>
+      <p>"You are very small," she said.</p>
+      <p>Ruka looked up at her. "I know already," she said.</p>
+      <p>Pen-san's face did not change. But something in her eyes was warm.</p>
     </section>
     <nav class="nav">
       <a href="ep-024.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 25 / 108</a>
+      <a class="dc" href="index.html">Ep 25 / 35</a>
       <a href="ep-026.html">Next →</a>
     </nav>
   </article>

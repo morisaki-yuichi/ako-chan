@@ -42,25 +42,94 @@
       <div class="date-label">Season 2 · Ep 30</div>
       <h1>The Hidden Door</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-030.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Daru had been moving through the base all day.</p>
-      <p>In the main room, he stopped. He stood in front of the far wall. He looked at it, then at the other walls, then at the far wall again.</p>
-      <p>"Obia," he said. "This wall is different."</p>
-      <p>Obia walked over. He ran his hand slowly across the surface. In the centre, there was a seam. Very thin. Almost invisible.</p>
-      <p>"A panel," he said.</p>
-      <p>Everyone came. Even Gabu came out of Yu-chan's room.</p>
-      <p>Obia found the edges and opened it.</p>
-      <p>Behind it was a frame. The height of a person. Made of light—pale, faint, and completely steady.</p>
-      <p>Inside the frame was something that was not the wall. Not darkness. A quality of waiting.</p>
-      <p>Nobody spoke for a long time.</p>
-      <p>"It is a door," said Obia at last. "Not to a room you can walk to. It is a door to a world built inside a system. A space that exists in data, not in the physical world." She looked at the light. "And Yu-chan's code is in the structure of that space. In the foundation."</p>
-      <p>The light in the frame did not flicker.</p>
-      <p>It waited.</p>
+      <p>They stayed in the base that night.</p>
+      <p>In the morning, Obia began scanning the walls. Daru walked slowly around the room. He pressed both hands flat against the walls as he went — one section at a time, working around the room.</p>
+      <p>He stopped at the back wall.</p>
+      <p>He pressed both hands against it again. He held them there.</p>
+      <p>"Here," he said. "There is something behind this."</p>
+      <p>Obia came and stood beside him. It scanned the section of wall twice.</p>
+      <p>"Yes," Obia said. "There is a space behind this wall. And something else." It scanned again. "There is a frame here. Very thin. I almost missed it."</p>
+      <p>"A frame like a window?" asked Ako-chan.</p>
+      <p>"No." Obia paused for a long moment. "A frame like a door."</p>
+      <p>The room was still.</p>
+      <p>"But it is not a door in this world," Obia continued. "The material it is made of, the signal it produces — this frame leads somewhere that is not a physical place."</p>
+      <p>"Where?" asked Riro.</p>
+      <p>Obia looked at the wall. "Into another kind of space," it said. "A space made entirely of information."</p>
+      <p>Nobody spoke.</p>
+      <p>Dango pressed his nose against the wall once. Then he stepped back and looked at Ako-chan.</p>
+      <p>"Yu-chan is in there," said Ako-chan.</p>
+      <p>It was not a question.</p>
     </section>
     <nav class="nav">
       <a href="ep-029.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 30 / 108</a>
+      <a class="dc" href="index.html">Ep 30 / 35</a>
       <a href="ep-031.html">Next →</a>
     </nav>
   </article>

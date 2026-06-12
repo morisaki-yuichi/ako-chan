@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Come Back — Ep 34</title>
+  <title>Pen-san's Words — Ep 34</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,31 +40,97 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 34</div>
-      <h1>Come Back</h1>
+      <h1>Pen-san's Words</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-034.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The preparations were almost done.</p>
-      <p>Ako-chan was checking her small pack when she felt something near her shoulder.</p>
-      <p>She turned.</p>
-      <p>Pen-san was beside her. He had come very quietly for such a large bird.</p>
-      <p>He leaned forward. Very slowly, he pressed the top of his head against Ako-chan's shoulder.</p>
-      <p>One moment. Two.</p>
-      <p>Then he straightened. He stood tall. His back was exactly straight. His flippers at his sides.</p>
-      <p>The Pen-san who had pressed his head down was gone. The one who stood there now was the full height of him, formal and steady.</p>
-      <p>"Come back," he said.</p>
-      <p>His voice was very even. Not a question. Not a request.</p>
-      <p>A statement of what would happen.</p>
-      <p>"I will," said Ako-chan.</p>
+      <p>Before they stepped through, Pen-san came to Ako-chan.</p>
+      <p>The others were checking their packs and talking quietly. Obia was at the frame, making the last adjustments. The room hummed softly.</p>
+      <p>Pen-san walked to Ako-chan and stood very close.</p>
+      <p>Then she pressed her head against Ako-chan's shoulder.</p>
+      <p>She stayed there for a moment. Ako-chan could feel the weight of it — solid and warm.</p>
+      <p>Pen-san lifted her head.</p>
+      <p>She looked at Ako-chan. Her eyes were very steady.</p>
+      <p>"Come back," she said.</p>
+      <p>Two words. That was all.</p>
+      <p>Ako-chan looked at her. Pen-san had grown so much. She was taller than Ako-chan now. Her voice was deep and sure. But the look in her eyes was the same as always — the same as when she had been small and had said waited for you.</p>
+      <p>"Yes," said Ako-chan.</p>
+      <p>Not I will try. Not I hope so. Just yes. The same way Pen-san had said come back — simply, and as a fact.</p>
       <p>Pen-san nodded once.</p>
-      <p>Then he turned and walked to his position near the frame. He stood in front of it, the relay device held against his chest.</p>
-      <p>He did not look back.</p>
-      <p>Ako-chan watched him for a moment.</p>
-      <p>Then she went back to her pack.</p>
+      <p>Then she stepped back. She stood very straight. Her head was up and her eyes were forward.</p>
+      <p>She was going to wait. She was very good at waiting.</p>
+      <p>"Obia," said Ako-chan. "We are ready."</p>
+      <p>"Yes," said Obia. "One at a time."</p>
+      <p>They walked to the frame.</p>
     </section>
     <nav class="nav">
       <a href="ep-033.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 34 / 108</a>
+      <a class="dc" href="index.html">Ep 34 / 35</a>
       <a href="ep-035.html">Next →</a>
     </nav>
   </article>

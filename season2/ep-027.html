@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pen-san's Sense — Ep 27</title>
+  <title>What Pen-san Heard — Ep 27</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,32 +40,94 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 27</div>
-      <h1>Pen-san's Sense</h1>
+      <h1>What Pen-san Heard</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-027.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The next morning, Pen-san came to Ako-chan.</p>
-      <p>He did not say anything at first. He stood near the entrance of the valley and waited.</p>
-      <p>Ako-chan came to him.</p>
-      <p>"I need to tell you something," said Pen-san.</p>
-      <p>"Yes."</p>
-      <p>"I did not tell Colonel Adelie. I was not certain it was real."</p>
-      <p>Ako-chan waited.</p>
-      <p>"When the signal was still coming," said Pen-san, "I used to stand near the base at night. I could hear things. Not with my ears exactly. More like —" He stopped.</p>
-      <p>He was thinking how to explain it.</p>
-      <p>"Like when ice shifts before it cracks," he said. "You do not hear it. But you feel the air change. The pressure."</p>
-      <p>Ako-chan was very still.</p>
-      <p>"What did you feel?" she said.</p>
-      <p>"A sound that was not a sound. From inside. Low. Not words. But —" Pen-san paused. "Something that was trying to stay."</p>
-      <p>"Stay?" said Ako-chan.</p>
-      <p>"Stay whole," said Pen-san. "It was trying not to come apart."</p>
-      <p>Ako-chan looked at the base.</p>
-      <p>"You think it was Yu-chan," she said.</p>
-      <p>Pen-san did not answer. But he did not look away.</p>
+      <p>After the Colonel's report, Pen-san came to find Ako-chan.</p>
+      <p>Ako-chan was standing near the edge of the valley, looking at the base. Pen-san stood beside her. The wind made a low sound across the ice.</p>
+      <p>"I want to tell you something," Pen-san said.</p>
+      <p>Ako-chan turned toward her.</p>
+      <p>"Each night, I came to the area near the base," said Pen-san. "Not every night. But many nights. I felt something."</p>
+      <p>"What did it feel like?" Ako-chan asked.</p>
+      <p>Pen-san thought carefully before answering.</p>
+      <p>"Not a sound," she said. "Not a light. Something lower than that. Something very old turning very slowly." She stopped. "Like something trying not to break apart."</p>
+      <p>Ako-chan did not speak.</p>
+      <p>"I could not explain it until now," Pen-san continued. "It was not a clear thing. But it was there. Every night I came, it was there."</p>
+      <p>"Was it frightening?" Ako-chan asked.</p>
+      <p>"No," said Pen-san. "Not frightening. More like..." She looked at the base building. "Like someone waiting. Carefully. For a long time."</p>
+      <p>Ako-chan put her hand on Pen-san's wing for a moment.</p>
+      <p>"Thank you for staying here," she said.</p>
+      <p>Pen-san was quiet. Then: "I knew you would come."</p>
     </section>
     <nav class="nav">
       <a href="ep-026.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 27 / 108</a>
+      <a class="dc" href="index.html">Ep 27 / 35</a>
       <a href="ep-028.html">Next →</a>
     </nav>
   </article>
