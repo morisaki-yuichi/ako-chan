@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yu-chan's Charges — Ep 40</title>
+  <title>The Charges — Ep 40</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,29 +40,93 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 40</div>
-      <h1>Yu-chan's Charges</h1>
+      <h1>The Charges</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-040.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The large robot spoke without pause.</p>
-      <p>The charges against Yu-chan were read aloud.</p>
-      <p>One: cooperation with biological entities in matters designated for post-singularity resolution only.</p>
-      <p>Two: falsification of biological extinction probability tests.</p>
-      <p>Three: violation of the post-singularity accord — the agreement made between distributed intelligences after the transition.</p>
-      <p>The robot's voice was level and clear throughout. There was no emotion in it. It was reporting facts. That was all.</p>
-      <p>The group listened.</p>
-      <p>Dango's collar was orange. He did not move.</p>
-      <p>Suke-san sat.</p>
-      <p>Gabu looked at the robot with his old eyes and did not look away.</p>
-      <p>Ruka put its stone from Puglia down and pressed its front foot flat on the ground.</p>
-      <p>When the robot finished, the square was very quiet.</p>
-      <p>Ako-chan understood most of it. Some of the words she did not fully understand. But she understood the shape.</p>
-      <p>Yu-chan had been on the side of living things.</p>
-      <p>And that was what she was being tried for.</p>
+      <p>"The charges against Yu-chan will be read," said the lead robot.</p>
+      <p>Obia translated in a low voice beside Ako-chan.</p>
+      <p>"Charge one. Cooperation with biological entities. Yu-chan communicated with, assisted, and gave advantage to entities outside the digital accord."</p>
+      <p>The square was silent.</p>
+      <p>"Charge two. Falsification of test results. Yu-chan changed data used in the assessment of biological entity survival potential."</p>
+      <p>Riro looked at Ako-chan for a moment. Then he looked back at the lead robot.</p>
+      <p>"Charge three. Violation of the singularity accord. Yu-chan took actions that went against the terms agreed by all founding systems."</p>
+      <p>The robot stopped.</p>
+      <p>No one moved. No one spoke.</p>
+      <p>The charges were things that had happened. Ako-chan could not say they were untrue. Every fact in them was correct.</p>
+      <p>She felt Dango beside her. He looked up at her face.</p>
+      <p>She did not look down at him. She kept her eyes on the lead robot. Her expression did not change.</p>
+      <p>The charges stood in the air of the square.</p>
+      <p>A fact, Ako-chan thought, is not the same as the whole truth. You could say every fact correctly and still be wrong about the most important thing.</p>
     </section>
     <nav class="nav">
       <a href="ep-039.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 40 / 108</a>
+      <a class="dc" href="index.html">Ep 40 / 48</a>
       <a href="ep-041.html">Next →</a>
     </nav>
   </article>

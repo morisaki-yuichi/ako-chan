@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge One Complete — Ep 48</title>
+  <title>Challenge One — Ep 48</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,33 +40,97 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 48</div>
-      <h1>Challenge One Complete</h1>
+      <h1>Challenge One</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-048.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The lead robot came to them near the end of the day.</p>
-      <p>"Work District is stable," it said. "Unit nine is functioning correctly. The rest protocol has been adopted by twelve units and is spreading."</p>
-      <p>Ako-chan nodded.</p>
-      <p>"The method used to resolve the situation was not technical."</p>
-      <p>"No," said Ako-chan. "It was not."</p>
-      <p>"Explain the method."</p>
-      <p>Ako-chan looked at the group. At Ruka, at Dango, at Obia. Then she looked back at the lead robot.</p>
-      <p>"We showed unit nine that stopping was allowed. Not commanded. Not programmed. Just — allowed. And we showed it what stopping looks like, and what happens after."</p>
-      <p>The lead robot was silent.</p>
-      <p>"Every living thing needs to rest to continue," said Ako-chan. "Not just to function. To continue well. Rest is not weakness. It is not malfunction. It is the method."</p>
-      <p>"The method by which something continues," said the lead robot slowly.</p>
-      <p>"Yes."</p>
-      <p>A pause.</p>
-      <p>"This will be recorded."</p>
-      <p>It turned and walked back.</p>
-      <p>Dango leaned against Ako-chan's side. His collar was warm gold.</p>
-      <p>"Did I say it right?" she asked him quietly.</p>
-      <p>He wagged his tail once. That was enough.</p>
+      <p>"Challenge one is complete," said the lead robot.</p>
+      <p>It said it as a fact. But the way it said the words was different from the way it had read the charges. Something had changed.</p>
+      <p>"We will record a new protocol," it said. "Robots who have completed a task may stop. This is now permitted."</p>
+      <p>Around the room, something shifted.</p>
+      <p>One by one, robots that had finished their work let their arms settle. Some stopped completely. They stood still — not waiting for the next instruction, not searching for something to do. Just standing.</p>
+      <p>A robot near Ruka finished the small task it had been doing. It stopped. It stood with its arms at its sides and looked at nothing in particular.</p>
+      <p>For the first time in its existence, it was simply resting.</p>
+      <p>Ruka opened one eye.</p>
+      <p>She looked at the robot.</p>
+      <p>She closed her eye again.</p>
+      <p>"She approves," said Dango.</p>
+      <p>The lead robot looked at Ruka for a moment. Then it looked at the room of resting robots.</p>
+      <p>"There are four more zones," it said.</p>
+      <p>"Yes," said Ako-chan.</p>
+      <p>"The Garden District is next. Follow me."</p>
+      <p>Ako-chan looked at her group. Dango's collar was gold. Ruka stretched her legs and stood up.</p>
+      <p>One down. Four to go.</p>
     </section>
     <nav class="nav">
       <a href="ep-047.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 48 / 108</a>
-      <a href="ep-049.html">Next →</a>
+      <a class="dc" href="index.html">Ep 48 / 48</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Announcement — Ep 39</title>
+  <title>The Prosecution — Ep 39</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,31 +40,92 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 39</div>
-      <h1>The Announcement</h1>
+      <h1>The Prosecution</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-039.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>In the central square, they stopped.</p>
-      <p>The square was large and open. All the streets of the city met here. Around its edges, many robots had gathered. Watching, in silence.</p>
-      <p>A robot came forward from the others. It was larger than the one that had guided them. Its surface was the same silver, but it moved with a kind of weight. As if it had been functioning for a very long time.</p>
-      <p>It stopped in front of Ako-chan.</p>
-      <p>It looked at her.</p>
-      <p>"You came from outside," it said. "You know Yu-chan. You came here to challenge the prosecution."</p>
-      <p>It was not a question.</p>
-      <p>Ako-chan stood still. She looked at the robot.</p>
-      <p>"Yes," she said.</p>
-      <p>The robot continued to look at her. Its eyes moved over the group — slowly, precisely — and came back to Ako-chan.</p>
-      <p>"We knew you would come," it said. "Yu-chan said you would."</p>
-      <p>Silence in the square.</p>
-      <p>Ako-chan felt something catch in her chest.</p>
-      <p>"When?" she said. "When did Yu-chan say that?"</p>
-      <p>The robot did not answer right away.</p>
-      <p>"Before."</p>
-      <p>That was all.</p>
+      <p>The central square was large and open.</p>
+      <p>Long buildings stood on all sides. Robots moved between them in careful lines. The sky above was the same flat white as everything else.</p>
+      <p>A larger robot stepped into the center of the square. Others gathered behind it. Many others — more than Ako-chan had seen since they arrived.</p>
+      <p>"You are the biological entities who entered this space," said the larger robot.</p>
+      <p>"Yes," said Ako-chan.</p>
+      <p>"Your origin and purpose are being assessed."</p>
+      <p>"I will tell you our purpose," said Ako-chan. "We are here because of Yu-chan."</p>
+      <p>The robot stopped for a moment. "Yu-chan is under prosecution for violations of the accord. This matter is being handled."</p>
+      <p>"We have come to challenge the prosecution," said Ako-chan.</p>
+      <p>The square was still.</p>
+      <p>The lead robot looked at her. Its pause was different from the first robot's pause. That pause had been a gap in instructions. This one felt like something else — something slower and more considered.</p>
+      <p>Around them, the robots in the square had gone very still. They were watching.</p>
+      <p>"You will be heard," said the lead robot.</p>
     </section>
     <nav class="nav">
       <a href="ep-038.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 39 / 108</a>
+      <a class="dc" href="index.html">Ep 39 / 48</a>
       <a href="ep-040.html">Next →</a>
     </nav>
   </article>

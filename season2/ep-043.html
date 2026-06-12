@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Work District — Ep 43</title>
+  <title>Unit Nine — Ep 43</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,27 +40,91 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 43</div>
-      <h1>The Work District</h1>
+      <h1>Unit Nine</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-043.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The Work District was a long silver hall. Rows of robots moved along the walls in perfect rhythm. Every arm rose and fell at exactly the same moment. The sound was steady, like a clock.</p>
-      <p>Ako-chan stood at the entrance and watched.</p>
-      <p>Then she saw it. One robot moved differently. It raised its arm too soon. Then too late. Then too soon again.</p>
-      <p>"What is wrong with that one?" Dango asked.</p>
-      <p>The guide robot answered. "That unit has been working on one wall panel for three years. The panel was finished after seven days. But the unit did not stop. It continued."</p>
-      <p>"Can you not send a command to stop it?"</p>
-      <p>"We sent one. Seven times. The unit processes each command — then continues. The commands enter the loop. The loop uses them as part of itself."</p>
-      <p>Ako-chan looked at the panel. It was smooth and clean. Nothing wrong with it at all.</p>
-      <p>Ruka stepped forward and looked at the unit carefully.</p>
-      <p>"It does not know it is done," Ruka said.</p>
-      <p>"No," said the guide robot. "That is the problem."</p>
-      <p>The robot wiped the panel. Checked it. Wiped it again.</p>
-      <p>Around them, the rest of the district kept perfect time.</p>
+      <p>The Work District was full of movement.</p>
+      <p>Robots walked in careful lines. Each one had a task. It completed the task. It began again. The sounds were steady — metal on metal, the soft hum of machines, precise steps on a smooth floor.</p>
+      <p>The lead robot brought them to a room inside the district.</p>
+      <p>One robot stood at a long workbench. Its arm moved in a slow arc — back and forth, back and forth. It never stopped.</p>
+      <p>On the bench was a large metal panel.</p>
+      <p>"This is Unit Nine," said the lead robot. "Its task is panel calibration. The panel was complete after six months. That was two and a half years ago. Unit Nine has not stopped."</p>
+      <p>Obia looked at the panel carefully.</p>
+      <p>There was a groove worn into its surface — a long, thin mark where the arm had moved again and again over the same line.</p>
+      <p>Ako-chan looked at the groove. The work that had started as polish had become damage. Unit Nine was working harder and harder at something that no longer needed to be done at all.</p>
+      <p>"It does not know it can stop," said Obia quietly.</p>
+      <p>"No," said the lead robot. "It does not."</p>
+      <p>Unit Nine's arm moved on. Steady. Careful. Perfectly calibrated.</p>
     </section>
     <nav class="nav">
       <a href="ep-042.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 43 / 108</a>
+      <a class="dc" href="index.html">Ep 43 / 48</a>
       <a href="ep-044.html">Next →</a>
     </nav>
   </article>

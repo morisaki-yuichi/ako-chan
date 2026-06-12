@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Stop Is to Continue — Ep 44</title>
+  <title>Ruka Sleeps — Ep 44</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,32 +40,92 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 44</div>
-      <h1>To Stop Is to Continue</h1>
+      <h1>Ruka Sleeps</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-044.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>When Ruka lay down to sleep after its midday meal, the Work District went completely silent.</p>
-      <p>Every robot stopped. Their arms were still. Their heads turned toward her.</p>
-      <p>Ruka did not move. Ruka was asleep on the floor, its tail curled around its, her eyes closed.</p>
-      <p>One robot said: "What is the state of this unit?"</p>
-      <p>"She is sleeping," said Ako-chan.</p>
-      <p>"Define: sleeping."</p>
-      <p>"Her body is resting. Her systems are paused. She is not working right now."</p>
-      <p>"Failure of function?"</p>
-      <p>"No. Not failure. Rest."</p>
-      <p>"Difference?"</p>
-      <p>"In failure, the unit cannot continue. In rest, the unit chooses not to continue for a time — so that later it can continue better."</p>
-      <p>The robots processed this. Then another asked: "Why does the system stop?"</p>
-      <p>"She ate a large amount. Now her body uses that energy. Rest helps. All living things need to stop sometimes — to recover, to prepare for what comes next."</p>
-      <p>The robot was quiet for a long time.</p>
-      <p>"To stop is to continue?"</p>
-      <p>"Yes," said Ako-chan. "Exactly that."</p>
-      <p>Dango sat beside her. His collar was a calm, deep gold.</p>
-      <p>Behind them, the stuck unit wiped the panel again.</p>
+      <p>The group stood at the edge of the room and watched.</p>
+      <p>Unit Nine's arm moved in its arc. The groove in the panel grew a little deeper.</p>
+      <p>Ruka watched the robot for a while. Then she looked around the room.</p>
+      <p>Near the far wall, a section of floor caught the light at a warm angle. Ruka walked to it. She circled it once. Then she lowered herself down, tucked her legs close to her body, and closed her eyes.</p>
+      <p>She went to sleep.</p>
+      <p>The room changed.</p>
+      <p>The robots nearest to her stopped moving. They turned. One by one they oriented toward Ruka. Their arms slowed and went still. Their heads tilted at small angles.</p>
+      <p>Even Unit Nine's arm paused for a half-second.</p>
+      <p>The robots made small sounds toward each other. Obia listened.</p>
+      <p>"They are asking a question," Obia said quietly to Ako-chan. "They want to know what state that entity is in."</p>
+      <p>Ako-chan looked at Ruka — completely still, completely at ease, breathing slowly.</p>
+      <p>She realised something. These robots had been working in this room for years. They had never seen a living thing choose to stop.</p>
+      <p>"She stopped," said Ako-chan. "She chose to stop because she needed to. She will start again when she is ready."</p>
     </section>
     <nav class="nav">
       <a href="ep-043.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 44 / 108</a>
+      <a class="dc" href="index.html">Ep 44 / 48</a>
       <a href="ep-045.html">Next →</a>
     </nav>
   </article>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The First Light — Ep 36</title>
+  <title>White — Ep 36</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,27 +40,96 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 36</div>
-      <h1>The First Light</h1>
+      <h1>White</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-036.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The light was warm on her face.</p>
-      <p>Then Ako-chan was through.</p>
-      <p>She was standing in a space that had no walls she could see. No ceiling. No floor that ended anywhere. Just white, in every direction, perfectly flat and still.</p>
-      <p>The others came through behind her. Dango. Suke-san. Gabu. Daru, with Ruka on his shell. Then Obia carrying Riro.</p>
-      <p>They all stood together in the white.</p>
-      <p>Nobody spoke.</p>
-      <p>The white was not cold. It was not warm. It was simply there — complete and even, without shadow or weight.</p>
-      <p>Then, at the very edge of where the white ended, something changed.</p>
-      <p>A colour appeared. Pale silver. Then another, beside it. Then a shape.</p>
-      <p>Slowly, the way day arrives in winter — not a sudden brightness but a gradual becoming — the world began to fill itself in.</p>
-      <p>Ruka watched the colours spread from the edges inward.</p>
-      <p>"It is being made," he said.</p>
-      <p>Nobody disagreed.</p>
+      <p>The frame was behind them now.</p>
+      <p>Ako-chan opened her eyes.</p>
+      <p>White. White in every direction. She could not tell where the floor started or where the walls ended. Everything was the same bright, even white.</p>
+      <p>Then, slowly, shapes began to come forward.</p>
+      <p>A line. A corner. Long corridors stretching away. Tall shapes with sharp edges. Surfaces that caught light from no clear source. The white became silver. The silver became a city.</p>
+      <p>It was enormous and completely silent.</p>
+      <p>"Are we inside?" Ruka asked.</p>
+      <p>"Yes," said Obia. "We are inside the digital space."</p>
+      <p>Dango stood close to Ako-chan. He looked left. He looked right. He looked up. There were no smells here. No wind. The shadows were not quite right — too even, too clean.</p>
+      <p>His collar changed colour. It moved through orange. Then gold. Then it settled somewhere new.</p>
+      <p>Blue.</p>
+      <p>Dango's collar had never been blue before.</p>
+      <p>Gabu looked at the collar carefully. "Is that new?" he said.</p>
+      <p>Dango looked at his collar. Then he looked at Ako-chan.</p>
+      <p>"I think so," she said.</p>
+      <p>The city waited ahead of them. Precise and vast and silent.</p>
+      <p>They were inside.</p>
     </section>
     <nav class="nav">
       <a href="ep-035.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 36 / 108</a>
+      <a class="dc" href="index.html">Ep 36 / 48</a>
       <a href="ep-037.html">Next →</a>
     </nav>
   </article>

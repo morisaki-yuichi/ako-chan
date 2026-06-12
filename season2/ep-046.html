@@ -42,27 +42,89 @@
       <div class="date-label">Season 2 · Ep 46</div>
       <h1>Permission</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-046.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia came to Ako-chan late in the day.</p>
-      <p>"I have an idea," she said. "I cannot send it a command. Every command I send becomes part of the loop. But what if I do not send a command at all?"</p>
-      <p>Ako-chan waited.</p>
-      <p>"A command says: do this. But maybe what the robot needs is not an instruction. Maybe it needs to know that stopping is allowed. Not commanded. Not programmed. Just — permitted."</p>
-      <p>Gabu had been listening nearby. He said: "The loop controls what it does. But not what it believes."</p>
-      <p>Obia looked at him. "Yes. Exactly that."</p>
-      <p>The next morning, Obia approached unit nine alone. The group stood back.</p>
-      <p>He stood at a careful distance and did not send any signal. He spoke.</p>
-      <p>"You may stop," he said. "The panel is complete. You finished it three years ago. You have done your work."</p>
-      <p>The robot wiped the panel.</p>
-      <p>"Stopping is not failure," said Obia. "You have permission to stop."</p>
-      <p>The arm moved more slowly. Just slightly.</p>
-      <p>He waited. Then said again, very quietly: "You may stop."</p>
-      <p>The arm slowed. Then slowed more. Then rose toward the panel — and paused in the air.</p>
-      <p>Nobody moved. Nobody spoke.</p>
+      <p>Obia stepped forward.</p>
+      <p>"I understand what Unit Nine is doing," it said to the lead robot. "It is not broken. It simply has no permission to stop."</p>
+      <p>"Its task is panel calibration," said the lead robot. "No end condition was set."</p>
+      <p>"That is the problem," said Obia. "It was told when to begin. It was never told it was allowed to end. So it continues — because continuing is all it knows to do."</p>
+      <p>The lead robot was quiet.</p>
+      <p>"What do you propose?" it asked.</p>
+      <p>"Give Unit Nine permission to stop," said Obia. "Not a command to stop — a command will only replace one instruction with another. Give it permission. Tell it: you may stop when the task is done. And then let it decide."</p>
+      <p>"What will it decide?" asked the lead robot.</p>
+      <p>"I do not know," said Obia. "That is the point. Unit Nine was never told it could stop. Give it permission, not an order — and see what it chooses."</p>
+      <p>Ako-chan looked at Obia. She thought about Ruka on the warm floor. She thought about Dango and his falls and his pauses and the better running that came after.</p>
+      <p>"Try it," she said to the lead robot. "Give Unit Nine permission."</p>
+      <p>The lead robot looked at Unit Nine for a long moment.</p>
     </section>
     <nav class="nav">
       <a href="ep-045.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 46 / 108</a>
+      <a class="dc" href="index.html">Ep 46 / 48</a>
       <a href="ep-047.html">Next →</a>
     </nav>
   </article>

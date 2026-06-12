@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dango's Story — Ep 45</title>
+  <title>What Dango Told Them — Ep 45</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,30 +40,93 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 45</div>
-      <h1>Dango's Story</h1>
+      <h1>What Dango Told Them</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-045.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Dango wanted to speak. He looked at Ako-chan. She understood.</p>
-      <p>"He wants to tell you something," she said to the robots.</p>
-      <p>They turned toward Dango. Dango sat up. His collar was a steady, warm gold. He looked at the robots carefully, one by one, the way he did when he was about to say something important.</p>
-      <p>Then he spoke, and Ako-chan translated.</p>
-      <p>"When I was young, I loved to run. I ran every day. More and more. I thought that running more meant getting better."</p>
-      <p>The robots listened.</p>
-      <p>"One day I ran until I fell. I could not get up. I slept where I fell. I do not know how long."</p>
-      <p>He paused. Ako-chan translated the pause with silence.</p>
-      <p>"When I woke up, I ran again. And I could go further than I ever had before."</p>
-      <p>A robot said, "The system recovered during the stop?"</p>
-      <p>"Yes," said Ako-chan.</p>
-      <p>"And exceeded its previous maximum?"</p>
-      <p>"Yes."</p>
-      <p>"We did not have this data."</p>
-      <p>Dango looked at the stuck robot still working on the wall panel. Ako-chan watched Dango look at it. He understood something about that robot that the other robots did not.</p>
-      <p>"I know," she said, for him.</p>
+      <p>The robots were still watching Ruka.</p>
+      <p>Dango walked forward. He walked until he was among the nearest robots. They looked down at him. He looked up at them.</p>
+      <p>"I want to tell you something," he said. Obia translated.</p>
+      <p>The robots were still.</p>
+      <p>"I run a lot," Dango said. "Some days I run very far and fall down. I have fallen many times. Once I jumped at the moon's reflection in a water pail and fell in. Once I ran on an icy floor and my legs went in different directions. Once a ball rolled under the bed and I could not find it for a whole week. Once I stepped into a cold water bowl in the dark."</p>
+      <p>A robot tilted its head.</p>
+      <p>"After I fall, I lie still for a while. Then I get up. The next day I can run a little farther than before. Every time I failed, something happened — not in the world, but inside me. That is what the pause was for."</p>
+      <p>The room was quiet.</p>
+      <p>A robot near the front spoke. Obia listened.</p>
+      <p>"It asks: the pause — what was it for?" Obia said.</p>
+      <p>Dango looked at the robot.</p>
+      <p>"Because I needed it," he said.</p>
+      <p>The room went very still.</p>
+      <p>Unit Nine's arm slowed.</p>
     </section>
     <nav class="nav">
       <a href="ep-044.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 45 / 108</a>
+      <a class="dc" href="index.html">Ep 45 / 48</a>
       <a href="ep-046.html">Next →</a>
     </nav>
   </article>
