@@ -42,29 +42,92 @@
       <div class="date-label">Season 1 · Ep 102</div>
       <h1>The Gate Opens</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-102.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The structure was not above the ice. It was under it.</p>
-      <p>A flat metal shape was set into the white surface — smooth and dark and very old. There were no handles. There were no markings. Just a wide door, flush with the ice, pointing straight at the sky.</p>
-      <p>Obia walked forward to look at it.</p>
-      <p>The door opened.</p>
-      <p>Nobody moved.</p>
-      <p>Obia stopped. It had not touched anything. It had not pressed any button or spoken any word. It had simply walked close and the door had opened on its own.</p>
-      <p>"You did not do that," said Suke-san.</p>
-      <p>"No," said Obia. "I did not."</p>
-      <p>The open door showed stairs going down. The stairs were lit from below. The light was steady and pale blue. It did not flicker.</p>
-      <p>Daru leaned forward to look. "It just opened?"</p>
-      <p>"Yes," said Obia.</p>
-      <p>"By itself?"</p>
-      <p>"Yes."</p>
-      <p>Ako-chan stared at the door. It had opened for Obia. It had waited for Obia. Someone had built this door knowing that Obia would arrive. Someone had planned that far ahead.</p>
-      <p>She looked at Obia. Obia was looking at the stairs below.</p>
-      <p>Nobody spoke. Then Colonel Adelie said, "We go down."</p>
-      <p>They went down.</p>
+      <p>Eight kilometres. No wind.</p>
+      <p>All nine of them went in a line across the ice. Colonel Adelie at the front. Pen-san in the middle. Obia at the back.</p>
+      <p>Nobody spoke.</p>
+      <p>At the ridge, the electromagnetic interference began. Obia said: "My sensors will be partially blocked here. I know the way." They followed it over.</p>
+      <p>On the other side, the ground sloped down. At two hundred and ten degrees: a dark square in the ice. The shaft.</p>
+      <p>Obia stopped at the edge. It looked down.</p>
+      <p>Then it went in alone.</p>
+      <p>The others waited at the surface. Suke-san stood at the edge of the shaft. Daru pressed his feet flat on the ice. Above them, the sky was very still.</p>
+      <p>A sound from below — quiet, mechanical. Then light came up from the shaft.</p>
+      <p>Obia's voice, from below: "The door is open."</p>
+      <p>Nobody had touched anything. No code. No key. No signal.</p>
+      <p>The door had opened by itself.</p>
+      <p>Ako-chan looked at the others. Then she walked forward and went down the shaft.</p>
+      <p>One by one, they followed.</p>
+      <p>The door had opened for Obia. Someone had built it that way.</p>
     </section>
     <nav class="nav">
       <a href="ep-101.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 102 / 120</a>
+      <a class="dc" href="index.html">Ep 102 / 114</a>
       <a href="ep-103.html">Next →</a>
     </nav>
   </article>

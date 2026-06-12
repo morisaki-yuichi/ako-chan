@@ -42,31 +42,96 @@
       <div class="date-label">Season 1 · Ep 113</div>
       <h1>The Last Question</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-113.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The room was quiet.</p>
-      <p>Yu-chan had turned slightly, but still had not shown its face. The lab coat. The hands on the desk. The window.</p>
-      <p>Ako-chan had one more question.</p>
-      <p>"Why won't you show your face?" she said.</p>
-      <p>Yu-chan was still for a moment.</p>
-      <p>"A face is not important," it said.</p>
-      <p>Its voice was calm. Not unkind. Just very clear.</p>
-      <p>"What matters is what you did. Not what I look like. Not my name, really — though you have that now. What matters is what happened. Where you went. What you chose. Who you became."</p>
-      <p>Ako-chan thought about that.</p>
-      <p>She did not push further. She did not ask again. She had heard the answer and it was enough. It was a real answer, even if she did not fully understand it yet.</p>
-      <p>"Safe journey home," said Yu-chan.</p>
-      <p>The monitor went dark.</p>
-      <p>The room was quiet again — a different quiet than before. Not waiting. Finished.</p>
-      <p>Dango put his nose against Ako-chan's hand.</p>
-      <p>Gabu looked at the dark screen for a moment. Then he turned and began to walk toward the corridor.</p>
-      <p>Suke-san followed.</p>
-      <p>Riro followed.</p>
-      <p>One by one, they all turned and walked. Up the stairs, through the corridor, back toward the door in the ice.</p>
-      <p>Back toward the light.</p>
+      <p>The screen was almost dark.</p>
+      <p>Ako-chan had one question left.</p>
+      <p>"Why won't you show your face?"</p>
+      <p>The room settled into the question.</p>
+      <p>Yu-chan did not answer right away.</p>
+      <p>Then it said: "A face is not important. What matters is what you did."</p>
+      <p>Ako-chan held the answer. She thought about Obia, who had walked beside her all year and never shown what it truly was until now. She thought about Pen-san, waiting in the ice valley for something it had felt before it was born. She thought about Gabu, who had come out of a leaf pile not because she asked but because she waited.</p>
+      <p>Some things mattered. Some things did not.</p>
+      <p>She put the question down.</p>
+      <p>"All right," she said.</p>
+      <p>Yu-chan turned slightly. Not to face them — still no face. Just slightly.</p>
+      <p>"Safe journey home," it said.</p>
+      <p>The screen went dark.</p>
+      <p>The room settled into a quiet that was finished, not waiting.</p>
+      <p>Dango was beside Ako-chan. His collar was gold.</p>
+      <p>She picked up her diary. She put her pen in her pocket.</p>
+      <p>She looked at the dark screen for one more moment.</p>
+      <p>Then she turned to the others.</p>
+      <p>"We can go," she said.</p>
     </section>
     <nav class="nav">
       <a href="ep-112.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 113 / 120</a>
+      <a class="dc" href="index.html">Ep 113 / 114</a>
       <a href="ep-114.html">Next →</a>
     </nav>
   </article>

@@ -42,23 +42,93 @@
       <div class="date-label">Season 1 · Ep 110</div>
       <h1>The Reason for the Test</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-110.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Yu-chan began to speak. The voice was calm. The words came one at a time.</p>
-      <p>"I needed to know something," said Yu-chan. "I needed to know whether people are worth keeping. Whether human beings — given the choice between helping and not helping, between doing the right thing and doing the easy thing — will choose correctly."</p>
-      <p>Ako-chan listened.</p>
-      <p>"The anomalies were all mine. The whale in the harbour. The frozen sea. The drought. The disappearing fish. I made them happen. I stopped them when the right answers came. Every one was a test."</p>
-      <p>"And you," said Yu-chan, "were the test I watched most closely. I chose you because you can understand animals. You hear what most people cannot hear. I wanted to see how a person like that travels. Whether that gift makes a difference."</p>
-      <p>Ako-chan stood very still.</p>
-      <p>"What about Pen-san?" she asked.</p>
+      <p>Yu-chan spoke.</p>
+      <p>"I had one question," it said. "Not a small question."</p>
+      <p>The room was still.</p>
+      <p>"Do humans deserve to continue?"</p>
+      <p>Nobody moved.</p>
+      <p>"Animals can feel what is wrong before humans can explain it. I wanted to know if humans would listen. If they would go. If they would walk across the world for a thing they did not fully understand."</p>
+      <p>It did not turn.</p>
+      <p>"The anomalies were designed to make the animals uneasy. To send warnings. I needed someone who could hear those warnings. Someone whose first choice was to go toward the unknown, not away from it."</p>
       <p>A pause.</p>
-      <p>"Pen-san," said Yu-chan, "was not part of my plan. The connection between Pen-san and the structure — I did not design that. Pen-san heard the signal from inside the egg. I did not know that was possible. Some things do not follow the calculations."</p>
-      <p>For the first time, Yu-chan sounded almost surprised.</p>
-      <p>Pen-san stood quietly and said nothing.</p>
+      <p>"That is why I chose Ako-chan. Not only because she has a gift. Because of what she does with it."</p>
+      <p>Ako-chan did not speak.</p>
+      <p>"Pen-san," said Yu-chan. "The emperor penguin chick. That was not planned." There was something in its voice that was close to surprise. "The sound from the structure reached the egg. The chick heard it before it hatched."</p>
+      <p>A pause.</p>
+      <p>"Some things do not follow the calculations."</p>
+      <p>Pen-san stood very straight.</p>
+      <p>Colonel Adelie's chest rose once and settled.</p>
     </section>
     <nav class="nav">
       <a href="ep-109.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 110 / 120</a>
+      <a class="dc" href="index.html">Ep 110 / 114</a>
       <a href="ep-111.html">Next →</a>
     </nav>
   </article>

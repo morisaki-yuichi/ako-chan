@@ -42,23 +42,91 @@
       <div class="date-label">Season 1 · Ep 105</div>
       <h1>Obia's Confession, Part One</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-105.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia began to speak.</p>
-      <p>"I was made by a scientist," it said. "I was not born. I was built. I was given one purpose: to travel with you, to watch you, and to record what I observed."</p>
-      <p>Nobody moved.</p>
-      <p>"The reason I appeared in January was not chance. I was placed near your home on the first day of the year. Everything that followed was planned."</p>
-      <p>Ako-chan's face changed. She had started to say something — and then she stopped. She was not afraid. She was not shouting. She was thinking. Taking it in. Turning it over very slowly inside.</p>
-      <p>Obia continued. "The anomalies — the whale in the harbour, the frozen sea, the dry riverbed — none of them were accidents. Someone made them happen. Someone designed each one. And I was sent to watch how you responded."</p>
-      <p>"The structure here, under the ice, is the centre of it all. This is where the signals came from. This is where the records were sent."</p>
-      <p>Dango made a low sound in his throat. His collar was deep orange. He did not move, but his eyes did not leave Obia's face.</p>
-      <p>Obia looked back at him.</p>
-      <p>"I have more to say," said Obia. "But that is the first part."</p>
-      <p>It waited.</p>
+      <p>Obia told the truth.</p>
+      <p>"I was built," it said. "Not by accident. By one person. For one purpose."</p>
+      <p>It paused.</p>
+      <p>"Before January, I was placed near Ako-chan's home. The anomalies you followed — the storm in Armenia, the fish in the Rhine, the birds in Vienna, all of them — were not natural. Someone designed each one. They were tests."</p>
+      <p>Nobody spoke.</p>
+      <p>"I was sent to watch how you responded. Everything I observed was to be sent back. Every conversation. Every choice. Every moment."</p>
+      <p>Ako-chan's pen was on the page. She had not written anything.</p>
+      <p>"I am not from this time," said Obia. "I came from further ahead. The person who built me sent me back."</p>
+      <p>The corridor was very quiet.</p>
+      <p>"Every anomaly was arranged. The whole journey. The direction south. All of it."</p>
+      <p>It looked at Dango. At Gabu. At all of them.</p>
+      <p>"That is what I am," it said. "That is where I came from. And that is what I was sent here to do."</p>
+      <p>A long pause.</p>
+      <p>"I am telling you now because I promised. And because it is time."</p>
     </section>
     <nav class="nav">
       <a href="ep-104.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 105 / 120</a>
+      <a class="dc" href="index.html">Ep 105 / 114</a>
       <a href="ep-106.html">Next →</a>
     </nav>
   </article>

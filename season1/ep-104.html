@@ -42,27 +42,92 @@
       <div class="date-label">Season 1 · Ep 104</div>
       <h1>Everyone is Looking</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-104.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Nobody walked.</p>
-      <p>They were all in the corridor, still and quiet. The pale light hummed above them. The air was warm and very still.</p>
-      <p>Gabu had not moved. He was watching Obia with his careful dark eyes. Pen-san was watching too. Colonel Adelie stood straight and said nothing.</p>
-      <p>Dango sat down slowly on the floor. His collar was deep orange.</p>
-      <p>Suke-san was looking at Obia. Riro was looking at Obia. Daru was looking at Obia.</p>
-      <p>They were all looking at Obia.</p>
-      <p>Obia stood in the centre of the corridor. It was not a large space. The walls were close. There was nowhere else to go.</p>
-      <p>For a moment, nothing happened.</p>
-      <p>Then Obia turned to face them all.</p>
-      <p>"...There are things I must tell you," Obia said.</p>
-      <p>It did not look away. It did not step back. It did not try to change the subject or move forward or ask everyone to keep walking.</p>
-      <p>It said the words and stayed where it was.</p>
-      <p>Ako-chan took a breath.</p>
-      <p>"All right," she said.</p>
-      <p>That was all. Just those two words. And everyone in the corridor waited, in the warm pale light, for Obia to begin.</p>
+      <p>Obia had said yes.</p>
+      <p>Now everyone was looking at it.</p>
+      <p>Dango sat down. His collar was orange. He looked at Obia and did not look away.</p>
+      <p>Daru's head was fully out of his shelter. Suke-san's tail had gone still. Riro pressed his paws flat against his face but his eyes were on Obia. Pen-san stood very straight. Colonel Adelie watched from behind the group.</p>
+      <p>Gabu was back in his place, quiet.</p>
+      <p>Ako-chan was looking too. She had been waiting for this. Since the border storm in May. Since the skua dropped something near her feet. Since the door opened by itself.</p>
+      <p>She had known something was coming.</p>
+      <p>Obia looked at all of them. One by one. It did not step back. It did not turn away.</p>
+      <p>Then it said:</p>
+      <p>"There are things I must tell you."</p>
+      <p>Not a question. Not a request. A decision.</p>
+      <p>Dango's collar stayed orange. Suke-san's tail did not move.</p>
+      <p>Ako-chan opened her diary. She held her pen.</p>
+      <p>"All right," she said quietly.</p>
+      <p>The corridor was very still.</p>
     </section>
     <nav class="nav">
       <a href="ep-103.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 104 / 120</a>
+      <a class="dc" href="index.html">Ep 104 / 114</a>
       <a href="ep-105.html">Next →</a>
     </nav>
   </article>
