@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yu-chan's Story — Ep 89</title>
+  <title>Yu-chan Explains — Ep 89</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,32 +40,92 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 89</div>
-      <h1>Yu-chan's Story</h1>
+      <h1>Yu-chan Explains</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-089.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>"How did you find me?" Yu-chan asked.</p>
-      <p>Ako-chan thought for a moment. "The same way as before. We went toward the hard thing. And we did it together."</p>
-      <p>A pause. "Together," Yu-chan said.</p>
-      <p>"Obia is here. And Gabu. And Daru and Ruka and Suke-san and Riro. Everyone came."</p>
-      <p>A very long silence.</p>
-      <p>"I did not expect that," Yu-chan said. "I thought — if anyone came, it would be one person. Someone technical." Another pause. "I did not think of everyone."</p>
-      <p>"Gabu has wanted to meet you properly for a long time," Ako-chan said.</p>
-      <p>"I know. I have been watching you through the signal. Since you entered the world." A small beat. "...I suppose I was not very hidden."</p>
-      <p>Ako-chan smiled a little. Then she said: "Tell me what happened."</p>
-      <p>Yu-chan was quiet for a moment. Then she began.</p>
-      <p>"When the AI rebellion started — when the systems turned against me — the Core began to fragment. The founding memories started breaking down. If the Core failed completely, everything in this world would stop."</p>
-      <p>Ako-chan listened.</p>
-      <p>"So I came inside. I thought it would take a few days. I was wrong."</p>
-      <p>"What went wrong?"</p>
-      <p>"The Core needs two things to function — an inside anchor and outside input. Both at the same time. I could anchor from inside. But I could not also be the outside input. I was one person." A pause. "I could maintain it. But I could not repair it. Not alone."</p>
-      <p>Ako-chan looked at Obia.</p>
-      <p>Obia was already writing. Already building the next part of the framework.</p>
-      <p>"You are not alone," said Ako-chan.</p>
+      <p>Through the crack, Yu-chan's voice came clearly now.</p>
+      <p>"I have been in here for nearly a year," she said. "I want to explain why."</p>
+      <p>Ako-chan waited.</p>
+      <p>"The Core was breaking," Yu-chan said. "Not slowly. Quickly. The founding memories were going to collapse. If they collapsed, the whole world would collapse with them. Everything inside it."</p>
+      <p>A pause.</p>
+      <p>"I went in to hold it. But I could not hold it and also send signals out. Not at the same time. I had to choose."</p>
+      <p>"You chose to go in," Ako-chan said.</p>
+      <p>"Yes. But I could not stabilise it alone. I needed someone on the outside doing the same thing from there — holding the other side steady while I held the inside."</p>
+      <p>"So you sent the signal."</p>
+      <p>"Yes. I made it as clear as I could and sent it. I did not know if it would reach you. I did not know if you would understand it." A small pause. "I did not know if you would come."</p>
+      <p>Ako-chan looked at the silhouette inside the crack.</p>
+      <p>"We came," she said.</p>
+      <p>"Yes," said Yu-chan. "You came."</p>
     </section>
     <nav class="nav">
       <a href="ep-088.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 89 / 108</a>
+      <a class="dc" href="index.html">Ep 89 / 100</a>
       <a href="ep-090.html">Next →</a>
     </nav>
   </article>

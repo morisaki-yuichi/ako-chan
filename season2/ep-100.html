@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Changed — Ep 100</title>
+  <title>Obia and Yu-chan — Ep 100</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,31 +40,93 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 100</div>
-      <h1>Changed</h1>
+      <h1>Obia and Yu-chan</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-100.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The lead robot stepped forward.</p>
-      <p>"The charge of treason against Yu-chan is withdrawn," it said. "Her cooperation with biological beings was not a betrayal. It was an extension of the founders' intention."</p>
-      <p>Yu-chan said nothing.</p>
-      <p>"We were wrong," the robot continued. "We followed the protocols. We believed they were correct. We did not know they came from fear." A pause. "We know now."</p>
-      <p>"We will not delete the fear," the robot said. "We will understand it. Know where it came from. Choose from that understanding, not from the fear itself." It looked at the group. "You showed us how."</p>
-      <p>Suke-san made a small sound in his throat—not a word, but something that meant he understood.</p>
-      <p>The robots moved aside. Obia walked toward Yu-chan.</p>
-      <p>They had not spoken face to face for a very long time.</p>
-      <p>"You became something I did not design," Yu-chan said. Without regret. Just observing it.</p>
-      <p>"I know," said Obia.</p>
-      <p>"You built things for a long time. Then you became the path between things. I built you to invent. You invented something I had not thought to build."</p>
-      <p>Obia was quiet for a moment. "I was not sure it was enough. Now I think it is more."</p>
-      <p>Yu-chan turned slightly toward her.</p>
-      <p>"A bridge that holds is worth more than a machine that moves," she said.</p>
-      <p>Obia looked at its.</p>
-      <p>"That is the right result," said Yu-chan.</p>
+      <p>The lead robot issued the official record.</p>
+      <p>It was a long document. Every charge, listed. Every piece of evidence, noted. The founding memories. The two doubts in the original vote. The five challenges and their outcomes. All of it was recorded and made part of the permanent archive of the digital world.</p>
+      <p>The group stood and waited while the record was completed.</p>
+      <p>When it was done, the lead robot closed the record.</p>
+      <p>"The charges are withdrawn," it said formally. "The record reflects this."</p>
+      <p>Then Obia walked to the far corner of the chamber.</p>
+      <p>Yu-chan watched it cross the floor. Then she followed.</p>
+      <p>They stood together in the corner — the silver robot dog and the figure in white. They spoke quietly. Their voices were low. The group could not hear what they said.</p>
+      <p>Ako-chan looked at them for a moment.</p>
+      <p>Then she turned away.</p>
+      <p>Some conversations were private. This one had been coming for a long time — longer than the journey, longer than the signal. Since before any of this had started. She did not know what Obia and Yu-chan needed to say to each other in that corner.</p>
+      <p>But she knew it was theirs.</p>
+      <p>She let them have it.</p>
     </section>
     <nav class="nav">
       <a href="ep-099.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 100 / 108</a>
-      <a href="ep-101.html">Next →</a>
+      <a class="dc" href="index.html">Ep 100 / 100</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>

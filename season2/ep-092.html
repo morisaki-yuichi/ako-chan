@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Core Stabilization — Ep 92</title>
+  <title>Almost — Ep 92</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,93 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 92</div>
-      <h1>Core Stabilization</h1>
+      <h1>Almost</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-092.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The Core was quieter now.</p>
-      <p>The loops that had run for years were slowing. Some had stopped entirely. The founding memories were in place — not perfect, but anchored. Connected to each other in a structure that held.</p>
-      <p>The light inside the cracks was steadier. Still dim. But not shifting.</p>
-      <p>Yu-chan's signal was clearer than it had been all day.</p>
-      <p>"It is holding," she said.</p>
-      <p>"Yes," said Obia.</p>
-      <p>"The boundary is thin here." Yu-chan's voice was tired but exact. "I can feel the outside now. That is new." A pause. "For most of this year, I could not feel the outside at all. Only the inside."</p>
-      <p>"Are you ready to come out?" Ako-chan asked.</p>
-      <p>A long pause.</p>
-      <p>"Not yet," said Yu-chan. "I need to release the anchor points slowly. If I let go too quickly, the memories may shift before the framework can hold alone." Another pause. "But the framework is strong. You built it well."</p>
-      <p>"We built it together," said Obia.</p>
-      <p>"Yes." Yu-chan's voice was very quiet. "I know. I could feel each piece you placed."</p>
-      <p>She paused once more.</p>
-      <p>"Almost," she said.</p>
+      <p>The stabilisation had been running for several hours.</p>
+      <p>Obia stood at the edge of the Core and watched the data. Ako-chan stood beside it with her eyes closed, the signal steady. Inside, Yu-chan worked on the fragments — the group could see her silhouette moving, careful and slow.</p>
+      <p>The crack had not grown larger. But the light moving inside it had changed. It was less broken now. The fragments that had been looping moved further before turning back. A few of them reached the edge of the crack and, for the first time, touched the other side.</p>
+      <p>They had not touched each other in a very long time.</p>
+      <p>"Something is changing," Obia said quietly.</p>
+      <p>"I can feel it," Ako-chan said. She did not open her eyes. "The signal is moving differently. It is more direct now."</p>
+      <p>"Yes."</p>
+      <p>Ruka had fallen asleep near the base of the sphere. Dango sat beside Ako-chan and watched. Gabu stood very still at the back of the group.</p>
+      <p>Then, from inside the crack, a voice came through.</p>
+      <p>One word.</p>
+      <p>"Almost."</p>
+      <p>Obia translated it for the robots in the corridor.</p>
+      <p>The group did not need the translation.</p>
+      <p>They had all heard it.</p>
     </section>
     <nav class="nav">
       <a href="ep-091.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 92 / 108</a>
+      <a class="dc" href="index.html">Ep 92 / 100</a>
       <a href="ep-093.html">Next →</a>
     </nav>
   </article>

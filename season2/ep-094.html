@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Two Truths — Ep 94</title>
+  <title>The Robots' Questions — Gabu and Dango — Ep 94</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,35 +40,95 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 94</div>
-      <h1>Two Truths</h1>
+      <h1>The Robots' Questions — Gabu and Dango</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-094.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The deliberations went on. The robots came back to ask their questions.</p>
-      <p>A large robot from the Research Station stopped in front of Gabu.</p>
-      <p>"If we could arrange it so you were never alone again—never without company, always with others—would you want that?"</p>
-      <p>Gabu was quiet. She looked at Ako-chan, and at Daru, and at the space between everyone.</p>
-      <p>"No," she said.</p>
-      <p>"Why not?"</p>
-      <p>"Because loneliness is why being together means something. If I were never alone, I would not know what it felt like to arrive somewhere and find people waiting. That feeling—" She paused. "I do not want to lose it."</p>
-      <p>The robot made a long mark. "Thank you," it said.</p>
-      <p>A smaller robot came to Dango. It looked at his collar.</p>
-      <p>"It changes colour," the robot said.</p>
-      <p>"Yes," said Dango.</p>
-      <p>"Why?"</p>
-      <p>"Because I change. When something different happens inside me, the colour becomes different."</p>
-      <p>"But you are the same dog," the robot said. "Your record is consistent. You are the same."</p>
-      <p>"Yes," said Dango. "And I change."</p>
-      <p>A pause.</p>
-      <p>"These two things are contradictory," the robot said.</p>
-      <p>"No," said Dango. "They are both true."</p>
-      <p>The robot stood very still.</p>
-      <p>Ako-chan watched from a short distance. She had known Dango her whole life. She had never heard him explain this before.</p>
-      <p>The robot made a long mark. Dango's collar was still gold.</p>
+      <p>Two more robots came forward.</p>
+      <p>One went to Gabu.</p>
+      <p>"A life with no difficulty," it said. "No waiting. No uncertainty. Would you choose it?"</p>
+      <p>Gabu was quiet for a long time.</p>
+      <p>"I spent three days under a leaf pile before I agreed to go on the first journey," he said. "I was not sure. I was not ready. I waited and waited and finally came out."</p>
+      <p>"Was that difficulty?"</p>
+      <p>"Yes," Gabu said. "And I was changed by it. When I came out, I was different from when I went under. If there had been no three days, there would have been no change. And the change was what mattered."</p>
+      <p>The other robot turned to Dango.</p>
+      <p>"And you?"</p>
+      <p>Dango looked up at the robot for a moment.</p>
+      <p>Then he sat down on the floor.</p>
+      <p>He lifted both front paws.</p>
+      <p>The pads were worn. The fur was thin in places. The marks of long roads and cold ground and many miles were there in the skin.</p>
+      <p>He showed the robot his paws.</p>
+      <p>Then he lowered them and looked at Ako-chan.</p>
+      <p>The robot was quiet for a long time.</p>
     </section>
     <nav class="nav">
       <a href="ep-093.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 94 / 108</a>
+      <a class="dc" href="index.html">Ep 94 / 100</a>
       <a href="ep-095.html">Next →</a>
     </nav>
   </article>

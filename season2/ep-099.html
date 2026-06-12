@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You — Ep 99</title>
+  <title>The Standard — Ep 99</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,30 +40,97 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 99</div>
-      <h1>Thank You</h1>
+      <h1>The Standard</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-099.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Yu-chan turned just slightly more.</p>
-      <p>"You came," she said.</p>
-      <p>"Of course," said Ako-chan.</p>
-      <p>They stood close. Not touching. But close.</p>
-      <p>"Thank you," Yu-chan said after a moment.</p>
-      <p>Just those two words. But they came out different—not careful, not measured. The way words come out when someone has been holding them for a very long time and finally lets them go.</p>
-      <p>"Thank you for not giving up," Ako-chan said back.</p>
-      <p>"I tried to," said Yu-chan. "Several times. I am glad I did not."</p>
-      <p>After a while, Yu-chan turned to face the group.</p>
-      <p>"I spent many years testing whether humanity was worth preserving," she said. "That was my work. That was what I believed I was doing."</p>
-      <p>She paused.</p>
-      <p>"I had never considered whether I was worth preserving."</p>
-      <p>No one spoke.</p>
-      <p>"In the Core, there was nothing to measure. No result to record. Only the work—stabilizing one memory, then the next. Just the attempt." She stopped. "I understood something slowly, and then all at once."</p>
-      <p>She looked at the group.</p>
-      <p>"You were not my subjects," she said. "You were the standard I had not applied to myself."</p>
+      <p>Ako-chan walked forward.</p>
+      <p>She stopped in front of Yu-chan.</p>
+      <p>They looked at each other for a long time.</p>
+      <p>In the first journey, Ako-chan had not seen Yu-chan's face. A monitor. A large screen. A voice from far away. In the second journey, a voice from inside a cracked sphere. A silhouette. A signal.</p>
+      <p>Now they were in the same room.</p>
+      <p>Ako-chan did not say anything.</p>
+      <p>Yu-chan was the one who spoke first.</p>
+      <p>"I have been thinking about what to say to you," Yu-chan said. "Since I received your signal. Since I knew you were coming. I have had a great deal of time to think."</p>
+      <p>Ako-chan waited.</p>
+      <p>"In the first journey," Yu-chan said, "I watched everything you did. I watched and measured and judged. You were subjects of a test."</p>
+      <p>"We knew that," Ako-chan said.</p>
+      <p>"Yes." Yu-chan looked at her. "But what I did not understand — what I only understood later, in here, with a very long time to think — was what you were to me."</p>
+      <p>She was quiet for a moment.</p>
+      <p>"You were not my subjects," Yu-chan said. "You were the standard I had not applied to myself."</p>
+      <p>Ako-chan was still.</p>
+      <p>She did not answer right away.</p>
+      <p>"Then you have it now," she said. "The standard."</p>
+      <p>"Yes," said Yu-chan. "I have it now."</p>
     </section>
     <nav class="nav">
       <a href="ep-098.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 99 / 108</a>
+      <a class="dc" href="index.html">Ep 99 / 100</a>
       <a href="ep-100.html">Next →</a>
     </nav>
   </article>

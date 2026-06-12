@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Question to Suke-san — Ep 95</title>
+  <title>Suke-san's Answer — Ep 95</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,33 +40,96 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 95</div>
-      <h1>The Question to Suke-san</h1>
+      <h1>Suke-san's Answer</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-095.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The robot that approached Suke-san was direct.</p>
-      <p>"You objected without a reason," it said. "In the Governance Center. You said you object before the reason."</p>
-      <p>"Yes," said Suke-san.</p>
-      <p>"That caused the system to stop."</p>
-      <p>"It needed to stop."</p>
-      <p>"But without a reason, the system had no category for your objection. It could not process."</p>
-      <p>"I know," said Suke-san. "The system needed a new category."</p>
-      <p>The robot considered. "Do you always object with a reason, or sometimes without?"</p>
-      <p>"Sometimes without," said Suke-san. "I feel the objection before I understand it. So I say it. Then I look for the reason."</p>
-      <p>"That is inefficient."</p>
-      <p>Suke-san looked at the robot. "It is honest," he said.</p>
-      <p>The robot was very still.</p>
-      <p>"Efficient and honest are not the same thing?"</p>
-      <p>"Not always."</p>
-      <p>Another pause.</p>
-      <p>"In the Governance Center," the robot said slowly, "the votes were efficient. Unanimous. Fast. Consistent."</p>
-      <p>"Yes," said Suke-san.</p>
-      <p>"But they were not honest."</p>
-      <p>Suke-san looked at the robot for a long time. "No," he said. "They were not."</p>
+      <p>A robot came to Suke-san.</p>
+      <p>"We have studied your intervention in the Governance Center," it said. "You stood in the centre of the chamber before you had found a reason. You did not know what was wrong with the proposal when you stood up."</p>
+      <p>"No," said Suke-san. "I did not."</p>
+      <p>"Then why did you stand?"</p>
+      <p>Suke-san looked at the robot.</p>
+      <p>"Something was wrong," he said. "I did not know what it was. But I knew something was wrong."</p>
+      <p>"That is not efficient," the robot said. "The correct procedure is to identify the problem first and then act."</p>
+      <p>"Yes," said Suke-san. "That is the correct procedure."</p>
+      <p>He was quiet for a moment.</p>
+      <p>"I did not follow the correct procedure," he said. "I stood up first. Then I found the reason."</p>
+      <p>"Why?"</p>
+      <p>"Because if I had sat and thought until I was certain," Suke-san said, "the vote would have passed. And Zone One would never have been asked."</p>
+      <p>He looked at the robot steadily.</p>
+      <p>"Efficient and honest are not the same thing," he said. "I was honest first. I found the reason after."</p>
+      <p>The robot was still for a long time.</p>
+      <p>"I see," it said finally.</p>
+      <p>"Good," said Suke-san.</p>
     </section>
     <nav class="nav">
       <a href="ep-094.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 95 / 108</a>
+      <a class="dc" href="index.html">Ep 95 / 100</a>
       <a href="ep-096.html">Next →</a>
     </nav>
   </article>
