@@ -42,23 +42,93 @@
       <div class="date-label">Season 1 · Ep 100</div>
       <h1>Pen-san's Memory</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-100.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Evening. The camp was quiet. Most of the others had gone inside.</p>
-      <p>Pen-san sat beside Ako-chan at the edge of the camp. They both looked south.</p>
-      <p>Pen-san spoke first.</p>
-      <p>"When I was in the egg," it said, "I could hear the sound."</p>
-      <p>Ako-chan turned to look at it.</p>
-      <p>"From below," said Pen-san. "Low and steady. It came up through the rock where the egg was kept. It was always there. I did not know it was unusual. I thought all eggs heard a sound like that."</p>
-      <p>"When did you learn it was unusual?" Ako-chan asked.</p>
-      <p>"When I hatched," said Pen-san. "The sound was still there. It had been the first thing I heard. After that, I heard wind and birds and the Colonel's voice. But the very first thing — the very first — was that sound from below the ice."</p>
-      <p>It was quiet for a moment.</p>
-      <p>"That is why I waited," said Pen-san. "The sound had been there before me. I thought it was right to wait for what was coming next."</p>
-      <p>Ako-chan did not write in her diary right away. She sat with the words for a long time first.</p>
+      <p>That evening, Pen-san sat beside Ako-chan.</p>
+      <p>Dango was there too. He had stopped resisting. He was pressed against Ako-chan's other side, collar gold.</p>
+      <p>Pen-san watched the valley walls for a while.</p>
+      <p>Then it said: "Before I was born, I could hear the sound."</p>
+      <p>Ako-chan looked at it.</p>
+      <p>"The sound from below the ice," it said. "I could hear it inside the egg. It was the first thing I knew. Before I hatched, before I could see anything — there was the sound."</p>
+      <p>The fire was small and steady.</p>
+      <p>"When I hatched," said Pen-san, "the first thing I heard after the shell was gone was that sound. Colonel Adelie was there. And the sound was there." It blinked slowly. "I thought: something will come. I will wait."</p>
+      <p>"And you waited," said Ako-chan.</p>
+      <p>"Yes," it said.</p>
+      <p>She looked at the valley. Blue and white in the low light.</p>
+      <p>"You waited because of a sound you heard before you were born," she said.</p>
+      <p>"The sound had been there before me," said Pen-san. "I thought it was right to wait for what was coming next."</p>
+      <p>Dango's collar was steady gold.</p>
+      <p>Ako-chan put her arm around Pen-san and held it close.</p>
+      <p>She did not write it down. She just kept it.</p>
     </section>
     <nav class="nav">
       <a href="ep-099.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 100 / 120</a>
+      <a class="dc" href="index.html">Ep 100 / 101</a>
       <a href="ep-101.html">Next →</a>
     </nav>
   </article>

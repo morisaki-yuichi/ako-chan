@@ -42,29 +42,100 @@
       <div class="date-label">Season 1 · Ep 94</div>
       <h1>I Have Been Waiting</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-094.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The chick stood up.</p>
-      <p>It was small, but it stood straight. Its back was perfectly upright. Its flippers hung at its sides. It looked at all of them at once.</p>
-      <p>Then it spoke.</p>
-      <p>"I am Pen-san," it said. "I have been waiting for you."</p>
-      <p>Everyone was quiet.</p>
-      <p>Pen-san looked at Ako-chan. "Your name is Ako-chan."</p>
-      <p>Then at the dog beside her. "And you are Dango."</p>
-      <p>"How do you—" Ako-chan started.</p>
-      <p>Pen-san continued. It said each name in turn. Obia. Gabu. Daru. Suke-san. Riro.</p>
-      <p>All seven names. All correct.</p>
-      <p>Ako-chan looked at Dango. Dango looked at Ako-chan. She looked at Obia. Obia was very still.</p>
-      <p>"How do you know our names?" Ako-chan asked.</p>
-      <p>Pen-san blinked for the first time.</p>
-      <p>"I knew you were coming," it said. "I have known for a long time. I cannot explain it better than that."</p>
-      <p>It settled back down onto the ice, perfectly still again.</p>
-      <p>All seven of them looked at each other. Then they looked at the small round penguin chick who had been waiting in this valley for them.</p>
-      <p>Nobody said anything for a while.</p>
+      <p>When they were ten metres away, the small shape stood up.</p>
+      <p>It was a young penguin. Round and covered in thick grey-brown down. Very large dark eyes.</p>
+      <p>It looked at all seven of them, one at a time.</p>
+      <p>Then it said:</p>
+      <p>"I am Pen-san. I have been waiting for you."</p>
+      <p>Nobody spoke.</p>
+      <p>"Ako-chan," it said. "Dango. Obia. Gabu. Daru. Suke-san. Riro."</p>
+      <p>All seven names. Correctly. In order.</p>
+      <p>Daru's mouth opened.</p>
+      <p>"You know our names?" said Ako-chan.</p>
+      <p>"I have known you were coming," said Pen-san. "For a long time. Since before I could explain how."</p>
+      <p>Dango walked forward carefully. He stopped a short distance from Pen-san and sniffed.</p>
+      <p>Then he sat down. His collar was still gold.</p>
+      <p>Pen-san looked at Dango. Then at Ako-chan.</p>
+      <p>"You walked south-east," said Pen-san. "Not south."</p>
+      <p>"Yes," said Ako-chan.</p>
+      <p>"That was the right way," it said.</p>
+      <p>Gabu was standing very still. After a moment he said, quietly: "We were expected."</p>
+      <p>"Yes," said Pen-san.</p>
+      <p>The ice valley was quiet. The light inside it was steady and pale.</p>
+      <p>Riro pressed his paws to his face. He looked at Pen-san. He looked at the valley walls. He looked at Pen-san again.</p>
+      <p>"How long have you been waiting?" said Riro.</p>
+      <p>"Since I hatched," said Pen-san.</p>
     </section>
     <nav class="nav">
       <a href="ep-093.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 94 / 120</a>
+      <a class="dc" href="index.html">Ep 94 / 101</a>
       <a href="ep-095.html">Next →</a>
     </nav>
   </article>

@@ -42,32 +42,95 @@
       <div class="date-label">Season 1 · Ep 97</div>
       <h1>The Emperor's Eyes</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-097.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>One morning, Pen-san crossed the camp and sat beside Ako-chan.</p>
-      <p>It had not done this before. It just came and sat. Very close. Its round body pressed gently against her side.</p>
-      <p>Ako-chan went still.</p>
-      <p>Pen-san looked straight ahead. It did not explain itself.</p>
-      <p>Then it looked up at her.</p>
-      <p>Its eyes were dark. Very round. Very still. The largest eyes Ako-chan had ever seen. She had noticed them before — everyone had, the first day. But this was different. This was close. This was looking back at her.</p>
-      <p>She tried to look away. She could not.</p>
-      <p>She tried to think about breakfast. She could not think about breakfast.</p>
-      <p>She opened her mouth.</p>
-      <p>"...Can I hold you?" she said.</p>
-      <p>Then she stopped. She had not decided to say that. The words had come out before she chose them.</p>
-      <p>Pen-san blinked.</p>
-      <p>"If you like," it said.</p>
-      <p>Ako-chan picked up Pen-san carefully. Pen-san was warm and round and its down was impossibly soft.</p>
-      <p>From behind her, she heard a very small sound. Like a short breath.</p>
-      <p>She looked back.</p>
-      <p>Dango's mouth was a little open. His collar had turned orange.</p>
-      <p>"Ah," he said. Very quietly.</p>
-      <p>Pen-san turned its head to look at Dango. It looked very calm. Very comfortable. Very settled.</p>
-      <p>Dango looked at Pen-san. He looked at Ako-chan. He looked at Pen-san again.</p>
+      <p>That evening, Pen-san walked over and sat beside Ako-chan.</p>
+      <p>She had been writing in her diary. She stopped.</p>
+      <p>Pen-san looked up at her with its very large dark eyes.</p>
+      <p>They were enormous. Round and very dark. She had seen many animals on this journey. She had never seen eyes quite like these.</p>
+      <p>She looked back down at her diary. She tried to find her place on the page.</p>
+      <p>She looked up again.</p>
+      <p>Pen-san was still looking at her. It had not moved.</p>
+      <p>"Hello," she said.</p>
+      <p>"Hello," said Pen-san. It did not look away.</p>
+      <p>She thought about going back to writing. She found that she could not.</p>
+      <p>"Can I hold you?"</p>
+      <p>She had not decided to say it. The words came out before she chose them.</p>
+      <p>Pen-san considered this for a moment. "If you like," it said.</p>
+      <p>She reached down and picked it up. It was small and warm and very soft. She had not expected quite how soft.</p>
+      <p>She held it and looked at it.</p>
+      <p>She forgot what she had been going to say.</p>
+      <p>From across the camp, Dango was watching.</p>
+      <p>His collar, which had been gold, turned orange.</p>
     </section>
     <nav class="nav">
       <a href="ep-096.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 97 / 120</a>
+      <a class="dc" href="index.html">Ep 97 / 101</a>
       <a href="ep-098.html">Next →</a>
     </nav>
   </article>

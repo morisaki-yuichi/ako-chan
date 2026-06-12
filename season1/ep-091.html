@@ -42,24 +42,93 @@
       <div class="date-label">Season 1 · Ep 91</div>
       <h1>Riro's Diving Report</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-091.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Riro was gone when Ako-chan woke up.</p>
-      <p>She was not worried. She knew where he went when he disappeared before the others were awake.</p>
-      <p>An hour later, he came back. He carried something in his hands. He set it on the ice in front of Ako-chan. It was a flat piece of ice, about the size of her hand. Something was carved into it. Lines and numbers.</p>
-      <p>"A narwhal gave this to me," said Riro. "It waited several days for someone to ask. Narwhals do not give directions easily. They are careful animals."</p>
-      <p>Obia leaned down and studied the carving.</p>
-      <p>"These are coordinates," it said. "Twelve kilometers south."</p>
-      <p>Riro pointed. "That way."</p>
-      <p>"That is the same direction as Dango's nose," said Ako-chan.</p>
-      <p>She looked at Dango. He was already looking south.</p>
-      <p>"The narwhal's mother and father also knew the sound," said Riro. "It has been there longer than they can remember."</p>
-      <p>Ako-chan thought about what that meant. She looked at the small piece of ice with its careful lines.</p>
-      <p>Twelve kilometers. Same direction as Dango had walked. Something very old, waiting under the ice.</p>
+      <p>At the edge of the ice shelf, Riro slipped into the water.</p>
+      <p>He was gone a long time.</p>
+      <p>The others waited on the ice. Suke-san stood at the edge. Daru pressed his feet flat and listened.</p>
+      <p>Then Riro surfaced.</p>
+      <p>He was holding something. A piece of ice, carved. It had been shaped by something — not by a wave or a current. Something had cut a direction into it. Lines and an angle, very precise.</p>
+      <p>He put it on the ice in front of the group.</p>
+      <p>"A narwhal gave me this," he said. He pressed his paws against his face for a moment. "It waited several days for us. Narwhals do not give directions easily. They are careful animals."</p>
+      <p>He pointed at the carved marks. "Twelve kilometres. Below the surface. In this direction."</p>
+      <p>Obia looked at the marks. Then it looked at the heading they had been walking.</p>
+      <p>"That direction," said Obia, "is where Dango was walking."</p>
+      <p>Everyone looked at Dango.</p>
+      <p>Dango sat down and looked at the carved piece of ice.</p>
+      <p>He had not seen the marks before. He had just been following his nose.</p>
+      <p>Riro pressed his paws to his face.</p>
+      <p>"The same place," he said.</p>
+      <p>Nobody was surprised. It just felt right.</p>
     </section>
     <nav class="nav">
       <a href="ep-090.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 91 / 120</a>
+      <a class="dc" href="index.html">Ep 91 / 101</a>
       <a href="ep-092.html">Next →</a>
     </nav>
   </article>

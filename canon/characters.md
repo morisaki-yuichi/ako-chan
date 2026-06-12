@@ -51,7 +51,7 @@ add one bullet per story that introduces a new fact, with the date.
 - [10-21] Accepted Gabu's words about going to Antarctica without old images in the way; wrote it in diary
 - [11-03] Wrote Gabu's phrase "air from when the world was still young" in diary — "I think that is exactly right"
 - [11-19] Asked Pen-san "Can I hold you?" before she quite decided to — Pen-san's eyes overcame her before she chose
-- [11-27] Assigned center role by Colonel Adelie: "You hear what no one else hears. Use that."
+- [11-15] Assigned center role by Colonel Adelie: "You hear what no one else hears. Use that."
 - [12-12] Asked Yu-chan "Are you the one who arranged all of this?" without fear or anger — simply confirmed the fact
 - [12-17] Asked Yu-chan "Why won't you show your face?" — the last question; accepted Yu-chan's answer without pushing further
 - [12-28] Heard Gabu say "I am glad I met you" — knelt down to his height to receive it
@@ -101,9 +101,11 @@ add one bullet per story that introduces a new fact, with the date.
 - [09-26] Decided to go ask Obia directly after Ako-chan said "I wonder if Obia knows what it is"
 - [10-14] Growled at Obia for the first time — low and short; obeyed Ako-chan's "stop" but would not look away
 - [10-24] Bumped into Obia's side to check "are you still there?"; Obia touched his head; collar went from orange to gold
-- [11-05] First to detect Pen-san — buried paws in snow, sniffed, then walked quietly south-east; collar gold (not anxious); "Dango's body knew first"
-- [11-18] Dango's tail dropped when Pen-san leaned against Ako-chan — jealousy round 2 begins
-- [11-20] Tried to resist Pen-san's eyes; ended up pressed against Ako-chan's leg anyway; collar orange moving toward gold; Gabu: "He is losing." Obia: "He is trying very hard."
+- [11-04] Led the group south-east (not south) by nose; collar gold; Ako-chan: "Dango's body knew first" — narwhal coordinates confirmed same direction (ep 90)
+- [11-08] Approached Pen-san cautiously, sniffed, sat down; collar stayed gold — first signal that Pen-san is safe
+- [11-11] Collar turned orange when Ako-chan held Pen-san — jealousy round 2 begins
+- [11-12] Tried to resist Pen-san's eyes; paw moved toward Ako-chan by itself; ended up beside her anyway; collar orange and gold at once; Gabu: "He is losing." Obia: "He is trying very hard. That is different."
+- [11-14] Collar steady gold while Pen-san told its story — accepted Pen-san fully during the memory episode
 - [11-30] Couldn't sleep; watched aurora for the first time; Ako-chan came and sat beside him; "Tomorrow we go further." "All right."
 - [12-06] Growled at Obia after the confession — low and short; collar deep orange; stopped at Ako-chan's word but wouldn't look away
 - [12-08] After Pen-san's verdict, thought for a long moment, then walked to Obia's side and sat down; collar turned from orange to gold — the group's clearest answer
@@ -219,7 +221,7 @@ add one bullet per story that introduces a new fact, with the date.
 - [10-21] Watched the pre-departure sky alone and said "I am trying to imagine. But I cannot." — first time admitting "I don't know" simply; accepted going in new
 - [10-22] Told Daru: "I think about what I will find" — contrast to Daru's "what will I tell"; values are different but complementary
 - [11-03] Said "air from when the world was still young" about Antarctic silence — first time his ancient reptile sense articulated something no other companion could
-- [11-11] Combined with Daru to locate the low-frequency signal: Daru felt it through his shell; Gabu identified the direction "from the south"
+- [11-06] Combined with Daru to locate the low-frequency signal: Daru felt it through his shell; Gabu identified the direction "from the south" and linked all signals: "They are all the same thing"
 - [11-23] Sat in silence with Pen-san; asked "What do you think about patience?"; both agreed: waiting is strength; discussed olive trees and watching the valley
 - [12-18] Said "Yes" immediately when Daru noticed the air was different after the anomalies stopped — Gabu's instant agreement was unusual and noted by Daru
 - [12-28] Said goodbye to each companion with short words; to Ako-chan: "I am glad I met you" — the most direct emotional statement in the year; Ako-chan knelt to his height
@@ -302,8 +304,8 @@ add one bullet per story that introduces a new fact, with the date.
 - [10-15] Stood before the whole group and declared: "I have decided Obia is our companion. The reason is everything it has done." — first rival becomes first defender
 - [10-25] Called wave directions to Obia during the Drake crossing in a seamless two-word rhythm; rivals turned into one instrument
 - [11-10] Patrolled the camp from midnight without being asked; Dango joined him in the morning; "A little scared is all right — it keeps you awake"
-- [11-21] Colonel Adelie recognized his midnight patrol and circuit adjustment for wind shift; both nodded simultaneously without words; joint patrol arranged
-- [11-27] Assigned east flank by Colonel Adelie; said "Understood" immediately and without hesitation
+- [11-13] Colonel Adelie found Suke-san on the east ridge before dawn; confronted him about his patrol; both nodded simultaneously without words — joint circuit arranged
+- [11-15] Assigned east flank by Colonel Adelie; said "Understood" immediately and without hesitation
 - [12-06] Stepped forward one step in front of the group when Obia's confession landed — protective instinct, though not aggressive
 - [12-20] Gave Colonel Adelie a perfect return salute — front paw raised, clean and sharp; the best reply in the group according to the Colonel
 - [12-26] Said to Ako-chan "Also" when told to visit Hokkaido; said to Obia "You are our companion — the reason is everything you have done" (same words as Patagonia)
@@ -342,7 +344,7 @@ add one bullet per story that introduces a new fact, with the date.
 - [09-06] Spoke openly for the first time about past loneliness on the Hokkaido rocks: "a little lonely — but I am not very good at knowing when I am lonely"
 - [10-19] Cooked for the group without critique — said only "Was it good?" when it was done; answered "thank you" to the compliment with no follow-up
 - [10-23] Dived alone at night before the crossing to test cold-water wetsuit; "cold south water is actually better for me" — Antarctica is home ground for Riro
-- [11-07] Dived under the Antarctic ice shelf before others woke; narwhal had waited several days to give coordinates; "narwhals do not give directions easily — they are careful animals"
+- [11-05] Dived under the Antarctic ice shelf; narwhal gave him a carved ice fragment with coordinates 12km south — exactly the direction Dango's nose indicated; "narwhals do not give directions easily — they are careful animals"
 - [11-28] Swam alone under the ice shelf the night before departure — Antarctic cold is his correct water; assigned by Colonel Adelie to undersea approach at the access point
 - [12-25] Said "This is my place" at the northern Pacific coast and entered the water; swam out; looked back once with paws pressed to face — final image echoes first impression
 - [12-25] Said to Suke-san "not bad at all" (the wetsuit); Obia: "The wetsuit was good" — the only words they exchanged at parting
@@ -359,16 +361,14 @@ add one bullet per story that introduces a new fact, with the date.
 - **Notable trait**: Can make almost anyone comply with a single wide-eyed stare; considers this a sovereign skill
 
 ### Established Facts
-- [11-13] Seen first as a small round still shadow in the ice valley; had not moved for at least 40 minutes
-- [11-14] First visual impression: thick grey-brown down, perfectly round, enormous dark eyes; does not move as the group approaches
-- [11-15] First words: "I am Pen-san. I have been waiting for you." — knew all seven names before meeting them; has known the group was coming since before it could explain how
-- [11-16] Was brought to the valley three months ago by Colonel Adelie to be away from the structure's interference — but close enough to hear it
-- [11-18] First affectionate act: walked to Ako-chan and leaned against her leg; Dango's tail begins to drop
-- [11-19] Used "the eyes" on Ako-chan — she asked "Can I hold you?" before she decided to; Pen-san: "If you like"
-- [11-20] Used the eyes on Dango too; Dango's collar moved from orange toward gold — Gabu: "He is losing"; Obia: "He is trying very hard. That is different."
+- [11-07] Seen first as a small round still shadow in the ice valley; had not moved for at least 40 minutes; Dango's collar gold as they approached
+- [11-08] First words: "I am Pen-san. I have been waiting for you." — knew all seven names before meeting them; knew the group was coming "since before it could explain how"
+- [11-09] Was brought to the valley three months ago by Colonel Adelie — far enough from the structure's interference, close enough to wait; confirmed by Colonel Adelie's introduction
+- [11-11] Used "the eyes" on Ako-chan — she asked "Can I hold you?" before she decided to; Pen-san: "If you like"
+- [11-12] Used the eyes on Dango; Dango's collar moved from orange toward gold — Gabu: "He is losing"; Obia: "He is trying very hard. That is different."
+- [11-14] Told Ako-chan: before hatching it heard the sound from below the ice; that sound was the first thing it knew; "I thought it was right to wait for what was coming next"
 - [11-22] Allowed Daru to climb onto its back; carried him three steps; "Was that sufficient?" — warmth maintained within dignity
 - [11-23] Sat with Gabu in long silence; when asked about patience: "I think waiting is strength"; discussed olive trees and watching the valley — same value, different lives
-- [11-26] Told Ako-chan: while still in the egg, it heard the sound from the structure below; the first thing it heard after hatching was that sound; that is why it waited, and why it waited for the group
 - [12-08] Said "That is enough" after Obia's full confession — the deciding word that moved the group forward
 - [12-13] Confirmed by Yu-chan: Pen-san's connection to the structure was NOT planned — it was outside the calculations; Yu-chan was surprised
 - [12-19] For the first time pressed the top of his head against Ako-chan's knee — a small but real breach of imperial composure; brief, then stood straight again
@@ -386,13 +386,14 @@ add one bullet per story that introduces a new fact, with the date.
 - **Notable trait**: Treats every obstacle as a tactical problem; his military precision contrasts with Pen-san's imperious softness
 
 ### Established Facts
-- [11-16] First appearance: stepped from behind a blue-grey rock; quick visual assessment of all 7 members; introduced itself in 5 precise steps; "I will explain the situation"
-- [11-16] Had been observing from the coast before bringing Pen-san to the ice valley 3 months ago; chose the valley to shield Pen-san from the structure's interference
-- [11-16] Received information about the group from narwhals, whales, and seabirds; "the whole south has known you were coming"
-- [11-17] Briefed on terrain: 8km flat, then ice ridge with unpredictable wind; one access shaft, ~1m wide; electromagnetic interference at the ridge; access point at 210° magnetic
-- [11-21] Recognized Suke-san's midnight patrol and noted his circuit adjustment for wind shift; both nodded at the same moment without words — joint night patrol arranged
+- [11-09] First appearance: stepped from behind a blue-grey rock; quick visual assessment of all 7 members; "Colonel Adelie. Guard and instructor to Pen-san. I will explain the situation."
+- [11-09] Had been observing from the coast before bringing Pen-san to the ice valley 3 months ago; chose the valley to shield Pen-san from the structure's interference
+- [11-09] Received information about the group from narwhals, whales, and seabirds; "the whole south has known you were coming"
+- [11-10] Briefed on terrain: 8km flat, then ice ridge with unpredictable wind; one access shaft, ~1m wide; electromagnetic interference at the ridge; access point at 210° magnetic; metal door at the bottom
+- [11-10] Said to Obia: "I believe you open the door" — Colonel's first direct acknowledgement that Obia's nature is known to the south
+- [11-13] Recognized Suke-san's midnight patrol and noted his circuit adjustment for wind shift; both nodded at the same moment without words — joint night patrol arranged
 - [11-25] Before Pen-san was born, found the structure's location by accident: ice texture smoother, denser, no air pockets; felt vibration and electrical sensation through feet; linked it to Pen-san after hatching
-- [11-27] Assigned roles: Suke-san east flank; Obia first in; Daru with Obia (reporting); Riro undersea; Gabu at ridge (weather watch); Ako-chan center; Pen-san with Ako-chan
+- [11-15] Assigned roles: Suke-san east flank; Obia first in; Daru with Obia (reporting); Riro undersea; Gabu at ridge (weather watch); Ako-chan center; Pen-san with Ako-chan; told Ako-chan: "You hear what no one else hears. Use that."
 - [12-19] Received Pen-san's promise: "Please come again. I will be here until I am an emperor." — accepted the group's farewell with Pen-san's characteristic dignity
 - [12-20] Gave a formal salute to each member of the group, one by one; held Suke-san's return salute a moment longer than the others
 - [12-21] Stood with Pen-san at the ice shelf edge until the ship disappeared; the last two shapes on the ice

@@ -17,7 +17,7 @@ All seasons, all parts. Use this to locate the target file and episode range bef
 | 5 | The North | ep 50–63 | 14 | `stories_s1_p05.py` | ✅ |
 | 6 | South America | ep 64–78 | 15 | `stories_s1_p06.py` | ✅ |
 | 7 | Toward the Ice | ep 79–89 | 11 | `stories_s1_p07.py` | ✅ |
-| 8 | The Southern Signal | ep 90–101 | 12 | `stories_s1_p08.py` | ⬜ |
+| 8 | The Southern Signal | ep 90–101 | 12 | `stories_s1_p08.py` | ✅ |
 | 9 | Obia's Confession | ep 102–114 | 13 | `stories_s1_p09.py` | ⬜ |
 | 10 | We Are Home | ep 115–120 | 6 | `stories_s1_p10.py` | ⬜ |
 

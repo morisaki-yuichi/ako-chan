@@ -42,27 +42,99 @@
       <div class="date-label">Season 1 · Ep 98</div>
       <h1>Dango's Resistance</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-098.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Ako-chan held Pen-san and walked slowly around the camp.</p>
-      <p>Dango followed.</p>
-      <p>He walked in circles around her feet. He tried very hard not to look at Pen-san. He looked at the ice instead. He looked at the sky. He looked at his own front paws.</p>
-      <p>Then Pen-san looked at him.</p>
-      <p>Those eyes opened wide again. Dark. Round. Quiet.</p>
-      <p>Dango's front left paw moved sideways. He had not meant to move it.</p>
-      <p>He stopped. He looked at his paw. He moved it back.</p>
-      <p>Pen-san's eyes were still on him.</p>
-      <p>Dango's paw moved sideways again.</p>
-      <p>He made a sound. It was not a word. Something between no and a sigh.</p>
-      <p>Then he was pressed against Ako-chan's leg. He had not really decided to go there. But there he was.</p>
-      <p>His collar was orange. At the very edges, near the clasp, a little gold.</p>
-      <p>Gabu watched from his shelter. "He is losing," he said.</p>
-      <p>Obia stood beside Gabu. "He is trying very hard," it said. "That is different."</p>
-      <p>Gabu was quiet for a moment. "Yes," he said. "That is a fair thing to say.</p>
+      <p>Ako-chan was still holding Pen-san.</p>
+      <p>Dango sat near the fire. He was trying very hard to look at the ice.</p>
+      <p>He looked at the ice.</p>
+      <p>He looked at the valley wall.</p>
+      <p>He looked at the fire.</p>
+      <p>His eyes moved, slowly, toward Ako-chan.</p>
+      <p>Pen-san was in her arms. Its enormous eyes were turning toward everyone in turn.</p>
+      <p>They reached Dango.</p>
+      <p>Dango looked at the ice.</p>
+      <p>His paw moved. He had not decided to move it. It moved in Ako-chan's direction by itself.</p>
+      <p>He brought it back.</p>
+      <p>Gabu was watching from beside his shelter. He said, very quietly, to Obia: "He is losing."</p>
+      <p>"He is trying very hard," said Obia. "That is different."</p>
+      <p>Dango sat with great dignity.</p>
+      <p>His paw moved again.</p>
+      <p>His collar was orange, but at the very edges it had begun moving toward gold.</p>
+      <p>He stood up. He walked to Ako-chan. He sat down hard against her leg.</p>
+      <p>His collar was orange and gold, both at once.</p>
+      <p>Pen-san looked down at him with its very large eyes.</p>
+      <p>Dango looked at the ice.</p>
+      <p>He was not looking at Pen-san. He was simply there. He had not given up. He had just come to sit beside Ako-chan.</p>
+      <p>That was all.</p>
     </section>
     <nav class="nav">
       <a href="ep-097.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 98 / 120</a>
+      <a class="dc" href="index.html">Ep 98 / 101</a>
       <a href="ep-099.html">Next →</a>
     </nav>
   </article>

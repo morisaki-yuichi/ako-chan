@@ -42,26 +42,98 @@
       <div class="date-label">Season 1 · Ep 93</div>
       <h1>A Shadow in the Valley</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-093.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>They went down into the valley together.</p>
-      <p>The walls rose on either side. The sound was clearer here — not loud, but steady and low, like a slow pulse.</p>
+      <p>They came over a ridge and saw a valley below.</p>
+      <p>The walls were blue and white. The light inside was quiet and even. No wind reached the floor.</p>
       <p>Obia stopped.</p>
-      <p>"There," it said.</p>
-      <p>Ako-chan looked. At the far end of the valley, something sat perfectly still. It was small and round and dark against the white. It had not moved at all.</p>
-      <p>"Biological signal," said Obia. "Small. Body temperature is normal."</p>
-      <p>Dango stepped forward. He looked at the small shape, then at Ako-chan. His collar was gold. Not orange. Not worried. Gold.</p>
-      <p>Ako-chan trusted that.</p>
-      <p>"All right," she said. "Let us go closer."</p>
-      <p>They walked forward slowly. The small shape did not move. It did not turn. It did not look at them.</p>
-      <p>But somehow Ako-chan felt that it knew they were coming. She did not know why she felt that. She just did.</p>
-      <p>Dango walked beside her. His ears were relaxed. His step was calm.</p>
-      <p>Whatever was waiting at the end of the valley was not a threat. Dango's body was sure of that.</p>
-      <p>Ako-chan kept walking toward it.</p>
+      <p>"There is something ahead," it said. "A biological signal. Small. Body temperature normal. It has not moved in at least forty minutes."</p>
+      <p>"An animal?" said Ako-chan.</p>
+      <p>"Yes."</p>
+      <p>They stood on the ridge and looked down into the valley.</p>
+      <p>At the far end, there was a small dark shape. It was round and very still.</p>
+      <p>Ako-chan looked at Dango.</p>
+      <p>His collar was gold.</p>
+      <p>Not orange. Gold.</p>
+      <p>She knew his collar. She had been reading it for ten months. When something was wrong, it went orange — every time, without fail. When something was safe, it went gold.</p>
+      <p>It was gold.</p>
+      <p>"Let us go closer," she said.</p>
+      <p>"We do not know what that is," said Suke-san.</p>
+      <p>"I know," she said. "But Dango does."</p>
+      <p>She looked at Dango. He was already walking forward, into the valley, ears up and forward.</p>
+      <p>His collar had not changed.</p>
+      <p>They followed him down. The ice walls rose on both sides. The valley was very quiet.</p>
+      <p>The small dark shape did not move.</p>
+      <p>They kept walking toward it.</p>
     </section>
     <nav class="nav">
       <a href="ep-092.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 93 / 120</a>
+      <a class="dc" href="index.html">Ep 93 / 101</a>
       <a href="ep-094.html">Next →</a>
     </nav>
   </article>

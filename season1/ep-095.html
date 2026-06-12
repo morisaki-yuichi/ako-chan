@@ -42,23 +42,93 @@
       <div class="date-label">Season 1 · Ep 95</div>
       <h1>Colonel Adelie</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-095.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Movement. Behind a blue-grey rock at the edge of the valley.</p>
-      <p>A small penguin stepped out. It was very small — smaller than any penguin Ako-chan had seen — but the way it moved was not small at all.</p>
-      <p>It looked at all seven of them, fast and sharp. One second. Two seconds. Then it had finished.</p>
+      <p>They heard a sharp sound from behind a blue-grey rock.</p>
+      <p>Then a small penguin stepped out.</p>
+      <p>It was different from Pen-san. It moved with a quick, deliberate step. It looked at each of them in turn. Four seconds, and it was done.</p>
       <p>"Colonel Adelie," it said. "Guard and instructor to Pen-san. I will explain the situation."</p>
-      <p>It did not wait for them to answer.</p>
-      <p>"I have been observing this coast for three months," it said. "I brought Pen-san to this valley to keep it away from the interference of the structure below the ice. Close enough to hear. Far enough to wait properly."</p>
-      <p>"How did you know we were coming?" Ako-chan asked.</p>
-      <p>"Narwhals," said the Colonel. "And whales. And seabirds." It looked at her directly. "The whole south has known you were coming. You have been noticed at every step."</p>
-      <p>Ako-chan thought about Riro's narwhal, and the orca in October, and the albatross at the Drake Passage.</p>
-      <p>"That is a long list," said Suke-san.</p>
-      <p>"Yes," said the Colonel. "You have traveled far.</p>
+      <p>Nobody had asked it to explain anything. It began anyway.</p>
+      <p>"We have been tracking your position since October. Reports from narwhals, from whales, from seabirds along the coast. The signal you have been following is visible to every animal in the south."</p>
+      <p>It paused.</p>
+      <p>"The whole south has known you were coming," it said. "You were noticed at every step."</p>
+      <p>Suke-san's ear turned slightly.</p>
+      <p>"You were watched?" said Daru.</p>
+      <p>"Observed," said Colonel Adelie. "There is a difference." It looked at Obia. "You know the difference."</p>
+      <p>Obia did not answer.</p>
+      <p>"How long have you been here?" said Ako-chan.</p>
+      <p>"Three months," said the Colonel. "I brought Pen-san to this valley. Far enough from the signal's interference to keep it safe. Close enough to wait." It looked at Pen-san. "We have been ready."</p>
+      <p>Pen-san was standing perfectly straight beside the Colonel.</p>
+      <p>It looked small and proud and very sure.</p>
     </section>
     <nav class="nav">
       <a href="ep-094.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 95 / 120</a>
+      <a class="dc" href="index.html">Ep 95 / 101</a>
       <a href="ep-096.html">Next →</a>
     </nav>
   </article>
