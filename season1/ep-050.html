@@ -42,26 +42,91 @@
       <div class="date-label">Season 1 · Ep 50</div>
       <h1>Following the Trail</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-050.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The line of shells went from rock to rock. Each time they moved forward, the shells were a little newer. The pieces were bright and wet.</p>
-      <p>"Close," said Obia. "The source is within ten meters."</p>
-      <p>"Close!" said Daru. He started to move fast. "Close! Let's go——"</p>
-      <p>"Quietly," said Gabu.</p>
-      <p>Daru stopped. He turned and looked at Gabu. Gabu's head was just above the rock surface, watching Daru steadily.</p>
-      <p>Daru said nothing. He settled back down. His legs were still ready to run, but he stayed still.</p>
-      <p>Ako-chan looked at them both. She had not expected Daru to stop. She had not expected Gabu to speak either.</p>
-      <p>"Thank you," she said quietly, to Gabu.</p>
-      <p>Gabu gave one slow blink.</p>
-      <p>They all moved forward together, very quietly. One careful step at a time. The rocks were wet. The sea came up in small waves around them.</p>
-      <p>Ahead, a long curtain of dark seaweed draped between two big stones.</p>
-      <p>Something was behind it.</p>
-      <p>A small round shape. Dense brown fur. And both tiny paws pressed flat against a small face.</p>
-      <p>It was looking straight at them.</p>
+      <p>The morning was full of fog.</p>
+      <p>Suke-san led them down the cliff path. He knew where the tide went low. He did not say so. He just walked.</p>
+      <p>They followed in the order they had made without deciding: Suke-san first, then Obia and Ako-chan, then Dango, then Daru on the pack, then Gabu at the back, slow and steady.</p>
+      <p>A white-tailed eagle circled low overhead. It dipped once and flew toward the east cliff.</p>
+      <p>Suke-san watched it. "This way," he said.</p>
+      <p>On the rocks, they found broken shells. Sea urchin shells, cracked open clean. In a line. The newest ones were at the edge, the oldest in the middle.</p>
+      <p>Dango lifted his nose. His collar went to full yellow.</p>
+      <p>Suke-san lifted his nose too. "Something small," he said quietly. "Warm. I do not know this smell."</p>
+      <p>Ako-chan crouched and looked along the line of shells. They grew fresher as they went east. Toward a rock where kelp hung in thick brown curtains.</p>
+      <p>Daru said, "Close!"</p>
+      <p>Gabu said, "Quietly."</p>
+      <p>One word. That was all.</p>
+      <p>Daru stopped moving.</p>
+      <p>The kelp did not stir. But something behind it had pressed two small paws flat against its face.</p>
     </section>
     <nav class="nav">
       <a href="ep-049.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 50 / 120</a>
+      <a class="dc" href="index.html">Ep 50 / 63</a>
       <a href="ep-051.html">Next →</a>
     </nav>
   </article>

@@ -42,27 +42,90 @@
       <div class="date-label">Season 1 · Ep 54</div>
       <h1>Riro's Meal</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-054.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Riro found a flat rock in the sun. He looked at the sea.</p>
-      <p>"I am going to eat," he said.</p>
-      <p>No one had asked, but he seemed to feel an explanation was needed.</p>
-      <p>He dove into the water. He came back with a sea urchin. He set it on the rock, positioned a smooth stone, and struck once. The shell cracked cleanly.</p>
-      <p>He ate with great focus. The group watched.</p>
-      <p>When he was done, he looked at the open shell.</p>
-      <p>"Acceptable," he said. "The current here is cold-water. That gives good flavor. But this one was not from the deep shelf. You can tell from the color." He set the shell down. "The best urchins come from the cold shelf, below twenty meters."</p>
-      <p>"Near the eastern cliff?" asked Suke-san.</p>
-      <p>Riro looked at him.</p>
-      <p>"Yes," said Suke-san. "I know where that current runs along the coast."</p>
-      <p>Riro looked at Suke-san for a moment.</p>
-      <p>"You know this coast," said Riro.</p>
-      <p>It was not a question. It was recognition.</p>
-      <p>Suke-san lifted his head slightly. "I live here," he said.</p>
-      <p>Riro nodded. This was the correct answer.</p>
+      <p>That afternoon, Riro went to the water. He dove and came back with a sea urchin. He placed it on a flat rock, chose a stone, and opened it with two careful strikes.</p>
+      <p>He ate in silence.</p>
+      <p>Then he looked up. "Today's urchin is acceptable," he said. "The flavour is correct. But the size is smaller than usual for this coast in July."</p>
+      <p>Suke-san looked at the shell. "The cold current shelf is further out than last year. The larger urchins have moved east. About four kilometres."</p>
+      <p>Riro looked at Suke-san.</p>
+      <p>"You know this coast," he said.</p>
+      <p>"I have watched it for a long time," said Suke-san.</p>
+      <p>Riro looked at the empty shell. Then back at Suke-san. "There are urchins of the correct size on the east side of the outer rocks," he said. "When the current shifts in August, they come back."</p>
+      <p>"I know," said Suke-san. "They have done it every year."</p>
+      <p>They both looked at the sea.</p>
+      <p>Daru said, "I do not eat urchins. But I would like to know more about them."</p>
+      <p>Riro looked at Daru for a moment.</p>
+      <p>"Later," he said. But he said it like a promise.</p>
     </section>
     <nav class="nav">
       <a href="ep-053.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 54 / 120</a>
+      <a class="dc" href="index.html">Ep 54 / 63</a>
       <a href="ep-055.html">Next →</a>
     </nav>
   </article>

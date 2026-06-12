@@ -42,30 +42,93 @@
       <div class="date-label">Season 1 · Ep 57</div>
       <h1>Gabu's Words</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-057.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The rain did not stop.</p>
-      <p>Gabu had been quiet all morning. He was at the edge of the shelter, watching the water fall. His shell was dark with moisture.</p>
-      <p>"Under the olive tree in Greece," he said quietly, "it never got this wet."</p>
-      <p>No one said anything. They waited.</p>
-      <p>"The leaves kept most of the rain off," Gabu said. "There was a place at the base of the trunk where the soil stayed dry. I used to sit there when it rained."</p>
-      <p>"Do you want to go back?" asked Daru.</p>
-      <p>Gabu was quiet for a moment.</p>
-      <p>"No," he said.</p>
-      <p>"Then why mention it?" asked Suke-san.</p>
-      <p>Gabu did not answer straight away. He watched the rain.</p>
-      <p>"It is still mine," he said at last. "The olive tree. I carry it with me."</p>
-      <p>"Even here?" asked Ako-chan.</p>
-      <p>"Especially here," said Gabu.</p>
-      <p>He turned and went back into his shelter.</p>
-      <p>Riro had his paws against his face. He was looking at where Gabu had stood.</p>
-      <p>"When I was alone on the rocks," said Riro quietly, "I remembered the other otters. It was not the same as being there. But it helped."</p>
-      <p>No one asked him anything. He did not say more.</p>
-      <p>The rain continued.</p>
+      <p>It rained in the afternoon. Everyone moved under the cliff overhang.</p>
+      <p>Gabu sat at the edge and looked at the sea. The rain made rings on the water. The rocks were dark and shining.</p>
+      <p>Riro sat beside him.</p>
+      <p>After a while, Gabu said, "I miss my olive tree."</p>
+      <p>Riro looked at the sea. He did not speak right away.</p>
+      <p>"The one in Greece?" said Ako-chan.</p>
+      <p>"Yes. In the rain, it smelled different. Good different. I would sit under it and the water came off the leaves in drops."</p>
+      <p>He was quiet for a moment.</p>
+      <p>"I could go back," he said. "But I will not. The answer is no."</p>
+      <p>Riro said, "Why not?"</p>
+      <p>"Because I carry it," said Gabu. "I do not need to be there. I have it with me."</p>
+      <p>Riro pressed his paws against his face. He thought about this.</p>
+      <p>"When I was alone on the rocks," he said, "I thought about the other otters. I could not see them. But I could remember them. It helped."</p>
+      <p>Gabu looked at Riro.</p>
+      <p>"Yes," he said. "That is exactly it."</p>
+      <p>The rain came harder. They sat under the overhang together. Daru was asleep on Ako-chan's pack. Dango was watching Ako-chan. Suke-san sat at the edge, looking at the sea by himself.</p>
     </section>
     <nav class="nav">
       <a href="ep-056.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 57 / 120</a>
+      <a class="dc" href="index.html">Ep 57 / 63</a>
       <a href="ep-058.html">Next →</a>
     </nav>
   </article>

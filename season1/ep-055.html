@@ -42,28 +42,93 @@
       <div class="date-label">Season 1 · Ep 55</div>
       <h1>Riro's Unit</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-055.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia had been working since early morning.</p>
-      <p>It gathered materials from the supply kit. Metal frame. Mesh sides. A water reservoir with a slow-salt feed system. A small pump.</p>
-      <p>By late afternoon, it was done.</p>
-      <p>"This unit keeps the salt level and moisture correct for a sea otter," said Obia. "You can float in it. You can also sleep in it."</p>
-      <p>Riro looked at the unit. He walked around it once. He pressed one paw against his face and looked at the water inside.</p>
-      <p>Then he climbed in.</p>
-      <p>He settled. He floated slightly in the shallow water. He pressed both paws against his face.</p>
+      <p>Obia worked through the night.</p>
+      <p>In the morning, a small unit stood on the rocks. Light metal frame. A tank filled with cold seawater. A cover to keep spray in and wind out. The inside was exactly the right size.</p>
+      <p>Riro came out from the kelp and looked at it.</p>
+      <p>He walked around it once. He looked at the water inside. He looked at the opening.</p>
+      <p>He stepped in.</p>
+      <p>He settled into the water. He pressed his paws against his face.</p>
       <p>"This is good," he said.</p>
-      <p>"You can travel with us now," said Ako-chan.</p>
-      <p>Riro looked at her from inside the unit. "I was alone for a week," he said. "That is long enough."</p>
-      <p>He pressed his paws against his face and looked out at the rest of the group.</p>
-      <p>"Seven," said Obia.</p>
-      <p>"Seven," said Daru. He sounded very pleased.</p>
-      <p>Dango counted in his head. He looked at Riro in the unit.</p>
-      <p>Seven. That was right.</p>
-      <p>He was not completely sure how he felt about that.</p>
+      <p>Obia said, "The water stays cold for eight hours. I will refresh it at each low tide."</p>
+      <p>Riro looked out from the opening. "I was alone on these rocks for a week," he said. "That is long enough."</p>
+      <p>It was the quietest thing he had said.</p>
+      <p>Ako-chan did not ask more. Dango moved a little closer, but not too close. Daru opened his mouth and then closed it again.</p>
+      <p>Gabu said nothing. But he moved his shelter so it faced Riro's unit.</p>
+      <p>Obia said, "Seven members."</p>
+      <p>Nobody spoke for a moment.</p>
+      <p>Suke-san said, "All right."</p>
+      <p>He said it simply, looking at the sea. His tail was curled.</p>
     </section>
     <nav class="nav">
       <a href="ep-054.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 55 / 120</a>
+      <a class="dc" href="index.html">Ep 55 / 63</a>
       <a href="ep-056.html">Next →</a>
     </nav>
   </article>

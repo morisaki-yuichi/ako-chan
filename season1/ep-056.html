@@ -42,30 +42,93 @@
       <div class="date-label">Season 1 · Ep 56</div>
       <h1>The Shellfish Ranking</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-056.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>"I will now rank the shellfish of this coast," said Riro.</p>
-      <p>It was evening. Everyone was resting near the water's edge.</p>
-      <p>"You do not have to," said Suke-san.</p>
-      <p>Riro looked at him. "I want to," he said.</p>
-      <p>He began with scallops. He explained the difference between the inner muscle and the outer edge. He explained which current produced the best grain. He explained how to open one cleanly without losing the liquid. He explained three separate things about the liquid.</p>
-      <p>Then he moved to abalone.</p>
-      <p>Dango was half asleep. Suke-san had given up arguing and was watching the sea. Daru was listening with his eyes wide.</p>
-      <p>Ten minutes passed. Then twenty.</p>
-      <p>Riro was now explaining squid.</p>
-      <p>Gabu had been listening quietly from inside his shell opening. He had not moved. He had not said anything.</p>
-      <p>After thirty minutes, Riro paused to look at the sea.</p>
-      <p>"I can stop here," he said.</p>
-      <p>"Please continue," said Gabu.</p>
-      <p>Riro looked at him.</p>
-      <p>Gabu's head was fully out. He was watching Riro steadily.</p>
-      <p>"You are interested," said Riro.</p>
-      <p>"Yes," said Gabu.</p>
-      <p>Riro settled back down. "Then," he said, "I will explain sea urchin grading."</p>
+      <p>Three days later, Riro began to explain.</p>
+      <p>"Shellfish," he said, "are not all equal."</p>
+      <p>He held up one paw. "Sea urchin is first. Cold-current urchin only — the warm-water kind is not worth discussing." He paused. "Next: abalone. Rocky floor only, not sand. Sand is for clams."</p>
+      <p>He went on. He explained the difference between blue mussel and green mussel. The correct rock depth for oysters. Why octopus was not shellfish but belonged in the same conversation.</p>
+      <p>After about twenty minutes, Dango fell asleep.</p>
+      <p>Suke-san turned to face the sea.</p>
+      <p>Daru was still listening, but his eyes had started to close.</p>
+      <p>Ako-chan was writing in her diary. She had stopped writing about shellfish. She was drawing a small picture of Riro's face.</p>
+      <p>Riro continued.</p>
+      <p>Gabu had not moved since the beginning. He had not looked away.</p>
+      <p>When Riro paused, Gabu said, "Please continue."</p>
+      <p>Riro looked at Gabu.</p>
+      <p>"You are listening," he said.</p>
+      <p>"Yes," said Gabu. "I do not know any of this. It seems useful to know."</p>
+      <p>Riro pressed his paws against his face. He looked at Gabu for a moment.</p>
+      <p>Then he continued.</p>
     </section>
     <nav class="nav">
       <a href="ep-055.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 56 / 120</a>
+      <a class="dc" href="index.html">Ep 56 / 63</a>
       <a href="ep-057.html">Next →</a>
     </nav>
   </article>
