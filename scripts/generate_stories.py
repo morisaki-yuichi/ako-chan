@@ -25,20 +25,21 @@ MONTH_NAMES = ["", "January", "February", "March", "April", "May", "June",
 SEASONS = {
     "s1": {
         "dir":          "season1",
-        "title":        "Ako-chan and the Riddle Dog",
+        "title":        "Ako-chan and the Robot Dog",
         "season_label": "Season 1",
-        "subtitle":     "119 Episodes · 9 Parts",
+        "subtitle":     "120 Episodes · 10 Parts",
         "ep_based":     True,
         "parts": [
-            (1, "England"),
-            (2, "Through Europe"),
-            (3, "Mediterranean"),
-            (4, "Japan"),
-            (5, "The North"),
-            (6, "South America"),
-            (7, "Toward the Ice"),
-            (8, "The Far South"),
-            (9, "We Are Home"),
+            (1,  "England"),
+            (2,  "Through Europe"),
+            (3,  "Mediterranean"),
+            (4,  "Japan"),
+            (5,  "The North"),
+            (6,  "South America"),
+            (7,  "Toward the Ice"),
+            (8,  "The Southern Signal"),
+            (9,  "Obia's Confession"),
+            (10, "We Are Home"),
         ],
         "narrative": (
             "Ako-chan and her puppy Dango set off on a long journey across the world. "
@@ -55,8 +56,9 @@ SEASONS = {
             5: "135deg, #2a4a5a, #6a8a9a",   # The North
             6: "135deg, #2a5a2a, #8a9a40",   # South America
             7: "135deg, #2a3a5a, #8aaaca",   # Toward the Ice
-            8: "135deg, #1a2a4a, #6a9aba",   # The Far South
-            9: "135deg, #3a2a5a, #c4902a",   # We Are Home
+            8:  "135deg, #1a2a4a, #6a9aba",   # The Southern Signal
+            9:  "135deg, #1a1a3a, #7a5a9a",   # Obia's Confession
+            10: "135deg, #3a2a5a, #c4902a",   # We Are Home
         },
         # (keyword, emoji, display_name, join_date, exclude_window)
         "cast": [
@@ -727,7 +729,7 @@ _ROOT_TMPL = """\
       <div class="card-band" style="background:linear-gradient(90deg,#3a2a5a,#d4a040)"></div>
       <div class="card-body">
         <div class="season-num">Season 1</div>
-        <h2>Ako-chan and the Riddle Dog</h2>
+        <h2>Ako-chan and the Robot Dog</h2>
         <p>A silver dog appears in the park — and it knows Ako-chan's name. Something is wrong far away, and the answer may lie at the end of a long journey.</p>
         <span class="read-link">Read Season 1 →</span>
       </div>

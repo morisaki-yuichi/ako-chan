@@ -7,17 +7,19 @@ from stories_s1_p06 import STORIES_S1_P06
 from stories_s1_p07 import STORIES_S1_P07
 from stories_s1_p08 import STORIES_S1_P08
 from stories_s1_p09 import STORIES_S1_P09
+from stories_s1_p10 import STORIES_S1_P10
 
 _PARTS = [
-    (1, STORIES_S1_P01),
-    (2, STORIES_S1_P02),
-    (3, STORIES_S1_P03),
-    (4, STORIES_S1_P04),
-    (5, STORIES_S1_P05),
-    (6, STORIES_S1_P06),
-    (7, STORIES_S1_P07),
-    (8, STORIES_S1_P08),
-    (9, STORIES_S1_P09),
+    (1,  STORIES_S1_P01),
+    (2,  STORIES_S1_P02),
+    (3,  STORIES_S1_P03),
+    (4,  STORIES_S1_P04),
+    (5,  STORIES_S1_P05),
+    (6,  STORIES_S1_P06),
+    (7,  STORIES_S1_P07),
+    (8,  STORIES_S1_P08),
+    (9,  STORIES_S1_P09),
+    (10, STORIES_S1_P10),
 ]
 
 STORIES_S1 = []
