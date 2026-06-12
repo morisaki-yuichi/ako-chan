@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Ones Who Waited — Ep 103</title>
+  <title>Pen-san and Colonel — Ep 103</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,24 +40,94 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 103</div>
-      <h1>The Ones Who Waited</h1>
+      <h1>Pen-san and Colonel</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-103.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Pen-san and Colonel Adelie were exactly where Ako-chan had imagined—near the door, standing side by side.</p>
-      <p>Pen-san walked forward with great dignity. When he was close enough, he pressed the top of his head gently against Ako-chan's knee. He held it there for a moment.</p>
-      <p>Ako-chan put her hand on his back.</p>
-      <p>"You came back," Pen-san said, straightening.</p>
-      <p>"I always come back," said Ako-chan.</p>
-      <p>Colonel Adelie stood a few steps behind, at attention. His eyes moved from face to face. Then he saw Yu-chan. He looked at her for a long moment. Something in his posture changed—like a question being put away.</p>
-      <p>Pen-san walked toward Yu-chan and stopped in front of her.</p>
-      <p>"You are the emperor penguin," Yu-chan said.</p>
-      <p>"I am," said Pen-san. "Pen-san."</p>
-      <p>"You were outside my calculations," Yu-chan said. "I modeled responses, outcomes, interactions. I did not model you. My calculations for you produced no stable result."</p>
+      <p>Pen-san and Colonel Adelie were outside the door.</p>
+      <p>The Antarctic wind was strong. The snow cut sideways across the ice. But neither of them had moved from where they had been standing.</p>
+      <p>Pen-san pressed her head against Ako-chan's shoulder.</p>
+      <p>"You came back," she said.</p>
+      <p>"I always come back," Ako-chan said.</p>
+      <p>Colonel Adelie counted heads — one by one, left to right. Eight. Then one more. Nine. The Colonel made one short, satisfied sound that meant: all present.</p>
+      <p>Pen-san turned.</p>
+      <p>Yu-chan was standing just behind the others. She was looking at Pen-san.</p>
+      <p>Pen-san walked toward her. Slowly. She stopped in front of Yu-chan.</p>
+      <p>Neither of them spoke first.</p>
+      <p>Then Yu-chan said: "You waited."</p>
       <p>Pen-san considered this.</p>
-      <p>"I know," he said. "I am an emperor. Emperors are not easily calculated."</p>
-      <p>"That is accurate," said Yu-chan.</p>
-      <p>Colonel Adelie stood a fraction straighter. And for just a moment—very briefly—there was something in his expression that was not quite a smile. Daru wrote it down carefully.</p>
+      <p>"Yes," she said.</p>
+      <p>A pause.</p>
+      <p>"You were outside my calculations," Yu-chan said.</p>
+      <p>Pen-san stood very straight.</p>
+      <p>"I am an Emperor Penguin," she said. "We are not easy to calculate."</p>
+      <p>Yu-chan looked at her.</p>
+      <p>"Correct," she said.</p>
     </section>
     <nav class="nav">
       <a href="ep-102.html">← Previous</a>

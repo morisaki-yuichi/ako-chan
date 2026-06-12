@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Again — Ep 108</title>
+  <title>Two Words — Ep 108</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,24 +40,90 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 108</div>
-      <h1>Home Again</h1>
+      <h1>Two Words</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-108.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>That night, the house was quiet.</p>
-      <p>Ruka had eaten—twice—and was now deeply asleep in the armchair by the window, curled so tightly Ruka seemed smaller than Ruka was.</p>
-      <p>Dango had run more laps of the garden after dark, investigated the hedgehog's territory thoroughly, and finally curled up on the floor beside the sofa.</p>
-      <p>Obia sat at the table. It was not working. It was just sitting, which was new for its—sitting without a task. It looked at Dango. At Ruka. At the window, where the garden was dark and the oak tree was a shadow.</p>
-      <p>Ako-chan sat down and opened her journal.</p>
-      <p>She had been writing in it all year—in the Antarctic, in the digital world, in the airship. She had written long entries and short entries, descriptions and questions and things she wanted to remember.</p>
-      <p>Tonight she wrote two words.</p>
-      <p>Just two.</p>
-      <p>She looked at them for a moment.</p>
-      <p>Then she closed the journal.</p>
-      <p>Dango's collar glowed gold in the dark.</p>
-      <p>Outside, the garden was still.</p>
-      <p>The oak tree did not move.</p>
-      <p>Everything was exactly where it was supposed to be.</p>
+      <p>England. The garden.</p>
+      <p>The flying boat settled onto the grass in the dark. A hedgehog walked across the lawn without looking up. Dango ran three full circuits — all clear — then sat down on the grass and breathed the familiar air.</p>
+      <p>Obia sat in the garage.</p>
+      <p>No task. No blueprint. No system to build. Just sitting.</p>
+      <p>Ruka found her spot in the hallway and settled in.</p>
+      <p>Ako-chan walked through the quiet house. The kitchen light was the same. The jar of pens on the desk was the same. The window with the view of the garden was the same.</p>
+      <p>She sat down at the table.</p>
+      <p>She opened her journal to the next blank page.</p>
+      <p>Dango's collar shone gold through the window.</p>
+      <p>Ako-chan picked up a pen.</p>
+      <p>She wrote two words.</p>
+      <p>Home again.</p>
+      <p>She closed the journal. She sat for a moment with her hands flat on the cover.</p>
+      <p>Outside, the garden was dark and still. The hedgehog was gone. The grass was cold.</p>
+      <p>Everything was exactly right.</p>
     </section>
     <nav class="nav">
       <a href="ep-107.html">← Previous</a>

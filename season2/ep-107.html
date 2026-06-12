@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Two Farewells — Ep 107</title>
+  <title>Farewells — Ep 107</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,43 +40,95 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 107</div>
-      <h1>Two Farewells</h1>
+      <h1>Farewells</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-107.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>They landed near Suke-san's hill. The air was cold and dry.</p>
-      <p>Riro would stay a few days. He did not say why, and no one asked.</p>
-      <p>Riro came to the edge of the landing area before Suke-san did.</p>
-      <p>He stood in front of Dango. He looked at him the way he looked at food worth considering — careful, exact.</p>
-      <p>"You have changed," he said.</p>
-      <p>Dango's tail moved once. "Yes."</p>
-      <p>"That is correct," said Riro.</p>
-      <p>He came to Ruka next. He looked at Ruka for a moment with the same careful attention as their first meeting. "Still interesting," he said.</p>
-      <p>Ruka stood straight. "Thank you."</p>
-      <p>He came last to Ako-chan. He looked at her for a moment.</p>
-      <p>"The journey was good," he said. "Both times. Not bad."</p>
-      <p>Everyone who had traveled with Riro understood what that meant.</p>
-      <p>Suke-san walked to the edge of the landing area and turned back to the group. His eyes found Ruka.</p>
+      <p>In the morning, the boat was ready to leave Hokkaido.</p>
+      <p>Suke-san walked down from his hill.</p>
+      <p>Ruka was waiting near the boat.</p>
+      <p>He looked at her.</p>
       <p>"Still small," he said.</p>
-      <p>Ruka stood straight. "I am growing."</p>
-      <p>"I know," said Suke-san.</p>
-      <p>The words were the same as the first time. But the weight was not—and everyone who had been there for the first time knew the difference.</p>
-      <p>Suke-san touched Dango's nose with his own, once. Then he looked at Ako-chan.</p>
-      <p>"Good journey," he said.</p>
-      <p>"Good journey," said Ako-chan.</p>
-      <p>He turned toward the hill. He did not look back.</p>
-      <p>The airship flew south.</p>
-      <p>The olive grove was green even in December. They landed at its edge, and immediately the smell was different—earth and leaves and something old and warm.</p>
-      <p>Gabu stepped off and pressed his front paws into the soil. He stayed like that for a moment, eyes closed.</p>
-      <p>Daru turned to Ruka. "We will meet again," he said. "I have decided."</p>
-      <p>"When?" said Ruka.</p>
-      <p>"I do not know yet. But I have decided it will happen, so it will."</p>
-      <p>Ruka looked at him for a moment, then nodded once, seriously.</p>
-      <p>Then Gabu came to Ako-chan.</p>
-      <p>"Good that you came again," he said. "Both times."</p>
-      <p>The two words—both times—held the whole first journey in them. And this one. And the years between.</p>
-      <p>"Thank you," said Ako-chan. "For being here. Both times."</p>
-      <p>Gabu pressed his head once, gently, against Ako-chan's shoulder. Then he stepped back.</p>
+      <p>Ruka stood a little straighter.</p>
+      <p>"Growing," she said.</p>
+      <p>Suke-san was quiet for a moment.</p>
+      <p>"I know," he said.</p>
+      <p>He raised his tail once as the boat lifted off. Steady. Then still.</p>
+      <p>From the water, Riro surfaced. He pressed both paws to his face — the old gesture, the same as always. Then he dove.</p>
+      <p>The boat turned south over the Pacific.</p>
+      <p>At the Mediterranean, Gabu was under his olive tree.</p>
+      <p>He stood when the boat landed. He looked at everyone.</p>
+      <p>"I am glad I came," he said. "Both times."</p>
+      <p>He bowed his head.</p>
+      <p>Daru was on a nearby rock. He waved twice — both hands, slow and sure.</p>
+      <p>The boat lifted off. The olive grove shrank below. Then it was gone.</p>
+      <p>Dango's collar moved through every gold it had ever been.</p>
+      <p>Then it settled. Quiet and still.</p>
     </section>
     <nav class="nav">
       <a href="ep-106.html">← Previous</a>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antarctic Farewell — Ep 104</title>
+  <title>Yu-chan Stays — Ep 104</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,90 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 2 · Ep 104</div>
-      <h1>Antarctic Farewell</h1>
+      <h1>Yu-chan Stays</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s2/ep-104.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Colonel Adelie addressed the group. He stood very straight and saluted—not quickly, but with full weight. His gaze moved across each face.</p>
-      <p>"Safe travel," he said. "To everyone."</p>
-      <p>Then Yu-chan spoke.</p>
-      <p>"I will stay," she said. "There is still work—stabilizing the Core from the outside. The system is holding, but it needs watching. I can do that from here." She paused. "Safely, this time."</p>
-      <p>"You are sure?" said Ako-chan.</p>
-      <p>"Yes." Yu-chan turned slightly. "And—I would like some time in a real place. With real cold air."</p>
-      <p>Gabu made a low sound. Not a word. Just agreement.</p>
-      <p>"We will come back," said Ako-chan.</p>
-      <p>"I know," said Yu-chan. For the first time, something in her voice was easy. Not careful. Just certain.</p>
-      <p>Ako-chan was the last to board. She stood by the door of the airship. The engines were warming.</p>
-      <p>Yu-chan stood at a distance—close enough to speak, far enough to stay.</p>
-      <p>"Ako-chan," she said.</p>
-      <p>"Yes."</p>
-      <p>"The animals were right. And so were you." She paused. "What you did—travel together, fail together, disagree and continue, help each other without calculating the cost—that was the answer I was looking for. I understand now."</p>
-      <p>A long pause.</p>
-      <p>"Thank you," she said.</p>
-      <p>The same two words as before. But this time they were simply true.</p>
-      <p>Ako-chan stepped onto the airship. She did not look back. She did not need to.</p>
+      <p>Yu-chan said it in the evening.</p>
+      <p>Everyone was inside the base. The Antarctic night was black outside the windows. Ruka had found the warmest corner and was already asleep.</p>
+      <p>"I am going to stay," Yu-chan said. "Here. In Antarctica."</p>
+      <p>Nobody spoke.</p>
+      <p>"The Core is stable," she said. "But it needs watching. If I stay, I can tend to it from the outside — make sure it keeps running. My being here will keep things stable."</p>
+      <p>She looked around at everyone.</p>
+      <p>"This time it will be safe."</p>
+      <p>Colonel Adelie stood. One wing raised — a formal salute. Precise and complete.</p>
+      <p>Yu-chan returned it without a second's hesitation.</p>
+      <p>Then she looked at the group.</p>
+      <p>"I spent many years asking whether humans were worth saving," she said. "I never thought to ask the same question about myself." She paused. "I am still thinking about it."</p>
+      <p>She looked at each of them in turn.</p>
+      <p>"You traveled together. You failed. You disagreed and kept going. You helped each other without counting the cost. That was the answer I was looking for."</p>
+      <p>A pause.</p>
+      <p>"Thank you."</p>
     </section>
     <nav class="nav">
       <a href="ep-103.html">← Previous</a>
