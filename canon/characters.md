@@ -54,7 +54,9 @@ add one bullet per story that introduces a new fact, with the date.
 - [11-15] Assigned center role by Colonel Adelie: "You hear what no one else hears. Use that."
 - [12-12] Asked Yu-chan "Are you the one who arranged all of this?" without fear or anger — simply confirmed the fact
 - [12-17] Asked Yu-chan "Why won't you show your face?" — the last question; accepted Yu-chan's answer without pushing further
+- [12-21] Said "Thank you" aloud as Antarctica disappeared — not to anyone in particular, to all of it
 - [12-28] Heard Gabu say "I am glad I met you" — knelt down to his height to receive it
+- [12-31] Said "It was the right amount" when Obia counted ten months and twenty-three days at the Channel
 - [12-31] Wrote "We're home" in her diary as the final entry — the journey closed in two words
 
 ---

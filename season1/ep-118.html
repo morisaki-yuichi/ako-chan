@@ -42,26 +42,94 @@
       <div class="date-label">Season 1 · Ep 118</div>
       <h1>Daru's Goodbye</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-118.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The Mediterranean coast smelled of salt and dry grass and warm rock.</p>
-      <p>Even before the boat stopped, Daru was at the railing. Its head was up and its nostrils were moving.</p>
-      <p>"I can smell it," said Daru.</p>
-      <p>It inhaled again.</p>
-      <p>"My smell. I can smell mine."</p>
-      <p>The boat pulled close to the shore. Daru looked at the land — the rocks, the low bushes, the pale yellow ground.</p>
-      <p>"That is it," said Daru. "That is right there."</p>
-      <p>It turned to Ako-chan.</p>
-      <p>"Will we meet again?"</p>
-      <p>"Yes," said Ako-chan. "We will."</p>
-      <p>Daru looked at her face. It was checking. Searching for hesitation. There was none.</p>
-      <p>"All right," said Daru. It was satisfied.</p>
-      <p>It said goodbye to Gabu — they had been together a long time, and the goodbye took longer than the others, though neither of them spoke much.</p>
-      <p>Then Daru went to the railing and dropped to the shore below. A short drop. It landed well.</p>
-      <p>It began to run immediately.</p>
-      <p>It ran toward the rocks, toward the grass, toward whatever smell it had found. It did not run in a straight line — it ran the way it always did, in a wide joyful curve, like it was very glad to have all this space.</p>
-      <p>Then it was gone, between the rocks.</p>
-      <p>Gone home.</p>
+      <p>The Mediterranean air was different.</p>
+      <p>Daru felt it first. His head came all the way out. His four legs went wide. He breathed in deeply.</p>
+      <p>"I can smell it," he said. "My smell."</p>
+      <p>The boat had barely touched the dock when Daru scrambled down the gangway. He stopped on the stone and breathed again.</p>
+      <p>He turned to Gabu. "The stone is warm."</p>
+      <p>"I know," said Gabu.</p>
+      <p>Daru looked at the others on the boat. He was going home and they were not. His face changed.</p>
+      <p>"Ako-chan," he said.</p>
+      <p>"Yes?"</p>
+      <p>"We will meet again. Right?"</p>
+      <p>He was looking at her very carefully. Checking.</p>
+      <p>Ako-chan said: "Yes. We will meet again."</p>
+      <p>He looked at her face for another moment. Then he looked satisfied.</p>
+      <p>"Good," he said. He looked at Gabu. "I will be at our place."</p>
+      <p>Gabu said: "I know."</p>
+      <p>Daru ran.</p>
+      <p>He ran in a wide curve across the stone — the same way he always ran, all four legs working, shell rocking side to side. Past the dock, along the path, around a rock, and gone between the boulders.</p>
+      <p>He did not look back.</p>
+      <p>Gabu watched where he had gone.</p>
+      <p>"He will be fine," Gabu said quietly. Not to anyone in particular.</p>
+      <p>He was saying it because it was true.</p>
     </section>
     <nav class="nav">
       <a href="ep-117.html">← Previous</a>

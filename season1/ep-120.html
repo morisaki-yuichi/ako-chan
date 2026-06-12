@@ -42,26 +42,96 @@
       <div class="date-label">Season 1 · Ep 120</div>
       <h1>We Are Home</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-120.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The front garden looked exactly the same.</p>
-      <p>The gate, the path, the low stone wall. The bare winter tree. The brown grass. The house with its familiar windows and the chimney at the top.</p>
-      <p>Dango walked up the path ahead of her. He stopped at the front door and looked back.</p>
-      <p>"Go on," said Ako-chan.</p>
-      <p>She opened the door. Dango went in. She heard his claws on the floor inside, and then the sound of him looking at things — sniffing the rug, going to the kitchen, coming back.</p>
-      <p>Then: a sound in the garden.</p>
-      <p>Ako-chan turned. Something small was moving near the wall. A hedgehog — small and round, pushing through the dead leaves.</p>
-      <p>It stopped. It looked up at her.</p>
-      <p>"Welcome home," said the hedgehog.</p>
-      <p>Ako-chan looked at it for a long time.</p>
-      <p>"Thank you," she said.</p>
-      <p>She sat down on the doorstep. She opened her diary to the very last page.</p>
-      <p>It was blank.</p>
-      <p>She thought for a moment. Ten months. Eleven countries. Nine companions. Every hard morning, every beautiful place, every word she had tried to write and couldn't.</p>
-      <p>She picked up her pen.</p>
+      <p>Three of them.</p>
+      <p>Ako-chan. Dango. Obia.</p>
+      <p>At the Channel, Ako-chan sat and looked at the water.</p>
+      <p>"It was a long time," she said.</p>
+      <p>"Ten months and twenty-three days," said Obia.</p>
+      <p>"Yes," said Ako-chan. "It was the right amount."</p>
+      <p>The tunnel was twelve minutes. When the train came out on the other side, England was grey and cold and very exactly right.</p>
+      <p>Dango put his nose to the window. His collar went gold.</p>
+      <p>At the garden gate, Ako-chan stopped.</p>
+      <p>The old oak tree was there. Brown leaves on the ground. The same branch she had looked at on January first.</p>
+      <p>Something moved under the bushes.</p>
+      <p>"Welcome home," said a small voice.</p>
+      <p>The garden hedgehog came out from under the roots. It sniffed Ako-chan's shoes for a long time. It looked at Dango. It looked at Obia. It looked at Ako-chan.</p>
+      <p>"A long journey," it said.</p>
+      <p>"Yes," said Ako-chan. "A very long one."</p>
+      <p>Dango went through the gate first. He ran to the front door. His tail was going very fast.</p>
+      <p>Obia walked into the garden and stopped beside the oak tree. It looked up at the branches.</p>
+      <p>Ako-chan sat on the front step. She opened her diary to the last empty page.</p>
       <p>She wrote two words.</p>
-      <p>We're home.</p>
-      <p>She looked at them. Then she closed the diary and sat in the cold winter garden and listened to Dango moving around inside the house, and the hedgehog, and the quiet.</p>
+      <p>*We're home.*</p>
+      <p>She closed the diary.</p>
+      <p>The oak tree was above her. The sky was grey.</p>
+      <p>It was December thirty-first.</p>
     </section>
     <nav class="nav">
       <a href="ep-119.html">← Previous</a>

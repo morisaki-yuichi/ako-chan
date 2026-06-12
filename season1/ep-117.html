@@ -42,29 +42,88 @@
       <div class="date-label">Season 1 · Ep 117</div>
       <h1>Suke-san's Goodbye</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-117.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The port in Hokkaido was small and quiet.</p>
-      <p>The boat pulled in and Suke-san came to the gangway with his bag. He was neat and straight, the way he always was.</p>
-      <p>Dango went to him.</p>
-      <p>"Hokkaido hill," said Dango. "You said you'd come."</p>
-      <p>"I said it was allowed," said Suke-san. "In September."</p>
-      <p>"Yes," said Dango.</p>
-      <p>Suke-san looked at him for a moment. Then he looked at Ako-chan. "Come to Hokkaido," he said. "Also."</p>
-      <p>"I will," said Ako-chan.</p>
-      <p>He turned to Obia.</p>
-      <p>"You are our companion," said Suke-san. "The reason is everything you have done."</p>
-      <p>He said it simply, as a fact.</p>
-      <p>Then he walked down the gangway.</p>
-      <p>He walked toward the hill above the harbour. He did not look back. His tail was down, his head was forward, and he walked.</p>
-      <p>Everyone on the boat watched.</p>
-      <p>He reached the bottom of the hill. He began to climb. One third of the way up, he stopped.</p>
-      <p>He turned.</p>
-      <p>He raised his tail — his full curly tail, straight up, unmistakeable.</p>
-      <p>Then he turned again and walked on, over the hill, and out of sight.</p>
-      <p>Dango watched the hill for a long time after Suke-san had gone.</p>
-      <p>Then he sat down.</p>
-      <p>His collar was gold.</p>
+      <p>The hill was exactly as they had left it.</p>
+      <p>Suke-san looked at it for a moment from the gangway. His tail was curled tight. Then he walked down.</p>
+      <p>He said goodbye to Daru first. Daru tried to climb up to say goodbye properly. Suke-san stood still long enough for Daru to reach his shoulder.</p>
+      <p>He said goodbye to Gabu. One look. One nod. Gabu nodded back. That was enough.</p>
+      <p>He said goodbye to Obia.</p>
+      <p>He stood very straight.</p>
+      <p>"You are our companion," he said. "That is a fact. The reason is everything you have done."</p>
+      <p>Obia said: "I know. Thank you."</p>
+      <p>Suke-san turned his head very slightly. "You are still not better than me at most things."</p>
+      <p>Obia said: "I know."</p>
+      <p>He said goodbye to Dango. Dango pressed against his side. Suke-san's tail went still for a moment, and then curled back up.</p>
+      <p>He said goodbye to Ako-chan. She said: "Come visit us, after."</p>
+      <p>He said: "Also."</p>
+      <p>Then he walked up the hill without looking back. The path curved. At the curve, he stopped. He turned. He raised his full curled tail straight up — one clean, clear line against the sky.</p>
+      <p>Then he went over the other side of the hill.</p>
     </section>
     <nav class="nav">
       <a href="ep-116.html">← Previous</a>
