@@ -42,23 +42,95 @@
       <div class="date-label">Season 1 · Ep 80</div>
       <h1>Obia's Night</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-080.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>That night, Ako-chan woke and found she could not go back to sleep. She lay still for a while, then got up quietly.</p>
-      <p>Obia was sitting by the small table at the other end of the room. The record device was open in front of it. But the screen was turned away, so Ako-chan could not see what was on it.</p>
-      <p>"Are you all right?" Ako-chan asked.</p>
-      <p>"Yes," Obia said.</p>
-      <p>"Do you need to sleep?"</p>
-      <p>"I do not need sleep," Obia said.</p>
-      <p>It was not the first time Obia had said this. But something about the way it said it tonight was different. Quieter. And the screen, turned away like that — it looked almost like it was hiding something.</p>
-      <p>Ako-chan sat down nearby and said nothing. After a while she said: "You look lonely."</p>
-      <p>Obia did not answer right away. Then it said: "I am processing data."</p>
-      <p>Ako-chan looked at the turned-away screen. She thought: maybe processing data and feeling lonely can happen at the same time.</p>
-      <p>She went back to her sleeping bag. Obia did not move until morning.</p>
+      <p>Ako-chan woke in the night.</p>
+      <p>The boat was still. Everyone else was asleep.</p>
+      <p>She sat up and looked around the deck.</p>
+      <p>Obia was sitting near the stern. Its record device was open in front of it. But the screen was turned away, so the light did not reach anyone else.</p>
+      <p>Ako-chan watched it for a moment.</p>
+      <p>Then she walked over and sat down beside it.</p>
+      <p>"Do you need sleep?" she said.</p>
+      <p>"I do not need sleep."</p>
+      <p>She looked at the dark water. A few stars were out. The air was cold.</p>
+      <p>"You look lonely," she said.</p>
+      <p>"I am processing data," said Obia.</p>
+      <p>Ako-chan looked at it. Obia's eyes were on the screen, but its ears were very still.</p>
+      <p>She did not say anything more. She sat beside it for a while. The water made a small sound against the hull.</p>
+      <p>After some time she said, "I will go back to bed."</p>
+      <p>"Good night," said Obia.</p>
+      <p>She stood up.</p>
+      <p>She thought: maybe processing data and feeling lonely are not so different. Maybe they can happen at the same time.</p>
+      <p>She went back to her sleeping place without writing it down.</p>
     </section>
     <nav class="nav">
       <a href="ep-079.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 80 / 120</a>
+      <a class="dc" href="index.html">Ep 80 / 89</a>
       <a href="ep-081.html">Next →</a>
     </nav>
   </article>

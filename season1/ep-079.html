@@ -42,22 +42,90 @@
       <div class="date-label">Season 1 · Ep 79</div>
       <h1>The Orca's Testimony</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-079.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>At dinner that evening, Riro told them the full story of what the orca had said.</p>
-      <p>"The orca has swum these waters for many years," Riro said. "It knows every current, every sound. And it said: below the Antarctic ice, there is a single fixed point. Something is there that is not natural."</p>
-      <p>"What kind of something?" Daru asked.</p>
-      <p>"A signal. Sent from one place. Regular and precise. The orca said it has been going on for a very long time. And it said—" Riro paused. "It said the word artificial."</p>
-      <p>The fire crackled. Nobody moved.</p>
-      <p>Ako-chan looked at Obia. Obia was looking at the record device. Then, very quietly, it closed the record device. The small click was the only sound.</p>
-      <p>Gabu looked at Obia. "Artificial means something made it," Gabu said. "Something with a plan."</p>
-      <p>Obia said nothing.</p>
-      <p>"Daru's shell picked up the vibration in Patagonia," Gabu continued. "The signal then. The same signal now. It is the same thing."</p>
-      <p>The fire burned low. The wind moved through the grass outside.</p>
+      <p>That afternoon, Riro climbed onto the deck.</p>
+      <p>He sat down and pressed his paws flat against his face. He stayed like that for a moment.</p>
+      <p>Then he said, "I spoke with an orca. Under the water. A big one."</p>
+      <p>Everyone stopped.</p>
+      <p>"It said there is something below the Antarctic ice. A fixed point. It has been sending a signal for a very long time. The orca said it is not natural." He pressed his paws to his face again. "It said the word artificial."</p>
+      <p>Nobody spoke.</p>
+      <p>Obia looked at the terminal. Then it closed the terminal very quietly.</p>
+      <p>Gabu lifted his head.</p>
+      <p>"Daru's shell," he said. "In Patagonia. The low vibration from below the ground." He was quiet for a moment. "That was the signal. This is the same signal." He looked at Obia. "It is the same thing."</p>
+      <p>Obia did not answer.</p>
+      <p>Daru was sitting very still. He pressed all four feet flat on the deck. "I cannot feel it now," he said. "But I remember it."</p>
+      <p>The fire had burned down low. The wind came from the south.</p>
+      <p>Nobody added more wood.</p>
     </section>
     <nav class="nav">
       <a href="ep-078.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 79 / 120</a>
+      <a class="dc" href="index.html">Ep 79 / 89</a>
       <a href="ep-080.html">Next →</a>
     </nav>
   </article>

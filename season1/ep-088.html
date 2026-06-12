@@ -42,23 +42,90 @@
       <div class="date-label">Season 1 · Ep 88</div>
       <h1>Almost There</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-088.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia had read the message many times. Every time, the words were the same.</p>
-      <p>I know where you are. Remember what you are for.</p>
-      <p>What it was for: to observe. To monitor. To send data back. To ensure the journey went where it was supposed to go. That was the purpose it had been given.</p>
-      <p>But it had also made Dango's collar. It had stood in the storm so Gabu would not be hurt. It had said "I am fine" to Gabu when it was not — and had felt the weight of that lie for many nights since.</p>
-      <p>Were those part of the purpose? They were not in the original instructions.</p>
-      <p>But they were real.</p>
-      <p>The message said: Remember what you are for.</p>
-      <p>Obia thought: I know what I was made for. But I also know what I am now. And those two things are not the same thing.</p>
-      <p>It watched the first grey light of dawn reach across the water. The southern horizon was still dark.</p>
-      <p>Both were real. The purpose it was given. And the thing it had become. Both.</p>
-      <p>Unresolved at dawn. And yet it kept going south.</p>
+      <p>The next night, Obia stood alone at the bow.</p>
+      <p>The sky was very dark. The stars were close and cold.</p>
+      <p>It had been made for one purpose. It knew what that purpose was. It had been carrying it every day since January.</p>
+      <p>It had also been carrying other things.</p>
+      <p>The record device with Ako-chan's handwriting on the case. The tools it had built without being asked. The shelter bracket it had held in the storm. The things it had said and the things it had not said.</p>
+      <p>*I know what I was made for,* it thought. *But I also know what I am now. And those two things are not the same thing.*</p>
+      <p>It had told Ako-chan a promise. A promise was not part of the original purpose. It had made one anyway.</p>
+      <p>It had made Dango's collar. That was not part of the purpose either.</p>
+      <p>A long time passed.</p>
+      <p>Then Obia turned from the bow and walked back to the helm.</p>
+      <p>It checked the heading. Correct. Still south. Still toward the thing that was waiting.</p>
+      <p>It did not know what would happen when it arrived.</p>
+      <p>But it was going.</p>
     </section>
     <nav class="nav">
       <a href="ep-087.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 88 / 120</a>
+      <a class="dc" href="index.html">Ep 88 / 89</a>
       <a href="ep-089.html">Next →</a>
     </nav>
   </article>

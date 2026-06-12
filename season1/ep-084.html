@@ -42,26 +42,95 @@
       <div class="date-label">Season 1 · Ep 84</div>
       <h1>Dango's Growl</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-084.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>That night, Dango could not settle.</p>
-      <p>He lay down on his sleeping coat. He got up. He walked a circuit of the camp. He lay down again. He got up again.</p>
-      <p>Eventually he went and stood near Obia, who was sitting alone at the fire's edge.</p>
-      <p>Dango looked at Obia.</p>
-      <p>Obia looked back.</p>
-      <p>Something moved in Dango's chest. It was not anger. It was not fear exactly. But his body knew something was wrong, and his body said so, in the way a dog's body does when there are no words for what it knows.</p>
-      <p>A low sound came from Dango's throat. Short and quiet, but real.</p>
-      <p>Ako-chan was awake. She said: "Dango. Stop."</p>
-      <p>Dango stopped.</p>
-      <p>But he did not look away from Obia. He stood still and looked at Obia's face for a long time, as if he was checking something.</p>
-      <p>Gabu said quietly, from his shelter: "Dango's body is worried. His head cannot stop it."</p>
-      <p>Nobody answered.</p>
-      <p>Obia did not move from the fire circle. It stayed exactly where it was.</p>
-      <p>The fire made a small sound. Nobody slept well.</p>
+      <p>That evening, Dango could not settle.</p>
+      <p>He walked to his sleeping place and lay down. Then he stood up. He walked to the edge of the fire circle. He lay down again.</p>
+      <p>After a while he walked to where Obia was standing.</p>
+      <p>He stood close to it.</p>
+      <p>Something happened in his throat.</p>
+      <p>It was a short, low sound. He had not decided to make it.</p>
+      <p>Obia turned.</p>
+      <p>Dango stood very still. He looked at Obia. His collar was orange.</p>
+      <p>"Stop," said Ako-chan.</p>
+      <p>Dango obeyed. But he did not look away.</p>
+      <p>Everyone was quiet.</p>
+      <p>Gabu was watching from across the fire. After a moment he said, very quietly: "Dango's body is worried. His head cannot stop it."</p>
+      <p>Nobody spoke.</p>
+      <p>Obia stayed where it was. It did not step back from the fire. It did not step forward.</p>
+      <p>After a long time, Dango walked back to Ako-chan and pressed against her side. His collar stayed orange.</p>
+      <p>That night, nobody slept easily.</p>
+      <p>Ako-chan lay in the dark and listened to the water.</p>
+      <p>She did not think Dango was wrong. She did not think Obia was wrong. She did not know what to think.</p>
     </section>
     <nav class="nav">
       <a href="ep-083.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 84 / 120</a>
+      <a class="dc" href="index.html">Ep 84 / 89</a>
       <a href="ep-085.html">Next →</a>
     </nav>
   </article>

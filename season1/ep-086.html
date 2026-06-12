@@ -42,23 +42,93 @@
       <div class="date-label">Season 1 · Ep 86</div>
       <h1>A Different Obia</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-086.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The morning they entered the Drake Passage, something was different about Obia.</p>
-      <p>It was hard to describe. Obia's voice was the same. It answered questions the same way. But its movements were a little more careful. A little more exact. Like it was measuring each thing before it did it.</p>
-      <p>Dango noticed first.</p>
-      <p>He walked over to Obia and bumped his side into Obia's side. Not hard — just a gentle push. Like a question.</p>
-      <p>Obia stopped and looked at him.</p>
-      <p>Dango waited.</p>
-      <p>Then Obia put one paw on top of Dango's head. A short, quiet touch.</p>
-      <p>Dango's collar, which had been faint orange all morning, shifted. Not all the way to gold. But moving there, steadily.</p>
-      <p>That evening, Ako-chan wrote in her diary: Dango asked the question all of us had. Are you still there? Obia answered. Not with words. But Dango understood.</p>
-      <p>She looked at Obia, who was at the wheel, facing the dark water ahead.</p>
-      <p>It was still there. She was sure of it.</p>
+      <p>The Drake Passage was loud with wind.</p>
+      <p>Obia was at the helm. It had been there since morning. It called directions to Suke-san. Suke-san called them back. Together they kept the boat straight.</p>
+      <p>But something was different.</p>
+      <p>Obia moved the wheel without speaking. It ran the checks without speaking. When Ako-chan asked how long until the passage ended, it gave the number without speaking.</p>
+      <p>Dango watched from near the mast.</p>
+      <p>After a while he walked to Obia's side.</p>
+      <p>He bumped against it. With his whole body. Not hard — just enough to ask.</p>
+      <p>Obia stopped.</p>
+      <p>It looked down at him.</p>
+      <p>Then it placed one paw on his head. Once. Steady and quiet.</p>
+      <p>Dango's collar moved from orange to gold.</p>
+      <p>He walked back to his position.</p>
+      <p>Ako-chan had seen all of it. She took out her diary and wrote:</p>
+      <p>*Dango asked the question we all had: are you still there? Obia answered. Not with words. But Dango understood.*</p>
+      <p>She looked at Obia's back.</p>
+      <p>Obia was already facing the horizon again. The wind had not stopped. The boat was still crossing.</p>
     </section>
     <nav class="nav">
       <a href="ep-085.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 86 / 120</a>
+      <a class="dc" href="index.html">Ep 86 / 89</a>
       <a href="ep-087.html">Next →</a>
     </nav>
   </article>

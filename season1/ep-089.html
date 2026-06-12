@@ -42,26 +42,93 @@
       <div class="date-label">Season 1 · Ep 89</div>
       <h1>The White Horizon</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-089.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>At dawn on the last day of October, Obia looked south.</p>
-      <p>There was something on the horizon.</p>
-      <p>It was thin — just a line, barely there in the pale morning light. But it was there, and it was white. Whiter than clouds. Whiter than the spray. A different kind of white.</p>
-      <p>"Ako-chan," Obia said.</p>
-      <p>She was already awake. She came to the railing.</p>
-      <p>She looked where Obia was looking.</p>
-      <p>"Is that—" she said.</p>
-      <p>"That is Antarctica," Obia said.</p>
-      <p>The others woke up one by one. Daru scrambled out of his unit. Gabu came slowly but he came. Riro surfaced and pulled himself up. Suke-san appeared at the railing. Ako-chan held Dango.</p>
-      <p>Dango looked at the horizon for a moment. Then he walked to the very front of the deck and stood there, ears straight up into the wind. He did not make a sound. He just faced south.</p>
-      <p>All seven of them stood in silence and looked at the white line.</p>
-      <p>Ten months and thirty-one days since England. One white line on the horizon, growing slowly brighter.</p>
-      <p>They were almost there.</p>
+      <p>At dawn on the last day of October, Obia said: "Look."</p>
+      <p>Ako-chan had been standing at the bow in the cold. She looked up.</p>
+      <p>On the southern horizon, there was a white line.</p>
+      <p>It was very thin. Very bright. Brighter than the sky around it. It did not move.</p>
+      <p>She stood very still.</p>
+      <p>"That is Antarctica," said Obia.</p>
+      <p>Dango was at her side. He walked forward to the very front of the deck. He stopped at the rail. His ears went forward. His collar was gold.</p>
+      <p>He faced south and did not move.</p>
+      <p>One by one, the others came. Riro climbed out of his unit. Suke-san walked from the stern. Gabu's head came out of his shelter. Daru climbed down from the roof. Obia stayed at the helm.</p>
+      <p>All seven stood and looked at the white line.</p>
+      <p>It was ten months and thirty-one days since England. Since the park bench. Since the blue ball. Since the acorn in the pocket.</p>
+      <p>Since all of it.</p>
+      <p>Nobody spoke.</p>
+      <p>The white line grew slowly wider as the boat moved south.</p>
+      <p>And Dango stood at the bow and did not look away.</p>
     </section>
     <nav class="nav">
       <a href="ep-088.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 89 / 120</a>
-      <a href="ep-090.html">Next →</a>
+      <a class="dc" href="index.html">Ep 89 / 89</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>
