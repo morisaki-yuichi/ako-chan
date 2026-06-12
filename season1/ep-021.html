@@ -42,27 +42,93 @@
       <div class="date-label">Season 1 · Ep 21</div>
       <h1>Obia Measures</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-021.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The water was very clear close to the shore. Ako-chan could see the pale round pebbles below the surface.</p>
-      <p>Obia walked into the shallows. The water came up over its paws. It crouched down and pressed one paw flat against the surface.</p>
-      <p>It was still for a long time.</p>
-      <p>Ako-chan waited.</p>
-      <p>"Well?" she said after a while.</p>
-      <p>"Weak," said Obia. "But present. An electrical signal in the water. Below the normal threshold for any instrument."</p>
-      <p>"Like Amsterdam?"</p>
-      <p>"Yes. But much larger in scale. Amsterdam was a point. This is spread through the water."</p>
-      <p>Ako-chan crouched at the water's edge. "Is it connected? To the February signal? To what you heard at night?"</p>
-      <p>Obia stood up. Water dripped from its paw.</p>
-      <p>"I am still gathering data," it said.</p>
-      <p>Ako-chan looked at it. She had noticed something over the past weeks. When Obia said I am still gathering data, it did not mean it did not know. It meant it had decided not to say.</p>
-      <p>She was getting better at telling the difference.</p>
-      <p>She wrote in her diary: Obia knows more than it says. I am almost sure of this now. I do not know what to do about it yet.</p>
-      <p>Then she closed the diary.</p>
+      <p>Obia walked into the Adriatic up to its knees.</p>
+      <p>It stood very still. Its eyes were directed down at the water. It stayed like that for a long time.</p>
+      <p>Ako-chan waited on the shore. Dango sat beside her, damp and smelling of the sea.</p>
+      <p>"What are you doing?" said Ako-chan.</p>
+      <p>"Measuring," said Obia.</p>
+      <p>It came back to the shore and shook the water from its paws.</p>
+      <p>"There is something in the water," it said. "An electrical signal. Very faint. Below what most instruments would find. But it is there."</p>
+      <p>"Like Amsterdam?" said Ako-chan.</p>
+      <p>"Larger," said Obia. "Much larger. The Amsterdam signal was small. This is spread across a wide area."</p>
+      <p>Ako-chan looked at the sea. It looked completely normal. Blue and still.</p>
+      <p>"Is it connected?" she said.</p>
+      <p>"I don't know," said Obia.</p>
+      <p>She did not quite believe that.</p>
+      <p>She looked at Obia. Obia looked at the water. Neither of them said anything more.</p>
+      <p>She got out her blue notebook and wrote: _Obia knows more than it says. I am becoming sure of this._</p>
+      <p>She did not say that to Obia. She just wrote it down. Then she closed the notebook and they walked back along the shore. Dango ran ahead, still barking at the waves.</p>
     </section>
     <nav class="nav">
       <a href="ep-020.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 21 / 120</a>
+      <a class="dc" href="index.html">Ep 21 / 22</a>
       <a href="ep-022.html">Next →</a>
     </nav>
   </article>

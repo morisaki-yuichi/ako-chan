@@ -42,26 +42,95 @@
       <div class="date-label">Season 1 · Ep 16</div>
       <h1>The Third Question</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-016.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>It was snowing. Not the blizzard kind. Just slow, soft flakes falling through still air.</p>
-      <p>They had stopped in a small mountain village. A fire was going in the guesthouse. Dango was asleep.</p>
-      <p>Ako-chan sat across from Obia.</p>
-      <p>She had asked this question twice before. She had not planned to ask it again. But the snow was quiet and the fire was warm, and the question came back.</p>
-      <p>"Obia. Where do you come from?"</p>
-      <p>Obia was still for a moment.</p>
-      <p>"I know you have asked this before," it said.</p>
-      <p>"I know," said Ako-chan. "I am asking again."</p>
-      <p>Another pause.</p>
-      <p>"When this journey is finished," said Obia, "I will answer that. All of it. Everything I know. I promise."</p>
-      <p>Ako-chan looked at Obia for a long time. The fire made small sounds. Snow touched the window and disappeared.</p>
-      <p>"All right," she said at last. "I will wait."</p>
-      <p>"Thank you," said Obia.</p>
-      <p>She had heard Obia say many things over the past weeks. But this was the first time it had used the word promise. It felt different from the other times. More certain. More like something it meant.</p>
+      <p>The guesthouse was small and warm. Outside, snow was falling. The mountains were very still and white.</p>
+      <p>Ako-chan, Dango, and Obia sat by the window. Dango was almost asleep. His collar glowed a steady gold.</p>
+      <p>Ako-chan looked at the snow. Then she looked at Obia.</p>
+      <p>"Where do you come from?" she said.</p>
+      <p>It was the third time she had asked this question.</p>
+      <p>Obia turned to look at her.</p>
+      <p>"That is the third time," it said.</p>
+      <p>"Yes," said Ako-chan. "I know."</p>
+      <p>Obia was quiet for a moment. The snow was very thick now. The mountains had disappeared into white.</p>
+      <p>"I will tell you," said Obia. "Not tonight. Not yet. But I will. I promise."</p>
+      <p>It said the word clearly. Promise.</p>
+      <p>This was the first time it had used that word.</p>
+      <p>"When?" said Ako-chan.</p>
+      <p>"When the journey is finished," said Obia. "When we know what we came to find out. I will answer everything then."</p>
+      <p>Ako-chan looked at the snow. She thought about that word. Promise.</p>
+      <p>"All right," she said.</p>
+      <p>She did not feel satisfied. But she believed it. Maybe because of the way Obia had said the word. Like it meant it very carefully.</p>
+      <p>Outside, the snow kept falling and covered everything.</p>
     </section>
     <nav class="nav">
       <a href="ep-015.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 16 / 120</a>
+      <a class="dc" href="index.html">Ep 16 / 22</a>
       <a href="ep-017.html">Next →</a>
     </nav>
   </article>

@@ -42,25 +42,91 @@
       <div class="date-label">Season 1 · Ep 17</div>
       <h1>One Month On</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-017.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The guesthouse had a window that faced west.</p>
-      <p>Ako-chan sat on the window seat as the sun went down. The light was orange and long. The hills were dark.</p>
-      <p>England was somewhere in that direction. Far away. She had been gone for one whole month.</p>
-      <p>Dango climbed up and settled in her lap. He was warm and heavy. She kept one hand on his back.</p>
-      <p>Obia sat across the room. It was not looking at the terminal. It was just sitting.</p>
-      <p>"One month," said Ako-chan. "I didn't think about it until now."</p>
-      <p>"The time has been full," said Obia.</p>
-      <p>She looked at the record device on the table. The dots on the map had multiplied since England. France. Belgium. Amsterdam. Germany. Austria. The Balkans. The south was closer now.</p>
-      <p>Dango made a small sound. He was already mostly asleep.</p>
-      <p>Ako-chan looked at him. Then at Obia.</p>
-      <p>"We are going to find out what is happening," she said. It was not a question. It was a way of saying it out loud.</p>
-      <p>"Yes," said Obia.</p>
-      <p>The sun finished setting. The room went dark. Three shapes sat in the last of the light: one sleeping dog, one quiet machine, and one girl who had come a long way from home and was not finished yet.</p>
+      <p>One month. They had been traveling for exactly one month.</p>
+      <p>Ako-chan stood at the window of a small guesthouse. The sun was going down. The sky was orange and pink to the west. England was that way.</p>
+      <p>She had the record device in her hands. She turned it on. The small screen showed the world map. Many more dots than before.</p>
+      <p>She looked at where the dots were thickest.</p>
+      <p>"How many now?" she said.</p>
+      <p>"More than last week," said Obia. "The pattern is getting clearer."</p>
+      <p>Dango sat beside her. His collar was gold. He always felt calm when Ako-chan looked at the map.</p>
+      <p>The sun dropped lower. The orange faded. The sky turned dark blue.</p>
+      <p>Ako-chan put the record device in her pocket.</p>
+      <p>"We are going to find out what is happening," she said.</p>
+      <p>It was not quite a question. It was not quite a statement. It was something in between. A quiet vow, mostly for herself.</p>
+      <p>Obia stood beside her. Both of them looked west at the last light.</p>
+      <p>"Yes," said Obia. "We are."</p>
+      <p>Dango did not look west. He was already looking south.</p>
     </section>
     <nav class="nav">
       <a href="ep-016.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 17 / 120</a>
+      <a class="dc" href="index.html">Ep 17 / 22</a>
       <a href="ep-018.html">Next →</a>
     </nav>
   </article>

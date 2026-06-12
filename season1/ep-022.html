@@ -42,25 +42,91 @@
       <div class="date-label">Season 1 · Ep 22</div>
       <h1>Dango's Pillow</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-022.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>It was a cold night on the coast.</p>
-      <p>Ako-chan woke briefly in the dark. The fire had gone low. The room was quiet.</p>
-      <p>She saw Dango. He was not in his usual spot. He was leaning against Obia's side, fast asleep. One paw was hanging over Obia's back leg. His nose was pressed against its silver side.</p>
-      <p>Obia was sitting very still.</p>
-      <p>It was awake. Its eyes were open. But it had not moved. It was holding itself still so that Dango could sleep.</p>
-      <p>Ako-chan watched them without moving.</p>
-      <p>Obia looked over at her. It did not speak. She did not speak.</p>
-      <p>She lay back down.</p>
-      <p>She did not know what it cost Obia to sit still through the night. She did not know if it cost anything at all. She did not know what Obia felt, or if feeling was the right word.</p>
-      <p>But she knew what she had seen. She knew that it had stayed.</p>
-      <p>Just before dawn, she woke again. Obia had moved Dango gently back to his coat. Dango was curled there, still asleep, nose under his tail.</p>
-      <p>She wrote in her diary that morning: I saw it. I will not say it out loud. But I saw it.</p>
+      <p>Ako-chan woke in the night.</p>
+      <p>The room was dark and quiet. She looked around.</p>
+      <p>Dango was not in his usual spot. She looked across the room.</p>
+      <p>He was lying against Obia.</p>
+      <p>Obia was sitting near the wall, perfectly still. Dango was pressed against its side, his head resting on its front leg. He was deeply asleep. His collar was gold.</p>
+      <p>Obia had not moved at all. Its posture was the same as if it were keeping watch. But it was staying completely still so Dango could sleep.</p>
+      <p>Ako-chan watched them for a while.</p>
+      <p>She didn't know when Dango had moved there. At some point in the night, he had gotten up from his spot and gone to Obia. And Obia had let him. And had stayed. And had not moved.</p>
+      <p>She got her notebook. In the dark, she wrote a few words.</p>
+      <p>_I saw it. I will not say it out loud. But I saw it._</p>
+      <p>In the morning, Dango was back in his usual spot. Ako-chan looked at Obia. Obia looked back at her.</p>
+      <p>Neither of them said anything.</p>
+      <p>But Ako-chan knew. And Obia knew that she knew.</p>
     </section>
     <nav class="nav">
       <a href="ep-021.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 22 / 120</a>
-      <a href="ep-023.html">Next →</a>
+      <a class="dc" href="index.html">Ep 22 / 22</a>
+      <span style="visibility:hidden">Next →</span>
     </nav>
   </article>
 </body>

@@ -42,23 +42,88 @@
       <div class="date-label">Season 1 · Ep 12</div>
       <h1>Obia's First Invention</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-012.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>In the morning, Obia placed something on the table.</p>
-      <p>It was flat, about the size of a notebook. It had a screen that showed a map of the world. Small dots appeared on the map — each one a place where something strange had happened.</p>
-      <p>"I made this last night," said Obia. "From parts I found. A broken torch. A cheap radio. Some wire."</p>
-      <p>Ako-chan looked at the dots. There were more than she expected. Some of them were places she had not reported.</p>
-      <p>"How did you know about these ones?" she asked, pointing.</p>
-      <p>"I have been collecting data of my own," said Obia. "In addition to what you hear from the animals."</p>
-      <p>Ako-chan studied the map for a long time. The dots were spread across the world. Some were near cities. Some were in the middle of the sea.</p>
-      <p>"You should carry this," said Obia. "You will use it more than I will."</p>
+      <p>In the morning, Obia put something on the table.</p>
+      <p>It was flat, about the size of a notebook. It had a small screen that showed a map of the world. Small red dots covered the map.</p>
+      <p>"I built this last night," said Obia. "It shows every anomaly I have recorded. I will update it as we travel."</p>
+      <p>Ako-chan looked at the dots. There were many. Far more than she had told Obia about.</p>
+      <p>"I didn't tell you about all of these," she said.</p>
+      <p>"No," said Obia. "I have been collecting my own data. From many sources. These are places where animals are behaving in strange ways. Or where something in the water or air is wrong."</p>
+      <p>Ako-chan looked more carefully. The dots were not spread evenly. They were thicker in the south.</p>
+      <p>"You carry this," said Obia. "You can add reports to it when animals speak to you. I will update it with my own readings."</p>
       <p>Ako-chan picked it up. It was light.</p>
-      <p>Dango leaned over to sniff it. He decided it was not food and walked away.</p>
-      <p>Ako-chan looked at the dots again. From here, they seemed random. But something about them felt like a pattern she could not yet name.</p>
+      <p>"Thank you," she said.</p>
+      <p>Dango looked at the map. He didn't know what the dots meant. But something about the pattern made him stay close to Ako-chan for the rest of the morning.</p>
     </section>
     <nav class="nav">
       <a href="ep-011.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 12 / 120</a>
+      <a class="dc" href="index.html">Ep 12 / 22</a>
       <a href="ep-013.html">Next →</a>
     </nav>
   </article>

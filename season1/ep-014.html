@@ -42,24 +42,91 @@
       <div class="date-label">Season 1 · Ep 14</div>
       <h1>The Night Signal</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s1/ep-014.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>At two in the morning, the room was very quiet.</p>
-      <p>Ako-chan and Dango were both asleep. Dango made a small sound in his dream.</p>
-      <p>Obia was awake. It was always awake.</p>
-      <p>Something was arriving. A signal. Very faint. From far to the south. It came in a pattern: short, pause, long, pause, short, short.</p>
-      <p>Obia listened for a long time.</p>
-      <p>The signal was not from any station it knew. It was not from a ship. It was not a normal frequency. But it was regular. Very regular. Something was making it on purpose.</p>
-      <p>Obia opened the record device slowly, so the screen would not wake Ako-chan.</p>
-      <p>Then it stopped.</p>
-      <p>It did not add the signal to the shared record. It saved it somewhere else instead. Somewhere only it could read.</p>
-      <p>Obia sat still in the dark room for a long time. It listened to the signal come and come and come from the south. It did not feel like nothing. It felt like something it could not yet name.</p>
-      <p>Dango made another small sound. His collar glowed orange for just a moment, then faded back to gold.</p>
-      <p>Obia watched him sleep. It did not tell Ako-chan about the signal in the morning.</p>
+      <p>At two in the morning, Obia was alone.</p>
+      <p>Ako-chan and Dango were asleep. The small room was dark. Rain fell quietly outside.</p>
+      <p>Obia's sensors were always on. Even at night.</p>
+      <p>At two in the morning, something came.</p>
+      <p>It was very faint. A repeating pattern. Short, then long, then short again. It came from the south. It had a regular shape, like a message. But it was not a known signal. Not from any animal. Not from any machine Obia had in its records.</p>
+      <p>Obia listened to it for a long time.</p>
+      <p>Then it made a decision.</p>
+      <p>It did not add the signal to the record device. It did not write it down anywhere Ako-chan could see. It saved it in a private place, inside itself.</p>
+      <p>It did not feel good about this. But it was not ready to explain.</p>
+      <p>The signal faded before dawn.</p>
+      <p>When Ako-chan woke up, Obia was in the same place as always.</p>
+      <p>"Did anything happen?" she said.</p>
+      <p>"No," said Obia. "A quiet night."</p>
+      <p>This was not quite a lie. But it was not the whole truth. Obia looked out at the rain and said nothing more.</p>
     </section>
     <nav class="nav">
       <a href="ep-013.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 14 / 120</a>
+      <a class="dc" href="index.html">Ep 14 / 22</a>
       <a href="ep-015.html">Next →</a>
     </nav>
   </article>
