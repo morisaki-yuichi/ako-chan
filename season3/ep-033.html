@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What Riro Has — Ep 33</title>
+  <title>Two Kinds of Unknown — Ep 33</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,27 +40,94 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 33</div>
-      <h1>What Riro Has</h1>
+      <h1>Two Kinds of Unknown</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-033.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>On the ninth morning, the otter was on its back in the water.</p>
-      <p>The boy sat on the lower rock and watched. The otter had not eaten yet. It had floated to the calm pool between the rocks and rolled onto its back. It lay still. Not sleeping — its ears moved when a bird called. Just lying there, in the cold water, doing nothing the boy could name.</p>
-      <p>He opened his notebook and tried to fill in the usual entries. Dive time: none. Shellfish: none. Posture: he wrote a description, then crossed it out. Nothing he had used before quite fit.</p>
-      <p>He tried to write a reason.</p>
-      <p><em>Reason: post-feeding rest (estimated)?</em></p>
-      <p>He stopped. The otter had not eaten this morning. He looked up. The otter had not moved.</p>
-      <p>He crossed out the line and wrote:</p>
-      <p><em>Reason: unknown.</em></p>
-      <p>He held his pencil and looked at the word. He had used it before — in the Pattern A entries. Those were recording failures. He could not capture the person at all.</p>
-      <p>This was different. He could see the otter clearly. He had all the data. The reason was simply outside anything he could write.</p>
-      <p>He turned to the Pattern A page. He looked at the word 'unknown' there. Then he looked back at the otter entry.</p>
-      <p>Same word. Different shape.</p>
-      <p>He closed the notebook and watched the otter float.</p>
+      <p>One afternoon the otter floated and did not do anything the boy could name.</p>
+      <p>It was not eating. It was not diving. It was not watching the shore. It just floated, paws on its face, for a long time.</p>
+      <p>He waited. He had his notebook open. He tried one category, then another.</p>
+      <p>Not resting. Resting had a pattern: slower breathing, eyes mostly closed. This was different.</p>
+      <p>Not watching. Watching involved direction.</p>
+      <p>He tried four more. None of them fit.</p>
+      <p>He wrote: otter: floating. Activity: unclassified. Reason: unknown.</p>
+      <p>He looked at the word unknown. It was the only unknown in the whole Hokkaido record.</p>
+      <p>He thought about the Pattern A section. That also said unknown.</p>
+      <p>But they were different.</p>
+      <p>With the otter, he had all the data. He could see the otter fully. Every part of it was recordable. He just could not find the right category for what the otter was doing.</p>
+      <p>With Pattern A, the data did not form. He could not see the thing itself.</p>
+      <p>One unknown was inside a full record. The other was the missing record.</p>
+      <p>He wrote: not the same kind of unknown.</p>
+      <p>He closed the notebook. The otter kept floating.</p>
     </section>
     <nav class="nav">
       <a href="ep-032.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 33 / 99</a>
+      <a class="dc" href="index.html">Ep 33 / 34</a>
       <a href="ep-034.html">Next →</a>
     </nav>
   </article>

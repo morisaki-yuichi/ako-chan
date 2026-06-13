@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Rocky Shore — Ep 26</title>
+  <title>The Sea Otter — Ep 26</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,22 +40,91 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 26</div>
-      <h1>The Rocky Shore</h1>
+      <h1>The Sea Otter</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-026.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>On the third morning, the boy walked north along the coast until the beach gave way to rocks.</p>
-      <p>The rocks were large and flat, dark with moisture. He tested each step before he put his weight down.</p>
-      <p>He was placing the first acoustic sensor in a gap between two rocks when he saw the animal.</p>
-      <p>A sea otter, alone on a wide flat rock about five metres away. Both paws were pressed flat to its face. It was not sleeping — its ears turned slightly when a wave came in.</p>
-      <p>The boy stopped. He looked at the animal for a moment. Then he took out his notebook.</p>
-      <p><em>Day 3. Sea otter. Adult, male, approx. 30 kg. Flat rock, above high-tide mark. Posture: paws pressed to face, both. Awake. Reason for posture: unknown.</em></p>
-      <p>He looked up. The otter had not moved.</p>
-      <p>He finished placing the sensor and sat down on a lower rock. He opened a fresh page and began to write.</p>
+      <p>On the second day the boy saw something floating.</p>
+      <p>About twenty metres out. Round and dark. Not moving.</p>
+      <p>He raised his binoculars. It was an animal. He checked his field guide. Sea otter.</p>
+      <p>The otter was on its back. Its eyes were open. Its ears moved slowly. But its body did not move. It just floated.</p>
+      <p>Its front paws were pressed flat to its face.</p>
+      <p>He watched for a long time. The otter did not swim. It did not eat. It kept its paws on its face and floated.</p>
+      <p>He wrote: otter. On back. Floating. Eyes open. Ears active. Paws to face, both.</p>
+      <p>He looked at the paws again. They were very flat. He had not seen this in the field guide.</p>
+      <p>He wrote: reason for posture: unknown.</p>
+      <p>He was not worried. Unknown was honest. He had written unknown before. It meant the observation was continuing.</p>
+      <p>He sat down on a large rock. He put the binoculars in his lap. The otter floated on.</p>
+      <p>He picked up his pencil. He turned to the next line. He kept recording.</p>
     </section>
     <nav class="nav">
       <a href="ep-025.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 26 / 99</a>
+      <a class="dc" href="index.html">Ep 26 / 34</a>
       <a href="ep-027.html">Next →</a>
     </nav>
   </article>

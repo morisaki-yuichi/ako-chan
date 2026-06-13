@@ -61,7 +61,7 @@ All seasons, all parts. Use this to locate the target file and episode range bef
 | 2 | Yokohama: First Meeting | ep 8–14 | 7 | `stories_s3_p02.py` | ✅ |
 | 3 | Tokyo: Second Meeting | ep 15–19 | 5 | `stories_s3_p03.py` | ⬜ |
 | 4 | Yokohama: Pattern Classified | ep 20–24 | 5 | `stories_s3_p04.py` | ⬜ |
-| 5 | Hokkaido | ep 25–34 | 10 | `stories_s3_p05.py` | ⬜ |
+| 5 | Hokkaido | ep 25–34 | 10 | `stories_s3_p05.py` | ✅ |
 | 6 | Yokohama: Full Records | ep 35–39 | 5 | `stories_s3_p06.py` | ⬜ |
 | 7 | Mediterranean | ep 40–49 | 10 | `stories_s3_p07.py` | ⬜ |
 | 8 | Yokohama: The Protocol | ep 50–55 | 6 | `stories_s3_p08.py` | ⬜ |

@@ -42,21 +42,89 @@
       <div class="date-label">Season 3 · Ep 31</div>
       <h1>Staying</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-031.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
       <p>The boy had planned to leave on the eighth day.</p>
-      <p>On the eighth morning, he woke up and did not pack. He sat at the window. The sky was clear. The coast was still. After a while, he picked up his bag and went down to the shore.</p>
-      <p>He placed the sensors. He took the morning readings. He wrote them in his notebook. Wind. Waves. Temperature. The otter on its flat rock.</p>
-      <p>He stayed all day.</p>
-      <p>On the ninth morning, the same. He woke up. He did not pack. He went to the shore.</p>
-      <p>On the tenth morning, he packed.</p>
-      <p>He went to the shore one last time. He took the sensors out and wrapped them carefully. He wrote a final entry for the coast data.</p>
-      <p>He looked at the flat rock. The otter was there, paws pressed to its face.</p>
-      <p>The boy picked up his bag and walked back toward the road.</p>
+      <p>He woke up on the eighth day. He looked at his bag. He could see the top of the rocks from the window.</p>
+      <p>He did not pack.</p>
+      <p>He went to the rocks instead. The otter was there. The sea was calm. He sat in his usual place and opened his notebook.</p>
+      <p>He recorded. Wave pattern. Bird count. Temperature at the water's edge. The otter's morning routine.</p>
+      <p>In the afternoon he looked at his bag again. He still did not pack. He stayed until the light was low.</p>
+      <p>At night he opened his travel notebook. He found the page for the eighth day. He wrote the date. Then the reason column.</p>
+      <p>He left it blank.</p>
+      <p>He looked at the blank space. He had left reason columns blank before. Yokohama, the first time. The second time in Tokyo. Both times the reason had not been a number.</p>
+      <p>This time was the same.</p>
+      <p>He did not fill it in. He wrote the weather instead. Then the tide time. Then the number of birds he had counted that morning.</p>
+      <p>He worked until it was late. Then he went to sleep.</p>
     </section>
     <nav class="nav">
       <a href="ep-030.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 31 / 99</a>
+      <a class="dc" href="index.html">Ep 31 / 34</a>
       <a href="ep-032.html">Next →</a>
     </nav>
   </article>

@@ -42,23 +42,91 @@
       <div class="date-label">Season 3 · Ep 29</div>
       <h1>Fourth Meeting</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-029.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Then the corgi turned its head.</p>
-      <p>It saw him. It moved at once — across the rocks, quickly, not carefully. The boy heard its feet on the wet stone. The tortoise followed, from rock to rock, more slowly.</p>
-      <p>The corgi sat down at his feet.</p>
-      <p>The woman looked up. He came across the rocks toward him, watching where he stepped.</p>
-      <p>His face was unclear, the way all faces were.</p>
-      <p>He said, 'Nice to meet you.'</p>
-      <p>He said, 'Nice to meet you.'</p>
-      <p>He told his he had been in Hokkaido for a week. He said he had come to visit the otter. He said he knew — he had been recording it for four days.</p>
-      <p>The corgi stayed at his feet through the whole conversation.</p>
-      <p>After a while, he said goodbye. The corgi went to his. The tortoise followed.</p>
-      <p>The boy sat back down on his rock. The otter was in the water, floating on its back.</p>
+      <p>The corgi turned.</p>
+      <p>It saw him.</p>
+      <p>For a moment, the boy and the corgi looked at each other across the rocks. Then the corgi came down.</p>
+      <p>It moved quickly. It jumped from one rock to the next and sat at the boy's feet. Its tail moved like it would not stop.</p>
+      <p>Ako-chan climbed down after it. Ruka followed more slowly.</p>
+      <p>She said: nice to meet you.</p>
+      <p>He said: nice to meet you.</p>
+      <p>She looked at the corgi sitting at his feet. She looked at Ruka, who had already moved to his left side and stopped.</p>
+      <p>He wrote in his notebook: Hokkaido shore. Pattern A. Fourth instance. Corgi: immediate recognition. Tortoise: immediate proximity.</p>
+      <p>She looked at the otter. The otter was watching all of them.</p>
+      <p>He kept writing. Pattern A entry: thin. Same as before. Same length. Same weight.</p>
+      <p>They stood on the rocks without speaking much. The otter floated nearby.</p>
+      <p>After a while she said she would come back the next day. He nodded. She climbed back up to the path. Ruka followed.</p>
+      <p>The corgi stayed at his feet a little longer.</p>
     </section>
     <nav class="nav">
       <a href="ep-028.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 29 / 99</a>
+      <a class="dc" href="index.html">Ep 29 / 34</a>
       <a href="ep-030.html">Next →</a>
     </nav>
   </article>
