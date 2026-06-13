@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Both Solutions Open — Ep 78</title>
+  <title>Both Solutions — Ep 78</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,28 +40,99 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 78</div>
-      <h1>Both Solutions Open</h1>
+      <h1>Both Solutions</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-078.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>He went back to the beginning.</p>
-      <p>He had written the two solutions in the notebook on the same night he found the black stone. <em>Device first. Then: together.</em> Solution one — build Obia — was complete. Obia was working. Obia had read the equations and answered <em>Possible.</em></p>
-      <p>He took out the pages and found the place where he had written the two approaches.</p>
-      <p>He looked at it for a long time.</p>
-      <p><em>Solution 1: complete. Solution 2: possible.</em></p>
-      <p>He had been to four cities. He had tried seven methods. He had come to Antarctica alone. He had built Obia alone.</p>
-      <p>Now both lines were open.</p>
-      <p>He was not used to this. He had always had one line open at a time. A problem, a method, a result. Clean sequence.</p>
-      <p>He looked at the two lines.</p>
-      <p>He had never had a working partner before. He had always been the only one on the problem.</p>
-      <p>Pen-san shifted its weight from one foot to the other. The boy looked up. Then he looked back at the screen.</p>
-      <p>He pressed the mode control.</p>
-      <p><em>Ready.</em></p>
-      <p>He said: "Where do we start?"</p>
+      <p>He drew a table.</p>
+      <p>Two rows.</p>
+      <p>Row one: Solution A. Face recognition. Status: complete. Method: Obia. Note: no fog.</p>
+      <p>Row two: Solution B. Time machine. Status: possible. Method: to be decided. Note: new direction needed.</p>
+      <p>He looked at the table.</p>
+      <p>He had carried both questions since August. One had led here — to Obia, to a device that could see what he could not. The other had stayed open and marked with a limit.</p>
+      <p>Now both had a status.</p>
+      <p>He looked at the word possible again.</p>
+      <p>He wrote at the bottom: Both solutions: active.</p>
+      <p>He turned to Obia.</p>
+      <p>He said: I want to try both. At the same time.</p>
+      <p>Obia's sensor array moved toward him.</p>
+      <p>He said: Solution A is finished. I will test it in December. In Yokohama. Then I will know if the problem is in the method or in me.</p>
+      <p>He wrote: Solution A test: December. Location: Yokohama.</p>
+      <p>He said: Solution B — I need your help. I could not finish it alone. The equations ran out.</p>
+      <p>Obia made a sound. Short. Low.</p>
+      <p>The boy understood it as yes.</p>
+      <p>He wrote: Solution B: joint design. Partner: Obia. Begin: now.</p>
+      <p>He looked at both rows.</p>
+      <p>He wrote: Both: ready.</p>
     </section>
     <nav class="nav">
       <a href="ep-077.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 78 / 99</a>
+      <a class="dc" href="index.html">Ep 78 / 87</a>
       <a href="ep-079.html">Next →</a>
     </nav>
   </article>

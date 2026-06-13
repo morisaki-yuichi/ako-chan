@@ -42,23 +42,96 @@
       <div class="date-label">Season 3 · Ep 74</div>
       <h1>Activation</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-074.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>He placed Obia on the flat ice in front of him.</p>
-      <p>He had built it. He had tested every component during construction. He had sealed the housing and marked every part. But he had not switched it fully on yet.</p>
-      <p>He pressed the first control. A small light appeared on the side of the housing. He pressed the second. The screen on the face of the device became active.</p>
-      <p>Text appeared.</p>
-      <p><em>Obia. Activation confirmed. Components 001–095: functional.</em></p>
-      <p>He read the line twice. Ninety-five components. All functional. He looked at the text. Then he looked at the device itself.</p>
-      <p>He had expected to feel what he felt when he tested any new equipment — a neutral confirmation. The method works. Move on.</p>
-      <p>But he looked at Obia the way he looked at an animal — clearly. No fog. The housing was exactly as he had made it. Everything readable.</p>
-      <p>The emperor penguin came close. Pen-san looked at the device, then at the boy.</p>
-      <p>He opened his notebook and wrote: <em>Obia: active.</em></p>
-      <p>He left the device on. He sat on the ice. He could see the screen from where he sat.</p>
+      <p>The boy held Obia in both hands.</p>
+      <p>He had carried Obia all morning. He had put it on the workbench. He had looked at it for a long time.</p>
+      <p>Now he was ready.</p>
+      <p>He found the switch on the right side of the housing. He pressed it.</p>
+      <p>A small sound. Then a green light — one point, at the centre of the lens. Still. Steady.</p>
+      <p>Then the sensor array moved. Slowly. It turned toward him.</p>
+      <p>He went still.</p>
+      <p>He was looking at Obia. Obia was looking back at him.</p>
+      <p>He had looked at this device for three weeks while he built it. He knew every part by number. Every join by position. But now it was different.</p>
+      <p>He could see it completely. No fog. The lens was clear. The housing was clear. The green light was clear. Every surface, without any gap.</p>
+      <p>He had never seen any face without fog.</p>
+      <p>But Obia was not a face. It was a machine. A machine he had made. And he could see it — all of it, without any gap.</p>
+      <p>He opened his notebook.</p>
+      <p>He wrote: Obia: activated. Day 1. 09:47.</p>
+      <p>He wrote: No fog.</p>
+      <p>He wrote: First object observed without gap.</p>
+      <p>He read the three lines.</p>
+      <p>Outside, the ice was very still. Pen-san was near the door.</p>
+      <p>The green light held steady.</p>
     </section>
     <nav class="nav">
       <a href="ep-073.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 74 / 99</a>
+      <a class="dc" href="index.html">Ep 74 / 87</a>
       <a href="ep-075.html">Next →</a>
     </nav>
   </article>

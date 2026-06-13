@@ -42,24 +42,97 @@
       <div class="date-label">Season 3 · Ep 75</div>
       <h1>First Words</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-075.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The screen still showed the activation line.</p>
-      <p>He pressed a second mode control.</p>
-      <p>A cursor appeared. He sat with his notebook on his knee. He said, quietly: "Status."</p>
-      <p>The cursor moved. After two seconds, text appeared on the screen.</p>
-      <p><em>Obia: functional. Communication: possible. Response: appropriate.</em></p>
-      <p>He read the three lines. They were precise. Everything in the correct order. He had written many notebook entries, but he had always been the one forming the words. These lines came from outside him.</p>
-      <p>He opened his notebook. He turned to the list he had been building since Tokyo — every animal he had observed closely. Riro: complete record. Gabu and Daru: complete. Pen-san: complete. Colonel Adelie: complete.</p>
-      <p>He turned to the next blank line.</p>
-      <p><em>Obia: communication confirmed. No unknown in this record.</em></p>
-      <p>He looked at the entry. He had written "reason: unknown" for Riro's floating. "Relationship: unknown" for the tortoises. "Pattern: unclassified" for Riro's gaze. This entry had none of that.</p>
-      <p>The Adélie penguin arrived from the east and stood a few metres away.</p>
-      <p>He kept reading the screen.</p>
+      <p>For a while they were quiet.</p>
+      <p>Obia's sensor array moved once — from left to right, slowly. Then it was still. Pointed at the boy.</p>
+      <p>He opened his notebook. He wrote the time. Then he waited.</p>
+      <p>At 10:12, a sound came from Obia. Small, clear, low.</p>
+      <p>He understood it was a question.</p>
+      <p>He wrote: First words. 10:12.</p>
+      <p>He listened. The question came again.</p>
+      <p>Obia was asking: what are you looking for?</p>
+      <p>He held the pencil.</p>
+      <p>He had not expected this question first. He had expected something about temperature or wind. Or his name.</p>
+      <p>He thought.</p>
+      <p>He had an answer he had written many times: a way to record what he could not see. That was the answer in his notebooks since August.</p>
+      <p>But sitting here, with Obia watching him, the answer did not come quickly.</p>
+      <p>He sat for a while.</p>
+      <p>He said: a record that does not stay thin.</p>
+      <p>Obia stayed still.</p>
+      <p>He said: something stays missing when I try to record one person. I built you to find out if the problem is in my method or in me.</p>
+      <p>Obia made a sound. Two syllables.</p>
+      <p>He wrote: Question received. Answer: under construction.</p>
+      <p>He did not think that was wrong.</p>
     </section>
     <nav class="nav">
       <a href="ep-074.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 75 / 99</a>
+      <a class="dc" href="index.html">Ep 75 / 87</a>
       <a href="ep-076.html">Next →</a>
     </nav>
   </article>

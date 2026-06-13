@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Obia Calculates — Ep 77</title>
+  <title>Possible — Ep 77</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,27 +40,102 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 77</div>
-      <h1>Obia Calculates</h1>
+      <h1>Possible</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-077.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The cursor blinked for a long time.</p>
-      <p>The boy sat on the ice. He did not write anything. He had already recorded what he needed. Now he waited.</p>
-      <p>Pen-san stood very still to his left. The emperor penguin had been watching the screen since the boy held up the notebook.</p>
-      <p>The Adélie penguin arrived on its morning circuit and stopped. It said something. Then it stood still too.</p>
-      <p>The wind moved across the flat ice. The calculation line was still showing. A counter on the right side of the screen moved slowly.</p>
-      <p>He did not know how long it would take. He had never asked anyone else to solve a problem before.</p>
-      <p>After forty minutes, the counter stopped.</p>
-      <p>One word appeared on the screen.</p>
-      <p><em>Possible.</em></p>
-      <p>He looked at it.</p>
-      <p>Then he picked up his pencil. He opened the notebook to the time machine pages. He unfolded them from the crease. He smoothed the corner of the last page.</p>
-      <p>He looked at the words <em>Limit reached</em> at the bottom.</p>
-      <p>He drew a thin line through them.</p>
+      <p>Obia was still for forty minutes.</p>
+      <p>The boy did not move. He worked through his regular measurements — temperature, pressure, wind speed — and waited. He did not speak.</p>
+      <p>At 14:52, Obia made a sound.</p>
+      <p>One word.</p>
+      <p>Possible.</p>
+      <p>The boy put down his pencil.</p>
+      <p>He picked it up again. He wrote: 14:52.</p>
+      <p>He wrote: Obia's answer: possible.</p>
+      <p>He read it back.</p>
+      <p>He had written Limit reached three times. He had written Theoretical framework: incomplete. He had closed the notebook and put it away for weeks.</p>
+      <p>Possible.</p>
+      <p>He sat for a long time.</p>
+      <p>He said: which part?</p>
+      <p>Obia made five sounds. Short sequences, one at a time.</p>
+      <p>The boy wrote them down as they came.</p>
+      <p>He looked at the five sequences.</p>
+      <p>They pointed to a section he had not tried. Not a different approach to the blocked part — a different way in, from a different direction. One he had not considered.</p>
+      <p>He drew a line on a clean page. He put the five sequences along the line. He looked at the shape they made.</p>
+      <p>It was not a full path. But it was an opening.</p>
+      <p>He wrote: New direction. Source: Obia.</p>
+      <p>He wrote: Solution B: updated. Status: possible.</p>
+      <p>He looked at the word.</p>
+      <p>He wrote: Begin.</p>
     </section>
     <nav class="nav">
       <a href="ep-076.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 77 / 99</a>
+      <a class="dc" href="index.html">Ep 77 / 87</a>
       <a href="ep-078.html">Next →</a>
     </nav>
   </article>

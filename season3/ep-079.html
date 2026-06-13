@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Begin — Ep 79</title>
+  <title>A Better Order — Ep 79</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,27 +40,97 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 79</div>
-      <h1>How to Begin</h1>
+      <h1>A Better Order</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-079.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Obia answered in four words.</p>
-      <p>The boy read them. He picked up his pencil and wrote them down. Then he looked at the first word.</p>
-      <p>He had a different starting point in mind. He had been thinking about the energy problem first. But Obia had started with the structural frame.</p>
-      <p>He thought about it. He could see the logic. The frame determined the energy requirements. If you fixed the frame first, the energy numbers followed. If you did the energy numbers first, you might have to redo them when the frame changed.</p>
-      <p>Obia's order was better.</p>
-      <p>He had never changed the start of his own design from someone else's suggestion before. He stood there for a moment. He noticed that he had stopped writing.</p>
-      <p>He turned to a blank page. He wrote the first line of the frame design.</p>
-      <p>Then he looked at the screen.</p>
-      <p>"What are the tolerances here?" he said.</p>
-      <p>Obia answered.</p>
-      <p>He wrote the numbers down. They were different from what he would have estimated. He checked them against what he remembered from the calculation pages.</p>
-      <p>They were correct.</p>
-      <p>He kept writing.</p>
+      <p>He had a starting plan.</p>
+      <p>He had written it in August — an order to work through the equations. Six steps. He had thought about each one carefully.</p>
+      <p>He showed it to Obia.</p>
+      <p>Obia looked at it. Then Obia gave a different order. Also six steps. But the first two were switched.</p>
+      <p>The boy looked at both plans.</p>
+      <p>In his version, step one was what he knew well. Step two was harder. He had put the easy part first so he would have a strong base before the difficult part.</p>
+      <p>In Obia's version, step one was the hard part. But done first, it would narrow the path for step two. His plan approached the hard part from a finished base. Obia's plan used the hard part to build the base itself.</p>
+      <p>He read both orders again.</p>
+      <p>He sat for a while.</p>
+      <p>Then he crossed out his sequence.</p>
+      <p>He wrote Obia's order in its place.</p>
+      <p>He had always checked his own plans and trusted them. He had never changed a plan because someone else suggested it.</p>
+      <p>He looked at the crossed-out line.</p>
+      <p>He thought: the new order is better.</p>
+      <p>He wrote: Order: revised. Source: Obia. Reason: better approach.</p>
+      <p>He looked at step one.</p>
+      <p>He picked up the pencil.</p>
+      <p>He wrote: Step 1. Begin.</p>
     </section>
     <nav class="nav">
       <a href="ep-078.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 79 / 99</a>
+      <a class="dc" href="index.html">Ep 79 / 87</a>
       <a href="ep-080.html">Next →</a>
     </nav>
   </article>

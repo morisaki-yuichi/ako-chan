@@ -381,45 +381,36 @@
 | 11-10 | Writes: "A number is proof of existence." | Core statement of the serial number philosophy. |
 | 11-13–11-20 | Final assembly phases. Pen-san at 30 cm from the workbench — inside the base. | Pen-san's closest approach yet. |
 | 11-21 | Construction complete. All 95 parts assembled. Full function test: passed. Device named: Obia. | **Obia complete.** |
-| 11-22–11-25 | First full test run. Off-cuts: 8 pieces, northeast corner, left at base. Pen-san observes Obia, then looks at the boy. | Off-cuts placed — the S1 fragments left behind. |
-| 11-26 | Organises departure records. Off-cuts location documented: northeast corner. "Departure: November 27." | Off-cuts formally recorded in notebook. |
-| 11-27 | Full serial number record copied into notebook — No.001 to No.095. "Full serial number record: complete." | **Serial numbers recorded.** S1/S2 readers' certainty deepens. |
-| 11-28 | Pen-san and Colonel Adélie at base entrance on departure. ~90 seconds of shared stillness. | Farewell without words. |
-| 11-29 | Leaves the base and walks 4 km to transport. Thinks of Yokohama — "Distance: approximately 14,000 km." | Southward journey ends; northward begins. |
-| 11-30 | In the air. November summary written. "Construction completed: November 21. Device: Obia. Complete." | November closed in the air, Antarctica below. |
+| 11-21 | Obia activation: afternoon. Presses the switch. Sensor array turns toward him — no fog, every surface clear. First time he has seen any object without a gap. Writes: "Obia: activated. No fog. First object observed without gap." | **ep74.** The first clear "face" he has ever seen — a device, not a person. |
+| 11-22 | First words: Obia's first question — "What are you looking for?" The boy takes a long time to answer: "a record that does not stay thin." Shows Obia the time machine notebook (31 pages, Limit reached underlined twice). Obia reads every page. | **ep75–76.** Obia's first question is not about temperature or data — it asks for the boy's purpose. |
+| 11-22 | After 40 minutes, Obia says: "Possible." One word. The boy writes it with the time of day (14:52). Obia gives five sequences pointing to an untried entry point. He writes: "New direction. Source: Obia." | **ep77.** "Possible" is the word that changes everything. |
+| 11-23 | Draws two-row table: Solution A (Obia, complete), Solution B (time machine, possible). Both solutions declared active. Obia suggests a revised design order — the boy crosses out his own sequence and writes Obia's. First time he has changed a plan on another's suggestion. Day 1 of joint design: 3 hypotheses revised, 22 pages — more than he has ever filled in one day. | **ep78–80.** The plan changes. The work begins. |
+| 11-24 | Day 2 of joint design. Colonel Adelie delivers formal progress report: date, conditions, subjects, activity, assessment — "Progress: satisfactory." Day 3: design complete. Components needed: 58. Available: 50. Missing: 8. | **ep81–82.** Colonel Adelie's five-sentence report, unchanged in form since the first day. |
+| 11-25 | Search the base room by room. All 8 missing components found in the third room. Colonel Adelie arrives at the sorting area and sorts all 8 by size — order matches assembly sequence exactly. Time saved: estimated two hours. Off-cuts from building Obia (8 pieces) left at northeast corner of base — documented in notebook. | **ep83.** Colonel Adelie's sorting: practical help, no explanation asked or offered. Off-cuts remain — S1 fragment origin. |
+| 11-26 | Full serial number record copied into notebook — No.001 to No.095. "Full serial number record: complete." Assembly preparation: Days 4–13 of the time machine project begin. | **Serial numbers recorded.** S1/S2 readers' certainty deepens. |
+| 11-27–12-06 | Assembly preparation continues. Each of the 58 components checked against the design. Pen-san present most days, sitting quietly in the corner. Colonel Adelie's patrol passes the window each morning. | The unplanned community holds its shape around the work. |
+| 12-07 | Assembly begins: project Day 14. Method: the boy names each component by number; Obia checks against the design and confirms; the boy attaches it. By end of day: 19 components placed. Error rate: 0. Writes: "Method: Obia confirms each step." | **ep84.** Assembly as joint work — each step confirmed before taken. |
+| 12-11 | Project Day 18: join failure at the forty-fourth component. Obia offers three options. The boy tries the third — angle difficult, result firm. Writes: "Third solution applied. Join: firm. Assembly: resumed." Says: "Thank you." Obia's sensor array turns toward him, then back to the design. | **ep85.** First time the boy thanks Obia directly. |
+| 12-16 | Project Day 23: pre-activation check complete, no errors. The boy presses the switch. A low sound, a light, a change in the air — instruments unchanged. Something happened that he cannot name. Pen-san makes two sounds, shaped differently from its usual sounds — as if confirming what it had been listening for. Writes: "Pen-san: two sounds. Character: different from usual." | **ep86.** Pen-san's "activation confirmed" — in precise, clear language the boy cannot translate but records. |
+| 12-17 | Sets both instruments side by side on the workbench: Obia (left, 342 g), time machine (right, 412 g). Writes: "Obia: complete. Components 001–095. Time machine: complete. Components 001–058. Both: ready." Pen-san appears at the door; Colonel Adelie at the window — one short sound. Writes: "Pen-san: present. Colonel Adelie: present. Departure: tomorrow." Stands beside Pen-san for a moment. Does not know what to write for what stays behind. | **ep87.** The farewell the boy records as behavioural data — but something remains. |
+| 12-18 | Leaves the base. Walks 4 km to transport with both instruments in the bag. Thinks of Yokohama — "Distance: approximately 14,000 km." | Southward journey ends; northward begins. |
+| 12-19 | In the air. Writes: "Antarctica: closed. Obia: present. Time machine: present. Both: with me." | Both instruments as travel companions now. |
 
 ## December — Yokohama — Naming, Starting, Departure
 
 | Date  | Event | Notes |
 |-------|-------|-------|
-| 12-01 | Moving north. Obia in the bag. Writes "present" for a device for the first time. | First day with Obia as a travel companion, not just a project. |
-| 12-02 | Final check during transit. All 95 serial numbers confirmed against handwritten list. "Target: Pattern A." | Uses the word "target" for Pattern A for the first time. |
-| 12-03 | Arrives Yokohama. Temperature: 8 degrees. Apartment unchanged: room 204, 4 sockets, 1 wall stain. | Return confirmed. Obia on the desk. |
-| 12-04 | Test plan written. Expected result B (Obia complete, my record thin) = Hypothesis C confirmed. | **Test plan complete.** Both outcomes are data. |
-| 12-05 | Port observations resumed. Obia in pocket. Pattern A: not occurring. | Port records restart. |
-| 12-06 | Full quay circuit, actively looking. Pattern A: not occurring. "Active search: negative" — first use of "active search." | |
-| 12-07 | Waiting. Three checks at pier 3. Normal port records complete; Pattern A column blank. | |
-| 12-08 | Pattern A occurring at 09:17. Direction confirmed. Obia indicator on. Walks toward the sound. | Eighth encounter begins. |
-| 12-09 | **Seventh self-initiated "nice to meet you."** Obia records Ako-chan. Dango and Ruka arrive. Six lines in the paper notebook. | **The test encounter.** Obia recording active. |
-| 12-10 | Obia data reviewed: face recognition complete, all fields filled, record thick — equivalent to Dango and Ruka's complete records. | **Obia can record.** Test result: B confirmed. |
-| 12-11 | Obia data and paper notebook placed side by side. "Same person. Two recorders. Different results." | Comparison documented. |
-| 12-12 | Writes: "Obia could record. The hole is not on Obia's side. The hole was inside me." | **Core conclusion written.** Hypothesis C confirmed. |
-| 12-13 | Writes: "There is something the tool cannot replace." Tries to write what it is — three failed attempts. "Sentence: incomplete." | The tool confirms the cause but does not close the question. |
-| 12-14 | Closes notebook (unusual). Goes to harbour. Returns. Writes: "Making it was right." Reason: not recorded. | "It was right" without being able to say why. |
-| 12-15 | Goes to pier 3 without planning. Tells Ako-chan: "I am leaving." Reason field blank. | First unplanned declaration. |
-| 12-16 | Eighth encounter. Ako-chan says: "If we meet again, I would like to call your name. What is your name?" He answers: "I don't have one." | **The question asked.** The boy's namelessness stated plainly. |
-| 12-17 | Ako-chan says: "Then let me call you Yu-chan." He hears the name. Writes: "Yu-chan. Named by: Ako-chan. December 17." | **The naming.** S3 connects to S1. "Yu-chan" enters the notebook. |
-| 12-18 | Reflects on the name as coordinate. "This coordinate points to a place that does not exist yet." | The name's future purpose understood. |
-| 12-19 | Understands "if we meet again" — the name exists for the next "nice to meet you," which she will not remember. Writes: "Gift: confirmed." | The asymmetric gift understood as a gift. First use of the word "gift" in the notebook. |
-| 12-20 | Dango at the quay. Tail speed: maximum. "Dango record — all entries: complete. Always maximum." | Last Dango record. |
-| 12-21 | Full system start of Obia. Display shows: Name: OBIA. Version: 1.0. Serial number displayed. He copies the serial number into the notebook. | **Serial number displayed and recorded.** S1 readers: the number matches the fragment. |
-| 12-22 | Serial number check: all 95 numbers confirmed. "These are trustworthy numbers." | The numbers trusted completely. |
-| 12-23 | Packing. Bag: 5.5 kg including Obia. Destination: not decided. Reason field blank. | |
-| 12-24 | Last fixed-point observation. All five points checked. Thinks "waited for me" but does not write it. | Port data complete for the year. |
-| 12-25 | Notebooks on the floor. 482 pages. 7 thin pages. One name "Yu-chan." One device "Obia." | **Year's summary.** Three things that do not fit inside numbers. |
-| 12-26 | Reads all 7 Pattern A entries. All thin, all the same shape. Writes: "A hole with a consistent shape is also a record." | **Pattern A: final review.** |
-| 12-27 | Ruka at the quay. Distance: 20 cm — same as every time since February. Crouches to Ruka's level. | Last Ruka record. |
-| 12-28 | Checks Obia data from yesterday: complete. Paper notebook: thin. Writes: "Pattern A: 7 entries. Observation complete." | **Last thin page.** Observation formally closed. |
-| 12-29 | Writes: "The reason to go is not a number." Underlines it. First acknowledgement of a non-numeric motivation. | "Not a number" as a new category of trust. |
-| 12-30 | Charges Obia. Counts total year records: 482 pages. Writes: "That is enough." Closes notebook. | Year closed with one number. |
-| 12-31 | Leaves Yokohama at dawn. Pier 3 final stop. "Yu-chan" said quietly to himself. Walks toward the station. Does not look back. | **Season 3 ends. Season 1's prologue begins.** |
+| 12-22 | Arrives Yokohama. Temperature: 8 degrees. Apartment unchanged: room 204, 4 sockets, 1 wall stain. Obia on the desk. Writes "present" for a device for the first time. | Return confirmed. The word "present" is new. |
+| 12-23 | Test plan written. Expected result B (Obia records clearly, paper notebook stays thin) = Hypothesis C confirmed. All 95 serial numbers confirmed against handwritten list. "Target: Pattern A." | Uses the word "target" for Pattern A for the first time. |
+| 12-24 | Port observations resumed. Obia in pocket. Pattern A: not occurring. Full quay circuit, actively looking. "Active search: negative." | Port records restart. |
+| 12-25 | Waiting. Three checks at pier 3. Pattern A column blank. | |
+| 12-26 | Pattern A occurring at 09:17. Direction confirmed. Obia indicator on. Eighth Pattern A encounter — Obia records Ako-chan while the boy's paper notebook holds only six lines. | **The test encounter.** Obia recording active. |
+| 12-26 | That evening: Obia data reviewed. Face recognition complete, all fields filled, record thick. Obia data and paper notebook side by side. "Same person. Two recorders. Different results." | **Obia can record.** Test result B confirmed. |
+| 12-27 | Writes: "Obia could record. The hole is not on Obia's side. The hole was inside me." Tries to write what the tool cannot replace — three failed attempts. "Sentence: incomplete." | **Core conclusion written.** Hypothesis C confirmed. |
+| 12-28 | Closes notebook (unusual). Goes to harbour. Returns. Writes: "Making it was right." Reason: not recorded. Goes to pier 3 without planning. Tells Ako-chan: "I am leaving." Reason field blank. | "It was right" without being able to say why. First unplanned declaration. |
+| 12-28 | Ninth encounter. Ako-chan says: "If we meet again, I would like to call your name. What is your name?" He answers: "I don't have one." | **The question asked.** The boy's namelessness stated plainly. |
+| 12-29 | Ako-chan says: "Then let me call you Yu-chan." He hears the name. Writes: "Yu-chan. Named by: Ako-chan. December 29." Ruka takes two small steps toward him and stops — the tortoise's version of a gesture. | **The naming.** S3 connects to S1. "Yu-chan" enters the notebook. |
+| 12-29 | Reflects on the name as coordinate. "This coordinate points to a place that does not exist yet." Understands "if we meet again" — the name exists for the next "nice to meet you," which she will not remember. Writes: "Gift: confirmed." | The asymmetric gift understood as a gift. |
+| 12-29 | Walking back along the harbour, a girl with glasses passes him. Before he decides, his hand reaches for the pencil. He writes: "Glasses." — one word, before he decided to. First involuntary notation. | **"Glasses."** The first notation that arrived before the decision to record. |
+| 12-30 | Dango at the quay. Tail speed: maximum. "Dango record — all entries: complete. Always maximum." Full system start of Obia. Display shows: Name: OBIA. Serial number displayed. He copies it into the notebook. Counts total year records: 482 pages. Writes: "That is enough." | **Serial number displayed and recorded.** S1 readers: the number matches the fragment. |
+| 12-31 | Before dawn. Leaves Yokohama. Pier 3 final stop. Obia in the bag, serial numbers catching the morning light. "Yu-chan" said quietly to himself. Walks south into the low flat light. Does not look back. | **Season 3 ends. Season 1's prologue begins.** |
