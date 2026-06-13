@@ -262,7 +262,10 @@ def adjacent(month, day):
 
 def paras_html(text):
     blocks = [b.strip() for b in text.strip().split("\n\n") if b.strip()]
-    return "\n".join(f"      <p>{b}</p>" for b in blocks)
+    def render(b):
+        b = re.sub(r'_([^_]+)_', r'<em>\1</em>', b)
+        return f"      <p>{b}</p>"
+    return "\n".join(render(b) for b in blocks)
 
 
 # ── Audio player ─────────────────────────────────────────────────────────────

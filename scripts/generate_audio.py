@@ -36,6 +36,7 @@ _TTS_REPLACEMENTS = [
 
 def preprocess(text: str) -> str:
     text = re.sub(r'<[^>]+>', '', text)
+    text = re.sub(r'_([^_]+)_', r'\1', text)
     for src, dst in _TTS_REPLACEMENTS:
         text = text.replace(src, dst)
     return text
