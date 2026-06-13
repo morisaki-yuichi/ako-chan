@@ -42,21 +42,96 @@
       <div class="date-label">Season 3 · Ep 37</div>
       <h1>All Records</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-037.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>That evening, he took out both notebooks and set them on the desk.</p>
-      <p>He opened the first one to the beginning. Tokyo. He read through every entry. The train lines. The block counts. The sparrow pattern on the wire near the shrine. Each entry had a result. He turned the pages slowly.</p>
-      <p>He came to the first Yokohama visit. The tide data was complete. The crane counts were complete. He came to the pier entry. <em>Pier 3. Something happened here.</em> He moved on.</p>
-      <p>He read through the second Tokyo visit. He read through Hokkaido. The acoustic data was complete. The otter's routines were complete. He found the pattern note from the last evening there: <em>Corgi: Yokohama pier, Tokyo park, Hokkaido shore. Probability of coincidence: low.</em></p>
-      <p>That was open.</p>
-      <p>He kept reading. He read to the last entry. <em>Pattern A. Yokohama. Fifth instance.</em></p>
-      <p>He sat back.</p>
-      <p>He had been reading for more than an hour. He had found one open file. Everything else had a result, or a clear reason why it did not.</p>
-      <p>He looked at the window. The harbour was dark. He could hear the water.</p>
+      <p>That evening the boy put all his notebooks on the table.</p>
+      <p>He started from the beginning.</p>
+      <p>January. Every entry complete. Sparrow counts. Station codes. Tokyo streets. Suke-san behaviours.</p>
+      <p>February. The harbour. The tides. The first thin entry.</p>
+      <p>March. Tokyo. Two blank pages.</p>
+      <p>April. Pattern A named.</p>
+      <p>He kept reading. He marked each open item with a small circle.</p>
+      <p>May. Hokkaido. Forty-one pages. One thin entry. Everything else full.</p>
+      <p>He read slowly. An hour passed. Then more.</p>
+      <p>He reached the end.</p>
+      <p>He looked at his circles.</p>
+      <p>There was one.</p>
+      <p>Pattern A.</p>
+      <p>Everything else had a result. The Shiba Inu had a name. The unidentified birds had species. The crane repair was closed. The tide questions were answered. The otter's unclassified activity had a note.</p>
+      <p>All of it.</p>
+      <p>Except one.</p>
+      <p>He sat with the one circle for a long time. Then he wrote at the bottom of the page:</p>
+      <p>One open file. All others: complete.</p>
+      <p>He turned off the lamp. He went to bed. The notebook stayed open at that page.</p>
     </section>
     <nav class="nav">
       <a href="ep-036.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 37 / 99</a>
+      <a class="dc" href="index.html">Ep 37 / 39</a>
       <a href="ep-038.html">Next →</a>
     </nav>
   </article>

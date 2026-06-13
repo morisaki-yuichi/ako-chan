@@ -42,23 +42,92 @@
       <div class="date-label">Season 3 · Ep 36</div>
       <h1>Fifth Meeting</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-036.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>Two days later, the boy was walking along the harbour when the corgi found him.</p>
-      <p>It came at a steady pace — not running, but certain of its direction. He stopped. The small tortoise came behind it.</p>
-      <p>The woman was a few steps back. Her face was unclear, the way all faces were.</p>
-      <p>She said, 'Nice to meet you.'</p>
-      <p>He said, 'Nice to meet you.'</p>
-      <p>They stood near the water. He said he had come back for a few days. She said she had just returned from seeing a friend in the north. She did not say where.</p>
-      <p>The corgi sat between them. The tortoise settled near his feet.</p>
-      <p>After a while, she said goodbye. He watched them go.</p>
-      <p>He took out his notebook.</p>
-      <p><em>Pattern A. Yokohama. Fifth instance.</em></p>
-      <p>He put the notebook away and walked back to his room.</p>
+      <p>Three days after his return, the boy was walking near the western warehouses.</p>
+      <p>He did not usually come this way. A repair crane had blocked his normal route, so he had taken a different road.</p>
+      <p>He heard it before he saw it. A corgi's paws on the harbour stones.</p>
+      <p>Dango arrived at his feet and sat. Its tail moved very fast.</p>
+      <p>He had not been near pier 3. He had not been anywhere Pattern A had happened before. He was on a street he had never walked.</p>
+      <p>Ako-chan came around the corner with Ruka. She said: nice to meet you.</p>
+      <p>He said: nice to meet you.</p>
+      <p>She looked at Dango, who had pressed its head against his leg.</p>
+      <p>He opened his notebook. He wrote: Pattern A. Yokohama. Fifth instance. Western warehouse road. Not a previous Pattern A location.</p>
+      <p>He wrote one more line: corgi found me. I was not in any expected location.</p>
+      <p>He looked at Ako-chan. He said: your corgi comes to me every time.</p>
+      <p>She said: yes. He does.</p>
+      <p>He wrote that down.</p>
+      <p>She said it quietly, as if she already knew.</p>
+      <p>He did not know what to write about the way she said it. He closed the notebook.</p>
     </section>
     <nav class="nav">
       <a href="ep-035.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 36 / 99</a>
+      <a class="dc" href="index.html">Ep 36 / 39</a>
       <a href="ep-037.html">Next →</a>
     </nav>
   </article>
