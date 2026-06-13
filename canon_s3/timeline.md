@@ -265,6 +265,7 @@
 
 | Date  | Event | Notes |
 |-------|-------|-------|
+| Early Sep | Returns to Yokohama at the start of September. Reason column blank — the third time this has happened (after January and May). Writes: "No reason recorded. Third instance." Underlines it. Draws a small table: three rows, three seasons, three blank reasons. | **Third blank reason.** The pull toward Yokohama stronger than any written justification. |
 | 09-01 | Creates Protocol Version 2: 17 measurable questions on a single A4 sheet. Voice pitch, speed, posture angle, eye direction, clothing, etc. | Systematic preparation for the 7th encounter — the most thorough approach yet. |
 | 09-02 | Autumn arrives: light angle lower, shadows longer, migrant birds changing. The boy updates all seasonal variables. | Season shift as data update — the harbour is a clock the boy has learned to read. |
 | 09-03 | Reviews the protocol once more. Asks "will this be enough?" Concludes: "the only way to check is to try." | The scientific method applied to his own preparation. |
@@ -278,6 +279,8 @@
 | 09-11 | Notices the failure is still on his mind. Other failures never remained. This one does. Writes: "This failure is different from other failures. Why the difference?" | **"The failure bothers me"** — first time a recording failure has had an emotional remainder. Named as data. |
 | 09-12 | Confirms it is the first time: "I have been bothered by a failure in my records. This is the first time." Boxes the word "remaining." | **"First time" recorded explicitly.** The boy names his own state change with the same precision he applies to data. |
 | 09-13 | Analyses why only this failure bothers him. Other failures were notation problems. This one had the right notation — the tools worked; something else failed. | The distinction sharpens: tool failure vs. something in the recorder. |
+| 09-13 | Rewrites questions 14 and 17 from the protocol — multiple new versions, increasingly precise. Both answer spaces stay blank. Writes: "The thing I am trying to measure is outside the sheet." | **"Outside the sheet"** — not a tool failure; not a precision problem. The thing itself is somewhere a sheet cannot reach. |
+| 09-14 | Considers his own face-blindness as a spectrum rather than a total absence. Writes: "I am an extreme case. But is the gap in everyone, in different amounts? I cannot know from inside it." Writes "Antarctica" on the next line. | **Prosopagnosia framed as a spectrum question.** The insight bridges from the self-examination to the reason for the Antarctic journey. |
 | 09-14 | Two open questions now: Q1 "Why does Pattern A remain thin?" (since February) and Q2 "Why does the failure bother me?" (since September 11). Notes both concern the same subject. | **Two questions identified and held together.** Q2 is a new kind of question — about his own response, not about data. |
 | 09-15 | Reviews August design sketches. Confirms tool won't answer Q2 but will confirm or deny Hypothesis C. Writes: "Either result: new information." | Scientific framing of the tool: both outcomes are data. |
 | 09-16 | Notices himself checking the calendar. Writes "I want to solve this" — the first "I want" in the notebook. Writes: "New: yes." | **"I want" appears for the first time.** The investigation has emotional weight it did not previously carry. |
