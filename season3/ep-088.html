@@ -42,16 +42,89 @@
       <div class="date-label">Season 3 · Ep 88</div>
       <h1>Yokohama, December</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-088.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>He arrived in Yokohama in December.</p>
-      <p>The harbour was the same. The cranes were in their usual positions. The tide was lower than when he had last been here — the season had changed. He noted the measurement.</p>
-      <p>He found a room near the port. He set his bag down and took Obia out. He placed it on the table by the window.</p>
-      <p>He opened his notebook and wrote the date. Below it he wrote: <em>December. Obia: present.</em></p>
-      <p>He stopped. He looked at the word "present." He used that word for conditions — temperature, wind, observed behaviour. He had never written it about a device before.</p>
-      <p>He looked at Obia on the table. The room was quiet. The serial numbers on the side of the housing were visible in the light from the window.</p>
-      <p>He read the entry one more time. He did not change it.</p>
-      <p>He closed the notebook and went to get something to eat.</p>
+      <p>The apartment was the same. Room 204. Four sockets. One wall stain. Temperature: eight degrees.</p>
+      <p>He set Obia on the desk.</p>
+      <p>He unpacked slowly. He put his notebooks on the shelf in order. He put the time machine in the waterproof case. He put Obia on the desk.</p>
+      <p>He opened his notebook.</p>
+      <p>He wrote: Yokohama. December. Return.</p>
+      <p>Then he looked at the desk.</p>
+      <p>He wrote: Obia: present.</p>
+      <p>He held the pencil.</p>
+      <p>He had written present many times this year. Pen-san: present. Colonel Adelie: present. Obia: present at the workbench each morning.</p>
+      <p>But those were location notes. A thing was present if he could observe it. Present meant: here, in range, able to be recorded.</p>
+      <p>Obia was on the desk. That was a fact. He could see it from where he sat. The green light was on.</p>
+      <p>He looked at what he had written.</p>
+      <p>Outside, the harbour was grey and still. A crane moved slowly against the pale sky.</p>
+      <p>He did not change the entry.</p>
+      <p>He put the pencil down.</p>
+      <p>He sat with the notebook open and looked at the water.</p>
     </section>
     <nav class="nav">
       <a href="ep-087.html">← Previous</a>

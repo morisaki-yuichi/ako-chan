@@ -42,17 +42,90 @@
       <div class="date-label">Season 3 · Ep 90</div>
       <h1>The Test</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-090.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>On the second day in Yokohama, he went to the pier.</p>
-      <p>He had the plan ready. Bring Obia. Activate the face recognition. Record what the device could see. He had worked through the steps many times on the long journey back from Antarctica.</p>
-      <p>He reached the pier and stood near the water. He had his bag open.</p>
-      <p>After a while, he heard movement. He turned.</p>
-      <p>Two animals — the corgi with the light chest and the small tortoise. He recognised both at once. Four cities. Five visits. The same two animals each time.</p>
-      <p>Behind them came a person. Face unclear.</p>
-      <p>It said: "Nice to meet you."</p>
-      <p>He was already lifting Obia from the bag. He held it steady with both hands. He pressed the small control on the side and pointed the lens toward its.</p>
-      <p>The device was still. A crane moved behind him. The water was grey and flat.</p>
+      <p>The second day in Yokohama.</p>
+      <p>He reached the pier at 08:30. He had Obia in both hands.</p>
+      <p>Five ships at berth, two moving. He recorded them. He recorded the temperature and the light. He waited.</p>
+      <p>At 09:17, the animal-voice pattern came from the west end of the harbour.</p>
+      <p>He took a breath. He turned toward the sound.</p>
+      <p>Dango came first. Round the end of the pier, gold collar bright, tail already moving. Then Ruka, moving fast for a tortoise. Then Ako-chan.</p>
+      <p>The boy raised Obia.</p>
+      <p>He pointed the lens toward her.</p>
+      <p>His hand was steady.</p>
+      <p>He pressed the activation switch.</p>
+      <p>The green light appeared on the lens. The sensor array moved slowly, left to right, and stopped. It pointed at her.</p>
+      <p>He held the position.</p>
+      <p>They said their usual greeting.</p>
+      <p>He did not put Obia down. He kept it raised, lens toward her, green light on.</p>
+      <p>Dango came to his feet and sat. Ruka stopped at his left side. The corgi looked up at him. The tortoise looked up at him.</p>
+      <p>He watched the green light.</p>
+      <p>The sensor held still.</p>
       <p>He waited.</p>
     </section>
     <nav class="nav">

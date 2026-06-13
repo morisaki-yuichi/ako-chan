@@ -42,22 +42,92 @@
       <div class="date-label">Season 3 · Ep 97</div>
       <h1>The Name</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-097.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>She said: "Yu-chan."</p>
-      <p>He did not say anything.</p>
-      <p>The corgi looked up at him. The tortoise was still.</p>
-      <p>He said: "Why that?"</p>
-      <p>She said: "You will know, one day."</p>
-      <p>He thought about this. He had no way to test whether it fit or not. He had never had a name. He did not know what fitting felt like for a name.</p>
-      <p>He looked at the water. He looked at his bag, where Obia was.</p>
-      <p>A pause.</p>
-      <p>He said: "All right."</p>
-      <p>It nodded once.</p>
-      <p>The corgi wagged its tail — one slow motion. The tortoise took two small steps toward him and stopped.</p>
-      <p>He stood there a little longer. He did not know what to say after that. There was nothing to record.</p>
-      <p>He picked up his bag. "Yu-chan," she said quietly. Once more.</p>
-      <p>He nodded. Then he turned and walked toward the station.</p>
+      <p>She said: then I will call you Yu-chan.</p>
+      <p>He heard the name.</p>
+      <p>He said: why?</p>
+      <p>She said: you will know one day.</p>
+      <p>He looked at her.</p>
+      <p>He did not have a reason for the name. He could not connect it to any data. But she had been quiet for a moment before saying it. It was not a quick decision.</p>
+      <p>He said: all right.</p>
+      <p>Dango's tail moved once — one slow sweep, and stopped.</p>
+      <p>Ruka took two small steps toward him and stopped. The tortoise raised its head and looked up at him.</p>
+      <p>He looked at Ruka.</p>
+      <p>Then he opened his notebook.</p>
+      <p>He wrote: Yu-chan. Named by: Ako-chan.</p>
+      <p>He wrote: reason given: will know one day.</p>
+      <p>He looked at the entry.</p>
+      <p>A name was a coordinate. This one pointed somewhere that did not have a location yet. But it was his now. She had given it to him and he had said all right.</p>
+      <p>He wrote: gift: confirmed.</p>
+      <p>He closed the notebook.</p>
+      <p>He looked at the two animals one more time.</p>
+      <p>Then he said goodbye.</p>
     </section>
     <nav class="nav">
       <a href="ep-096.html">← Previous</a>

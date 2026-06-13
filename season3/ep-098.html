@@ -42,21 +42,94 @@
       <div class="date-label">Season 3 · Ep 98</div>
       <h1>The Girl with Glasses</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-098.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>He was walking back along the harbour.</p>
-      <p>A girl passed him on the path — small, a school bag on her back, moving quickly. She was wearing glasses.</p>
-      <p>His hand moved.</p>
-      <p>He reached for his pencil before he knew he was doing it. He opened the notebook.</p>
-      <p>He looked at her back as she walked away. Her face had been fog, the way all faces were. He had not seen it. He could not record it.</p>
-      <p>He looked at what he had written.</p>
-      <p><em>Glasses.</em></p>
-      <p>He stood on the path with the notebook open.</p>
-      <p>He had recorded glasses before — as part of a physical description, as one measurement among others. But he had written this before he thought about it. His hand had moved on its own.</p>
-      <p>He looked at the word.</p>
-      <p>He looked at the path where she had gone.</p>
-      <p>He closed the notebook.</p>
-      <p>He stood there for a moment. Then he turned and walked toward the station.</p>
+      <p>He walked back along the harbour.</p>
+      <p>The light was low in the west. The water was dark. He walked without opening his notebook — the record was complete, the entries were done, there was nothing left to write.</p>
+      <p>A girl came toward him on the waterfront path.</p>
+      <p>She had glasses. Oval frames, dark. A grey coat. She was walking quickly, looking down at something in her hand.</p>
+      <p>She passed him.</p>
+      <p>He kept walking.</p>
+      <p>Then his hand was already in his bag. Already finding the notebook. Already holding the pencil.</p>
+      <p>He stopped.</p>
+      <p>He looked at his hand.</p>
+      <p>He had not decided to write anything.</p>
+      <p>He opened the notebook.</p>
+      <p>He wrote: Glasses.</p>
+      <p>One word.</p>
+      <p>He looked at it.</p>
+      <p>Every entry in every notebook this year had started with a decision: observe, record, write. The decision always came first.</p>
+      <p>This time his hand had moved before the decision.</p>
+      <p>He stood on the harbour path for a long time.</p>
+      <p>The girl was gone. He had not recorded her coat or her speed or her direction. Only one word.</p>
+      <p>He looked at the word again.</p>
+      <p>He closed the notebook carefully.</p>
+      <p>He walked on.</p>
     </section>
     <nav class="nav">
       <a href="ep-097.html">← Previous</a>

@@ -42,19 +42,91 @@
       <div class="date-label">Season 3 · Ep 91</div>
       <h1>Obia Records</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-091.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The result came in under three seconds.</p>
-      <p>He read the output on the small screen. Face capture: complete. Every field filled. No gaps.</p>
-      <p>He looked at the entry carefully. It was clean. Every number correct. He had never seen a face record come back this fast before.</p>
-      <p>He pressed the confirm key. He began to put Obia back in the bag.</p>
-      <p>Obia moved.</p>
-      <p>The housing turned slightly to the left — a small shift, just a degree or two. Toward where it had been standing.</p>
-      <p>He stopped. He looked at the device in his hand. Then he looked at the spot where it had been a moment ago.</p>
+      <p>The result came back in under three seconds.</p>
+      <p>A short sound from inside the housing. Then the display field lit.</p>
+      <p>He read it.</p>
+      <p>Face capture: complete. All fields: filled. No gaps.</p>
       <p>He stood very still.</p>
-      <p>He put Obia in the bag and closed the zip.</p>
+      <p>He had designed this test in August. He had built Obia for it. He had gone to Antarctica and back. He had waited at the pier.</p>
+      <p>Now the result was here. Under three seconds.</p>
+      <p>He looked at the display.</p>
+      <p>Then Obia's housing moved. Very slightly — a few degrees, without any signal from him. The sensor array turned away from him, toward her.</p>
+      <p>The boy did not move.</p>
+      <p>He watched.</p>
+      <p>The sensor was pointing at Ako-chan. It held still there for a moment. Then it moved back to the centre position and was still.</p>
+      <p>He had never seen Obia do that. The sensor moved in response to data and questions and design sheets. It had never turned toward a person on its own.</p>
+      <p>He looked at the display again.</p>
+      <p>Face capture: complete.</p>
+      <p>He looked at his paper notebook.</p>
+      <p>The entry was six lines. The same as always.</p>
       <p>He did not write anything down.</p>
-      <p>He started back toward the station. He did not look behind him.</p>
     </section>
     <nav class="nav">
       <a href="ep-090.html">← Previous</a>

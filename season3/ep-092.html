@@ -42,21 +42,90 @@
       <div class="date-label">Season 3 · Ep 92</div>
       <h1>The Hole Is Inside</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-092.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>He sat on the bed until the room went dark.</p>
-      <p>He did not open his notebook.</p>
-      <p>Obia had recorded its. Clean entry. No gaps. Three seconds.</p>
-      <p>He had built Obia because he thought the problem was in the method. His own face recognition had never worked. An external device — something without his gap — would solve the problem.</p>
-      <p>But now he had the solution and the gap was still there.</p>
-      <p>He could pull up the record. Its face, complete, in the data. He could look at it right now.</p>
-      <p>He still could not see its with his own eyes.</p>
-      <p>He thought about this for a long time.</p>
-      <p>The device was not broken. The data was correct. The problem was not in the method. The problem was not in the tools.</p>
-      <p>It was in him.</p>
-      <p>He had known this was possible. He had written it down once, a long time ago, and put it aside. <em>Device first.</em></p>
-      <p>He had built the device. Now he had the answer he had not wanted to look at directly.</p>
-      <p>He sat in the dark room.</p>
+      <p>That evening he sat at the desk.</p>
+      <p>He placed Obia's data on the left. He opened his paper notebook on the right.</p>
+      <p>Same person. Two recorders.</p>
+      <p>Obia's data: coat dark blue, glasses oval and dark-framed, height estimated 163 cm, voice low and steady. All fields complete. A full record.</p>
+      <p>His paper record: six lines. The same six lines as February.</p>
+      <p>He looked at both for a long time.</p>
+      <p>He had expected this. He had designed the test expecting this. Hypothesis C — the problem is in the recorder — had been his leading answer since August. He had written it many times.</p>
+      <p>But sitting here with both records in front of him, he was not moving.</p>
+      <p>He thought: the device is not broken.</p>
+      <p>He thought: the data is correct.</p>
+      <p>He thought: the problem is in me.</p>
+      <p>That was not a hypothesis now. It was just the fact.</p>
+      <p>He had always known it was probably true. Tonight it was true.</p>
+      <p>He sat with it.</p>
+      <p>Outside, the harbour lights moved on the water. Very slowly. Long, thin lines of light.</p>
+      <p>He did not close the notebook.</p>
+      <p>He just sat.</p>
     </section>
     <nav class="nav">
       <a href="ep-091.html">← Previous</a>

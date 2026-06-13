@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>He Tells Its — Ep 93</title>
+  <title>He Tells Her — Ep 93</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,23 +40,93 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 93</div>
-      <h1>He Tells Its</h1>
+      <h1>He Tells Her</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-093.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>He found its the next morning at the pier.</p>
-      <p>The corgi came first. Then the tortoise. He stopped and waited for them.</p>
-      <p>It came a few steps closer. Its face was fog.</p>
-      <p>He said: "I am leaving tomorrow."</p>
-      <p>It said: "Where are you going?"</p>
-      <p>He said: "I don't know yet. Somewhere I have not been."</p>
-      <p>It looked at him. He could not read its face.</p>
-      <p>He said: "I have everything from this harbour. The data is complete."</p>
-      <p>It did not say anything. The corgi was sitting at his feet. The tortoise had stopped by his bag.</p>
-      <p>He said: "I have what I came for."</p>
-      <p>It was quiet for a moment. Then it said: "Will you come back?"</p>
-      <p>He thought about it. He had come back before. He had not planned any of those returns. He had not written reasons for them.</p>
-      <p>He said: "I don't know."</p>
+      <p>He found Ako-chan at the pier the next morning.</p>
+      <p>They said their usual greeting. Then he said: I am leaving soon.</p>
+      <p>She looked at him.</p>
+      <p>He said: I have been here a year. The record is complete. I have a new project. I have to go.</p>
+      <p>She looked at Dango. Then at Ruka. Then at him.</p>
+      <p>She asked: will you come back?</p>
+      <p>He thought about it.</p>
+      <p>He had come back before without planning. Yokohama, twice. Tokyo. Hokkaido. The Mediterranean. He had left and then found himself returning, the reason field blank. Four times he had come back to places he did not plan to return to.</p>
+      <p>Maybe that was the only honest answer.</p>
+      <p>He said: I don't know.</p>
+      <p>She was quiet.</p>
+      <p>He said: that is the most accurate answer I have.</p>
+      <p>She looked at him for a moment.</p>
+      <p>Then she said: all right.</p>
+      <p>He opened his notebook. He wrote: departure: soon. Told Ako-chan. Her question: will you come back? My answer: I don't know.</p>
+      <p>He looked at the entry.</p>
+      <p>I don't know was not the same as unknown. Unknown meant the data was missing. I don't know meant the data was somewhere in him and he could not read it yet.</p>
+      <p>He kept the entry.</p>
     </section>
     <nav class="nav">
       <a href="ep-092.html">← Previous</a>
