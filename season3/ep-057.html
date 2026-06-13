@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Going South — Ep 57</title>
+  <title>Five Days South — Ep 57</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,23 +40,91 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 57</div>
-      <h1>Going South</h1>
+      <h1>Five Days South</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-057.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>He travelled for five days.</p>
-      <p>First south by train. Then west by ferry. Then south again on a research ship. The captain had nodded when he showed his papers. The boy found a spot near the stern and stayed there most of the journey.</p>
-      <p>The data changed as he moved south. The air got colder by about one degree every hundred kilometres. He noted the figures. The sky stayed light for longer each day — it was summer in the south. On the third day the sun did not set at all.</p>
-      <p>He filled two pages with observations. Water temperature. Cloud types. Ice first sighted on day four — a white shelf flat on the water, 1.8 km to the east.</p>
-      <p>The other passengers stayed inside. The boy stayed on deck.</p>
-      <p>On the fifth morning, the ship slowed. Ice on both sides now. He had put away his pencil and was just looking.</p>
-      <p>He had been to cold places before. But this cold had a weight to it. Everything visible was white or grey. There were no faces anywhere.</p>
-      <p>He was the only person who got off at the landing point.</p>
-      <p>He stood on the ice with his bag. The wind was steady and cold.</p>
+      <p>The journey south took five days.</p>
+      <p>Day one: the train went south through Japan. He recorded the landscape. Mountains, then flat land, then sea.</p>
+      <p>Day two: a ferry south. He counted waves: one every 4.1 seconds. Temperature: 9 degrees. He put his coat on.</p>
+      <p>Day three: the research ship. The sea was grey. The horizon was wide. He could see no land. He wrote: all of Japan: north and behind me.</p>
+      <p>He had never written that before.</p>
+      <p>Day four: minus 2 degrees. He had never recorded a negative temperature. He wrote: minus 2. Noted. New range.</p>
+      <p>Day five: ice.</p>
+      <p>He saw it from the ship. White and flat in every direction. He had read about Antarctic ice. He had seen photographs. The photographs had not given the size.</p>
+      <p>He wrote: Day 5. First Antarctic ice. Visual field: 90% white. Temperature: minus 6 degrees.</p>
+      <p>He tried to count the pieces of ice near the ship. He stopped at forty-seven. They were too many.</p>
+      <p>He wrote: too many to count. He drew a line there.</p>
+      <p>He stood at the rail and looked south.</p>
     </section>
     <nav class="nav">
       <a href="ep-056.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 57 / 99</a>
+      <a class="dc" href="index.html">Ep 57 / 73</a>
       <a href="ep-058.html">Next →</a>
     </nav>
   </article>

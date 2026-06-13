@@ -65,7 +65,7 @@ All seasons, all parts. Use this to locate the target file and episode range bef
 | 6 | Yokohama: Full Records | ep 35–39 | 5 | `stories_s3_p06.py` | ✅ |
 | 7 | Mediterranean | ep 40–49 | 10 | `stories_s3_p07.py` | ⬜ |
 | 8 | Yokohama: The Protocol | ep 50–55 | 6 | `stories_s3_p08.py` | ⬜ |
-| 9 | The Far South | ep 56–73 | 18 | `stories_s3_p09.py` | ⬜ |
+| 9 | The Far South | ep 56–73 | 18 | `stories_s3_p09.py` | ✅ |
 | 10 | Yokohama: The Project | ep 74–87 | 14 | `stories_s3_p10.py` | ⬜ |
 | 11 | Yokohama: Departure | ep 88–99 | 12 | `stories_s3_p11.py` | ⬜ |
 

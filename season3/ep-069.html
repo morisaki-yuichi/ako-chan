@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Idea — Ep 69</title>
+  <title>Two Solutions — Ep 69</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,29 +40,96 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 69</div>
-      <h1>The Idea</h1>
+      <h1>Two Solutions</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-069.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>That night, the boy opened the Pattern A page.</p>
-      <p>Eight entries. Four cities. He had tried seven methods. Each one had found the same gap.</p>
-      <p>He took a clean page and wrote the problem at the top.</p>
-      <p><em>Pattern A. 8 instances. 4 cities. Explanation: none.</em></p>
-      <p>He sat with the blank space below it.</p>
-      <p>Two possible approaches.</p>
-      <p>The first was simple. He could not record Pattern A with his own senses. He needed an external device — something that could observe and record what he could not. A device without his gap.</p>
-      <p>The second approach was different. He thought through the logic carefully. If Pattern A was not random, something was arranging it. If the arrangement came from a decision already made — from a point further along the line than he was now — then the pattern itself was evidence that such things were possible. He opened to a new page and began to calculate.</p>
-      <p>He stopped.</p>
-      <p>He read what he had written. He sat for a long time.</p>
-      <p>Then he turned to the next page.</p>
-      <p><em>Device first. Then: together.</em></p>
-      <p>The pages with the second calculation stayed where they were. He did not cross them out.</p>
-      <p>He opened a clean section of the notebook and picked up his pencil.</p>
-      <p>He began to draw.</p>
+      <p>The boy set Component 071 on the workbench.</p>
+      <p>He looked at it beside the seventeen parts from September.</p>
+      <p>He made a new list. The face recognition module needed three parts he did not have. He searched the old boxes again. He found one on the second search. One he could make from materials already here. One he could adapt.</p>
+      <p>He wrote: Face recognition module: materials complete.</p>
+      <p>He started the full design. Module first. Then the memory unit. Then the housing.</p>
+      <p>He counted all the components. Those he had. Those he could make. Those he could adapt.</p>
+      <p>Total: ninety-five.</p>
+      <p>He wrote: External device. 95 components. All achievable. Build time: estimated three weeks.</p>
+      <p>He drew two boxes on a clean page.</p>
+      <p>Box one: Solution A. External device. Possible. Start: now.</p>
+      <p>Box two: Solution B. Time machine. Incomplete. Start: later.</p>
+      <p>He drew a line under Box one.</p>
+      <p>He picked up the stamp.</p>
+      <p>He pressed it into the first metal part.</p>
+      <p>No.001.</p>
+      <p>He put it down.</p>
+      <p>He wrote: Start.</p>
     </section>
     <nav class="nav">
       <a href="ep-068.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 69 / 99</a>
+      <a class="dc" href="index.html">Ep 69 / 73</a>
       <a href="ep-070.html">Next →</a>
     </nav>
   </article>

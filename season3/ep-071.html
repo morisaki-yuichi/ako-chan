@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Construction — Ep 71</title>
+  <title>Building — Ep 71</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,24 +40,95 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 71</div>
-      <h1>Construction</h1>
+      <h1>Building</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-071.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>He built for three weeks.</p>
-      <p>He worked in the sheltered space beside the ice rise. The toolkit bag sat on its side as a low table. He sat on the ice and worked.</p>
-      <p>The optical elements went in first. He had calibrated the camera module in the Mediterranean. He tested it again here — the light was different, but the calibration held.</p>
-      <p>The chips were next. He connected them one by one and tested each connection with the multimeter before moving on. He did not skip a step.</p>
-      <p>On the eleventh day, he took out the black stone. Component 071. He fitted it into the central socket of the processing layer. He tightened the housing around it.</p>
-      <p>He tested the circuit. The response was unusual — different from what the chips alone had produced. He recorded the reading and continued.</p>
-      <p>The Adélie penguin made a statement every time he fitted a new component. The emperor penguin was always nearby.</p>
-      <p>Toward the end, the housing took the longest. He hand-formed the sheet metal over three days, pressing it over the frame in small sections.</p>
-      <p>He checked every joint.</p>
-      <p>He tightened every screw.</p>
+      <p>He built the device over three weeks.</p>
+      <p>He worked each morning. Each afternoon, Colonel Adelie arrived at the workbench window.</p>
+      <p>The small penguin stood at the same spot every day. Head forward. Eyes on the work. Duration: usually twelve to fifteen minutes. Then it continued on the patrol.</p>
+      <p>The boy found this useful. He did not think about why.</p>
+      <p>Some days the work was slow. The face recognition module needed joins at 0.1 millimetre tolerance. He checked each join twice.</p>
+      <p>Some days he made fast progress. On day eleven, he finished the memory unit. He wrote: memory unit: complete. He underlined it.</p>
+      <p>Pen-san came inside the base on some days. It sat near the workbench and watched. When it left, it moved quietly.</p>
+      <p>The boy kept working.</p>
+      <p>He wrote the count at the end of each day. How many components in. How many left.</p>
+      <p>Day 18: 77 in. 18 remaining.</p>
+      <p>Day 21: 93 in. 2 remaining.</p>
+      <p>Day 22: 94 in. 1 remaining.</p>
+      <p>Day 23: 95 in. 0 remaining.</p>
+      <p>He put down the last part.</p>
+      <p>He looked at the device in his hands.</p>
+      <p>It was complete.</p>
     </section>
     <nav class="nav">
       <a href="ep-070.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 71 / 99</a>
+      <a class="dc" href="index.html">Ep 71 / 73</a>
       <a href="ep-072.html">Next →</a>
     </nav>
   </article>
