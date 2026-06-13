@@ -103,7 +103,7 @@ STORIES_S1_P03 = [
             "\"I will come with you,\" Gabu said.\n\n"
             "Ako-chan nodded. \"Then come.\"\n\n"
             "Gabu moved to stand with the group. Not quickly. Not slowly. At the right pace.\n\n"
-            "That night, Ako-chan opened her blue notebook and wrote: Four of us now. Gabu came out on the third day.\n\n"
+            "That night, Ako-chan opened her red notebook and wrote: Four of us now. Gabu came out on the third day.\n\n"
             "She looked at the words. She thought about the three days of sitting.\n\n"
             "It had been worth it."
         ),

@@ -19,7 +19,7 @@ STORIES_S1_P02 = [
             "The train moved on. The fields were wide and quiet.\n\n"
             "\"How far to Belgium?\" said Ako-chan.\n\n"
             "\"A few hours,\" said Obia.\n\n"
-            "Ako-chan opened her blue notebook and wrote: February. Out of England. France.\n\n"
+            "Ako-chan opened her red notebook and wrote: February. Out of England. France.\n\n"
             "She looked at the words for a moment. Then she watched the fields go by."
         ),
     },
@@ -60,7 +60,7 @@ STORIES_S1_P02 = [
             "Ako-chan thought about that. \"Is there a reason? Or do you just not want to?\"\n\n"
             "\"There's a reason,\" said Obia.\n\n"
             "They walked in silence for a while. The trees on either side were tall and still.\n\n"
-            "Ako-chan took out her blue notebook. She opened it to a blank page. She held her pen above it for a moment.\n\n"
+            "Ako-chan took out her red notebook. She opened it to a blank page. She held her pen above it for a moment.\n\n"
             "Then she put the pen away. She closed the notebook.\n\n"
             "Dango had stopped ahead and was looking back, waiting.\n\n"
             "\"Okay,\" said Ako-chan.\n\n"
@@ -74,7 +74,7 @@ STORIES_S1_P02 = [
         "title": "Something She Couldn't Name",
         "text": (
             "That night, Ako-chan sat at a small table near the window. Rain fell outside.\n\n"
-            "She opened her blue notebook and wrote: Obia is good. But I don't know what kind of good.\n\n"
+            "She opened her red notebook and wrote: Obia is good. But I don't know what kind of good.\n\n"
             "She stopped and looked at the words.\n\n"
             "She had known Obia for weeks now. She knew Obia's name. She knew the way Obia walked. The way Obia listened. She knew that when she turned around, Obia was always there.\n\n"
             "But she did not know where Obia came from. She did not know why Obia had been sitting on that bench in the park. She did not know what Obia was.\n\n"
@@ -137,7 +137,7 @@ STORIES_S1_P02 = [
             "Across the room, Dango was lying against Obia's side, fast asleep. His collar glowed a quiet blue.\n\n"
             "Obia had not moved. It was sitting exactly as it had been when Ako-chan fell asleep. Dango must have come over some time in the night, and Obia had stayed completely still to let him sleep.\n\n"
             "Ako-chan watched them for a while.\n\n"
-            "She reached for her blue notebook. In the dark she couldn't see well, but she wrote anyway:\n\n"
+            "She reached for her red notebook. In the dark she couldn't see well, but she wrote anyway:\n\n"
             "Saw something. Not going to say it out loud. But I saw it.\n\n"
             "She closed the notebook.\n\n"
             "In the morning, Dango was back by the door. His tail wagged when she looked at him. Ako-chan said nothing. Obia said nothing.\n\n"

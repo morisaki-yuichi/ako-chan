@@ -248,7 +248,7 @@ STORIES_S1_P05 = [
             "Gabu was under the shade panel, standing very still the way it did sometimes in the mornings.\n\n"
             "Suke-san and Dango were at the side of the boat, looking east together. They were not talking. They just watched the horizon.\n\n"
             "Obia was at the front with the map device. The numbers changed. Obia watched them for a while, then put the device away.\n\n"
-            "Ako-chan sat down and opened her blue notebook.\n\n"
+            "Ako-chan sat down and opened her red notebook.\n\n"
             "She wrote: Pacific. Three days from land. Storm. Morning after.\n\n"
             "She stopped and looked up at everyone.\n\n"
             "She wrote: Seven now. I don't know why, but this is the right number.\n\n"

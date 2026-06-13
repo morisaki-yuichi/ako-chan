@@ -175,7 +175,7 @@ STORIES_S1_P04 = [
         "ep": 37,
         "title": "What She Wrote",
         "text": (
-            "That night, Ako-chan opened her blue notebook.\n\n"
+            "That night, Ako-chan opened her red notebook.\n\n"
             "Outside, the wind moved through the tall grass on the hill. The stars were very clear. She could hear Gabu moving slowly somewhere outside, looking at the sky.\n\n"
             "She wrote: Hokkaido. Cold night. Six now.\n\n"
             "She stopped and thought.\n\n"

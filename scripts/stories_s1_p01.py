@@ -17,7 +17,7 @@ STORIES_S1_P01 = [
             "\"The geese came back too early this year,\" it said. \"Three weeks ago. They don't know why.\"\n\n"
             "Ako-chan looked up. The sky was empty.\n\n"
             "\"Thank you,\" she said.\n\n"
-            "She opened her blue notebook and wrote one line: Geese. Back too early. Don't know why.\n\n"
+            "She opened her red notebook and wrote one line: Geese. Back too early. Don't know why.\n\n"
             "Then she watched Dango run."
         ),
     },
@@ -37,7 +37,7 @@ STORIES_S1_P01 = [
             "\"South,\" said the fox. \"It comes from the south.\"\n\n"
             "The fox stood up and walked back into the bushes.\n\n"
             "Dango stared at the place where the fox had been. Then he looked at Ako-chan. To Dango, the fox had just been standing still. Then it left. Nothing else.\n\n"
-            "Ako-chan opened her blue notebook. She wrote: Fox. The wind. Something wrong. South.\n\n"
+            "Ako-chan opened her red notebook. She wrote: Fox. The wind. Something wrong. South.\n\n"
             "She looked at the words for a long time."
         ),
     },
@@ -45,7 +45,7 @@ STORIES_S1_P01 = [
         "ep": 3,
         "title": "Something Is Wrong",
         "text": (
-            "That night, Ako-chan sat at her desk. Her blue notebook was open.\n\n"
+            "That night, Ako-chan sat at her desk. Her red notebook was open.\n\n"
             "She read back through three weeks of notes. A pigeon near the library. A robin in the back garden. A crow on the school fence. A grey cat on the high street. The fox that morning.\n\n"
             "Every one had said the same thing. Not the same words. But the same meaning.\n\n"
             "Something is wrong. Far away. To the south.\n\n"
@@ -129,7 +129,7 @@ STORIES_S1_P01 = [
         "ep": 7,
         "title": "Getting Ready",
         "text": (
-            "That evening, Ako-chan sat in the garden with Obia. She opened her blue notebook and read every note from the past weeks.\n\n"
+            "That evening, Ako-chan sat in the garden with Obia. She opened her red notebook and read every note from the past weeks.\n\n"
             "She told Obia everything.\n\n"
             "Obia listened without moving.\n\n"
             "When she finished, Obia said, \"The reports are all pointing south. They started in November. They have been moving north since then.\"\n\n"
@@ -153,7 +153,7 @@ STORIES_S1_P01 = [
         "title": "January's End",
         "text": (
             "January 31st.\n\n"
-            "Ako-chan got up before the sun. She put on her glasses. She put on her red scarf. She put her blue notebook in her coat pocket.\n\n"
+            "Ako-chan got up before the sun. She put on her glasses. She put on her red scarf. She put her red notebook in her coat pocket.\n\n"
             "Then she picked up her backpack and stood in the middle of her room.\n\n"
             "She looked at her desk. The window. The rug where Dango slept. The pale morning light on the wall.\n\n"
             "She had never left England before.\n\n"

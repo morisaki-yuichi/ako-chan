@@ -30,7 +30,7 @@ add one bullet per story that introduces a new fact, with the date.
 - [02-16] Noted in journal: "Water. It keeps coming back to water." — first pattern hypothesis
 - [02-23] Asked Obia "where do you come from?" for the third time; Obia made a clear promise to answer everything at journey's end
 - [02-28] Reached the Balkans; marked one full month since leaving England
-- [03-04] Bought a small dark blue notebook as a travel diary; writes in it most evenings
+- [03-04] Bought a small red notebook as a travel diary; writes in it most evenings
 - [03-04] Wrote that she does not know how to describe Obia yet; settled on "I am glad it is here"
 - [03-12] Dreamed of a soft white space and an almost-patterned sound at 2 a.m.; connected it to Obia's hidden February signal
 - [03-14] Stood silently before a Bosnian war memorial for a long time; Dango pressed against her without being asked
