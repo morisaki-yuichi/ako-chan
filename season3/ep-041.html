@@ -42,21 +42,88 @@
       <div class="date-label">Season 3 · Ep 41</div>
       <h1>Two Tortoises</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-041.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>The next morning, he was sitting on a low stone wall near the water, running a test on the camera module.</p>
-      <p>A movement caught his attention.</p>
-      <p>Two tortoises were moving across the flat rock below him. One was pale — lighter in colour, with a small careful step. The other was darker and rounder, with a higher dome and a faster pace. They were moving in the same direction, close together.</p>
-      <p>He stopped what he was doing and watched.</p>
-      <p>They reached the far edge of the rock and settled in a patch of sunlight. The pale one moved close to a crack in the stone and stayed still. The domed one pushed its head against the pale one's shell. The pale one did not move away.</p>
-      <p>He took out his notebook and began to write. Two tortoises. He described the colour and shape of each one, their size and age, their direction of travel, the distance between them.</p>
-      <p>He wrote for several minutes.</p>
-      <p>When he looked up, neither tortoise had moved. They were still in the same patch of light, the domed one pressing against the other.</p>
-      <p>He noted their position and opened a new section.</p>
+      <p>On the third morning, the boy climbed to a rocky ledge above the sea.</p>
+      <p>He needed a higher point to check light angles. He had been measuring from the shore. Now he wanted a different height.</p>
+      <p>He reached the top.</p>
+      <p>Two tortoises were sitting together in the sun. One was rounder and darker. Its shell was high and smooth. The other was a little flatter and lighter in colour, and slightly smaller.</p>
+      <p>They had not moved. The grass near them was flat in a circle. They had been in this spot for some time.</p>
+      <p>He sat down. He took out his notebook.</p>
+      <p>He drew the shape of each shell. He measured the distance between them: eight centimetres. He noted the distance from the ledge edge: one metre thirty. He noted the time: ten forty-one.</p>
+      <p>He wrote: shell one — darker, rounder. Shell two — lighter, slightly smaller. Distance: eight centimetres. Neither has moved since I arrived.</p>
+      <p>He stayed for two hours. The tortoises did not move. They did not eat. They sat in the sun and did nothing else.</p>
+      <p>He wrote: new section. Mediterranean. Tortoises, two. Records: open.</p>
+      <p>He turned to the next page.</p>
     </section>
     <nav class="nav">
       <a href="ep-040.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 41 / 99</a>
+      <a class="dc" href="index.html">Ep 41 / 49</a>
       <a href="ep-042.html">Next →</a>
     </nav>
   </article>

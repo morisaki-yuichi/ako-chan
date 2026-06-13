@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>By Boat — Ep 43</title>
+  <title>The Boat — Ep 43</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -40,24 +40,91 @@
   <article class="book">
     <header class="cover">
       <div class="date-label">Season 3 · Ep 43</div>
-      <h1>By Boat</h1>
+      <h1>The Boat</h1>
     </header>
+    <div class="player">
+      <div class="ply-ctrl">
+        <button class="ply-seek" id="seekBack">−5s</button>
+        <button class="ply-btn" id="playBtn" aria-label="Play">▶</button>
+        <button class="ply-seek" id="seekFwd">+5s</button>
+      </div>
+      <div class="ply-prog" id="playWrap">
+        <div class="ply-bar" id="playBar"></div>
+      </div>
+      <span class="ply-time" id="playTime">0:00</span>
+      <div class="ply-speeds">
+        <button class="ply-spd" data-rate="0.8">0.8×</button>
+        <button class="ply-spd on" data-rate="1">1×</button>
+        <button class="ply-spd" data-rate="1.2">1.2×</button>
+        <button class="ply-spd" data-rate="1.5">1.5×</button>
+      </div>
+      <audio id="playAudio" src="../audio/s3/ep-043.mp3" preload="none"></audio>
+    </div>
 
+    <script>
+    (function() {
+      var audio = document.getElementById('playAudio');
+      var btn   = document.getElementById('playBtn');
+      var bar   = document.getElementById('playBar');
+      var wrap  = document.getElementById('playWrap');
+      var lbl   = document.getElementById('playTime');
+      function fmt(s) {
+        var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+      btn.addEventListener('click', function() {
+        if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      });
+      document.getElementById('seekBack').addEventListener('click', function() {
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      });
+      document.getElementById('seekFwd').addEventListener('click', function() {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 5);
+      });
+      audio.addEventListener('timeupdate', function() {
+        if (audio.duration) {
+          bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+          lbl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+        }
+      });
+      audio.addEventListener('ended', function() {
+        btn.textContent = '▶';
+        bar.style.width = '0';
+        lbl.textContent = '0:00 / ' + fmt(audio.duration);
+      });
+      wrap.addEventListener('click', function(e) {
+        if (!audio.duration) return;
+        var r = wrap.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+      });
+      var spds = document.querySelectorAll('.ply-spd');
+      spds.forEach(function(b) {
+        b.addEventListener('click', function() {
+          audio.playbackRate = parseFloat(this.dataset.rate);
+          spds.forEach(function(s) { s.classList.remove('on'); });
+          this.classList.add('on');
+        });
+      });
+    })();
+    </script>
     <section class="story">
-      <p>On the fifth day, a small boat came in from the harbour at midmorning.</p>
-      <p>The boy was on the rocks. He watched the boat dock. A few people stepped off. He noted the boat number and the time.</p>
-      <p>Then he saw the corgi.</p>
-      <p>He recognised it immediately. The same short legs. The same ear position. The same measured pace. He had seen this corgi at a pier in Yokohama, at a park in Tokyo, on a rocky shore in Hokkaido.</p>
-      <p>The small tortoise came after it.</p>
-      <p>Behind them, a woman with glasses and a dark bag. He could not see his face clearly.</p>
-      <p>The two tortoises on the rock moved. The pale one lifted its head. The domed one took several fast steps toward the water's edge, then stopped.</p>
-      <p>The boy stood up. He moved back toward the wall, a little further from the water, and sat down again.</p>
-      <p>He watched the woman walk toward the tortoises. They moved toward his. The domed one reached his first. He crouched down and said something to it. He could not hear the words.</p>
-      <p>He opened his notebook. Then he closed it.</p>
+      <p>On the eighth day, the boy was on the rocky shelf above the water.</p>
+      <p>He heard a boat before he saw it. A small boat, coming in from the west. He counted: twelve seconds from first sound to first sight.</p>
+      <p>The boat came close to the rocks. A woman stepped off. A corgi jumped after her. Then a small tortoise was lifted carefully down.</p>
+      <p>The corgi landed on the rocks and stood still. It was watching the water. It had not seen the boy yet.</p>
+      <p>Then it turned.</p>
+      <p>It ran.</p>
+      <p>The rocks were uneven and sharp. The corgi crossed them without stopping. It came straight to the boy and sat at his feet. Its tail moved very fast.</p>
+      <p>He had not moved. He had not called out. He had made no sound.</p>
+      <p>The woman climbed up the rocks with the small tortoise behind her. She looked up and saw him. She did not speak yet.</p>
+      <p>The corgi was still sitting at his feet.</p>
+      <p>He opened his notebook. He wrote: the corgi found me first. No signal from me. The corgi crossed fifteen metres of rocky ground without any signal. I was standing still.</p>
+      <p>He waited for her to reach him.</p>
     </section>
     <nav class="nav">
       <a href="ep-042.html">← Previous</a>
-      <a class="dc" href="index.html">Ep 43 / 99</a>
+      <a class="dc" href="index.html">Ep 43 / 49</a>
       <a href="ep-044.html">Next →</a>
     </nav>
   </article>
