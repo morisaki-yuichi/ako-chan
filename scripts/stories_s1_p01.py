@@ -1,315 +1,173 @@
-# Season 1 — Part 1: England (ep 1–10)
-# Outline: story_outlines_s1.py
+# Season 1 — Part 1: England (ep 1–8)
+# Outline: planning/s1_outline_new.md
 
 STORIES_S1_P01 = [
     {
         "ep": 1,
-        "title": "Ako-chan's Morning",
-        "text": """Ako-chan woke up early on New Year's Day. The world outside was quiet and cold. She put on her coat and walked into the garden with Dango.
-
-Dango was a small Corgi puppy. He had red and white fur and a long fluffy tail. He ran in circles around the old oak tree. He loved mornings.
-
-A fox sat near the garden wall. It looked at Ako-chan with bright eyes.
-
-"Happy New Year," said the fox. "But I have to tell you something. Far away, something has changed. Something is wrong."
-
-Ako-chan listened. She could always understand animals. Every animal, every language, it was always the same. She had never told anyone.
-
-"What kind of wrong?" she asked.
-
-"I don't know," said the fox. "The birds carry the news. Something started far away. But it is moving closer."
-
-Dango stopped running. He pressed against Ako-chan's leg.
-
-"Thank you," said Ako-chan.
-
-The fox nodded and walked away through the long wet grass.
-
-Ako-chan stood under the oak tree. The sky was pale blue and very still.
-
-Far away, something was wrong. She felt it now too.""",
+        "title": "Ako-chan and Dango",
+        "text": (
+            "January in England. The air was cold and still. Ako-chan put on her glasses and her red scarf. She opened the front door. Dango was already on the step, tail wagging.\n\n"
+            "They walked the same path every morning. Past the old oak tree. Along the stone wall. Down to the park gate.\n\n"
+            "A sparrow landed on the wall.\n\n"
+            "\"Good morning,\" said Ako-chan.\n\n"
+            "\"Good morning,\" said the sparrow.\n\n"
+            "Dango pressed his nose to the ground and kept walking. He did not look up. The sparrow's words sounded like chirping to anyone else. But to Ako-chan, it was words. It had always been that way.\n\n"
+            "In the park, Dango ran in a wide circle. His orange and white fur moved fast through the cold grey air. Ako-chan sat on a bench and watched him.\n\n"
+            "The sparrow followed and landed on the railing.\n\n"
+            "\"The geese came back too early this year,\" it said. \"Three weeks ago. They don't know why.\"\n\n"
+            "Ako-chan looked up. The sky was empty.\n\n"
+            "\"Thank you,\" she said.\n\n"
+            "She opened her blue notebook and wrote one line: Geese. Back too early. Don't know why.\n\n"
+            "Then she watched Dango run."
+        ),
     },
     {
         "ep": 2,
-        "title": "The Silver in the Night",
-        "text": """That night, Dango barked.
-
-Ako-chan sat up in bed. Dango was at the window. His paws were on the glass. His whole body was stiff and still.
-
-Ako-chan looked out.
-
-A silver shape moved across the garden. It was about the size of a small dog. It moved fast and without any sound. Then it was gone.
-
-"What was that?" Ako-chan said.
-
-Dango kept watching the garden for a long time. Then he came back to the bed. But he did not sleep well. He kept his nose pointing at the window.
-
-In the morning, Ako-chan went outside. The snow was white and clean everywhere. Except near the garden wall.
-
-There were small round prints. Two rows of them.
-
-She got down to look. They were four-toed. Too small for a fox. Too round for a cat. And each one was exactly the same distance from the last. Very even. Very regular.
-
-Dango sniffed the prints for a long time. He had never smelled anything like this before.
-
-"Strange," said Ako-chan.
-
-Dango sat beside the prints and looked up at her. He agreed.""",
+        "title": "What Animals Say",
+        "text": (
+            "The park was quiet. A thin frost still covered the grass.\n\n"
+            "Ako-chan was walking near the pond when a fox stepped out from behind the bushes. It had a dark red coat and pale eyes. It looked at Ako-chan and sat down.\n\n"
+            "Dango stopped. He watched the fox. Then he watched Ako-chan.\n\n"
+            "\"You can hear me,\" said the fox.\n\n"
+            "\"Yes,\" said Ako-chan.\n\n"
+            "The fox was quiet for a moment. \"Something is wrong,\" it said. \"Far away. The wind has been carrying it for weeks. All the animals feel it.\"\n\n"
+            "\"What kind of wrong?\"\n\n"
+            "\"We don't know. Birds, foxes, deer in the north fields. Everyone says the same thing.\"\n\n"
+            "\"Which direction does it come from?\" said Ako-chan.\n\n"
+            "\"South,\" said the fox. \"It comes from the south.\"\n\n"
+            "The fox stood up and walked back into the bushes.\n\n"
+            "Dango stared at the place where the fox had been. Then he looked at Ako-chan. To Dango, the fox had just been standing still. Then it left. Nothing else.\n\n"
+            "Ako-chan opened her blue notebook. She wrote: Fox. The wind. Something wrong. South.\n\n"
+            "She looked at the words for a long time."
+        ),
     },
     {
         "ep": 3,
-        "title": "The Bench in the Park",
-        "text": """A few days later, Ako-chan went to the park. Dango pulled hard at his lead.
-
-"Wait," said Ako-chan.
-
-But Dango kept pulling. He was pointing toward the duck pond.
-
-Ako-chan followed him. The ducks were there, as they always were. But they were all gathered on one side of the pond. They were looking at the bench.
-
-On the bench sat a small silver dog. It was about the size of a puppy. Its fur was smooth and very bright. Its eyes were pale, almost the colour of glass. It was watching the ducks.
-
-Then it turned its head.
-
-It looked at Ako-chan. Then it looked at Dango. Then at Ako-chan again.
-
-"Hello," it said.
-
-Its voice was calm and clear. It was not quite like an animal's voice. It was not quite like a person's voice. It was something else.
-
-Ako-chan looked at the ground near the bench. There were small round prints in the snow. Very even. Exactly like the ones in her garden.
-
-Dango stepped in front of her. His body was still. His tail was straight.
-
-She stepped forward.
-
-"Hello," she said.
-
-The ducks were very quiet. Nothing moved except the water.""",
+        "title": "Something Is Wrong",
+        "text": (
+            "That night, Ako-chan sat at her desk. Her blue notebook was open.\n\n"
+            "She read back through three weeks of notes. A pigeon near the library. A robin in the back garden. A crow on the school fence. A grey cat on the high street. The fox that morning.\n\n"
+            "Every one had said the same thing. Not the same words. But the same meaning.\n\n"
+            "Something is wrong. Far away. To the south.\n\n"
+            "She spread a paper map on her desk. She looked at the long shape of Europe, the edge of Africa, the wide blue of the ocean.\n\n"
+            "She did not know where to start. She did not know what she was looking for.\n\n"
+            "But she could not ignore it.\n\n"
+            "She had felt this before. When a bird was hurt. When a cat was lost. A feeling that said: this matters.\n\n"
+            "She closed the notebook and looked out the window. The street was dark and quiet.\n\n"
+            "She picked up her pen and wrote one more line.\n\n"
+            "I think I have to go and look."
+        ),
     },
     {
         "ep": 4,
-        "title": "Hello, Obia",
-        "text": """The next day, Ako-chan went back to the park. Dango came too.
-
-The silver dog was on the same bench.
-
-Dango circled it slowly. He sniffed the bench legs. He sniffed the air all around. He had never smelled anything like this before. Not quite an animal. Not quite a machine. Something in between.
-
-He made a low sound in his throat.
-
-"It is all right, Dango," said the dog.
-
-Dango stopped. He had not given his name.
-
-"My name is Obia," said the dog. "I am a robot dog. I was built to speak, to listen, and to help. I have been in this neighbourhood for some time." It looked at Ako-chan. "I know your name, Ako-chan. I know where you live. And I know something about you. Something you have never told anyone."
-
-Dango pressed against Ako-chan's leg. He was still watching Obia, but his sound had stopped.
-
-"What do you know?" said Ako-chan.
-
-Obia's pale eyes were very still.
-
-"I know that you can understand every animal," it said. "Any kind. Any language. It is always the same for you."
-
-Ako-chan was quiet for a long moment.
-
-"Yes," she said. "That is true."
-
-She looked at Obia carefully.
-
-"Where do you come from?" she said.
-
-"From far away," said Obia. "That answer is better saved for after the journey. But I will tell you everything. I promise."
-
-Ako-chan thought about this.
-
-"All right," she said.
-
-Dango looked up at her. His tail was not moving yet. But it was not pulled in either.""",
+        "title": "The Silver Dog",
+        "text": (
+            "The next afternoon, Ako-chan and Dango went back to the park.\n\n"
+            "Near the big bench by the gate, Dango stopped. He lifted his nose. Then he walked slowly toward the bench.\n\n"
+            "A dog was sitting there.\n\n"
+            "It was small, like Dango, but very different. Its coat was smooth and silver. Its eyes were pale. It sat completely still.\n\n"
+            "Dango walked up and sniffed the silver dog's nose. The silver dog did not move.\n\n"
+            "\"Hello,\" said Ako-chan.\n\n"
+            "\"Hello,\" said the silver dog.\n\n"
+            "\"What's your name?\"\n\n"
+            "\"Obia.\"\n\n"
+            "\"Where are you from?\"\n\n"
+            "Obia was quiet for a moment. \"Far away,\" it said.\n\n"
+            "Ako-chan looked at Obia. Obia looked back at her. Its eyes were calm. It did not look lost. It did not look afraid. It just looked like it was waiting.\n\n"
+            "\"Are you alone?\" she said.\n\n"
+            "\"Yes.\"\n\n"
+            "Dango sniffed the bench. He sniffed the air. Then he lay down near Obia and put his chin on his paws.\n\n"
+            "Ako-chan sat down.\n\n"
+            "The three of them were quiet together for a long time.\n\n"
+            "The sun moved behind a cloud. The park stayed still."
+        ),
     },
     {
         "ep": 5,
-        "title": "A Request to Travel",
-        "text": """They walked in the park together. Obia walked beside Ako-chan. Dango walked on the other side.
-
-"Something is wrong in the world," said Obia. "Not just here. Everywhere. Animals are behaving in strange ways. Fish are moving where they should not. Birds are leaving their homes too early. It is getting worse."
-
-"I heard from a fox," said Ako-chan. "On New Year's morning. It said something had changed far away."
-
-"The animals feel it first," said Obia. "The cause is far away. I believe it is to the south. I need to find it. But I cannot do that alone."
-
-"What do you need?" said Ako-chan.
-
-Obia turned to look at her.
-
-"I need someone who can speak with every animal they meet. Any creature. Any country. Without your gift, we cannot find the source."
-
-Ako-chan was quiet. She thought about the fox. She thought about the silver shape moving through her garden. She thought about the prints in the snow.
-
-Dango sat down and looked up at her.
-
-"You want me to travel with you," she said.
-
-"Yes," said Obia. "If you are willing."
-
-Dango's tail moved. Once. Then it was still again.
-
-Ako-chan looked at the sky. She did not say yes. But she did not say no.""",
+        "title": "Dango's Test",
+        "text": (
+            "Obia came to the park the next day. And the day after that.\n\n"
+            "Dango walked around Obia in wide circles. He would get close, then move away. Closer, then away again. Obia sat still each time and did not rush him.\n\n"
+            "On the third day, Ako-chan brought her old rabbit stuffed animal. She had carried it in her bag since she was small. It was soft and worn.\n\n"
+            "She held it out to Obia.\n\n"
+            "Obia looked at it. Then it picked it up gently and turned to Dango.\n\n"
+            "Dango looked at the rabbit. He looked at Obia.\n\n"
+            "He walked forward and took it gently from Obia's mouth. He carried it to the far corner of the park and set it down carefully. He sniffed it once. Then he walked back and lay down close to Obia.\n\n"
+            "Ako-chan watched from the bench and said nothing.\n\n"
+            "That night, Dango slept on the bedroom rug as always. But at some point in the night, Ako-chan woke and looked over. Dango had moved. He was lying near the window. His nose pointed in the direction of the park.\n\n"
+            "His tail moved once, slowly, in his sleep.\n\n"
+            "Ako-chan looked at him for a moment. Then she lay back down and closed her eyes."
+        ),
     },
     {
         "ep": 6,
-        "title": "Dango's Test",
-        "text": """That night, the heater in the sitting room stopped working. In the morning it worked again. Ako-chan had not heard anything in the night. But Obia was already in the room, quiet and ready.
-
-"Did you fix the heater?" said Ako-chan.
-
-"Yes," said Obia. "It was not difficult."
-
-"Thank you," said Ako-chan.
-
-Dango had something else to think about.
-
-He went to his basket and came back with his flat blue ball. He dropped it in front of Obia.
-
-Obia picked it up and threw it. It went exactly the right distance. Not too far. Not too close. Dango ran and brought it back. They did this three times.
-
-Then Dango went to his basket again. He came back very carefully. In his mouth was an old stuffed rabbit. It had one button eye missing. One ear was soft and torn from many years of being loved. It was his most important thing in the world.
-
-He set it on the floor in front of Obia.
-
-Obia looked at the rabbit. It did not pick it up. It did not touch it. It just looked at it quietly for a moment.
-
-"That is a good rabbit," said Obia.
-
-Dango picked it up carefully and walked back to his basket. He turned around twice and lay down. He put the rabbit beside him.
-
-He did not make a low sound at Obia after that.""",
+        "title": "A Secret",
+        "text": (
+            "The next morning, Obia was waiting at the garden gate.\n\n"
+            "The three of them walked along the path by the stone wall.\n\n"
+            "\"I can understand animals,\" Ako-chan said. She was looking straight ahead.\n\n"
+            "Obia said nothing for a moment.\n\n"
+            "\"Any animal?\" it said.\n\n"
+            "\"Yes. Any language. Any kind.\"\n\n"
+            "\"How long?\"\n\n"
+            "\"Always.\"\n\n"
+            "Obia walked beside her. Its paws made a quiet sound on the path.\n\n"
+            "\"Have you told anyone?\" said Obia.\n\n"
+            "\"No,\" said Ako-chan.\n\n"
+            "\"Why are you telling me?\"\n\n"
+            "She thought about it. \"When the fox talked to me in the park,\" she said, \"you didn't look surprised. You didn't look at me like it was strange.\"\n\n"
+            "Obia said nothing.\n\n"
+            "\"Did you already know?\" she said.\n\n"
+            "Obia looked at the path ahead. \"I thought you were the kind of person who could,\" it said.\n\n"
+            "Ako-chan looked at Obia. Obia kept walking.\n\n"
+            "Dango ran ahead and circled back and ran ahead again. He did not know what they were saying. But his tail was high.\n\n"
+            "They walked the rest of the way without talking.\n\n"
+            "Something had changed. Ako-chan could feel it. Like a door that had been closed for a long time, opened just a little."
+        ),
     },
     {
         "ep": 7,
-        "title": "The Song of the Birds",
-        "text": """One afternoon, birds landed on the roof.
-
-Ako-chan went to the window. There were many of them. Twenty or more. They were all facing the same way. South.
-
-They called the same words again and again.
-
-"What are they saying?" said Obia.
-
-"Be ready," said Ako-chan. "They keep saying be ready. Something is coming from the south."
-
-Obia stood beside her and listened. It heard the calls differently. Not the words, but the shape of them. The spaces between the sounds. The way the calls repeated every time.
-
-"The same message," said Obia. "I can hear the pattern. They are all saying one thing."
-
-"How far has it traveled?" said Ako-chan.
-
-"Many weeks," said Obia. "It started very far away and moved north through all the birds. Now it is here."
-
-Dango sat beside them. He looked up at the roof. His ears were very still.
-
-"South," said Ako-chan.
-
-"South," said Obia.
-
-The birds stayed until it was dark. Then they all rose at once. They flew away together, going south, until Ako-chan could not see them any more.
-
-She stood at the window for a long time after they were gone.""",
+        "title": "Getting Ready",
+        "text": (
+            "That evening, Ako-chan sat in the garden with Obia. She opened her blue notebook and read every note from the past weeks.\n\n"
+            "She told Obia everything.\n\n"
+            "Obia listened without moving.\n\n"
+            "When she finished, Obia said, \"The reports are all pointing south. They started in November. They have been moving north since then.\"\n\n"
+            "\"What does that mean?\" said Ako-chan.\n\n"
+            "\"Something is happening far to the south. The animals are feeling it before we can see it.\"\n\n"
+            "\"Should we go?\" said Ako-chan.\n\n"
+            "Obia was quiet for a moment. \"Yes,\" it said.\n\n"
+            "Ako-chan closed the notebook. She looked at the dark garden. The grass was cold and silver.\n\n"
+            "\"Then I'll go,\" she said.\n\n"
+            "Later that night, there was a small sound at the back door. Ako-chan opened it.\n\n"
+            "A hedgehog stood on the step. It held three acorns.\n\n"
+            "\"Three portions,\" the hedgehog said. \"One for each of you.\"\n\n"
+            "It set them on the step and walked away into the dark.\n\n"
+            "Ako-chan gave one to Dango, who sniffed it and carried it inside. She held one out to Obia. Obia took it and held it still.\n\n"
+            "Ako-chan put the last one in her coat pocket.\n\n"
+            "She kept her hand there for a moment."
+        ),
     },
     {
         "ep": 8,
-        "title": "Telling a Secret",
-        "text": """That evening, Ako-chan sat with Obia by the window. Dango was asleep in his basket.
-
-"I want to tell you something," said Ako-chan. "I have never told anyone."
-
-Obia waited.
-
-"Every animal," said Ako-chan. "Any kind. Any country. Any language. I always understand them. I hear them the same way I hear you now. It has always been like this. Since I was very small."
-
-She stopped. It felt strange to say it out loud.
-
-"I was afraid no one would believe me," she said. "So I never told anyone."
-
-"I believe you," said Obia.
-
-"You already knew," said Ako-chan.
-
-"Yes," said Obia. "I knew before I came to your neighbourhood. That is why I came here, to you. Not just any person could travel the world and speak with every creature along the way. You are the only one."
-
-Ako-chan looked at the dark garden. The oak tree was a black shape against the sky.
-
-"So that is why," she said.
-
-"Yes," said Obia. "And now that you have said it out loud — perhaps it feels different."
-
-Ako-chan thought about that for a moment.
-
-"Yes," she said. "It does."
-
-Dango made a small sound in his sleep. His tail tapped the side of his basket once, then was still.""",
-    },
-    {
-        "ep": 9,
-        "title": "The Night of Decision",
-        "text": """Ako-chan could not sleep.
-
-She went downstairs. The clock on the wall said midnight.
-
-Obia was in the sitting room. It had a large sheet of paper on the floor. Many small dots covered it. A map.
-
-"You have been marking these," said Ako-chan.
-
-"Yes," said Obia. "Every report I can find. From fish, from birds, from animals across many countries. The dots are getting closer together. There are more of them every week."
-
-Ako-chan sat down on the floor beside the map.
-
-There were dots across Europe. Dots along the coasts. Dots deep in Asia. Most of them in the south or pointing toward the south.
-
-"If we don't go," she said, "will anyone else?"
-
-Obia was quiet for a moment.
-
-"I don't think so," it said.
-
-Ako-chan looked at the map. She thought about the fox on New Year's morning. She thought about the birds on the roof. She thought about her secret, which had waited her whole life for something like this.
-
-"I want to travel," she said. "I want to find what is wrong."
-
-Obia turned to look at her.
-
-"I have been waiting for you to say that," it said.
-
-Dango came quietly down the stairs. He lay down beside Ako-chan and put his head on her leg.""",
-    },
-    {
-        "ep": 10,
-        "title": "Goodbye, To Come Home Again",
-        "text": """They packed carefully. Dango put his stuffed rabbit in the bag himself.
-
-On the morning they were leaving, Ako-chan went into the garden. The hedgehog who lived under the roots of the oak tree came out. It was carrying something very carefully in its mouth.
-
-It set it on the ground in front of Ako-chan.
-
-A small, round acorn.
-
-"For luck," said the hedgehog. "Come back safe."
-
-"Thank you," said Ako-chan. She picked up the acorn. She held it in her hand for a moment. Then she put it deep in her coat pocket.
-
-She looked at the oak tree. She looked at the house.
-
-Then she walked to the gate.
-
-She did not look back.
-
-Dango walked ahead. He was already at the corner, his long tail up, looking back at her once. Obia walked a little in front, steady and quiet.
-
-The morning was cold and grey. Their footprints left marks in the frost on the pavement. Three different kinds of marks, all going the same way.
-
-Ako-chan put her hand in her pocket and felt the acorn.
-
-They were really going.""",
+        "title": "January's End",
+        "text": (
+            "January 31st.\n\n"
+            "Ako-chan got up before the sun. She put on her glasses. She put on her red scarf. She put her blue notebook in her coat pocket.\n\n"
+            "Then she picked up her backpack and stood in the middle of her room.\n\n"
+            "She looked at her desk. The window. The rug where Dango slept. The pale morning light on the wall.\n\n"
+            "She had never left England before.\n\n"
+            "She went downstairs and stood in the kitchen doorway. The house was quiet. It smelled like the same house it had always been.\n\n"
+            "She opened the front door and stepped outside.\n\n"
+            "Dango was already on the path. He was facing forward, tail up.\n\n"
+            "Obia stood at the garden gate.\n\n"
+            "Ako-chan pulled the door shut behind her. She touched her coat pocket. The acorn was there.\n\n"
+            "They walked down the street together. The air was cold. Their footsteps were quiet on the stone.\n\n"
+            "At the end of the street, Ako-chan did not look back.\n\n"
+            "\"Ready?\" said Obia.\n\n"
+            "\"Yes,\" said Ako-chan.\n\n"
+            "They walked on.\n\n"
+            "Behind them, the house stood still in the grey morning light. The street was empty. January was over."
+        ),
     },
 ]

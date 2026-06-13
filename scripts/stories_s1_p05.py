@@ -1,473 +1,261 @@
-# Season 1 — Part 5: The North (ep 50–63)
-# Outline: story_outlines_s1.py
+# Season 1 — Part 5: The Pacific (ep 38–48)
+# Outline: planning/s1_outline_new.md
 
 STORIES_S1_P05 = [
     {
-        "ep": 50,
-        "title": "Following the Trail",
-        "text": """The morning was full of fog.
-
-Suke-san led them down the cliff path. He knew where the tide went low. He did not say so. He just walked.
-
-They followed in the order they had made without deciding: Suke-san first, then Obia and Ako-chan, then Dango, then Daru on the pack, then Gabu at the back, slow and steady.
-
-A white-tailed eagle circled low overhead. It dipped once and flew toward the east cliff.
-
-Suke-san watched it. "This way," he said.
-
-On the rocks, they found broken shells. Sea urchin shells, cracked open clean. In a line. The newest ones were at the edge, the oldest in the middle.
-
-Dango lifted his nose. His collar went to full yellow.
-
-Suke-san lifted his nose too. "Something small," he said quietly. "Warm. I do not know this smell."
-
-Ako-chan crouched and looked along the line of shells. They grew fresher as they went east. Toward a rock where kelp hung in thick brown curtains.
-
-Daru said, "Close!"
-
-Gabu said, "Quietly."
-
-One word. That was all.
-
-Daru stopped moving.
-
-The kelp did not stir. But something behind it had pressed two small paws flat against its face.""",
+        "ep": 38,
+        "title": "The Last Shore",
+        "text": (
+            "They walked east until the land ran out.\n\n"
+            "The coast of Hokkaido ended at a long rocky shore. The rocks were dark and wet. The wind came straight off the water.\n\n"
+            "Dango walked to the edge and put his nose into the wind. He stood very still. His ears moved forward.\n\n"
+            "Suke-san came and stood next to him. He didn't say anything. He just looked out.\n\n"
+            "The water went on and on. There was no end to it. No far coast, no dark line of land. Just grey water and pale sky, all the way to the edge of the world.\n\n"
+            "\"This is the Pacific,\" said Obia. \"The biggest ocean.\"\n\n"
+            "Ako-chan looked at it.\n\n"
+            "She had seen the sea before. The channel in England. The coast of France. The Adriatic. But this felt different. Those seas had the idea of another shore. This one did not.\n\n"
+            "Gabu stood at the back, behind Ako-chan's feet. Its eyes moved slowly across the water.\n\n"
+            "Daru leaned out from the platform on the bag, neck stretched, looking.\n\n"
+            "\"How long until land again?\" said Ako-chan.\n\n"
+            "\"A long time,\" said Obia.\n\n"
+            "At the far end of the shore, there was a small harbour with one boat. They would leave from there in the morning.\n\n"
+            "Dango's collar was blue."
+        ),
     },
     {
-        "ep": 51,
-        "title": "Behind the Kelp",
-        "text": """The group stood still.
-
-Behind the kelp, two round dark eyes looked out. They moved slowly from face to face. Dango. Obia. Daru. Gabu. Suke-san. Back to Ako-chan. Then to the sea. Then back again.
-
-Nobody moved.
-
-Ako-chan sat down on a flat rock. She did not reach forward. She waited.
-
-After a long moment, the kelp shifted. A small head appeared. Then two front paws, pressed flat against a small round face. Reddish-brown fur, thick and very dense. Round dark eyes.
-
-The sea otter looked at the group carefully.
-
-"You are a lot of different animals," he said.
-
-"Yes," said Ako-chan.
-
-The otter looked along the row again. Dog. Robot. Tortoise. Tortoise. Dog. Human.
-
-"I see," he said. He did not say what he saw.
-
-Dango sat down. His tail was still. He was working very hard at being calm.
-
-Suke-san had not moved at all since the kelp shifted.
-
-Ako-chan said, "My name is Ako-chan. What is yours?"
-
-The otter thought about this for a moment.
-
-"Riro," he said.
-
-His paws were still pressed against his face. His eyes were very calm.""",
+        "ep": 39,
+        "title": "Between the Kelp",
+        "text": (
+            "The morning was grey and cold.\n\n"
+            "Before they left, Ako-chan walked along the rocky shore alone. She wasn't looking for anything. She just needed to walk.\n\n"
+            "The rocks were covered with small shells. Kelp moved in the shallow water, long and dark green and slow.\n\n"
+            "Something was in it.\n\n"
+            "A small shape. Rounded on top. Two small hands pressed flat against a face.\n\n"
+            "Ako-chan crouched at the water's edge.\n\n"
+            "\"Hello,\" she said quietly.\n\n"
+            "No movement.\n\n"
+            "She waited.\n\n"
+            "A small head came up slowly. Two bright eyes looked at her over two flat hands. The hands stayed against the face.\n\n"
+            "\"You talk,\" said a voice. Not afraid. Just surprised.\n\n"
+            "\"I do,\" said Ako-chan. \"Are you all right?\"\n\n"
+            "The head tilted sideways. The hands stayed up.\n\n"
+            "\"I'm fine,\" it said. \"I've been here.\"\n\n"
+            "\"For how long?\"\n\n"
+            "A pause.\n\n"
+            "\"About one week,\" said the otter.\n\n"
+            "\"Alone?\"\n\n"
+            "\"Alone is fine,\" it said. \"But.\" It stopped.\n\n"
+            "Ako-chan waited.\n\n"
+            "\"But one week is long,\" it said.\n\n"
+            "The kelp moved around them. The water was very cold.\n\n"
+            "\"Do you want to come with us?\" said Ako-chan.\n\n"
+            "The hands stayed against the face. The eyes watched her.\n\n"
+            "\"Where?\" said the otter.\n\n"
+            "\"South,\" said Ako-chan."
+        ),
     },
     {
-        "ep": 52,
-        "title": "Riro's Assessment",
-        "text": """The next morning, Riro came out from behind the kelp on his own.
-
-He moved slowly. He crossed the rocks toward Ako-chan, keeping low. Dango and Suke-san both sat very still. Obia stepped quietly to one side to give room.
-
-Riro stopped in front of Ako-chan. He looked at her hand.
-
-Then he reached forward and pressed his small paws against it. He sniffed for a long time. His nose moved from her fingers to her wrist to the cuff of her sleeve. He smelled the pack strap. The hem of her coat. Her boots.
-
-He sat back.
-
-"You smell like a long journey," he said.
-
-"Yes," said Ako-chan. "Six months."
-
-Riro considered this. "Multiple countries?"
-
-"Yes. A lot of them."
-
-He looked at Obia. Then at Dango, who was doing his very best to look relaxed. Then at Daru and Gabu side by side on the rock.
-
-"Six months," said Riro again. "And you are not done."
-
-"No," said Ako-chan.
-
-Riro pressed his paws back against his face. His round eyes were very calm.
-
-"I see," he said.""",
+        "ep": 40,
+        "title": "Wonderful",
+        "text": (
+            "Ako-chan picked up the otter.\n\n"
+            "The otter let her. Its hands stayed against its face the whole time, even when it was lifted out of the water. Its fur was thick and very soft. Ako-chan had never felt anything like it.\n\n"
+            "\"Oh,\" said Ako-chan. She couldn't help it.\n\n"
+            "The otter's eyes went wide. It looked at her face from very close.\n\n"
+            "For a moment they both stayed like that.\n\n"
+            "\"I'm Riro,\" said the otter.\n\n"
+            "\"Ako-chan,\" she said.\n\n"
+            "Ako-chan carried Riro back along the shore to where the others were waiting. Dango was at the front, watching them come.\n\n"
+            "He looked at Riro. Then at Ako-chan. Then at Riro again.\n\n"
+            "His tail, which had been moving, slowed down. Then stopped.\n\n"
+            "He moved back one step and sat down.\n\n"
+            "His collar was orange. But it was a lower, quieter orange than usual.\n\n"
+            "Riro looked at Dango over the top of its hands.\n\n"
+            "\"Dog,\" said Riro.\n\n"
+            "\"Yes,\" said Dango.\n\n"
+            "\"Nice dog?\" said Riro.\n\n"
+            "Dango's tail did not move.\n\n"
+            "\"I'm very nice,\" said Dango.\n\n"
+            "His collar stayed the same quiet orange.\n\n"
+            "Ako-chan looked at Dango. Dango looked at the water."
+        ),
     },
     {
-        "ep": 53,
-        "title": "Ako-chan's Expression",
-        "text": """On the third morning, Riro came early and sat beside Ako-chan on the flat rock.
-
-Ako-chan did not plan what happened next. Riro was small and his fur looked very soft and she simply picked him up.
-
-For a moment she could not speak.
-
-"…Oh," she said. "…Ah."
-
-She had held Dango. She had touched Gabu gently. She had scratched behind Daru's shell. But Riro's fur was a different kind of thing. It was like picking up a very warm cloud.
-
-"…Oh," she said again.
-
-Riro pressed his paws against his face and waited.
-
-Dango was standing nearby. He looked at Ako-chan's face. He knew that face. It was the face she made when something was a wonderful thing. He had seen it when she found a very blue sea. When Gabu said his first good morning. When the starfield filled the sky over Kazakhstan.
-
-She was making it now.
-
-Dango's tail was moving. Then it slowed. Then it went very still.
-
-He sat down. He looked at the sea.
-
-Suke-san said nothing. He looked at the sea too.
-
-Neither of them moved. The wind came off the water. Ako-chan held Riro and said "Oh" one more time, quietly.""",
+        "ep": 41,
+        "title": "Getting Used to It",
+        "text": (
+            "The first day, Dango watched Riro from the other side.\n\n"
+            "The second day, he moved a little closer. He watched Riro eat. He watched Riro talk to a seagull in a language he couldn't understand.\n\n"
+            "On the third day, Riro was floating on its back in a shallow pool between the rocks. Its hands were over its face. Its eyes were closed.\n\n"
+            "Dango came and sat at the edge of the pool.\n\n"
+            "He watched.\n\n"
+            "Riro didn't move. The water held it up, turning slowly with the small current.\n\n"
+            "Dango waited a long time.\n\n"
+            "Then he lay down with his chin on his front paws and looked at Riro.\n\n"
+            "His tail moved once, slowly. Then stopped.\n\n"
+            "His collar turned from orange to blue.\n\n"
+            "He wasn't watching anymore. He was just there.\n\n"
+            "When Riro opened its eyes later, Dango was asleep, chin still on his paws.\n\n"
+            "Riro looked at the sleeping dog for a moment. Its hands stayed against its face. But something around its eyes was different. Softer.\n\n"
+            "\"Not bad at all,\" said Riro.\n\n"
+            "Ako-chan was sitting on the rocks nearby. She heard it.\n\n"
+            "She didn't say anything. She went back to her notebook."
+        ),
     },
     {
-        "ep": 54,
-        "title": "Riro's Meal",
-        "text": """That afternoon, Riro went to the water. He dove and came back with a sea urchin. He placed it on a flat rock, chose a stone, and opened it with two careful strikes.
-
-He ate in silence.
-
-Then he looked up. "Today's urchin is acceptable," he said. "The flavour is correct. But the size is smaller than usual for this coast in July."
-
-Suke-san looked at the shell. "The cold current shelf is further out than last year. The larger urchins have moved east. About four kilometres."
-
-Riro looked at Suke-san.
-
-"You know this coast," he said.
-
-"I have watched it for a long time," said Suke-san.
-
-Riro looked at the empty shell. Then back at Suke-san. "There are urchins of the correct size on the east side of the outer rocks," he said. "When the current shifts in August, they come back."
-
-"I know," said Suke-san. "They have done it every year."
-
-They both looked at the sea.
-
-Daru said, "I do not eat urchins. But I would like to know more about them."
-
-Riro looked at Daru for a moment.
-
-"Later," he said. But he said it like a promise.""",
+        "ep": 42,
+        "title": "Obia Builds",
+        "text": (
+            "That night, while everyone slept, Obia worked.\n\n"
+            "Ako-chan woke once in the dark and saw the small light. She watched for a moment. Then she went back to sleep.\n\n"
+            "In the morning, Obia was done.\n\n"
+            "For Riro: a saltwater unit. A closed container with slow-moving water inside. Riro could rest in it on the boat without drying out. Riro climbed in. Floated. Hands on face, eyes up.\n\n"
+            "\"Not bad at all,\" said Riro.\n\n"
+            "For Gabu: a shade panel that moved to follow the angle of the sun. Gabu walked under it. Then moved a step. The shade followed.\n\n"
+            "Gabu looked at Obia. \"You watched how I moved.\"\n\n"
+            "\"Yes,\" said Obia.\n\n"
+            "\"Thank you,\" said Gabu. It was a careful thank you. The kind that meant something.\n\n"
+            "For Daru: a raised platform on top of the bag, with a low edge all around. Daru climbed up and looked out. Higher than before.\n\n"
+            "\"Much better,\" said Daru.\n\n"
+            "Obia had also checked the boat — packed everything, made space for all of them.\n\n"
+            "\"Are you ready?\" said Obia.\n\n"
+            "Everyone was ready.\n\n"
+            "They walked to the harbour and got in."
+        ),
     },
     {
-        "ep": 55,
-        "title": "Riro's Unit",
-        "text": """Obia worked through the night.
-
-In the morning, a small unit stood on the rocks. Light metal frame. A tank filled with cold seawater. A cover to keep spray in and wind out. The inside was exactly the right size.
-
-Riro came out from the kelp and looked at it.
-
-He walked around it once. He looked at the water inside. He looked at the opening.
-
-He stepped in.
-
-He settled into the water. He pressed his paws against his face.
-
-"This is good," he said.
-
-Obia said, "The water stays cold for eight hours. I will refresh it at each low tide."
-
-Riro looked out from the opening. "I was alone on these rocks for a week," he said. "That is long enough."
-
-It was the quietest thing he had said.
-
-Ako-chan did not ask more. Dango moved a little closer, but not too close. Daru opened his mouth and then closed it again.
-
-Gabu said nothing. But he moved his shelter so it faced Riro's unit.
-
-Obia said, "Seven members."
-
-Nobody spoke for a moment.
-
-Suke-san said, "All right."
-
-He said it simply, looking at the sea. His tail was curled.""",
+        "ep": 43,
+        "title": "No Land",
+        "text": (
+            "Day three on the water. Then day four.\n\n"
+            "Ako-chan looked in every direction. There was no land. No line of coast. No dark shape far away. Nothing but sea and sky.\n\n"
+            "She knew they were moving. The compass moved. The numbers on Obia's device changed. The boat moved under her feet.\n\n"
+            "But the sea looked the same in every direction.\n\n"
+            "She stood at the front and looked out. The water was grey-blue. The wind was steady. There was no sound except the water against the boat.\n\n"
+            "For a moment, she couldn't feel where she was.\n\n"
+            "Not lost. She knew where they were going. But there was nothing to hold the place in her mind. No shape. No name.\n\n"
+            "\"Obia,\" she said.\n\n"
+            "\"Yes,\" said Obia, from nearby.\n\n"
+            "\"Where are we?\"\n\n"
+            "\"Here,\" said Obia. \"Same place we always are.\"\n\n"
+            "Ako-chan thought about that.\n\n"
+            "She looked at the water for a while.\n\n"
+            "Then she turned around.\n\n"
+            "Dango was behind her. Riro was in the water unit. Gabu was in the shade. Daru was on the platform. Suke-san was at the side of the boat, looking east.\n\n"
+            "Here, she thought.\n\n"
+            "All of us, here."
+        ),
     },
     {
-        "ep": 56,
-        "title": "The Shellfish Ranking",
-        "text": """Three days later, Riro began to explain.
-
-"Shellfish," he said, "are not all equal."
-
-He held up one paw. "Sea urchin is first. Cold-current urchin only — the warm-water kind is not worth discussing." He paused. "Next: abalone. Rocky floor only, not sand. Sand is for clams."
-
-He went on. He explained the difference between blue mussel and green mussel. The correct rock depth for oysters. Why octopus was not shellfish but belonged in the same conversation.
-
-After about twenty minutes, Dango fell asleep.
-
-Suke-san turned to face the sea.
-
-Daru was still listening, but his eyes had started to close.
-
-Ako-chan was writing in her diary. She had stopped writing about shellfish. She was drawing a small picture of Riro's face.
-
-Riro continued.
-
-Gabu had not moved since the beginning. He had not looked away.
-
-When Riro paused, Gabu said, "Please continue."
-
-Riro looked at Gabu.
-
-"You are listening," he said.
-
-"Yes," said Gabu. "I do not know any of this. It seems useful to know."
-
-Riro pressed his paws against his face. He looked at Gabu for a moment.
-
-Then he continued.""",
+        "ep": 44,
+        "title": "Dark Water",
+        "text": (
+            "That night, Dango could not sleep.\n\n"
+            "He got up quietly and went out to the deck. The sky was very dark. No moon. Only stars, far away.\n\n"
+            "He went to the edge and looked down.\n\n"
+            "The water was black. Completely black. He could see nothing in it. It went down and down with nothing there.\n\n"
+            "His collar turned red.\n\n"
+            "He sat down. He looked at the water.\n\n"
+            "It moved in slow, heavy waves. There was no other sound.\n\n"
+            "Then Obia was there.\n\n"
+            "Obia came out and sat beside him.\n\n"
+            "No words. No questions. Just sat there.\n\n"
+            "Dango looked at the water. Then at Obia. Then back at the water.\n\n"
+            "The water didn't change.\n\n"
+            "But something else did.\n\n"
+            "After a while, his collar moved. Red to something in between. Then, slowly, blue.\n\n"
+            "He leaned a little to the side. Not much. Just enough to touch Obia's side.\n\n"
+            "Obia didn't move away.\n\n"
+            "They sat there until the stars began to fade. Then Dango got up and went back inside. Obia stayed a little longer, looking at the dark water.\n\n"
+            "In the morning, neither of them said anything about it."
+        ),
     },
     {
-        "ep": 57,
-        "title": "Gabu's Words",
-        "text": """It rained in the afternoon. Everyone moved under the cliff overhang.
-
-Gabu sat at the edge and looked at the sea. The rain made rings on the water. The rocks were dark and shining.
-
-Riro sat beside him.
-
-After a while, Gabu said, "I miss my olive tree."
-
-Riro looked at the sea. He did not speak right away.
-
-"The one in Greece?" said Ako-chan.
-
-"Yes. In the rain, it smelled different. Good different. I would sit under it and the water came off the leaves in drops."
-
-He was quiet for a moment.
-
-"I could go back," he said. "But I will not. The answer is no."
-
-Riro said, "Why not?"
-
-"Because I carry it," said Gabu. "I do not need to be there. I have it with me."
-
-Riro pressed his paws against his face. He thought about this.
-
-"When I was alone on the rocks," he said, "I thought about the other otters. I could not see them. But I could remember them. It helped."
-
-Gabu looked at Riro.
-
-"Yes," he said. "That is exactly it."
-
-The rain came harder. They sat under the overhang together. Daru was asleep on Ako-chan's pack. Dango was watching Ako-chan. Suke-san sat at the edge, looking at the sea by himself.""",
+        "ep": 45,
+        "title": "Something Woke Up",
+        "text": (
+            "The sound came from deep in the water.\n\n"
+            "Too low for ears — more like the whole boat shifted a little. Daru put its legs flat on the platform. Gabu stopped walking. Everyone went still.\n\n"
+            "\"What is that?\" said Suke-san.\n\n"
+            "\"A whale,\" said Obia. \"Wait.\"\n\n"
+            "The sound came again. Longer this time. It moved up and down.\n\n"
+            "Ako-chan listened. She heard the words inside it.\n\n"
+            "She listened until the sound stopped.\n\n"
+            "\"What did it say?\" said Obia.\n\n"
+            "\"Something has woken up,\" said Ako-chan. \"In a cold place. Something that slept a very long time.\"\n\n"
+            "Nobody spoke.\n\n"
+            "\"Where?\" said Suke-san.\n\n"
+            "Ako-chan looked at Obia.\n\n"
+            "\"South,\" said Obia.\n\n"
+            "The word stayed in the air.\n\n"
+            "It was the same word the camel had said on the pale road. The same word the cat had said at the Japanese port. The same direction everything had pointed since England.\n\n"
+            "Dango pressed against Ako-chan's leg. His collar was orange, but a dark, careful orange.\n\n"
+            "Riro's hands came down from its face. Just for a moment. It looked at the water with wide eyes.\n\n"
+            "Then the hands went back up."
+        ),
     },
     {
-        "ep": 58,
-        "title": "Everyone Decides",
-        "text": """The morning was clear. The sea was a dark, cold blue.
-
-Ako-chan looked at the record device. All the anomaly dots pointed in one direction — south and east, across a great deal of ocean.
-
-She looked up.
-
-"We need to cross the Pacific," she said.
-
-Dango was already standing.
-
-Daru said, "Yes. I knew we would."
-
-Gabu looked at the sea for a long time. Then he said, "I will come."
-
-Riro did not move from his unit for a moment. "Cold south water is better for me," he said. "I am in."
-
-Suke-san sat with his tail curled. He was looking at the sea. The sea was very large.
-
-"I will go," he said.
-
-He looked at the water for another moment. The wind came off it, cold and clean.
-
-"I will go," he said again.
-
-Nobody said anything about the second time. It was for himself, not for the group.
-
-Obia said, "I will build a boat."
-
-Ako-chan wrote in her diary: *Everyone decided. Dango decided before I finished speaking.*
-
-She closed the diary. She looked at the seven of them — seven very different animals, all looking at the same sea.
-
-*That,* she thought, *is the whole thing.*""",
+        "ep": 46,
+        "title": "The Storm",
+        "text": (
+            "The sky changed in the afternoon.\n\n"
+            "First the colour — from blue to pale and flat. Then the wind got stronger. Then the waves.\n\n"
+            "\"Inside,\" said Obia.\n\n"
+            "Everyone moved in.\n\n"
+            "The waves grew. The boat tilted one way, then the other. Ako-chan held on.\n\n"
+            "Daru went into its shell. First the legs, then the head. A still, closed shape on the platform.\n\n"
+            "Gabu moved close to Obia and pressed against its side. Very calm. It just waited there.\n\n"
+            "Suke-san sat against the wall with his back straight. His tail was down. He didn't move.\n\n"
+            "Riro looked at the small window. Rain came hard against the glass.\n\n"
+            "\"I could go out,\" said Riro. \"I swim well in rough water.\"\n\n"
+            "\"It's dangerous,\" said Obia.\n\n"
+            "Riro looked at the window again. Then it turned and climbed into the water unit. It lay on its back with hands on face.\n\n"
+            "\"Then I'll stay,\" said Riro.\n\n"
+            "The storm kept going all night. The boat tilted and came back, tilted and came back.\n\n"
+            "Nobody slept very much.\n\n"
+            "But nobody said anything about it either."
+        ),
     },
     {
-        "ep": 59,
-        "title": "Obia's Answer",
-        "text": """On the second night at sea, Suke-san went to the bow.
-
-Obia was already there.
-
-They stood side by side without speaking. The water was black. The stars were very many.
-
-After a long time, Suke-san said, "Why do you help us?"
-
-Obia did not answer right away.
-
-Suke-san waited. He had time.
-
-The boat moved. The water made a low sound against the hull. Behind them, Riro moved in his unit. Somewhere further back, Dango's collar was a quiet gold.
-
-Obia said, "Because it is important."
-
-Suke-san looked at the sea.
-
-"I see," he said. He said nothing more.
-
-Obia did not explain further.
-
-After a while, Suke-san said, "That is a reasonable answer."
-
-He turned and walked back toward his sleeping spot. He stopped at the railing.
-
-"I will still be better than you at most things," he said.
-
-Obia said, "I know."
-
-Suke-san's tail moved. He walked to his spot and lay down. After a moment his tail curled up again.
-
-Below them, the Pacific moved south. They were moving with it.""",
-    },
-    {
-        "ep": 60,
-        "title": "Before the Storm",
-        "text": """Obia came to the center of the deck.
-
-"There is a large storm," it said. "It will reach us tonight."
-
-Nobody asked how Obia knew. They had learned not to.
-
-"How large?" said Suke-san.
-
-"The largest we have crossed," said Obia.
-
-Dango's tail dropped. Not all the way. But enough.
-
-Suke-san walked to his position at the front of the deck. Then he stopped. He turned around. He walked back and stood beside Dango.
-
-He did not say anything. He just stood there.
-
-Dango's collar moved from orange at the edges toward something quieter.
-
-Riro secured his unit cover. Daru went into his shelter. Gabu pulled his shelter tight. Obia went to the helm.
-
-Ako-chan held Dango's ears gently. He pressed his head against her hand.
-
-"We have been through a storm before," she said.
-
-"That one was smaller," said Dango.
-
-"Yes," said Ako-chan.
-
-They stood together. The wind was starting. The sky in the west was dark.
-
-Suke-san said, "We should take our positions."
-
-He said it calmly. Like a fact. Like something that was simply going to happen.""",
-    },
-    {
-        "ep": 61,
-        "title": "Obia Holds",
-        "text": """The waves came very high.
-
-Obia stood at the helm and kept the bow into the wind. Rain came sideways. The deck tilted and came back. Tilted and came back.
-
-Then a sound. A creak from Gabu's shelter. Then a sharp crack.
-
-The bracket had broken. The shelter was sliding.
-
-Obia let go of the helm.
-
-It crossed the deck in three steps. It caught the shelter with its body and pressed it flat against the wall. The next wave came over the side. Obia did not move.
-
-It held the bracket in place with one side of its body and the shelter frame with one foreleg. The boat went sideways. Obia leaned harder. The boat stopped going further.
-
-The storm peak passed.
-
-Dango came out of his compartment, still shaking. He saw Obia against the wall. He sat down and watched.
-
-When the rain stopped, Obia repaired the bracket. The shelter held.
-
-In the grey morning light, Ako-chan saw it. A long scratch across Obia's left side. Diagonal, from shoulder to flank.
-
-"Surface damage only," said Obia. "No internal effect."
-
-Gabu put his head down inside his shelter. But his eyes were open. He had seen what Obia did. He would not say so. But he had seen.""",
-    },
-    {
-        "ep": 62,
-        "title": "After the Storm",
-        "text": """The storm stopped before dawn.
-
-When the sky went grey, Daru came out first. He climbed onto his shelter and looked around. The deck was wet. The sea was still moving, but the big waves were gone. The sky in the east was going pink and gold.
-
-Daru opened his mouth.
-
-"THE SKY IS BEAUTIFUL!" he shouted at the ocean.
-
-Nobody answered for a moment.
-
-Then Ako-chan laughed. She had not laughed since the storm started. It came out all at once.
-
-Dango's collar moved from orange to gold to yellow. The yellow stayed.
-
-Riro opened his unit cover and looked out. He pressed his paws against his face. He did not say anything. But his paws were in the peace position.
-
-Gabu put his head out from his shelter. He looked at the sky.
-
-"...Yes," he said.
-
-Suke-san came from the bow. He sat down on the deck and looked at the sunrise. His tail curled slowly back up.
-
-Obia held the helm. The course stayed true.
-
-Daru looked around at all of them and then at the sky one more time. Then he shouted again, just to make sure:
-
-"THE SKY IS BEAUTIFUL!"
-
-Gabu said, "Please be quiet."
-
-But the corners of his mouth moved up.""",
-    },
-    {
-        "ep": 63,
+        "ep": 47,
         "title": "Ako-chan's Tears",
-        "text": """Later that morning, Ako-chan went to the bow.
-
-She did not know she was going to cry until she started.
-
-She did not make a sound. She just stood at the railing and the tears came and she let them.
-
-Dango came after her. He did not bark. He did not put his paws up. He pressed himself against the side of her leg and stayed there.
-
-Ako-chan did not move him.
-
-After a while she said, "I was scared. I did not want you to see."
-
-Dango's collar was gold. He pressed harder against her leg.
-
-"But I saw you," she said. "You stood beside everyone. You stayed calm so they would be calm."
-
-Dango looked at the sea.
-
-"I was not very calm inside," he said.
-
-"I know," said Ako-chan. "That is not the same thing."
-
-They stood at the bow together. The sea was wide and very still now, the way it always went after a storm — like it did not remember.
-
-Ako-chan dried her face on her sleeve.
-
-"Thank you," she said.
-
-Dango pressed against her leg one more time. His collar stayed gold the whole time.""",
+        "text": (
+            "In the morning, the storm was gone.\n\n"
+            "The water was still. The sky was pink at the edges, then gold, then clear blue.\n\n"
+            "Ako-chan went out to the deck.\n\n"
+            "She looked at the sea.\n\n"
+            "The light moved on the surface in slow shapes. Far away, a bird crossed the sky. The air was clean and cold and smelled of salt.\n\n"
+            "She stood there.\n\n"
+            "Then, without deciding to, she cried.\n\n"
+            "Not from fear. The storm had been frightening, but it was over. Not because she was tired, though she was. She didn't know why. She just stood there and the tears came.\n\n"
+            "Dango came out. He pressed his head against her leg and stayed there.\n\n"
+            "Obia came and stood nearby. Not close. Just near.\n\n"
+            "Riro looked out from the doorway. It didn't come out. But it didn't go back inside either.\n\n"
+            "Nobody said anything.\n\n"
+            "The light kept moving on the water. The bird was gone now, too far away to see.\n\n"
+            "After a while, Ako-chan wiped her face with her sleeve.\n\n"
+            "\"Okay,\" she said quietly.\n\n"
+            "She didn't explain. No one asked."
+        ),
+    },
+    {
+        "ep": 48,
+        "title": "Seven",
+        "text": (
+            "Later that day, the sea was calm and the sky was clear.\n\n"
+            "Riro was in the water unit, hands on face, eyes looking up at nothing in particular.\n\n"
+            "Daru was on the platform. After the storm it had come out of its shell slowly and was now turning to face the sun.\n\n"
+            "Gabu was under the shade panel, standing very still the way it did sometimes in the mornings.\n\n"
+            "Suke-san and Dango were at the side of the boat, looking east together. They were not talking. They just watched the horizon.\n\n"
+            "Obia was at the front with the map device. The numbers changed. Obia watched them for a while, then put the device away.\n\n"
+            "Ako-chan sat down and opened her blue notebook.\n\n"
+            "She wrote: Pacific. Three days from land. Storm. Morning after.\n\n"
+            "She stopped and looked up at everyone.\n\n"
+            "She wrote: Seven now. I don't know why, but this is the right number.\n\n"
+            "She looked at Riro floating. At Dango and Suke-san at the side. At Gabu still and calm. At Daru turning slowly in the light.\n\n"
+            "She looked at Obia.\n\n"
+            "Obia was looking south.\n\n"
+            "Ako-chan closed the notebook. She sat in the warm sun and let the sea carry them."
+        ),
     },
 ]

@@ -1,277 +1,194 @@
-# Season 1 — Part 4: Japan (ep 42–49)
-# Outline: story_outlines_s1.py
+# Season 1 — Part 4: Japan (ep 29–37)
+# Outline: planning/s1_outline_new.md
 
 STORIES_S1_P04 = [
     {
-        "ep": 42,
-        "title": "Hakata Port",
-        "text": """The ferry came into the harbour early in the morning. Ako-chan stood at the front of the deck. The air smelled different. Warmer. Salt and rice and something sweet from the shore.
-
-A small orange cat sat on the dock wall. It looked at the group with calm eyes.
-
-"You came from far away," said the cat.
-
-Ako-chan blinked. The words were Japanese. And she understood every one.
-
-"Yes," she said. "We came from England."
-
-The cat twitched one ear. "I heard you were coming. We all heard."
-
-Dango sniffed the air. His collar glowed yellow.
-
-Obia stepped off the ramp and looked around the harbour. "Hakata. We are in Kyushu."
-
-"Follow me," said the cat. "My name is Mikan. There is a crow who knows which food stalls are best."
-
-The crow was waiting at the end of a narrow lane. It had a large, heavy bill and very bright eyes.
-
-"I have tested all of them," it said, without being asked. "That one." It pointed its bill at a small stall with a grill. "Go there."
-
-Gabu said quietly, "He is very organized."
-
-The food was good. Ako-chan ate and wrote in her diary. Any language. Any animal. Always the same.
-
-She had known this for a long time. But today it felt new again.""",
+        "ep": 29,
+        "title": "Leaving the Sea",
+        "text": (
+            "They turned east from the coast. The sea fell behind them.\n\n"
+            "Ako-chan had not expected it to feel different. But it did. The air changed. Less salt. More dust. The road was drier, the grass short and pale.\n\n"
+            "Dango walked with his nose low, reading the new ground. Gabu moved at its steady pace. Daru sat on top of Ako-chan's bag and watched the coast disappear behind a hill.\n\n"
+            "Ako-chan took out the map device. She looked at the long line between where they stood and Japan. It was very far.\n\n"
+            "\"How far is Japan?\" she said.\n\n"
+            "\"Far,\" said Obia.\n\n"
+            "\"How many days?\"\n\n"
+            "\"Many,\" said Obia.\n\n"
+            "Ako-chan put the device away. She had known it would be far. But seeing the line on the map made it feel real. It gave the distance a size she could hold.\n\n"
+            "She looked back once. The sea was not there anymore. Only the road, and the hill, and the pale sky ahead.\n\n"
+            "\"Keep going?\" said Obia.\n\n"
+            "\"Yes,\" said Ako-chan.\n\n"
+            "She put one foot in front of the other. The road stretched east, and they followed it."
+        ),
     },
     {
-        "ep": 43,
-        "title": "Heading North",
-        "text": """The train moved fast. Outside the window, rice paddies spread flat and green under a grey sky. Water lay between every row of plants.
-
-Gabu pressed his nose against the glass. "Things grow in water?"
-
-"Rice does," said Ako-chan. "It needs a lot of water to start."
-
-Gabu watched for a long time. "Strange," he said. But it did not sound like a complaint.
-
-In Tokyo, they stopped for one night. The streets were full. Dango noticed the small dogs that people carried in bags and arms. He sat down. He looked up at Ako-chan.
-
-"Do you want to be carried?" she said.
-
-Dango's collar went deep gold.
-
-She picked him up. He put his chin on her shoulder. Gabu watched from his shelter. After a moment he said, "...yes. It did look nice."
-
-A grey cat near the station told them: "In Hokkaido, there is a Shiba Inu on a hill above the sea. He says he is the bravest. But his tail droops when he looks at the water. He has been waiting for something — I think for a long time."
-
-The next day they boarded the train north. When they stepped off at the last stop, Dango stood still and breathed in. His collar lit up brighter than it had in months. The air was cold and clean and full of things.
-
-Gabu kept his head out of the shelter even though it was cold.
-
-"Different," he said. He sounded pleased.""",
+        "ep": 30,
+        "title": "Far Roads",
+        "text": (
+            "Days passed. More days. Then weeks.\n\n"
+            "The land changed slowly, and then all at once. Dry hills became wide flat plains. The air grew hot. Then cool and thin up high. Then hot again. The grass disappeared. Then it came back in a different shade of green.\n\n"
+            "Ako-chan talked to every animal she found.\n\n"
+            "A cat in a wide, busy city near a blue strait. A dog sleeping outside a small building in a mountain village. A hawk that circled and landed near their path. A camel on a long pale road at the edge of a flat land.\n\n"
+            "They all spoke in different languages. Ako-chan understood every word.\n\n"
+            "\"All the animals here are moving south,\" said the camel. \"They don't know why. Only south.\"\n\n"
+            "\"How long?\" said Ako-chan.\n\n"
+            "\"Long time,\" said the camel. \"Getting worse.\"\n\n"
+            "At night, when the others were sleeping, Obia stayed awake. Ako-chan could see the small light of the device in the corner.\n\n"
+            "She opened her notebook and wrote: Every language. Every animal. The word is always the same.\n\n"
+            "She looked at what she had written. Then she closed the notebook and lay down."
+        ),
     },
     {
-        "ep": 44,
-        "title": "The Dog on the Hill",
-        "text": """The hill above the sea was steep. The grass was short and green from the cold wind. Below, the water was very blue.
-
-At the top, a small red dog sat facing the sea. He did not move. His tail was curled tight. He looked like he had been there for a long time.
-
-The group stopped.
-
-The dog did not turn around.
-
-"I knew you were coming," he said.
-
-Ako-chan walked up the slope. "You did?"
-
-"The fox at the bottom of the hill told me two days ago."
-
-He turned his head slowly.
-
-He was a Shiba Inu. Small, with a pointed nose and bright, still eyes. His fur was the colour of the autumn hills. He looked at Dango. At Daru on Ako-chan's pack. At Gabu in his shelter. Then his eyes reached Obia.
-
-One ear flicked back.
-
-"My name is Suke-san," he said. "I have watched this coast for a long time."
-
-He said it simply. Not as a boast. It was a fact.
-
-Dango stepped forward and sniffed the air between them.
-
-Suke-san sat very still while Dango sniffed. He looked at the sea.
-
-"You have come far," said Suke-san.
-
-"Yes," said Ako-chan.
-
-"I know," said Suke-san. "I can tell." He looked at the water again. "Sit down. The view is better from up here."
-
-They sat down. The view was better from up there.""",
+        "ep": 31,
+        "title": "Japan",
+        "text": (
+            "They arrived at a busy port. The air was warm and wet. It smelled of salt and wood and something sweet that Ako-chan could not name.\n\n"
+            "A large crow was watching from a rooftop. A grey cat sat on a wooden box near the water.\n\n"
+            "The cat spoke.\n\n"
+            "Ako-chan understood. She answered.\n\n"
+            "The cat stood up fast. It stared at her. It spoke again: how did she know?\n\n"
+            "\"I just do,\" said Ako-chan. \"Any language. Any animal. It always works.\"\n\n"
+            "The cat looked at the crow on the roof. The crow called once.\n\n"
+            "\"Word has traveled here,\" said the cat. \"From many places. A person who listens. I heard it. I didn't believe it.\"\n\n"
+            "\"It's true,\" said Ako-chan.\n\n"
+            "The cat sat back down. It looked at her for a long time.\n\n"
+            "\"Then ask what you came to ask,\" it said.\n\n"
+            "\"What are the animals saying? About the south?\"\n\n"
+            "The cat's ears went flat.\n\n"
+            "\"The same as everywhere. Something is there. The seabirds say it loudest.\"\n\n"
+            "Dango sneezed at the salt air. Daru looked out at the city from the top of the bag.\n\n"
+            "\"Japan,\" said Obia. \"We're here.\""
+        ),
     },
     {
-        "ep": 45,
-        "title": "Rival",
-        "text": """The next morning, Suke-san walked up to Obia.
-
-Obia was looking at the sea. It often did this. It was reading the water temperature, the current direction, the wave pattern.
-
-Suke-san stopped in front of it.
-
-"I have thought about this," said Suke-san. "I want to say: I am better than you. At everything."
-
-Obia turned its head. Its glass eyes were calm.
-
-"Is that so?" said Obia.
-
-"Yes," said Suke-san. "I am faster on this terrain. I know this coast better than any device. I can find water and shelter and the best path over any hill. I have lived here my whole life."
-
-Obia looked at him for a moment.
-
-"I have noted your statement," said Obia.
-
-Then it returned to looking at the sea.
-
-Suke-san's tail moved once. He seemed to expect something more.
-
-He waited. Obia did not say anything more.
-
-Dango appeared beside Ako-chan.
-
-"Is that how he says hello?" she said quietly.
-
-Dango's collar glowed gold. He sat down and looked at Suke-san with a pleased expression.
-
-Suke-san walked back to his spot on the hill and sat. His posture was perfect. His tail curled.
-
-Obia also looked at the sea.
-
-They were looking at the same water. From the same direction. From two very different positions.""",
+        "ep": 32,
+        "title": "Suke-san",
+        "text": (
+            "They came out of the station and into the street.\n\n"
+            "Tokyo was very big and very loud. Cars came from every direction. Sounds overlapped. The air smelled of many things at once.\n\n"
+            "Dango sniffed everything he could reach. His collar moved between orange and red.\n\n"
+            "Many people were walking small dogs. Some were carrying their dogs. The dogs looked out with clean fur and bright eyes.\n\n"
+            "Dango stopped to watch one go past. He watched for a long time.\n\n"
+            "His collar turned a deep orange.\n\n"
+            "Ako-chan looked at him. He looked back at her. She picked him up. He was heavier than the carried dogs, but she managed. He put his chin on her shoulder.\n\n"
+            "His collar turned a warm, deep gold.\n\n"
+            "Gabu had moved to the wall of a building. It stood very still.\n\n"
+            "\"Tokyo is loud,\" said Gabu.\n\n"
+            "\"There's a park near here,\" said Obia. \"We're meeting someone there.\"\n\n"
+            "\"Is it quieter in the park?\" said Gabu.\n\n"
+            "\"Yes,\" said Obia.\n\n"
+            "\"Then I'll come,\" said Gabu.\n\n"
+            "\"Who are we meeting?\" said Ako-chan.\n\n"
+            "\"Suke-san,\" said Obia.\n\n"
+            "\"Who is Suke-san?\"\n\n"
+            "\"You'll see,\" said Obia. \"This way.\""
+        ),
     },
     {
-        "ep": 46,
-        "title": "Dango and Suke-san",
-        "text": """Dango walked toward Suke-san. He stopped a few steps away.
-
-Suke-san did not move.
-
-They sniffed each other carefully. Noses first. Then sides. Suke-san walked a slow circle. Dango walked one too. When they met at the front again, Dango's collar was bright yellow.
-
-Then Dango started to run.
-
-Suke-san ran after him.
-
-They ran three full circuits of the hill without stopping. No barking. No words. Just running together in the cold wind above the sea.
-
-When they finished, they sat side by side at the top of the hill and looked at the water. Their breathing slowed down at the same time.
-
-Gabu watched from below. "That is what that looks like," he said.
-
-Later, Suke-san crouched by a patch of flat moss on a rock. He was looking at the drops of water sitting on each small leaf. Gabu walked over and looked too.
-
-"The water stays on top," said Gabu. "It does not go in."
-
-Suke-san studied it for a moment. "Like a raincoat," he said.
-
-"Yes," said Gabu. "Like a raincoat."
-
-They looked at the moss together for a while.
-
-Then Daru climbed onto Suke-san's back.
-
-"Excellent view from here," said Daru.
-
-"Please get down," said Suke-san.
-
-He did not shake him off.""",
+        "ep": 33,
+        "title": "I Knew You Were Coming",
+        "text": (
+            "The park was quieter. A few trees. Wide paths. Benches in the shade.\n\n"
+            "One bench had a dog sitting in front of it.\n\n"
+            "A small shiba inu. Red fur, tight curled tail. Very still. It looked like it had been there a long time.\n\n"
+            "They came closer. The dog stood up.\n\n"
+            "\"I knew you were coming,\" it said.\n\n"
+            "Ako-chan stopped. \"You knew us?\"\n\n"
+            "\"No,\" said the dog. \"I didn't know you. But I knew someone was coming. I've been here three days.\"\n\n"
+            "The dog looked at each of them in turn. When it reached Obia, its eyes went a little narrow.\n\n"
+            "Obia met the look without moving.\n\n"
+            "\"You're the silver one,\" said the dog.\n\n"
+            "\"Yes,\" said Obia.\n\n"
+            "\"Suke-san,\" said the dog, looking back at Ako-chan.\n\n"
+            "\"Ako-chan. This is Dango. Obia. Daru.\" She pointed to Gabu, standing quietly behind her. \"And Gabu.\"\n\n"
+            "Suke-san's tail stayed up and curled tight. It did not wag.\n\n"
+            "\"Where are you going?\" it said.\n\n"
+            "\"North first,\" said Ako-chan. \"Then south.\"\n\n"
+            "Suke-san looked at the sky.\n\n"
+            "\"Good,\" it said."
+        ),
     },
     {
-        "ep": 47,
-        "title": "Suke-san Sees the Map",
-        "text": """The evening air was cold. Obia had made a winter vest for Suke-san. Small and warm, with a strap under the belly.
-
-Suke-san looked at it.
-
-"Shiba Inus do not feel cold," he said.
-
-Obia said nothing. It set the vest down near the camp.
-
-In the morning, Suke-san was wearing it.
-
-Daru looked at him. "Oh. You are wearing the vest."
-
-"I was cold," said Suke-san. His voice was level. He did not look away.
-
-Obia said, "Of course."
-
-After that, Ako-chan spread the record device on the flat ground and showed Suke-san the full journey map. She explained the route from England. The anomalies across Europe and Asia. The electrical signal near this very coast.
-
-Suke-san listened without speaking. He looked at each dot. He looked at the sea lines. He looked at where the line went next.
-
-When Ako-chan finished, Suke-san was quiet for a moment.
-
-Then he said: "I understand. I will come."
-
-His tail was curled tight.
-
-"I have watched this coast for a long time," he said. "Something has been wrong with it. I want to know what."
-
-Obia said, "I know."
-
-Suke-san's tail stayed curled. He looked at the sea. His ears were forward.""",
+        "ep": 34,
+        "title": "North",
+        "text": (
+            "The train moved fast. Green hills passed outside the window. Then rice fields — long rows of small plants standing in shallow water.\n\n"
+            "Gabu looked at them for a long time.\n\n"
+            "\"Those plants are in water,\" said Gabu.\n\n"
+            "\"Yes,\" said Ako-chan. \"That's how rice grows.\"\n\n"
+            "Gabu watched the fields until they were out of sight.\n\n"
+            "\"Things grow in water,\" said Gabu quietly. It sounded like it was writing something in its mind.\n\n"
+            "Suke-san was at the window too. He was not looking at the rice. He was watching the sky.\n\n"
+            "The sky had been getting wider for the past hour. More space. Fewer buildings. More open ground.\n\n"
+            "\"You like it here,\" said Ako-chan.\n\n"
+            "\"The air is better,\" said Suke-san. \"And the sky is bigger.\" He paused. \"It's easier to think.\"\n\n"
+            "Ako-chan looked out. The hills came back, bigger this time, and covered in tall dark trees.\n\n"
+            "Dango pressed his nose to the glass. His breath left a small circle. He pulled back. The circle faded slowly.\n\n"
+            "His collar was a quiet blue.\n\n"
+            "\"Hokkaido,\" said Obia.\n\n"
+            "Suke-san said nothing. But his tail moved slightly upward, and stayed there."
+        ),
     },
     {
-        "ep": 48,
-        "title": "Suke-san's Weakness",
-        "text": """The next morning, Obia showed the route. The line left Hokkaido and crossed open water. Many weeks of open water. Then South America. Then far south.
-
-Suke-san looked at the line.
-
-His tail did not drop. But the very tip moved. Just a little.
-
-"That is not a problem," he said.
-
-Everyone had seen the tip.
-
-Gabu said quietly, "Looking at the sea and being on it are two different things."
-
-Suke-san said, "...Yes. They are." He did not look away from the map.
-
-That evening, Dango went and sat beside him. Nobody else was near.
-
-"I was scared when we crossed the ocean before," said Dango. "My collar went orange for a long time."
-
-Suke-san looked at the sea.
-
-"But you crossed it," he said.
-
-"Yes. Being together made it okay."
-
-Suke-san did not answer for a while. The wind came off the water.
-
-"...Thank you," said Suke-san.
-
-Dango's collar glowed quiet gold. They sat together until the sky went dark.
-
-The next day, Suke-san took them around the hill. He showed them where you could see both current lines and the coast at once. He showed them the root where you could shelter from a storm. The best warming rock. The hollow where he slept when the wind was bad.
-
-He said nothing while he showed them. But showing them was enough.""",
+        "ep": 35,
+        "title": "Rivals",
+        "text": (
+            "The hill in Hokkaido was steep and open. At the top, the sky was very large. The sea was far to the east, grey and flat.\n\n"
+            "Suke-san walked to the highest point and stood there. His tail was straight up.\n\n"
+            "He looked at Obia.\n\n"
+            "\"My nose is better than yours,\" he said.\n\n"
+            "\"Possibly,\" said Obia.\n\n"
+            "\"I'm faster too.\"\n\n"
+            "\"Possibly.\"\n\n"
+            "\"I'm better.\"\n\n"
+            "\"You may be right,\" said Obia.\n\n"
+            "Suke-san looked at Obia. He had expected an argument. Obia had not given one. He didn't know what to do with that.\n\n"
+            "Dango had been sitting nearby, watching. Then he got up and ran — just ran, down the hill and back up, for no reason.\n\n"
+            "Suke-san watched him. Then he ran too.\n\n"
+            "They went down the hill together and came back up. Dango fast. Suke-san fast. Not racing. Not trying to beat each other. Just running at the same speed, in the same direction, side by side.\n\n"
+            "After a long time they stopped at the top. Both were breathing hard.\n\n"
+            "Dango's collar was a bright orange. Suke-san's tail was high and still.\n\n"
+            "They walked back to the others. Neither said anything.\n\n"
+            "Ako-chan watched them come. She did not say anything either."
+        ),
     },
     {
-        "ep": 49,
-        "title": "The End of June",
-        "text": """A fox came at dusk.
-
-"Below the east cliff," she said, "there is an otter on the rocks. Young. He has been there since last week's storm. I tried to help. He said no."
-
-Ako-chan wrote it in her diary. "Alone for about a week?"
-
-"More or less," said the fox. "He does not look sad. But I am not sure he knows the word for it."
-
-After the fox left, Obia scanned the coast. "One heat source. Below the cliff. Small mammal. Juvenile sea otter." It paused. "We should go at low tide. Tomorrow morning."
-
-Suke-san said, "I know where the tide goes low on that side. I will show you."
-
-They built a fire on the cliff that evening. Six of them sat in a circle. The sea was below. The sky was going orange and purple.
-
-Suke-san left and came back carrying something. A bundle of dried kelp. He set it down near the fire without saying why.
-
-Everyone looked at the kelp.
-
-Gabu said, "Sometimes things do not need a reason."
-
-Suke-san sat and looked at the fire. His tail was curled.
-
-Ako-chan wrote in her diary: *a bundle of kelp that felt right. Tomorrow we go to the east cliff. We are six. In the morning, perhaps, we will be seven.*""",
+        "ep": 36,
+        "title": "Just Looking at the Map",
+        "text": (
+            "Ako-chan spread the map device on a flat rock.\n\n"
+            "The whole path lit up. England to France. The coast. Greece. The long roads east. Japan. And to the south — a long open sea with nothing marked.\n\n"
+            "Suke-san came over. He stood beside Ako-chan and looked at the map.\n\n"
+            "He looked at the path already taken. He looked at the open space to the south. He asked no questions.\n\n"
+            "After about ten seconds, he said: \"I'll go.\"\n\n"
+            "\"You haven't heard everything,\" said Ako-chan.\n\n"
+            "\"I know enough,\" said Suke-san. \"I looked at the map. When I look at that map, there is only one thing to do.\"\n\n"
+            "From behind a nearby rock, Gabu did not speak. But Ako-chan had learned to hear Gabu listening.\n\n"
+            "Daru looked down from the top of the bag. \"I just said yes right away,\" said Daru.\n\n"
+            "\"That was the right choice,\" said Suke-san. He meant it.\n\n"
+            "Ako-chan closed the map device.\n\n"
+            "\"Then we're six,\" she said.\n\n"
+            "Suke-san's tail moved up. It stayed there."
+        ),
+    },
+    {
+        "ep": 37,
+        "title": "What She Wrote",
+        "text": (
+            "That night, Ako-chan opened her blue notebook.\n\n"
+            "Outside, the wind moved through the tall grass on the hill. The stars were very clear. She could hear Gabu moving slowly somewhere outside, looking at the sky.\n\n"
+            "She wrote: Hokkaido. Cold night. Six now.\n\n"
+            "She stopped and thought.\n\n"
+            "She wrote: Obia always looks a little far away. Even when we talk, Obia seems to be looking at something I can't see.\n\n"
+            "She stopped again. The wind moved outside.\n\n"
+            "She wrote: I believe the promise. But waiting is hard.\n\n"
+            "Dango came across the floor and lay down beside her. He put his big head on her leg. Ako-chan kept writing.\n\n"
+            "She wrote: Dango. Always here.\n\n"
+            "She closed the notebook.\n\n"
+            "Dango's collar glowed quietly. Not orange. Not blue. Something between them — a low, warm gold, like the last light of a fire.\n\n"
+            "Obia was in the far corner of the room, looking at the device. Something Ako-chan couldn't see.\n\n"
+            "She watched Obia for a moment. Then she put her hand on Dango's back, and closed her eyes.\n\n"
+            "Tomorrow, she thought. She would figure the rest out tomorrow."
+        ),
     },
 ]

@@ -1,237 +1,52 @@
-# Season 1 — Part 10: We Are Home (ep 115–120)
-# Outline: story_outlines_s1.py
-
 STORIES_S1_P10 = [
     {
-        "ep": 115,
-        "title": "Farewell, Antarctica",
-        "text": """The boat moved north.
-
-Pen-san and Colonel Adelie stood at the edge of the ice shelf. Very still. Both of them.
-
-Ako-chan stood at the stern with Dango beside her. She watched the two figures on the ice. They did not move. They did not wave. They just stood.
-
-The gap between the boat and the ice grew wider. The figures grew smaller. Pen-san's grey-brown down. Colonel Adelie's sharp, small shape.
-
-Dango pressed against Ako-chan's side. His collar was gold.
-
-The sky was very clear. The same sky as when they had come up from the shaft. No signals running through it. No artificial things below the ice. Just sky and ice and two figures growing smaller.
-
-Riro pressed his paws against his face and watched from the railing. Gabu had his head out of his shelter. Daru stood on the highest point of the deck he could find. Suke-san faced south.
-
-The two figures on the ice got very small.
-
-Then they were part of the white.
-
-Ako-chan kept looking at the white for a long time.
-
-"Thank you," she said.
-
-Not to anyone in particular. To all of it.
-
-She turned north.""",
+        "ep": 86,
+        "title": "Goodbye, Penguins",
+        "text": "They left the white land in the morning.\n\nThe ship moved slowly away from the ice. Ako-chan stood at the back and looked at the shore.\n\nTwo small shapes were at the water's edge.\n\nPen-san and Colonel Adelie.\n\n\"Will you come back?\" Ako-chan called.\n\nPen-san tilted his head. \"I don't know. But if I want to, I will come.\"\n\nColonel Adelie said nothing. He stood very straight. Then he turned and spoke in a low voice. Behind him, a long row of penguins came out from the snow. They stood in a line. Very still. Together.\n\nAko-chan did not know the name for this kind of farewell. But she understood it.\n\n\"Thank you, Colonel,\" she said.\n\nHe gave one small nod.\n\nThe ship moved further north. The two shapes on the shore became very small. Then a piece of ice drifted between them, and they were gone.\n\nDango sat beside Ako-chan. His collar was blue.\n\nObia stood at the front of the ship and looked north.\n\n\"We go home now,\" Obia said.\n\n\"Yes,\" Ako-chan said. \"We go home.\"",
     },
     {
-        "ep": 116,
-        "title": "Riro's Goodbye",
-        "text": """They had four days on the ship after Antarctica.
-
-On the third night, Riro cooked. He did not critique anything. He said only: "Eat the good parts first." Everyone did.
-
-On the fourth day, the coast appeared. Dark rock. Cold water. The right smell.
-
-Riro stood at the railing and looked at it for a long time.
-
-In the morning, he said goodbye.
-
-He went to Daru first. "You listened very well. For a tortoise." Daru said: "Thank you. That means something from you."
-
-He went to Gabu. A long silence. Then: "You are the only other one who notices things."
-
-He went to Suke-san. No words. Suke-san reached into his pack and brought out dried fish. Riro took it and nodded once.
-
-He went to Obia. "The wetsuit was good." Obia said: "I know."
-
-He went to Dango. He looked at him. Then he said: "I did understand it. Eventually." Dango's collar went gold.
-
-He stood in front of Ako-chan. He pressed his face against her hands for a moment. Then he looked up.
-
-"I am going," he said.
-
-"I know," said Ako-chan.
-
-He climbed the rail and dropped into the water. He swam out fast, in a clean straight line.
-
-Then he stopped.
-
-He turned.
-
-Both paws went up to his face — the same as the first day.
-
-Then he was gone.""",
+        "ep": 87,
+        "title": "Going Back",
+        "text": "The sea was the same sea. The same grey water, the same cold wind.\n\nBut something was different.\n\nAko-chan looked out at the water and did not feel small the way she had on the way south. She felt the size of the sea and also the size of herself inside it.\n\nRiro swam beside the ship. \"This current,\" he said. \"We came through this current.\"\n\nDango stood at the side and put his nose in the wind. He had done this on the way south too. But his collar was steady gold now, not the red it had been at the Drake Passage.\n\nGabu sat in his usual place and watched the water.\n\n\"On the way there,\" Daru said, from the top of the backpack, \"I couldn't see anything. Now I can see everything.\"\n\n\"It's the same place,\" Suke-san said.\n\n\"Yes,\" Daru said. \"But I'm different.\"\n\nNobody answered. But everyone was quiet in the same way, and Ako-chan thought that everyone understood.\n\nShe wrote it in her notebook anyway.\n\nShe did not add anything else. The words were already complete.",
     },
     {
-        "ep": 117,
-        "title": "Suke-san's Goodbye",
-        "text": """The hill was exactly as they had left it.
-
-Suke-san looked at it for a moment from the gangway. His tail was curled tight. Then he walked down.
-
-He said goodbye to Daru first. Daru tried to climb up to say goodbye properly. Suke-san stood still long enough for Daru to reach his shoulder.
-
-He said goodbye to Gabu. One look. One nod. Gabu nodded back. That was enough.
-
-He said goodbye to Obia.
-
-He stood very straight.
-
-"You are our companion," he said. "That is a fact. The reason is everything you have done."
-
-Obia said: "I know. Thank you."
-
-Suke-san turned his head very slightly. "You are still not better than me at most things."
-
-Obia said: "I know."
-
-He said goodbye to Dango. Dango pressed against his side. Suke-san's tail went still for a moment, and then curled back up.
-
-He said goodbye to Ako-chan. She said: "Come visit us, after."
-
-He said: "Also."
-
-Then he walked up the hill without looking back. The path curved. At the curve, he stopped. He turned. He raised his full curled tail straight up — one clean, clear line against the sky.
-
-Then he went over the other side of the hill.""",
+        "ep": 88,
+        "title": "Riro Goes Home",
+        "text": "The ship came into the waters off Hokkaido.\n\nRiro had been at the edge of the ship since morning. He was looking at the water.\n\nAko-chan came and stood beside him.\n\n\"Here?\" she said.\n\n\"Here,\" Riro said.\n\nHe was quiet for a moment. Then he looked at each of them. Ako-chan. Dango. Obia. Suke-san. Gabu. Daru. He looked at everyone.\n\n\"Not bad at all,\" Riro said.\n\nAko-chan knew what that meant.\n\n\"The sea is one,\" she said.\n\n\"Yes,\" Riro said. \"The sea is one.\"\n\nHe went over the side. No splash. Just gone.\n\nDango put his front paws on the edge and looked down. His collar went red.\n\nAko-chan put her hand on his back and did not say anything.\n\nBelow the surface, a small shape moved fast. Deep and fast, going south. Then it was too deep to see.\n\nThe water closed over and was still.\n\nDango's collar changed. Slowly. Red to blue.\n\nHe stepped back and sat down.",
     },
     {
-        "ep": 118,
-        "title": "Daru's Goodbye",
-        "text": """The Mediterranean air was different.
-
-Daru felt it first. His head came all the way out. His four legs went wide. He breathed in deeply.
-
-"I can smell it," he said. "My smell."
-
-The boat had barely touched the dock when Daru scrambled down the gangway. He stopped on the stone and breathed again.
-
-He turned to Gabu. "The stone is warm."
-
-"I know," said Gabu.
-
-Daru looked at the others on the boat. He was going home and they were not. His face changed.
-
-"Ako-chan," he said.
-
-"Yes?"
-
-"We will meet again. Right?"
-
-He was looking at her very carefully. Checking.
-
-Ako-chan said: "Yes. We will meet again."
-
-He looked at her face for another moment. Then he looked satisfied.
-
-"Good," he said. He looked at Gabu. "I will be at our place."
-
-Gabu said: "I know."
-
-Daru ran.
-
-He ran in a wide curve across the stone — the same way he always ran, all four legs working, shell rocking side to side. Past the dock, along the path, around a rock, and gone between the boulders.
-
-He did not look back.
-
-Gabu watched where he had gone.
-
-"He will be fine," Gabu said quietly. Not to anyone in particular.
-
-He was saying it because it was true.""",
+        "ep": 89,
+        "title": "Suke-san Stays",
+        "text": "Tokyo was loud and full of light.\n\nThey walked from the station through the streets. High buildings. Many people. The same smells Ako-chan remembered from before.\n\nSuke-san walked in front. He always walked in front in Tokyo.\n\nThen he stopped.\n\nThey were in a small park. Three trees. A bench. Pigeons on the path.\n\n\"Here,\" Suke-san said.\n\n\"This is your place?\" Ako-chan said.\n\nHe looked at the park. He looked at the city around it. \"Yes,\" he said. \"This is my place.\"\n\n\"Thank you,\" Ako-chan said. \"For all of it.\"\n\nSuke-san looked at her. He didn't say anything.\n\nThen he turned to Obia.\n\n\"My nose is still better,\" he said.\n\n\"It may be,\" Obia said.\n\nSuke-san looked at Obia for a moment. Then something happened at the corners of his mouth. Just a small thing. Just for a moment. But Ako-chan had never seen that expression on his face before.\n\n\"Safe trip,\" Suke-san said.\n\nHe turned and walked into the park. He did not look back.\n\nDango watched him go. His collar was gold.",
     },
     {
-        "ep": 119,
-        "title": "Gabu's Goodbye",
-        "text": """There were olive trees.
-
-The path from the dock went through them. Old ones, with wide grey trunks. Their branches made a roof over the ground.
-
-Gabu walked slowly down the gangway. His feet found the Mediterranean soil and stayed there for a moment.
-
-He said goodbye to Dango. He walked up to him and said: "Thank you for always running." Dango's collar went gold. He pressed against Gabu's shell once. Then he stepped back.
-
-He said goodbye to Obia.
-
-"I knew what you were," he said. "I waited because I thought you would get there."
-
-Obia said: "You were right. I am glad you waited."
-
-He walked to Ako-chan.
-
-He stood in front of her for a long moment without speaking.
-
-Then he took one step closer.
-
-"I am glad I met you," he said.
-
-Ako-chan crouched down. They were eye to eye.
-
-"I am glad I met you too," she said.
-
-Gabu looked at her for a long moment. Then he turned and walked toward the olive trees.
-
-He went in under the grey branches. He did not look back.
-
-But just before the trees closed around him, his head turned slightly. Just a little. Just enough.
-
-Then he was gone.""",
+        "ep": 90,
+        "title": "West",
+        "text": "Japan to Europe was a long way.\n\nThey moved through different kinds of light. The green of Southeast Asia. The dry heat of the Middle East. The flat grey of Central Europe in winter.\n\nAko-chan took out the map device. She traced the line. England. France. Germany. Greece. Japan. The Pacific. South America. Antarctica. And now, back again.\n\nGabu came and looked at the screen.\n\n\"How long were we travelling?\" he said.\n\nAko-chan thought. \"Almost a year.\"\n\nGabu looked at the line. He was quiet for a while.\n\n\"We went far,\" he said.\n\n\"We did,\" Ako-chan said.\n\nGabu looked at the map a moment longer. Then he went back to his place and sat down.\n\nDaru was on top of the backpack. He had been asleep for a long time.\n\nDango was asleep too.\n\nObia was not asleep. Obia never slept. But Obia sat very still and looked at the middle distance, the way Obia sometimes did — looking at something no one else could see.\n\nOutside, the world moved past.\n\nThey were going home.",
     },
     {
-        "ep": 120,
-        "title": "We Are Home",
-        "text": """Three of them.
-
-Ako-chan. Dango. Obia.
-
-At the Channel, Ako-chan sat and looked at the water.
-
-"It was a long time," she said.
-
-"Ten months and twenty-three days," said Obia.
-
-"Yes," said Ako-chan. "It was the right amount."
-
-The tunnel was twelve minutes. When the train came out on the other side, England was grey and cold and very exactly right.
-
-Dango put his nose to the window. His collar went gold.
-
-At the garden gate, Ako-chan stopped.
-
-The old oak tree was there. Brown leaves on the ground. The same branch she had looked at on January first.
-
-Something moved under the bushes.
-
-"Welcome home," said a small voice.
-
-The garden hedgehog came out from under the roots. It sniffed Ako-chan's shoes for a long time. It looked at Dango. It looked at Obia. It looked at Ako-chan.
-
-"A long journey," it said.
-
-"Yes," said Ako-chan. "A very long one."
-
-Dango went through the gate first. He ran to the front door. His tail was going very fast.
-
-Obia walked into the garden and stopped beside the oak tree. It looked up at the branches.
-
-Ako-chan sat on the front step. She opened her diary to the last empty page.
-
-She wrote two words.
-
-*We're home.*
-
-She closed the diary.
-
-The oak tree was above her. The sky was grey.
-
-It was December thirty-first.""",
+        "ep": 91,
+        "title": "Back to the Rocks",
+        "text": "The Dalmatian coast looked the same.\n\nWhite stone, blue water, the smell of salt and dry grass. Daru had been here before — he had spent two days watching them from these rocks before he said hello.\n\nDaru came down from the backpack.\n\nHe pressed his four feet into the rock and turned his head left, then right.\n\n\"Good rocks,\" he said.\n\n\"Good rocks,\" Ako-chan agreed.\n\n\"I know the good spots,\" Daru said. \"I remember all of them.\"\n\n\"Will you be all right?\" Ako-chan asked.\n\n\"Yes,\" Daru said simply.\n\nHe was already looking ahead at the rocks.\n\n\"If we ever come this way again—\" Ako-chan began.\n\n\"Look for the highest one,\" Daru said. \"I'll be there.\"\n\nHe moved forward. His four feet were quick on the stone. He went between two large rocks and was gone.\n\nObia said, \"He always knew he was going back.\"\n\n\"I know,\" Ako-chan said. \"That was right.\"\n\nDango stood beside her. His collar was quiet blue.",
+    },
+    {
+        "ep": 92,
+        "title": "The Olive Grove",
+        "text": "Greece was warm.\n\nThe olive trees were grey-green in the afternoon light. Ako-chan had forgotten that warmth. She had been cold for a long time.\n\nGabu had been walking slowly since morning. He knew where they were going.\n\nAt the entrance to the grove, he stopped.\n\nAko-chan crouched down beside him.\n\n\"Are you ready?\" she said.\n\nGabu was quiet.\n\n\"That day,\" he said. \"When you sat here. You and Dango and Obia and Daru. You all just sat. For three days. You didn't ask me to come out. You just stayed.\"\n\n\"Yes,\" Ako-chan said.\n\n\"I was in the trees. I thought — if they can wait that long, they might be worth trusting.\"\n\nAko-chan did not answer.\n\n\"And then I came out,\" Gabu said. \"And I thought — today will be a good day. I wanted it to be true.\"\n\n\"It was,\" Ako-chan said.\n\nGabu looked at her for a long time. Then at Dango. Then at Obia.\n\n\"Thank you,\" Gabu said. \"For waiting.\"\n\nHe turned and walked into the grove. Slowly. He did not look back.\n\nThe leaves moved in the warm air.",
+    },
+    {
+        "ep": 93,
+        "title": "Everything",
+        "text": "That night, Ako-chan opened her blue notebook.\n\nShe started at the beginning.\n\nThe first page was from January. She had written about the fox in the park — the one that said something was wrong in the south.\n\nShe read slowly. Every page.\n\nFrance, grey and wide. The canal in Amsterdam. The mountain town. The small tortoise that rolled out from between the rocks. Three days in the olive grove. The ice mountain in the sea. The storm in the Pacific. The white land. The room with the screen.\n\nShe had written all of it down.\n\nSome pages had many words. Some pages had just one line. But everything was there.\n\nAt the last page she stopped.\n\nShe had written something there once before, on the ship going south: I don't know what we are going toward.\n\nShe read it.\n\nThen she picked up her pen. Below those words, she wrote:\n\nAll of it was real.\n\nShe closed the notebook.\n\nDango was asleep. Obia was still. Outside, it was dark and cold.\n\nAko-chan held the notebook on her lap and looked at the dark, and felt quiet.",
+    },
+    {
+        "ep": 94,
+        "title": "Almost Home",
+        "text": "The Eurostar came into the tunnel.\n\nDarkness. The window turned black. The sound changed — deep and enclosed.\n\nAko-chan had come through this tunnel before. January. Going the other way. She had pressed her face to the glass and watched the dark come.\n\nNow she sat straight and did not need to watch. She already knew what it looked like.\n\nDango had his nose against the glass. He had done the same thing going into France. But his collar was different. Going south, it had been gold with something nervous underneath. Now it was a full, steady gold.\n\n\"Obia,\" Ako-chan said.\n\n\"Yes,\" Obia said.\n\n\"I'm glad you became Obia.\"\n\nObia was quiet for a moment.\n\n\"So am I,\" Obia said.\n\nThe tunnel ended.\n\nEngland came. Green fields. Grey sky. The light that was always softer here than anywhere else.\n\nDango pushed his nose hard against the glass. His collar went as bright as it could go. Full gold, almost yellow.\n\nAko-chan smiled.\n\nIt was the same light she had left behind in January. And it was the same light coming back.",
+    },
+    {
+        "ep": 95,
+        "title": "We're Home",
+        "text": "December 31st.\n\nThe house was the same. The door was the same colour. The path had a few dead leaves. The garden was very still.\n\nAko-chan put the key in the door and opened it.\n\nThe same smell came out to meet her. Warm and old and completely familiar. She had not smelled it in almost a year.\n\nShe went inside. Dango came behind her. Then Obia.\n\nShe put her backpack down.\n\nShe went to the table and reached into her pocket.\n\nThe acorn was there. Small. A little worn on one side from so many months in her pocket. She placed it on the table.\n\nThe hedgehog had given three acorns. One for each of them. She did not know what had happened to the other two. But hers was here.\n\nShe opened her blue notebook to the last page. She read what was there: All of it was real.\n\nShe picked up her pen and wrote below it:\n\nWe're home.\n\nShe put the pen down.\n\nDango lay down by her feet. Obia stood near the door.\n\nOutside, the last day of the year was getting dark. But inside, the three of them were together and quiet, and that was everything.",
     },
 ]

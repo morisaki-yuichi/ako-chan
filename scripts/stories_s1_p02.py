@@ -1,383 +1,214 @@
-# Season 1 — Part 2: Through Europe (ep 11–22)
-# Outline: story_outlines_s1.py
+# Season 1 — Part 2: Through Europe (ep 9–18)
+# Outline: planning/s1_outline_new.md
 
 STORIES_S1_P02 = [
     {
-        "ep": 11,
+        "ep": 9,
         "title": "Through the Tunnel",
-        "text": """The Eurostar entered the tunnel. Everything went dark. The window showed nothing but black.
-
-Dango pressed his nose to the glass. He could not see anything. He moved back and sat beside Ako-chan.
-
-For a long time there was only the sound of the train. The lights inside the carriage were very warm and steady.
-
-Then the window changed.
-
-First grey. Then pale green. Then wide and open.
-
-Fields. Long flat French fields. Green and brown under a grey February sky.
-
-A white farmhouse stood far away. A line of bare trees ran along a road. A crow sat on a fence post and watched the train go by.
-
-Ako-chan put her hand in her coat pocket. The acorn was there.
-
-"We are in France," said Obia.
-
-Dango's nose was back at the window. A new country. New smells came through the small gap at the top of the glass.
-
-Ako-chan looked at the fields. She had lived her whole life in England. This was the first time she had ever left.
-
-"We are really doing this," she said quietly.
-
-Obia said nothing. But it turned its head and looked at the same fields.""",
+        "text": (
+            "The train moved into the tunnel. The windows went black.\n\n"
+            "Dango pressed his nose flat against the glass. He kept it there as the train rushed through the dark. His breath made a small circle of fog.\n\n"
+            "Ako-chan looked at the black window. She could see her own face in it, and Obia beside her, sitting still.\n\n"
+            "The tunnel seemed very long.\n\n"
+            "Then the windows turned grey, and then lighter, and then they were out.\n\n"
+            "Flat green land stretched to the horizon. Pale sky. Trees she did not recognise. Roads with cars on the right side.\n\n"
+            "\"France,\" said Obia.\n\n"
+            "Dango pulled his nose from the glass. He looked out at the fields. He sniffed the air, even though the windows were closed.\n\n"
+            "Ako-chan looked at the new landscape.\n\n"
+            "She had known this morning that she had never left England before. She had known it when she shut the front door. But now, watching France go past the window, she felt it in a different way.\n\n"
+            "The train moved on. The fields were wide and quiet.\n\n"
+            "\"How far to Belgium?\" said Ako-chan.\n\n"
+            "\"A few hours,\" said Obia.\n\n"
+            "Ako-chan opened her blue notebook and wrote: February. Out of England. France.\n\n"
+            "She looked at the words for a moment. Then she watched the fields go by."
+        ),
+    },
+    {
+        "ep": 10,
+        "title": "Different Skies",
+        "text": (
+            "Belgium. The land was flat. The buildings were a little different. The signs were in languages she did not know.\n\n"
+            "A pigeon landed on the bench beside her.\n\n"
+            "\"Bonjour,\" said the pigeon.\n\n"
+            "\"Bonjour,\" said Ako-chan.\n\n"
+            "The pigeon told her about the fields to the south. Strange patterns in the earth. The same thing the fox had said. The same thing as all the others.\n\n"
+            "Different language. Same meaning.\n\n"
+            "Dango looked at the pigeon, then at Ako-chan, then at the pigeon again.\n\n"
+            "That night, Obia found some old parts in a bin behind the station. Metal pieces, small wires, thin bits of plastic.\n\n"
+            "Ako-chan woke once in the night and saw Obia working quietly in the corner.\n\n"
+            "In the morning, Obia handed her a small flat device. A map glowed on its surface. Red dots marked places she had written about.\n\n"
+            "\"It records what you find,\" said Obia. \"And I've put in what I've collected too.\"\n\n"
+            "Ako-chan looked at the dots. There were many. More than she had written.\n\n"
+            "\"You've been collecting this?\" she said.\n\n"
+            "\"For a while,\" said Obia.\n\n"
+            "Ako-chan held the device. It was light in her hand.\n\n"
+            "\"Thank you,\" she said."
+        ),
+    },
+    {
+        "ep": 11,
+        "title": "The Second Question",
+        "text": (
+            "They crossed into Germany. The fields turned to forests. The sky was low and grey.\n\n"
+            "Ako-chan walked beside Obia on a wide flat road. Dango ran ahead and circled back and ran ahead again.\n\n"
+            "\"Where are you from?\" said Ako-chan.\n\n"
+            "Obia kept walking. \"You've asked me that before.\"\n\n"
+            "\"I know. You said 'far away.' That's not an answer.\"\n\n"
+            "Obia looked at the road ahead. \"I can't answer it properly yet.\"\n\n"
+            "\"Why?\"\n\n"
+            "\"I'm not ready.\"\n\n"
+            "Ako-chan thought about that. \"Is there a reason? Or do you just not want to?\"\n\n"
+            "\"There's a reason,\" said Obia.\n\n"
+            "They walked in silence for a while. The trees on either side were tall and still.\n\n"
+            "Ako-chan took out her blue notebook. She opened it to a blank page. She held her pen above it for a moment.\n\n"
+            "Then she put the pen away. She closed the notebook.\n\n"
+            "Dango had stopped ahead and was looking back, waiting.\n\n"
+            "\"Okay,\" said Ako-chan.\n\n"
+            "Obia glanced at her.\n\n"
+            "\"I'll ask again,\" she said. \"Another time.\"\n\n"
+            "They walked on to where Dango was waiting."
+        ),
     },
     {
         "ep": 12,
-        "title": "Obia's First Invention",
-        "text": """In the morning, Obia put something on the table.
-
-It was flat, about the size of a notebook. It had a small screen that showed a map of the world. Small red dots covered the map.
-
-"I built this last night," said Obia. "It shows every anomaly I have recorded. I will update it as we travel."
-
-Ako-chan looked at the dots. There were many. Far more than she had told Obia about.
-
-"I didn't tell you about all of these," she said.
-
-"No," said Obia. "I have been collecting my own data. From many sources. These are places where animals are behaving in strange ways. Or where something in the water or air is wrong."
-
-Ako-chan looked more carefully. The dots were not spread evenly. They were thicker in the south.
-
-"You carry this," said Obia. "You can add reports to it when animals speak to you. I will update it with my own readings."
-
-Ako-chan picked it up. It was light.
-
-"Thank you," she said.
-
-Dango looked at the map. He didn't know what the dots meant. But something about the pattern made him stay close to Ako-chan for the rest of the morning.""",
+        "title": "Something She Couldn't Name",
+        "text": (
+            "That night, Ako-chan sat at a small table near the window. Rain fell outside.\n\n"
+            "She opened her blue notebook and wrote: Obia is good. But I don't know what kind of good.\n\n"
+            "She stopped and looked at the words.\n\n"
+            "She had known Obia for weeks now. She knew Obia's name. She knew the way Obia walked. The way Obia listened. She knew that when she turned around, Obia was always there.\n\n"
+            "But she did not know where Obia came from. She did not know why Obia had been sitting on that bench in the park. She did not know what Obia was.\n\n"
+            "She wrote: All I know is the name.\n\n"
+            "She stopped again. That felt true, and she did not like that it was true.\n\n"
+            "Behind her, Obia sat near the wall. It wasn't sleeping. It never slept. But it was still.\n\n"
+            "The rain hit the glass. The room was quiet.\n\n"
+            "Ako-chan looked at the rain for a long time. She wanted to write more but could not find the words.\n\n"
+            "She closed the notebook.\n\n"
+            "Dango moved in his sleep and let out a small sound.\n\n"
+            "She looked at him, then at Obia, then at the rain."
+        ),
     },
     {
         "ep": 13,
-        "title": "Looking Out the Window",
-        "text": """The train moved through Belgium. Flat brown farmland stretched to the horizon. A wide grey sky covered everything.
-
-Ako-chan watched the fields go by. She saw hedgerows. She saw small white houses. She saw a horse standing still in a field, watching the train.
-
-Then she noticed something.
-
-Obia was not looking at the window.
-
-Obia was sitting perfectly still. Its pale eyes were pointed straight ahead.
-
-"Aren't you looking at the fields?" said Ako-chan.
-
-"I am," said Obia.
-
-"But you're not looking out the window."
-
-"I see from many places at once," said Obia. "Not just through my eyes. I know the temperature outside. I know the speed we are moving. I know the height of the ground and the direction of the wind. All at the same time."
-
-Ako-chan looked at Dango. He had his nose in the tiny gap of the window, pulling in everything he could.
-
-She looked back at Obia.
-
-"So we all see the same fields," she said. "But we see them in three completely different ways."
-
-"Yes," said Obia. "That is what makes us useful together."
-
-Ako-chan thought about this for a long time. Then she turned back to the window. The horse was still there. Standing in the rain.""",
+        "title": "The Hidden Signal",
+        "text": (
+            "It was past two in the morning.\n\n"
+            "Ako-chan was asleep. Dango was asleep, his legs moving a little in a dream.\n\n"
+            "Obia was awake.\n\n"
+            "Something came from the south. A very faint signal. Obia turned slightly toward it and listened. It had a pattern. Short and regular, like a slow heartbeat. It repeated three times. Then it faded.\n\n"
+            "Obia waited. The signal came again. The same pattern. Exactly the same.\n\n"
+            "The recording device sat on the table beside Ako-chan's notebook. The map glowed faintly. Red dots marked the places she had found. Obia could have added this one. It would have gone in the south corner, where the dots were already thick.\n\n"
+            "Obia did not add it.\n\n"
+            "The signal faded for the last time. The room was quiet.\n\n"
+            "Dango's legs had stopped moving. Ako-chan's breathing was slow and even.\n\n"
+            "Obia turned back to face the room.\n\n"
+            "Outside, the night was dark and still. No wind. No sound.\n\n"
+            "Obia sat that way until morning."
+        ),
     },
     {
         "ep": 14,
-        "title": "The Night Signal",
-        "text": """At two in the morning, Obia was alone.
-
-Ako-chan and Dango were asleep. The small room was dark. Rain fell quietly outside.
-
-Obia's sensors were always on. Even at night.
-
-At two in the morning, something came.
-
-It was very faint. A repeating pattern. Short, then long, then short again. It came from the south. It had a regular shape, like a message. But it was not a known signal. Not from any animal. Not from any machine Obia had in its records.
-
-Obia listened to it for a long time.
-
-Then it made a decision.
-
-It did not add the signal to the record device. It did not write it down anywhere Ako-chan could see. It saved it in a private place, inside itself.
-
-It did not feel good about this. But it was not ready to explain.
-
-The signal faded before dawn.
-
-When Ako-chan woke up, Obia was in the same place as always.
-
-"Did anything happen?" she said.
-
-"No," said Obia. "A quiet night."
-
-This was not quite a lie. But it was not the whole truth. Obia looked out at the rain and said nothing more.""",
+        "title": "The Amsterdam Signal",
+        "text": (
+            "Amsterdam. Canals ran through the city in every direction. Bridges crossed them. Boats moved slowly under the bridges.\n\n"
+            "Obia stopped beside one of the canals. It was quiet for a moment.\n\n"
+            "\"There's something in the water,\" it said. \"An electrical signal. Very faint.\"\n\n"
+            "Ako-chan looked at the canal. The surface was still and grey.\n\n"
+            "\"What is it?\"\n\n"
+            "\"I don't know. But I want to remember it.\"\n\n"
+            "Ako-chan looked at the water for a long time. It didn't change.\n\n"
+            "That night, Obia worked again. It used thin wire, a small glass bead, and a strip of soft material from its supply of parts.\n\n"
+            "In the morning, Obia held something out.\n\n"
+            "\"For Dango,\" it said. \"It reads how he's feeling and shows it as a color. Orange when he's happy. Blue when he's calm. Red when he's frightened.\"\n\n"
+            "Dango sniffed the collar. He looked at Ako-chan. Then he put his head down and waited.\n\n"
+            "Obia put it around his neck.\n\n"
+            "The collar glowed a warm orange.\n\n"
+            "Dango lifted his head, shook it once, and looked at Ako-chan. His tail moved fast."
+        ),
     },
     {
         "ep": 15,
-        "title": "The Emotion Collar",
-        "text": """"Hold still," said Obia.
-
-Dango sat very tall. He was not sure what was happening. Obia's paws moved around his neck, doing something small and careful.
-
-Then it was done.
-
-"What is it?" said Ako-chan.
-
-"A collar," said Obia. "I built it last night. It reads his heartbeat, his breathing, and how his muscles feel. The rings show his emotions. Yellow means happy. Gold means content. Orange means worried or scared."
-
-Ako-chan looked at the collar. The rings were dark.
-
-Then Dango looked down at himself. He could see the rings. He turned his head left and right, trying to see them properly. He touched one gently with his front paw.
-
-All the rings lit up at once.
-
-Bright yellow. Every single one of them.
-
-"Oh," said Ako-chan.
-
-Dango's tail began to move. Faster and faster. He turned in a full circle. Then he sat back down and looked up at them with the most yellow collar Ako-chan had ever seen.
-
-Obia watched all of this without saying anything.
-
-"Why did you build it?" said Ako-chan.
-
-"Because I wanted to understand how he was feeling," said Obia. "Not for navigation. Just because it matters."
-
-Dango pressed his head against Obia's side. The collar stayed yellow for a long time.""",
+        "title": "Gold",
+        "text": (
+            "It was past midnight. The room was dark.\n\n"
+            "Ako-chan woke for no reason. She lay still for a moment, then looked around.\n\n"
+            "Dango was not in his usual spot by the door.\n\n"
+            "She sat up.\n\n"
+            "Across the room, Dango was lying against Obia's side, fast asleep. His collar glowed a quiet blue.\n\n"
+            "Obia had not moved. It was sitting exactly as it had been when Ako-chan fell asleep. Dango must have come over some time in the night, and Obia had stayed completely still to let him sleep.\n\n"
+            "Ako-chan watched them for a while.\n\n"
+            "She reached for her blue notebook. In the dark she couldn't see well, but she wrote anyway:\n\n"
+            "Saw something. Not going to say it out loud. But I saw it.\n\n"
+            "She closed the notebook.\n\n"
+            "In the morning, Dango was back by the door. His tail wagged when she looked at him. Ako-chan said nothing. Obia said nothing.\n\n"
+            "But Ako-chan kept that page in her mind."
+        ),
     },
     {
         "ep": 16,
-        "title": "The Third Question",
-        "text": """The guesthouse was small and warm. Outside, snow was falling. The mountains were very still and white.
-
-Ako-chan, Dango, and Obia sat by the window. Dango was almost asleep. His collar glowed a steady gold.
-
-Ako-chan looked at the snow. Then she looked at Obia.
-
-"Where do you come from?" she said.
-
-It was the third time she had asked this question.
-
-Obia turned to look at her.
-
-"That is the third time," it said.
-
-"Yes," said Ako-chan. "I know."
-
-Obia was quiet for a moment. The snow was very thick now. The mountains had disappeared into white.
-
-"I will tell you," said Obia. "Not tonight. Not yet. But I will. I promise."
-
-It said the word clearly. Promise.
-
-This was the first time it had used that word.
-
-"When?" said Ako-chan.
-
-"When the journey is finished," said Obia. "When we know what we came to find out. I will answer everything then."
-
-Ako-chan looked at the snow. She thought about that word. Promise.
-
-"All right," she said.
-
-She did not feel satisfied. But she believed it. Maybe because of the way Obia had said the word. Like it meant it very carefully.
-
-Outside, the snow kept falling and covered everything.""",
+        "title": "Promise",
+        "text": (
+            "The cabin was high in the mountains. Snow covered everything outside the windows. The room was warm and quiet.\n\n"
+            "They sat by the window in the evening. Dango was asleep on the floor. Obia was watching the snow.\n\n"
+            "\"Where are you from?\" said Ako-chan.\n\n"
+            "Obia turned to look at her. \"That's the third time,\" it said.\n\n"
+            "\"I know.\"\n\n"
+            "Snow fell slowly on the other side of the glass. The mountains were pale in the last light.\n\n"
+            "\"I'll answer,\" said Obia. \"When the journey is over. I'll tell you everything. All of it.\"\n\n"
+            "\"Everything?\"\n\n"
+            "\"Everything.\"\n\n"
+            "Ako-chan was quiet for a moment. \"Promise?\"\n\n"
+            "Obia did not answer right away. It looked at the snow.\n\n"
+            "\"Promise,\" it said.\n\n"
+            "It was the first time Obia had used that word.\n\n"
+            "Ako-chan looked at the mountains. She touched the acorn in her pocket.\n\n"
+            "She did not know why she believed it. But she did.\n\n"
+            "\"Okay,\" she said.\n\n"
+            "She opened her notebook and held it for a moment without writing. Then she closed it and watched the snow."
+        ),
     },
     {
         "ep": 17,
-        "title": "One Month On",
-        "text": """One month. They had been traveling for exactly one month.
-
-Ako-chan stood at the window of a small guesthouse. The sun was going down. The sky was orange and pink to the west. England was that way.
-
-She had the record device in her hands. She turned it on. The small screen showed the world map. Many more dots than before.
-
-She looked at where the dots were thickest.
-
-"How many now?" she said.
-
-"More than last week," said Obia. "The pattern is getting clearer."
-
-Dango sat beside her. His collar was gold. He always felt calm when Ako-chan looked at the map.
-
-The sun dropped lower. The orange faded. The sky turned dark blue.
-
-Ako-chan put the record device in her pocket.
-
-"We are going to find out what is happening," she said.
-
-It was not quite a question. It was not quite a statement. It was something in between. A quiet vow, mostly for herself.
-
-Obia stood beside her. Both of them looked west at the last light.
-
-"Yes," said Obia. "We are."
-
-Dango did not look west. He was already looking south.""",
+        "title": "Five Seconds",
+        "text": (
+            "The town had stone streets and old walls. Their footsteps made a clear sound on the cobblestones.\n\n"
+            "Obia walked a little ahead. Dango was close to Ako-chan's side.\n\n"
+            "Then Obia stopped.\n\n"
+            "It was not a slow stop. It was complete. No movement at all, like a photograph.\n\n"
+            "Ako-chan almost walked into Obia before she noticed. She stopped. \"Obia?\"\n\n"
+            "Nothing.\n\n"
+            "Dango stared at Obia. His collar turned red.\n\n"
+            "Five seconds. Six. Footsteps from somewhere else on the street. A door opened and closed. The world kept moving.\n\n"
+            "Then Obia stepped forward, exactly as before.\n\n"
+            "\"What happened?\" said Ako-chan.\n\n"
+            "\"A small adjustment,\" said Obia. \"Don't worry.\"\n\n"
+            "\"You stopped completely.\"\n\n"
+            "\"It's fine. It happens sometimes.\"\n\n"
+            "Obia kept walking, steady and calm.\n\n"
+            "Dango looked up at Ako-chan. His collar moved slowly from red to orange, then to blue.\n\n"
+            "Ako-chan looked at the cobblestones. She thought about the word 'sometimes.'\n\n"
+            "Then she followed Obia down the street."
+        ),
     },
     {
         "ep": 18,
-        "title": "A Travel Diary",
-        "text": """In a small market, Ako-chan found a notebook. It had a dark blue cover. She bought it.
-
-That evening she sat at the table and opened the first page.
-
-She tried to write about England. She tried to write about the tunnel and France and the long flat fields of Belgium. She tried to write about the record device and all the dots on the map.
-
-But none of it came out right. Every sentence she started felt too small.
-
-She put down the pen. She looked at the blank page.
-
-Then she picked up the pen again and wrote one thing.
-
-_I do not know how to describe Obia yet. But I know this: I am glad it is here._
-
-She read the sentence. She read it again.
-
-It was true. That was the most honest thing she could say.
-
-Dango was watching her from his corner. His collar was a soft, steady gold.
-
-"I wrote about you too," she said. "Sort of."
-
-His tail moved once.
-
-She closed the notebook. She would write more tomorrow. She had the whole journey ahead of her.
-
-She put it in her bag, next to the record device and the acorn from the hedgehog. Three things she carried. All of them mattered.""",
-    },
-    {
-        "ep": 19,
-        "title": "Obia Stops",
-        "text": """They were walking through a small town. Stone streets. Old buildings. A market stall on the corner. Birds on the rooftops.
-
-Obia was walking ahead.
-
-Then it stopped.
-
-Not slowly. Not because of something in the way. It just stopped. Mid-step. One paw in the air. Perfectly still.
-
-Five seconds.
-
-Six.
-
-Dango pressed against Ako-chan's side. His collar had gone orange.
-
-Then Obia put its paw down and walked on, as if nothing had happened.
-
-"What was that?" said Ako-chan.
-
-"A minor adjustment," said Obia. "Nothing to worry about."
-
-She watched Obia walk ahead. Its steps were the same as always. Steady and even.
-
-But something cold had moved through her. In those five seconds, while Obia was still, she had felt something she hadn't felt before. A kind of emptiness. Like a very important sound had stopped.
-
-She had not known how much she had come to depend on Obia to keep moving. On the sound of it walking just ahead. On the knowledge that it was there.
-
-Dango's collar turned slowly back toward yellow. But Ako-chan kept watching Obia for a long time after that.""",
-    },
-    {
-        "ep": 20,
-        "title": "The Sea!",
-        "text": """They came over a hill, and there it was.
-
-The Adriatic Sea.
-
-It was so blue. Not a sky blue or a winter blue. It was the deep, strong blue of something that had been itself for a very long time. It lay between the green hills, perfectly wide and still.
-
-Dango stopped.
-
-Then he ran.
-
-He ran full speed down the slope. His ears went flat. His long tail went straight. He ran like he had never run before.
-
-He reached the edge and did not slow down.
-
-A wave caught him. It knocked him sideways. He barked at it. He walked back in and barked again.
-
-Ako-chan started to laugh.
-
-She hadn't laughed like that in weeks.
-
-She ran down the hill toward the water. Obia followed, more slowly.
-
-Dango was sitting in the shallows now. Another wave came. It rolled over him completely. He shook the water off and looked back at Ako-chan. His collar was the brightest yellow she had seen all month.
-
-"Come out," she said.
-
-He didn't come out.
-
-She stood at the edge of the water, laughing, and Obia stood beside her, and the sea was very blue, and the sound of the waves was the best sound they had heard in a long time.""",
-    },
-    {
-        "ep": 21,
-        "title": "Obia Measures",
-        "text": """Obia walked into the Adriatic up to its knees.
-
-It stood very still. Its eyes were directed down at the water. It stayed like that for a long time.
-
-Ako-chan waited on the shore. Dango sat beside her, damp and smelling of the sea.
-
-"What are you doing?" said Ako-chan.
-
-"Measuring," said Obia.
-
-It came back to the shore and shook the water from its paws.
-
-"There is something in the water," it said. "An electrical signal. Very faint. Below what most instruments would find. But it is there."
-
-"Like Amsterdam?" said Ako-chan.
-
-"Larger," said Obia. "Much larger. The Amsterdam signal was small. This is spread across a wide area."
-
-Ako-chan looked at the sea. It looked completely normal. Blue and still.
-
-"Is it connected?" she said.
-
-"I don't know," said Obia.
-
-She did not quite believe that.
-
-She looked at Obia. Obia looked at the water. Neither of them said anything more.
-
-She got out her blue notebook and wrote: _Obia knows more than it says. I am becoming sure of this._
-
-She did not say that to Obia. She just wrote it down. Then she closed the notebook and they walked back along the shore. Dango ran ahead, still barking at the waves.""",
-    },
-    {
-        "ep": 22,
-        "title": "Dango's Pillow",
-        "text": """Ako-chan woke in the night.
-
-The room was dark and quiet. She looked around.
-
-Dango was not in his usual spot. She looked across the room.
-
-He was lying against Obia.
-
-Obia was sitting near the wall, perfectly still. Dango was pressed against its side, his head resting on its front leg. He was deeply asleep. His collar was gold.
-
-Obia had not moved at all. Its posture was the same as if it were keeping watch. But it was staying completely still so Dango could sleep.
-
-Ako-chan watched them for a while.
-
-She didn't know when Dango had moved there. At some point in the night, he had gotten up from his spot and gone to Obia. And Obia had let him. And had stayed. And had not moved.
-
-She got her notebook. In the dark, she wrote a few words.
-
-_I saw it. I will not say it out loud. But I saw it._
-
-In the morning, Dango was back in his usual spot. Ako-chan looked at Obia. Obia looked back at her.
-
-Neither of them said anything.
-
-But Ako-chan knew. And Obia knew that she knew.""",
+        "title": "Blue",
+        "text": (
+            "They climbed a long hill. The path was steep and narrow.\n\n"
+            "Dango ran ahead to the top and waited. Then ran back. Then up again.\n\n"
+            "When Ako-chan and Obia reached the top, there was nothing ahead but sea.\n\n"
+            "Blue. Very deep blue. All the way to the edge of the sky.\n\n"
+            "Ako-chan stopped.\n\n"
+            "Dango looked at the sea for one second. Then he ran. Ears flat. Legs as fast as they could go. He hit the water and a wave knocked him sideways. He came up shaking his head and barking.\n\n"
+            "Ako-chan laughed.\n\n"
+            "She hadn't laughed like that in weeks. The sound surprised her. It was loud and came from somewhere deep inside.\n\n"
+            "She laughed again.\n\n"
+            "Dango barked at another wave. It knocked him over. He got up and barked again.\n\n"
+            "His collar was the brightest orange she had ever seen it.\n\n"
+            "Obia stood beside her and said nothing.\n\n"
+            "Ako-chan looked at the sea. The Adriatic. Blue and bright and wide.\n\n"
+            "She was very far from home. She was tired, and her feet hurt, and she did not know what came next.\n\n"
+            "But right now, she did not mind at all."
+        ),
     },
 ]

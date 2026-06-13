@@ -8,25 +8,27 @@ All seasons, all parts. Use this to locate the target file and episode range bef
 
 ## Season 1 — Ako-chan and the Robot Dog
 
+**※ 全話新規執筆版（再構築）。旧120話は破棄。**
+
 | Part | Name | Episodes | Count | File | Status |
 |---|---|---|---|---|---|
-| 1 | England | ep 1–10 | 10 | `stories_s1_p01.py` | ✅ |
-| 2 | Through Europe | ep 11–22 | 12 | `stories_s1_p02.py` | ✅ |
-| 3 | Mediterranean | ep 23–41 | 19 | `stories_s1_p03.py` | ✅ |
-| 4 | Japan | ep 42–49 | 8 | `stories_s1_p04.py` | ✅ |
-| 5 | The North | ep 50–63 | 14 | `stories_s1_p05.py` | ✅ |
-| 6 | South America | ep 64–78 | 15 | `stories_s1_p06.py` | ✅ |
-| 7 | Toward the Ice | ep 79–89 | 11 | `stories_s1_p07.py` | ✅ |
-| 8 | The Southern Signal | ep 90–101 | 12 | `stories_s1_p08.py` | ✅ |
-| 9 | Obia's Confession | ep 102–114 | 13 | `stories_s1_p09.py` | ✅ |
-| 10 | We Are Home | ep 115–120 | 6 | `stories_s1_p10.py` | ✅ |
+| 1 | England | ep 1–8 | 8 | `stories_s1_p01.py` | ⬜ |
+| 2 | Through Europe | ep 9–18 | 10 | `stories_s1_p02.py` | ⬜ |
+| 3 | New Friends | ep 19–28 | 10 | `stories_s1_p03.py` | ⬜ |
+| 4 | Japan | ep 29–37 | 9 | `stories_s1_p04.py` | ⬜ |
+| 5 | The Pacific | ep 38–48 | 11 | `stories_s1_p05.py` | ⬜ |
+| 6 | South America | ep 49–57 | 9 | `stories_s1_p06.py` | ⬜ |
+| 7 | Toward the Ice | ep 58–65 | 8 | `stories_s1_p07.py` | ⬜ |
+| 8 | The White Land | ep 66–75 | 10 | `stories_s1_p08.py` | ✅ |
+| 9 | The Truth | ep 76–85 | 10 | `stories_s1_p09.py` | ⬜ |
+| 10 | Going Home | ep 86–95 | 10 | `stories_s1_p10.py` | ⬜ |
 
-**Total: 120 episodes · 10 parts · Season complete**
+**Total: 95 episodes · 10 parts · 執筆中**
 
 ### S1 Key files
-- Arc: `planning/arc.md` → "Season 1" section
-- Outlines: `scripts/story_outlines_s1.py`
-- Canon: `canon/characters.md`, `canon/world.md`, `canon/timeline.md`
+- Arc & キャラクター: `planning/s1_arc.md`
+- エピソードアウトライン: `planning/s1_outline_new.md`
+- 場所・環境詳細: `canon/world.md`
 
 ---
 

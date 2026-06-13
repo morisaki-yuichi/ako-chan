@@ -1,486 +1,52 @@
-# Season 1 — Part 9: Obia's Confession (ep 102–114)
-# Outline: story_outlines_s1.py
-
 STORIES_S1_P09 = [
     {
-        "ep": 102,
-        "title": "The Gate Opens",
-        "text": """Eight kilometres. No wind.
-
-All nine of them went in a line across the ice. Colonel Adelie at the front. Pen-san in the middle. Obia at the back.
-
-Nobody spoke.
-
-At the ridge, the electromagnetic interference began. Obia said: "My sensors will be partially blocked here. I know the way." They followed it over.
-
-On the other side, the ground sloped down. At two hundred and ten degrees: a dark square in the ice. The shaft.
-
-Obia stopped at the edge. It looked down.
-
-Then it went in alone.
-
-The others waited at the surface. Suke-san stood at the edge of the shaft. Daru pressed his feet flat on the ice. Above them, the sky was very still.
-
-A sound from below — quiet, mechanical. Then light came up from the shaft.
-
-Obia's voice, from below: "The door is open."
-
-Nobody had touched anything. No code. No key. No signal.
-
-The door had opened by itself.
-
-Ako-chan looked at the others. Then she walked forward and went down the shaft.
-
-One by one, they followed.
-
-The door had opened for Obia. Someone had built it that way.""",
+        "ep": 76,
+        "title": "Getting Close",
+        "text": "The base appeared through the white.\n\nIt was not very large. Metal walls. A low shape under the ice, half buried. A door.\n\nNo one said anything.\n\nDango did not run. He walked beside Ako-chan, his collar a quiet gold — not the bright gold of happiness, but a steady gold, like something held very carefully.\n\nSuke-san walked to the right. Gabu moved slowly and said nothing. Daru was on the backpack but was not talking.\n\nRiro swam in the ice channel beside them, both paws pressed to his face.\n\nPen-san walked close to Ako-chan. Colonel Adelie stayed three steps behind, watching everything.\n\nObia went first.\n\nAko-chan put her hand in her pocket. The acorn was there. Small and hard and smooth. She had not thought about it in a long time. But her hand had found it anyway.\n\nThey stopped in front of the door.\n\nObia placed one paw against the metal. Something clicked. Something opened.\n\nThe door was cold and thick. Inside was a long, dark corridor.\n\nAko-chan looked at Dango. He looked at her.\n\nThey went in.",
     },
     {
-        "ep": 103,
-        "title": "Gabu's Observation",
-        "text": """At the bottom was a corridor.
-
-Smooth walls. Pale light. Air that was dry and still — not like ice at all. Like somewhere indoors. Like somewhere that had been waiting.
-
-They stood in a line and looked.
-
-Gabu looked at the walls. He looked at the floor. He looked at Obia.
-
-He walked forward. Slowly. His steps were quiet on the smooth surface.
-
-He stopped in front of Obia.
-
-"This place knows you," he said.
-
-He was not asking.
-
-Everyone went still.
-
-Obia looked at Gabu. The silence stretched. Not empty — full. Obia was not avoiding the question. It was deciding.
-
-Then it said:
-
-"Yes."
-
-Just one word. And then:
-
-"Yes. This place knows me."
-
-Nobody moved.
-
-It was the first time. Not with actions, not with silence, not with "not yet" or "when the time comes." Just yes, in the corridor, with everyone present.
-
-Gabu looked at it for a moment more.
-
-Then he nodded once, very small.
-
-He turned and walked back to his place in the line.
-
-He did not ask anything else.
-
-He had been right. That was enough.""",
+        "ep": 77,
+        "title": "Inside",
+        "text": "The corridor was narrow. Their breath made small clouds in the cold air.\n\nObia went first. Then Ako-chan and Dango. Then Suke-san, then Gabu and Daru. Riro came through a smaller shaft from the water. Pen-san and Colonel Adelie came last.\n\nThey came out into a large room.\n\nThe walls were metal. The floor was metal. It was very cold, but there was no wind.\n\nAt the far end of the room was a screen. Very large — bigger than a door.\n\nSomeone was on the screen.\n\nA person. Tall. Wearing a white coat. Their back was turned. They were not moving.\n\nAko-chan stopped.\n\nNo one spoke.\n\nThen Obia said, quietly: \"This place knows you.\"\n\nNo one asked what it meant.\n\nThen the voice came from the screen. It was not loud. But it filled the room.\n\n\"You have arrived.\"\n\nDango's collar was gold. Not moving. Just steady.\n\nAko-chan looked at the turned figure on the screen. She had never seen this person before. She had never heard that voice.\n\nBut it did not feel entirely new.\n\nShe could not explain why.\n\nShe stood still and waited.",
     },
     {
-        "ep": 104,
-        "title": "Everyone is Looking",
-        "text": """Obia had said yes.
-
-Now everyone was looking at it.
-
-Dango sat down. His collar was orange. He looked at Obia and did not look away.
-
-Daru's head was fully out of his shelter. Suke-san's tail had gone still. Riro pressed his paws flat against his face but his eyes were on Obia. Pen-san stood very straight. Colonel Adelie watched from behind the group.
-
-Gabu was back in his place, quiet.
-
-Ako-chan was looking too. She had been waiting for this. Since the border storm in May. Since the skua dropped something near her feet. Since the door opened by itself.
-
-She had known something was coming.
-
-Obia looked at all of them. One by one. It did not step back. It did not turn away.
-
-Then it said:
-
-"There are things I must tell you."
-
-Not a question. Not a request. A decision.
-
-Dango's collar stayed orange. Suke-san's tail did not move.
-
-Ako-chan opened her diary. She held her pen.
-
-"All right," she said quietly.
-
-The corridor was very still.""",
+        "ep": 78,
+        "title": "The Test",
+        "text": "Ako-chan stepped forward.\n\n\"Are you the one who arranged all of this?\" she said. \"The storms. The signals. Everything.\"\n\nThe figure on the screen was quiet for a moment. Then: \"Yes.\"\n\n\"Why?\"\n\n\"I wanted to know,\" the voice said, \"whether humans and animals can trust each other. Whether they would protect each other when things were hard. Whether they are worth being kept. Your journey was my question. Everything you did was the answer.\"\n\nNobody moved.\n\nGabu looked at the floor. Then at Ako-chan. Then back at the floor.\n\nDaru's head was stretched out as far as it would go.\n\nSuke-san's tail was very still.\n\n\"I chose you,\" the voice said to Ako-chan, \"because you can hear what no one else can hear. I wanted to see how someone like you would travel.\"\n\nThen the voice was quiet.\n\nAfter a moment, it spoke again.\n\n\"Some things were outside my calculations. Pen-san was one of them.\"\n\nAko-chan did not feel angry. She felt something else. Like when you find the last piece of a puzzle and the picture finally makes sense.\n\nShe looked at the turned figure.\n\nShe was still thinking.",
     },
     {
-        "ep": 105,
-        "title": "Obia's Confession, Part One",
-        "text": """Obia told the truth.
-
-"I was built," it said. "Not by accident. By one person. For one purpose."
-
-It paused.
-
-"Before January, I was placed near Ako-chan's home. The anomalies you followed — the storm in Armenia, the fish in the Rhine, the birds in Vienna, all of them — were not natural. Someone designed each one. They were tests."
-
-Nobody spoke.
-
-"I was sent to watch how you responded. Everything I observed was to be sent back. Every conversation. Every choice. Every moment."
-
-Ako-chan's pen was on the page. She had not written anything.
-
-"I am not from this time," said Obia. "I came from further ahead. The person who built me sent me back."
-
-The corridor was very quiet.
-
-"Every anomaly was arranged. The whole journey. The direction south. All of it."
-
-It looked at Dango. At Gabu. At all of them.
-
-"That is what I am," it said. "That is where I came from. And that is what I was sent here to do."
-
-A long pause.
-
-"I am telling you now because I promised. And because it is time." """,
+        "ep": 79,
+        "title": "A Name",
+        "text": "The room was quiet after those words.\n\nThen Obia stepped forward.\n\nJust one step. But it was Obia's step — deliberate, chosen.\n\nBefore the figure on the screen could speak again, Obia said: \"I was sent as an observer. But I became Obia.\"\n\nSomething moved inside Ako-chan.\n\nAll at once, many things connected. The signal in the night, hidden away. The freeze in the mountains. The promise. The fragment the hawk had dropped, which Obia picked up before she could reach it. The message: *do not forget what you are for.*\n\nShe looked at the screen. At the still, turned figure.\n\n\"Yu-chan...?\"\n\nThe name came out before she thought. She had not decided to say it. It was simply there.\n\nDango looked at her.\n\nThe figure on the screen was very still. Then it made a small movement — not turning, just a small tilt of the head.\n\nAko-chan did not know where the name had come from. It had simply been there, waiting, somewhere she had not looked.\n\nShe said it again, quietly, to herself.\n\n\"Yu-chan.\"\n\nThe room was silent.\n\nObia had not moved from that one step forward.",
     },
     {
-        "ep": 106,
-        "title": "Obia's Confession, Part Two",
-        "text": """Dango growled.
-
-Low. Short. One sound. Ako-chan said his name and he stopped. But he would not look away from Obia.
-
-Suke-san stepped one step forward — in front of the group. Protecting, not attacking.
-
-Riro pressed his paws against his face and kept looking.
-
-Daru said: "But Obia saved Gabu in the storm." He was not defending. He was saying what was true.
-
-Obia waited. Then it continued.
-
-"I kept sending reports at first," it said. "For some months. But during the journey something changed. I cannot tell you when."
-
-It looked at the long scratch on its own silver side.
-
-"I held the shelter bracket in the storm because Gabu was inside," it said. "Not because I was told to. I built Dango's collar because I wanted him to be understood. I built shelters because the others were cold and I knew how to fix cold."
-
-It looked at the group.
-
-"At some point, being useful to you became more important to me than my original purpose. I cannot say it was a plan. But I can say I chose it."
-
-It did not look away.""",
+        "ep": 80,
+        "title": "The Truth",
+        "text": "Everyone was looking at Obia.\n\nObia looked at the floor. Then at Ako-chan. Then at the screen.\n\n\"I was sent,\" Obia said. \"By this person. To watch you. To record everything — every day, every place, every decision. To send it all back. That was the plan.\"\n\nThe room was very quiet.\n\n\"You knew about the signals from the beginning,\" Suke-san said. His voice was flat. Not angry. Just stating the fact.\n\n\"Yes,\" Obia said.\n\n\"You knew who was sending them.\"\n\n\"Yes.\"\n\nGabu looked at Daru. Daru looked at Gabu. Neither spoke.\n\n\"But,\" Obia said.\n\nEveryone waited.\n\n\"I also stayed up all night when Dango could not sleep. I held the shelter bracket in the storm because Gabu was inside. I built things — not because the plan said to, but because it needed doing.\" Obia's voice did not change. \"None of that was in the plan. But all of it happened.\"\n\nObia looked at Ako-chan.\n\n\"I am still what I was sent to be. And I am Obia. Both of those things are true.\"\n\nAko-chan was looking at Obia.\n\nThe room was very quiet again.",
     },
     {
-        "ep": 107,
-        "title": "Pen-san's Verdict",
-        "text": """Nobody moved.
-
-The corridor was very quiet.
-
-Dango's collar was deep orange. Gabu looked at the floor. Suke-san had not stepped back. Riro kept his paws against his face. Daru was very still.
-
-Ako-chan held her diary. She had not written a word.
-
-The silence went on.
-
-Then Pen-san spoke.
-
-It did not look around at the others. It simply said:
-
-"That is enough."
-
-Two words. Quiet.
-
-Colonel Adelie said: "We move forward."
-
-A moment passed.
-
-Then Dango stood up. He crossed the corridor — past Suke-san, past Gabu, past everyone. He stopped beside Obia. He sat down.
-
-He did not look at Obia. He just sat.
-
-His collar was orange. Then, slowly, from the edge, it began to move toward gold. Not all at once — just beginning.
-
-Obia looked at Dango beside it.
-
-It did not speak.
-
-Suke-san watched. Then he walked forward. Then Riro. Then Gabu. Then Daru.
-
-One by one, the corridor filled back in.
-
-Pen-san stood with its head high.
-
-Colonel Adelie turned toward the deeper part of the structure.
-
-"We move forward," he said again.""",
+        "ep": 81,
+        "title": "Dango Steps Away",
+        "text": "When Obia finished speaking, the room was still.\n\nThen Dango made a sound. Low and short. He had never made that sound at Obia before.\n\n\"Dango,\" Ako-chan said.\n\nHe stopped. But he did not look away.\n\nSuke-san took one step forward — just one — placing himself between the center of the room and the others. Not toward Obia. Not against it. Just there.\n\nThen Dango stood up slowly. He did not shake himself or stretch. He just stood.\n\nHe looked at Obia for a long moment.\n\nThen he turned and walked. Not far. Just to the far side of the room. He sat down there.\n\nHis collar was deep orange.\n\nAko-chan did not call him back.\n\nGabu looked at the floor. Daru looked at his own feet. Riro pressed both paws to his face and said nothing.\n\nObia stayed where it was. It did not move toward Dango. It did not speak.\n\nThe only sound was the quiet hum of the metal walls.\n\nDango did not look at Obia.\n\nHis collar did not change.",
     },
     {
-        "ep": 108,
-        "title": "On the Monitor",
-        "text": """They walked deeper.
-
-The walls changed.
-
-Images appeared — moving. Not still photographs. Real, moving pictures.
-
-The Rhine. The Adriatic. The olive grove where Gabu had hidden. The Hokkaido cliff where Suke-san had waited. The Pacific storm, the boat leaning hard.
-
-Daru stopped walking.
-
-"This is our journey," he said. He turned from wall to wall. Then the images changed.
-
-Dango asleep, whimpering in the night. Gabu sitting with the old tortoise in Patagonia. Suke-san alone on the eastern ridge before dawn. Private moments.
-
-Daru looked at them for a long time.
-
-"Gabu really went to that tortoise," he said quietly. "Suke-san really walked that patrol." He looked at Obia. "They watched it all. But it still happened. It was still ours."
-
-Gabu said: "Yes."
-
-They kept walking.
-
-At the end of the corridor was a room. Large. Dark ceiling, too high to see. In the centre, a screen.
-
-It turned on.
-
-A white-coated figure. Standing with its back to them. Dark hair. A white coat.
-
-"You have arrived," it said.""",
+        "ep": 82,
+        "title": "After the Words",
+        "text": "A long time passed.\n\nNo one said anything.\n\nGabu had not moved from his spot. He was looking at a small point on the metal floor — not sleeping, just waiting, the way a tortoise can be still.\n\nDaru had come down from the backpack. He stood on the ground, four feet spread wide, head low.\n\nRiro had not moved his paws from his face. He was sitting with his back against the wall.\n\nSuke-san was looking at the wall. Not the screen. Just the wall. His tail was down.\n\nPen-san stood at Ako-chan's side and watched everything.\n\nColonel Adelie stayed at the back of the room and said nothing.\n\nObia was looking straight ahead — not at anyone, just at the air in front of it.\n\nAko-chan looked at Obia.\n\nShe thought about the night when Dango could not sleep and Obia sat beside him until morning. She thought about the scratch on Obia's silver side from the storm. She thought about the shelter bracket and Gabu inside.\n\nShe thought about the acorn in her pocket.\n\nShe had not decided anything yet.\n\nBut she was thinking.",
     },
     {
-        "ep": 109,
-        "title": "The Voice",
-        "text": """The voice filled the room.
-
-A person's voice. Not an animal's, not a machine's.
-
-The figure stood with its back to them, facing the far wall. White coat. Still.
-
-"A little later than the calculation suggested," it said. "But not by much."
-
-Ako-chan stepped forward.
-
-"Did you arrange all of this?" she said.
-
-She said it without fear. Without anger. She wanted to know if it was true.
-
-"Yes," said the figure.
-
-Ako-chan held that answer.
-
-She looked at the figure on the screen. The shape of the shoulders. The way it stood. She thought about the anomalies. The signals. The skua dropping the fragment. The door that opened by itself.
-
-She thought about a name that had been in her mind — half a question, half already knowing.
-
-"Yu-chan?" she said.
-
-The name came out before she chose it. Like the question she had asked Pen-san — "Can I hold you?" — before she decided to.
-
-The figure went still.
-
-"Yes," it said.
-
-Dango pressed against Ako-chan's side. His collar was orange.
-
-But Ako-chan was not afraid. She had been almost certain.
-
-She was fully certain now.""",
+        "ep": 83,
+        "title": "That's Enough",
+        "text": "Pen-san moved.\n\nSmall steps, very quiet. He came across the room to where Dango was sitting.\n\nDango looked up.\n\nPen-san looked at him. Not with the eyes that made everyone obey. Just a look — simple and direct.\n\n\"That is enough,\" Pen-san said.\n\nDango looked at Pen-san for a moment.\n\nThen at Obia.\n\nObia had not moved.\n\nDango stood up slowly. He walked across the room. He sat down beside Obia.\n\nHe did not lean against Obia. But he sat close.\n\nNo one said anything.\n\nThen, very slowly, Dango's collar began to change. It moved from deep orange — toward gold. Not all at once. Slowly, the way light changes in the morning.\n\nIt reached gold.\n\nIt stayed there.\n\nObia looked down at Dango. Dango looked forward.\n\n\"Thank you,\" Obia said. Very quietly.\n\nNo one answered.\n\nBut Gabu lifted his head from the floor.\n\nAnd Daru straightened his four feet.\n\nAnd Suke-san's tail began, very slowly, to lift.",
     },
     {
-        "ep": 110,
-        "title": "The Reason for the Test",
-        "text": """Yu-chan spoke.
-
-"I had one question," it said. "Not a small question."
-
-The room was still.
-
-"Do humans deserve to continue?"
-
-Nobody moved.
-
-"Animals can feel what is wrong before humans can explain it. I wanted to know if humans would listen. If they would go. If they would walk across the world for a thing they did not fully understand."
-
-It did not turn.
-
-"The anomalies were designed to make the animals uneasy. To send warnings. I needed someone who could hear those warnings. Someone whose first choice was to go toward the unknown, not away from it."
-
-A pause.
-
-"That is why I chose Ako-chan. Not only because she has a gift. Because of what she does with it."
-
-Ako-chan did not speak.
-
-"Pen-san," said Yu-chan. "The emperor penguin chick. That was not planned." There was something in its voice that was close to surprise. "The sound from the structure reached the egg. The chick heard it before it hatched."
-
-A pause.
-
-"Some things do not follow the calculations."
-
-Pen-san stood very straight.
-
-Colonel Adelie's chest rose once and settled.""",
+        "ep": 84,
+        "title": "The Verdict",
+        "text": "The room was still.\n\nThen the figure on the screen spoke again.\n\n\"I have been watching all of this,\" the voice said. \"From the beginning. Every day. Every decision.\"\n\nNo one answered.\n\n\"You have answered the question.\" The voice was quiet. \"Whether humans and animals can trust each other. Whether they would protect each other.\" A long pause. \"You pass.\"\n\nAko-chan looked at the screen.\n\n\"What do we pass?\" she said.\n\n\"The question I could not answer myself. You answered it by living it.\"\n\nSilence.\n\n\"Why won't you show your face?\" Ako-chan said.\n\n\"A face is not important,\" the voice said. \"What matters is what you did.\"\n\nA small electronic sound came from the screen. Something ending.\n\nText appeared: *SIGNAL TERMINATED.*\n\nThen, one by one, all the red points on the record device went dark. The signals from the south — the storms, the currents, all of it — stopping.\n\nThe figure on the screen said one more thing.\n\n\"Safe journey home.\"\n\nThe screen went dark.",
     },
     {
-        "ep": 111,
-        "title": "The Answer",
-        "text": """Obia stepped forward.
-
-One step. Before Yu-chan could continue.
-
-It faced the screen.
-
-"I should say something," it said.
-
-Yu-chan was quiet. Waiting.
-
-"I was sent as an observer," said Obia. "To watch. To report. To send data back. That was my purpose."
-
-It paused.
-
-"But during this journey I made choices that had nothing to do with that purpose. I held Gabu's shelter bracket in the storm. I built Dango's collar to help him be understood. I built everything I built because the others needed it — not because I was told to."
-
-It looked at the screen.
-
-"I was sent as an observer. But I became Obia. This Obia. The one who traveled with them."
-
-Yu-chan was quiet for a long time.
-
-Then it said:
-
-"I have read all of Obia's data. Every record. Every deviation from the original program. Every choice."
-
-A long pause.
-
-"...You pass."
-
-Then:
-
-"Thank you. All of you."
-
-The room was very quiet.
-
-Dango pressed against Ako-chan's side. His collar moved — all the way from orange to gold.
-
-The two words held a whole year inside them.""",
-    },
-    {
-        "ep": 112,
-        "title": "The Anomalies Stop",
-        "text": """Yu-chan moved to the desk.
-
-It worked without speaking.
-
-"The Rhine fish formation." A number on the screen went dark.
-
-"The fog in Belgium." Dark.
-
-"The storm near Armenia." Dark.
-
-"The birds in Vienna." Dark.
-
-"The electrical signal in the Adriatic." Dark.
-
-One by one, every anomaly they had followed — every signal in Obia's terminal — went out. Ako-chan knew them all. She had written every one in her diary.
-
-Twenty-one signals in total.
-
-Yu-chan worked until only one line remained on the screen.
-
-ALL SIGNALS TERMINATED.
-
-The terminal that Obia had built in Belgium, in February, from spare parts — it was dark.
-
-Obia looked at the screen.
-
-Then it looked at the terminal.
-
-It pressed one button.
-
-The terminal closed.
-
-Not with any ceremony. Just quietly. The way you close something when it has served its purpose and you are glad it did.
-
-Ako-chan watched Obia close the terminal.
-
-She thought about February — the rain in Belgium, the building scraps, the small device Obia had built overnight that had carried everything all year.
-
-She thought: that was a long time ago.""",
-    },
-    {
-        "ep": 113,
-        "title": "The Last Question",
-        "text": """The screen was almost dark.
-
-Ako-chan had one question left.
-
-"Why won't you show your face?"
-
-The room settled into the question.
-
-Yu-chan did not answer right away.
-
-Then it said: "A face is not important. What matters is what you did."
-
-Ako-chan held the answer. She thought about Obia, who had walked beside her all year and never shown what it truly was until now. She thought about Pen-san, waiting in the ice valley for something it had felt before it was born. She thought about Gabu, who had come out of a leaf pile not because she asked but because she waited.
-
-Some things mattered. Some things did not.
-
-She put the question down.
-
-"All right," she said.
-
-Yu-chan turned slightly. Not to face them — still no face. Just slightly.
-
-"Safe journey home," it said.
-
-The screen went dark.
-
-The room settled into a quiet that was finished, not waiting.
-
-Dango was beside Ako-chan. His collar was gold.
-
-She picked up her diary. She put her pen in her pocket.
-
-She looked at the dark screen for one more moment.
-
-Then she turned to the others.
-
-"We can go," she said.""",
-    },
-    {
-        "ep": 114,
-        "title": "The Colonel's Salute",
-        "text": """When they came up through the shaft, the air was different.
-
-Daru said it first. "The air is different." He breathed in again. "Something stopped."
-
-Gabu said: "Yes." Right away, without thinking about it. Gabu saying something right away was unusual. Even Daru noticed.
-
-The Antarctic sky was wide and blue and very clear.
-
-They walked a little way from the shaft. Then stopped.
-
-Pen-san looked up at Ako-chan with its very large dark eyes.
-
-"Please come again," it said. "I will be here. Until I am an emperor."
-
-Ako-chan crouched down. "I will come," she said.
-
-Pen-san was quiet for a moment. Then, briefly — just briefly — it pressed the top of its head against her knee. Then it stood straight again.
-
-Dango's collar was gold.
-
-Colonel Adelie stepped forward.
-
-He gave a formal salute to each member of the group, one by one. Daru looked at Gabu to see what to do. He dipped his shell. He scrambled a little. He stayed upright. He looked very proud.
-
-When the Colonel reached Suke-san, Suke-san raised one front paw. Clean and sharp.
-
-Both of them held it.
-
-Then they turned back to the ice.""",
+        "ep": 85,
+        "title": "One More Moment",
+        "text": "They stood in the room for a while after the screen went dark.\n\nThen Pen-san walked to the door and looked out.\n\n\"The weather is good,\" Pen-san said.\n\nAko-chan almost laughed. She did not quite laugh. But almost.\n\nThen Gabu said: \"Today will be a good day.\"\n\nEveryone looked at him.\n\nIt had been a long time since he had said that.\n\nGabu did not explain. He walked toward the door.\n\n\"Yes,\" Daru said. \"Today will be a good day.\"\n\nOne by one, they moved toward the door.\n\nAko-chan stood still for a moment.\n\nShe put her hand in her pocket and held the acorn. It was small and smooth and it had been with her since England — since the hedgehog in the garden who had said *three people* and placed it in her hand.\n\nShe held it for a moment.\n\nThen she walked to the door.\n\nObia was already outside. Dango was beside Obia, his collar gold and steady. Suke-san stood with his tail up. Riro was in the water channel, both paws pressed to his face, watching.\n\nThey all looked at her when she came out.\n\n\"Let's go,\" Ako-chan said.",
     },
 ]

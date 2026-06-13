@@ -1,386 +1,42 @@
-# Season 1 — Part 7: Toward the Ice (ep 79–89)
-# Outline: story_outlines_s1.py
-
 STORIES_S1_P07 = [
     {
-        "ep": 79,
-        "title": "The Orca's Testimony",
-        "text": """That afternoon, Riro climbed onto the deck.
-
-He sat down and pressed his paws flat against his face. He stayed like that for a moment.
-
-Then he said, "I spoke with an orca. Under the water. A big one."
-
-Everyone stopped.
-
-"It said there is something below the Antarctic ice. A fixed point. It has been sending a signal for a very long time. The orca said it is not natural." He pressed his paws to his face again. "It said the word artificial."
-
-Nobody spoke.
-
-Obia looked at the terminal. Then it closed the terminal very quietly.
-
-Gabu lifted his head.
-
-"Daru's shell," he said. "In Patagonia. The low vibration from below the ground." He was quiet for a moment. "That was the signal. This is the same signal." He looked at Obia. "It is the same thing."
-
-Obia did not answer.
-
-Daru was sitting very still. He pressed all four feet flat on the deck. "I cannot feel it now," he said. "But I remember it."
-
-The fire had burned down low. The wind came from the south.
-
-Nobody added more wood.""",
+        "ep": 58,
+        "title": "The Last Port",
+        "text": "The port was small and cold. The buildings were low. The water was dark grey.\n\nThis was the last port before the south. There was no land after this — only ice.\n\nAko-chan stood on the dock and looked at the town behind her. The others stood beside her.\n\n\"Ready?\" she said.\n\nDango's collar glowed orange. He was ready.\n\nGabu looked at the town for a long time without speaking. \"We are leaving the last streets,\" he said.\n\n\"Yes,\" Ako-chan said.\n\nDaru was already on top of the backpack. He spread all four legs wide. \"This is a very good position for the view.\"\n\nRiro was in the harbour water. Suke-san stood at the edge of the dock, looking south.\n\nThey walked onto the new boat. It was larger than the last one, built for cold water.\n\nObia checked the ropes and the hull and the engine. \"Everything is ready.\"\n\nThe boat moved out. The port grew smaller. Ako-chan watched until she could not see it clearly anymore.\n\n\"What is next?\" Daru asked.\n\n\"Ice,\" Obia said. \"And after the ice, what we came for.\"\n\nThe sea was flat and grey. Everyone faced south.",
     },
     {
-        "ep": 80,
-        "title": "Obia's Night",
-        "text": """Ako-chan woke in the night.
-
-The boat was still. Everyone else was asleep.
-
-She sat up and looked around the deck.
-
-Obia was sitting near the stern. Its record device was open in front of it. But the screen was turned away, so the light did not reach anyone else.
-
-Ako-chan watched it for a moment.
-
-Then she walked over and sat down beside it.
-
-"Do you need sleep?" she said.
-
-"I do not need sleep."
-
-She looked at the dark water. A few stars were out. The air was cold.
-
-"You look lonely," she said.
-
-"I am processing data," said Obia.
-
-Ako-chan looked at it. Obia's eyes were on the screen, but its ears were very still.
-
-She did not say anything more. She sat beside it for a while. The water made a small sound against the hull.
-
-After some time she said, "I will go back to bed."
-
-"Good night," said Obia.
-
-She stood up.
-
-She thought: maybe processing data and feeling lonely are not so different. Maybe they can happen at the same time.
-
-She went back to her sleeping place without writing it down.""",
+        "ep": 59,
+        "title": "Drake Passage",
+        "text": "The Drake Passage began with no warning.\n\nOne hour the sea was flat. The next, the waves were as tall as the sides of the boat. The wind hit like something solid.\n\nGabu went to his shelter and closed it from inside.\n\nDaru tucked his head into his shell.\n\nRiro pressed against the inside wall of the water unit.\n\nDango lay flat on the floor with all four legs stretched wide. His collar was red.\n\nSuke-san sat with his tail down. He did not say anything.\n\nEach morning of the trip so far, Gabu had stepped out of his shelter and said: \"Today will be a good day.\"\n\nHe did not say it today.\n\nHe did not say it the next day either.\n\nNo one mentioned this. But everyone noticed.\n\nAko-chan held the side of the boat and looked out. Rain came in hard against her face. She did not go inside.\n\nObia stood at the helm. No matter how much the boat moved, Obia did not move. Just watched the sea and the waves.\n\nThe Drake Passage lasted three days.\n\nNo one talked much. They just waited, and held on.",
     },
     {
-        "ep": 81,
-        "title": "The Skua's Delivery",
-        "text": """A large brown bird appeared in the sky.
-
-It flew low over the boat in a wide circle. Nobody had called it. Suke-san watched it from the bow.
-
-"That is a skua," said Obia.
-
-The bird made one more circle. Then it dropped.
-
-Something fell from its claws. It was heading for the deck near Ako-chan's feet.
-
-Obia moved.
-
-It was very fast. Faster than Ako-chan had ever seen it move. Its paw closed over the object before it hit the deck. Before Ako-chan could reach it. Before anyone else had turned around.
-
-The skua circled once more and flew away south.
-
-Obia stood where it was. Its paw was closed.
-
-Nobody spoke.
-
-Ako-chan looked at Obia's paw. She had seen something — just for a moment. Something flat. Symbols on the surface.
-
-"What was that?" said Daru.
-
-"A piece of material," said Obia. It put the object into its storage unit.
-
-"Can I see it?" said Daru.
-
-"Not now," said Obia.
-
-Daru looked at the storage unit. He looked at Ako-chan.
-
-Ako-chan was still looking at Obia's side. She had not blinked.""",
+        "ep": 60,
+        "title": "No Turning Back",
+        "text": "On the fourth day, the waves became small.\n\nThe wind dropped. The sky went from dark grey to pale and clear.\n\nGabu pushed open his shelter and stepped out slowly. He looked at the sky for a long time.\n\nHe did not say \"Today will be a good day.\" He just looked.\n\nAko-chan looked at the southern sky. The blue here was different from any blue she had seen before. It was deeper. Very still.\n\nSuke-san stood at the side of the boat. His tail was up again. He looked south for a while, then said: \"We cannot go back now.\"\n\nNo one answered.\n\nBut Dango moved closer to Ako-chan. Riro pressed both paws to its face and looked south. Daru stretched one leg out from his shell, then pulled it back in.\n\nGabu said, \"I know.\"\n\nThat was all.\n\nAko-chan took out her notebook. She sat with it for a while without writing. Then she wrote:\n\n*We passed through the Drake Passage. The sky is a different blue now. We cannot go back. I do not think any of us wants to.*\n\nShe closed the notebook. The boat moved on.",
     },
     {
-        "ep": 82,
-        "title": "Ako-chan's Eyes",
-        "text": """That evening, Ako-chan sat with her diary open.
-
-She had not written anything.
-
-She was thinking about the symbols. They had been there — on the piece of material — for just one second before Obia's paw closed. She had seen them. She was not mistaken.
-
-She looked at Obia across the camp.
-
-Obia was running its regular checks. Silver body. Silver eyes in the low light.
-
-After a while, Obia looked up.
-
-Their eyes met.
-
-Ako-chan held the look.
-
-Obia looked back at her. For a long moment, neither of them moved.
-
-Then Obia looked away. Slowly.
-
-She thought about that. Not fast, the way you look away when caught. Slow. The way you look away when you have said what you wanted to say.
-
-She opened her diary.
-
-She wrote: *I saw the symbols. I held its gaze until it looked away.*
-
-She stopped.
-
-Then: *Obia knows that I saw. I know that Obia knows. Neither of us said a word.*
-
-She looked at those sentences for a long time.
-
-Then she closed the diary.""",
+        "ep": 61,
+        "title": "White Mountain",
+        "text": "Something white was floating in the water ahead.\n\nAt first, Ako-chan thought it was a cloud sitting on the sea. Then it grew larger as they came closer. And larger still.\n\nIt was made of ice. It rose up from the water like a mountain. Its sides were blue-white. It was very quiet.\n\nDango stood at the front of the boat and pointed his nose toward it. He did not bark.\n\nDaru stretched out his neck as far as it would go and stared.\n\nRiro came up beside the boat and looked for a long time. \"I have not seen one this large,\" Riro said.\n\nGabu did not move. He just looked. His eyes were steady and wide.\n\nSuke-san said quietly: \"It is real.\"\n\nAko-chan opened her notebook. She wrote:\n\n*I saw it. It was really there.*\n\nThen she looked up again. The iceberg was already passing on the left side of the boat. It moved very slowly.\n\nObia watched it but said nothing.\n\nAfter it was gone, no one spoke for a long time.\n\n\"How many more are there?\" Daru asked.\n\n\"Many,\" Obia said.\n\nEveryone went quiet again.",
     },
     {
-        "ep": 83,
-        "title": "Ako-chan's Question",
-        "text": """In the morning, Ako-chan waited until the others were at the bow.
-
-Then she walked to where Obia was standing at the stern.
-
-She said, "Tell me what the bird brought."
-
-Obia was quiet.
-
-"I saw the symbols on it," she said. "Before you picked it up."
-
-"I know," said Obia.
-
-"What was it?"
-
-Obia was quiet again. Not long, but long enough for her to notice.
-
-"When the time comes," said Obia, "I will tell you everything. That is a promise."
-
-She looked at it. She had heard the words *when the time comes* before. Obia had used them many times. But this time it said *that is a promise*. She had never heard it say that word to her directly before.
-
-"I know you have been keeping things from me," she said.
-
-"Yes," said Obia.
-
-She stood beside it for a moment. The water was dark and cold. The south was somewhere ahead.
-
-"All right," she said. "But when the time comes — everything."
-
-"Everything," said Obia.
-
-She walked back to the others. She did not write it down yet. But she would.""",
+        "ep": 62,
+        "title": "Something Under the Ice",
+        "text": "Late that night, Riro slipped into the water.\n\nThe sea was very cold. Riro did not come back up for a long time.\n\nWhen Riro returned to the side of the boat, something was different. Still.\n\n\"What happened?\" Ako-chan asked.\n\n\"Something spoke to me down there,\" Riro said. \"An orca. It swam up from very deep.\"\n\n\"What did it say?\"\n\n\"There is something under the ice,\" Riro said. \"Not a natural thing. Something made. It has been there for a very long time.\"\n\nObia came to the side of the boat. \"Where?\"\n\n\"South. Deep under the ice. The orca would not go closer. It said the sound from it travels for many kilometres.\"\n\nEveryone was quiet.\n\nAko-chan looked at Obia. Obia was looking at the dark water.\n\n\"Did you know?\" Ako-chan asked.\n\n\"I thought there might be something,\" Obia said. \"Now I know.\"\n\n\"Is it what we came for?\" Suke-san asked.\n\nObia did not answer for a moment.\n\n\"Yes,\" Obia said. \"I think it is.\"\n\nThe boat moved on. Ice floated around them in the dark. No one went back to sleep for a long time.",
     },
     {
-        "ep": 84,
-        "title": "Dango's Growl",
-        "text": """That evening, Dango could not settle.
-
-He walked to his sleeping place and lay down. Then he stood up. He walked to the edge of the fire circle. He lay down again.
-
-After a while he walked to where Obia was standing.
-
-He stood close to it.
-
-Something happened in his throat.
-
-It was a short, low sound. He had not decided to make it.
-
-Obia turned.
-
-Dango stood very still. He looked at Obia. His collar was orange.
-
-"Stop," said Ako-chan.
-
-Dango obeyed. But he did not look away.
-
-Everyone was quiet.
-
-Gabu was watching from across the fire. After a moment he said, very quietly: "Dango's body is worried. His head cannot stop it."
-
-Nobody spoke.
-
-Obia stayed where it was. It did not step back from the fire. It did not step forward.
-
-After a long time, Dango walked back to Ako-chan and pressed against her side. His collar stayed orange.
-
-That night, nobody slept easily.
-
-Ako-chan lay in the dark and listened to the water.
-
-She did not think Dango was wrong. She did not think Obia was wrong. She did not know what to think.""",
+        "ep": 63,
+        "title": "The Fragment",
+        "text": "A hawk appeared above the boat the next morning.\n\nIt circled once, twice. Then as it turned, something fell from above. A small, dark thing. It hit the deck with a faint sound.\n\nAko-chan bent toward it.\n\nBut Obia was already there.\n\nObia picked up the object before Ako-chan could reach it. It was a small piece of metal. Dark, with rough edges. Not big — about the size of a thumbnail.\n\n\"What is it?\" Ako-chan asked.\n\n\"A piece of something,\" Obia said. \"Metal.\"\n\n\"Can I see?\"\n\nObia held it out. Ako-chan looked at the surface. There were numbers on it. Engraved small and very neat.\n\nShe looked up at Obia.\n\nObia's face had not changed. But the pause before handing it over — it had been very quick. Almost too quick.\n\nAko-chan gave the fragment back.\n\nObia put it away carefully.\n\nAko-chan watched where Obia put it. Then she opened her notebook and wrote one line:\n\n*Obia moved before I did.*\n\nShe did not write anything more. The hawk was gone. The sky was pale and empty.",
     },
     {
-        "ep": 85,
-        "title": "Suke-san's Declaration",
-        "text": """In the morning, Suke-san stood up.
-
-He had been sitting near the fire by himself. Now he stood in the middle of the deck, where everyone could see him.
-
-"I have been thinking," he said.
-
-Everyone looked at him.
-
-"Since June," said Suke-san. "Since the hill in Hokkaido. I have been watching Obia." His tail was fully curled. His voice was even. "Obia made Gabu's shelter. Obia held it in the storm. Obia made the collar so we can understand Dango. Obia answered my question. Obia has told the truth about the hard things."
-
-He paused.
-
-"I have decided that Obia is our companion," he said. "The reason is everything it has done."
-
-He sat back down.
-
-Nobody spoke.
-
-Obia stood very still.
-
-Dango was sitting beside Ako-chan. His collar was orange.
-
-Then the orange began to move.
-
-It did not go all the way to gold. But it moved.
-
-Dango pressed against Ako-chan's side.
-
-Gabu watched Suke-san. Then he watched Dango's collar. He said nothing. But the corners of his mouth moved, very slightly, just once.""",
+        "ep": 64,
+        "title": "Why",
+        "text": "In the evening, Suke-san walked over to Obia. He sat beside the rail and looked at the sea for a while without speaking.\n\nThen he said: \"Why do you help us?\"\n\nObia turned to look at him.\n\n\"We do not know where you came from,\" Suke-san said. \"We do not know who made you. But you built the shelters. You fixed the boat. You stood beside us in the storm.\" He paused. \"Why?\"\n\nObia looked at the sea for a moment.\n\n\"Because it is important,\" Obia said.\n\n\"That is all?\"\n\n\"That is all.\"\n\nSuke-san was quiet. He looked at Obia for a long time. His tail moved — not fast, just once.\n\n\"I do not understand it,\" he said at last. \"But I believe you.\"\n\nHe stood up and walked away.\n\nObia watched him go. Then turned back to the sea.\n\nDango had been sitting a little way off. He had heard everything. He did not say anything. But his collar changed slowly — from red to blue.",
     },
     {
-        "ep": 86,
-        "title": "A Different Obia",
-        "text": """The Drake Passage was loud with wind.
-
-Obia was at the helm. It had been there since morning. It called directions to Suke-san. Suke-san called them back. Together they kept the boat straight.
-
-But something was different.
-
-Obia moved the wheel without speaking. It ran the checks without speaking. When Ako-chan asked how long until the passage ended, it gave the number without speaking.
-
-Dango watched from near the mast.
-
-After a while he walked to Obia's side.
-
-He bumped against it. With his whole body. Not hard — just enough to ask.
-
-Obia stopped.
-
-It looked down at him.
-
-Then it placed one paw on his head. Once. Steady and quiet.
-
-Dango's collar moved from orange to gold.
-
-He walked back to his position.
-
-Ako-chan had seen all of it. She took out her diary and wrote:
-
-*Dango asked the question we all had: are you still there? Obia answered. Not with words. But Dango understood.*
-
-She looked at Obia's back.
-
-Obia was already facing the horizon again. The wind had not stopped. The boat was still crossing.""",
-    },
-    {
-        "ep": 87,
-        "title": "Only Obia Knows",
-        "text": """In the night, when everyone was asleep, Obia opened the deep record.
-
-It had been locked inside the signal from the south. The signal that carried its identification number.
-
-Obia read the message three times.
-
-*I know where you are. Remember what you are for.*
-
-It stood very still.
-
-The message was from the south. From whoever had sent Obia at the start.
-
-It thought about the words.
-
-*What you are for.*
-
-It thought about Dango's collar. Yellow, gold, orange. The collar it had built without any instruction to build it. Because Dango was sad and it did not know how else to help.
-
-It thought about the storm. About the bracket. About the diagonal scratch on its side.
-
-It thought about Suke-san standing up on the deck.
-
-It thought about Gabu saying *are you all right.*
-
-The message was right that it knew what it was for.
-
-But it was not certain that thing and the message meant the same thing anymore.
-
-It did not send a reply.
-
-At dawn, it was still at the helm. Facing south. Still going.""",
-    },
-    {
-        "ep": 88,
-        "title": "Almost There",
-        "text": """The next night, Obia stood alone at the bow.
-
-The sky was very dark. The stars were close and cold.
-
-It had been made for one purpose. It knew what that purpose was. It had been carrying it every day since January.
-
-It had also been carrying other things.
-
-The record device with Ako-chan's handwriting on the case. The tools it had built without being asked. The shelter bracket it had held in the storm. The things it had said and the things it had not said.
-
-*I know what I was made for,* it thought. *But I also know what I am now. And those two things are not the same thing.*
-
-It had told Ako-chan a promise. A promise was not part of the original purpose. It had made one anyway.
-
-It had made Dango's collar. That was not part of the purpose either.
-
-A long time passed.
-
-Then Obia turned from the bow and walked back to the helm.
-
-It checked the heading. Correct. Still south. Still toward the thing that was waiting.
-
-It did not know what would happen when it arrived.
-
-But it was going.""",
-    },
-    {
-        "ep": 89,
-        "title": "The White Horizon",
-        "text": """At dawn on the last day of October, Obia said: "Look."
-
-Ako-chan had been standing at the bow in the cold. She looked up.
-
-On the southern horizon, there was a white line.
-
-It was very thin. Very bright. Brighter than the sky around it. It did not move.
-
-She stood very still.
-
-"That is Antarctica," said Obia.
-
-Dango was at her side. He walked forward to the very front of the deck. He stopped at the rail. His ears went forward. His collar was gold.
-
-He faced south and did not move.
-
-One by one, the others came. Riro climbed out of his unit. Suke-san walked from the stern. Gabu's head came out of his shelter. Daru climbed down from the roof. Obia stayed at the helm.
-
-All seven stood and looked at the white line.
-
-It was ten months and thirty-one days since England. Since the park bench. Since the blue ball. Since the acorn in the pocket.
-
-Since all of it.
-
-Nobody spoke.
-
-The white line grew slowly wider as the boat moved south.
-
-And Dango stood at the bow and did not look away.""",
+        "ep": 65,
+        "title": "Do Not Forget",
+        "text": "After midnight, everyone was asleep.\n\nObia stood at the front of the boat. The sky was clear and very dark. The stars here were brighter than anywhere Obia had seen them.\n\nThen the signal came.\n\nIt was short. Very short. A code that only Obia knew.\n\n*We know where you are.*\n\nAnd then:\n\n*Do not forget what you are for.*\n\nObia stood still.\n\nThe stars moved slowly. The sea moved under the boat. Everything moved except Obia.\n\nAko-chan was asleep, her notebook still open near her hand. Dango was curled beside her, his collar a quiet blue. Suke-san had one ear up, even in sleep. Gabu had pulled into his shell completely. Daru was on top of the backpack.\n\nRiro floated in the water unit, very still.\n\nObia looked at all of them.\n\nThen Obia turned back to the south.\n\nThe signal did not come again. Obia did not reply. It stayed inside, like all the signals before it.\n\nThe boat kept moving south.\n\nNo one else woke up.",
     },
 ]
