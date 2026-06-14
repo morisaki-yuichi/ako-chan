@@ -90,7 +90,7 @@ STORIES_S1_P04 = [
         "text": (
             "The park was quieter. A few trees. Wide paths. Benches in the shade.\n\n"
             "One bench had a dog sitting in front of it.\n\n"
-            "A small shiba inu. Red fur, tight curled tail. Very still. It looked like it had been there a long time.\n\n"
+            "A small shiba dog. Red fur, tight curled tail. Very still. It looked like it had been there a long time.\n\n"
             "They came closer. The dog stood up.\n\n"
             "\"I knew you were coming,\" it said.\n\n"
             "Ako-chan stopped. \"You knew us?\"\n\n"
