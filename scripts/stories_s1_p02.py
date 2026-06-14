@@ -128,7 +128,7 @@ STORIES_S1_P02 = [
     },
     {
         "ep": 15,
-        "title": "Gold",
+        "title": "Still",
         "text": (
             "It was past midnight. The room was dark.\n\n"
             "Ako-chan woke for no reason. She lay still for a moment, then looked around.\n\n"

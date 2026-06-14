@@ -91,7 +91,7 @@ STORIES_S1_P03 = [
         "title": "Hello, Gabu",
         "text": (
             "The tortoise walked forward.\n\n"
-            "Its shell was pale yellow with soft dark marks. It moved at its own pace, and it did not look left or right.\n\n"
+            "It moved at its own pace, and it did not look left or right.\n\n"
             "It stopped in front of Ako-chan. It looked at her for a long time. Then it turned and looked at Obia.\n\n"
             "\"Do you know what you are?\" the tortoise said.\n\n"
             "Obia was quiet for a moment. \"Not yet,\" it said. \"But I would be grateful for your patience.\"\n\n"
