@@ -180,7 +180,7 @@ STORIES_S1_P03 = [
         "title": "Not Everything",
         "text": (
             "That evening, Obia took out the recording device and held it so Ako-chan could see.\n\n"
-            "The map showed their full path. England. Belgium. Germany. The mountain town. The coast. The olive grove.\n\n"
+            "The map showed their full path. England. Belgium. The Netherlands. Germany. The mountain town. The coast. The olive grove.\n\n"
             "Red dots marked the places with signals. There were many dots. They were thick in the south.\n\n"
             "\"All these points,\" said Ako-chan. \"Did you tell me all of them?\"\n\n"
             "A short silence.\n\n"

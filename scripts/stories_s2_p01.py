@@ -1,214 +1,198 @@
-# Season 2 — Part 1: The Signal (ep 1–10)
-# Outline: story_outlines_s2.py
+# Season 2 — Part 1: Home (ep 1–9)
 
 STORIES_S2_P01 = [
     {
         "ep": 1,
-        "title": "A New Arrival",
+        "title": "A New Family: Ruka",
         "text": (
-            "Ruka was small. She was a Hermann's tortoise, and she had moved into Ako-chan's house three weeks ago.\n\n"
-            "Ruka ate slowly. She ate every piece of food in front of her very carefully. When she finished, she walked two steps and fell asleep.\n\n"
-            "She fell asleep in the hall. Dango had to step over her to reach the kitchen.\n\n"
-            "He did it twelve times that morning.\n\n"
-            "Ako-chan watched from the doorway. \"She always sleeps there,\" she said.\n\n"
-            "Obia looked at the tortoise on the floor. \"She is very small,\" Obia said.\n\n"
-            "\"She came from Italy,\" said Ako-chan. \"From Puglia. I met her there last year.\"\n\n"
-            "Ruka did not move. She was asleep.\n\n"
-            "Dango stepped over her for the thirteenth time. He looked at Ako-chan. His collar turned orange for a moment, then yellow, then settled back to gold.\n\n"
-            "Ako-chan laughed. \"She will wake up soon,\" she said.\n\n"
-            "Dango sat down in the kitchen doorway and waited.\n\n"
-            "Ruka slept.\n\n"
-            "The house was quiet. Outside, the garden was grey and cold. It was the first of January, and everything had just begun."
+            "It was a cold morning in winter.\n\n"
+            "Ruka was eating breakfast.\n\n"
+            "Ruka ate one small piece at a time. Very carefully. One piece, then the next. Ruka made no sound except chewing. No talking. No looking up. Just eating.\n\n"
+            "Dango sat near the wall and watched.\n\n"
+            "He counted the bites. One. Two. Three. Ten. Twenty.\n\n"
+            "By forty-two, Dango had stopped blinking.\n\n"
+            "Ruka ate the last piece. Ruka chewed it slowly. Then Ruka walked two steps to the mat and lay down. Both eyes closed.\n\n"
+            "Ruka was asleep.\n\n"
+            "Dango looked at Obia.\n\n"
+            "Obia was standing in the doorway. \"Metabolism,\" Obia said. Then Obia went back to the garage.\n\n"
+            "Ako-chan came in from the garden. She saw Ruka on the mat and sat down next to Dango.\n\n"
+            "\"Forty-two bites,\" Dango said.\n\n"
+            "\"The same as yesterday,\" Ako-chan said.\n\n"
+            "Dango looked at Ruka. The small shell rose and fell, very slowly.\n\n"
+            "\"Does Ruka always sleep after?\" Dango asked.\n\n"
+            "\"Yes,\" said Ako-chan. \"Always.\"\n\n"
+            "Dango sat beside Ruka and waited. This was how mornings worked now. Ruka ate. Ruka slept. And the morning went on around Ruka, quiet and slow."
         ),
     },
     {
         "ep": 2,
-        "title": "Dango's Duty",
+        "title": "The Morning Watch",
         "text": (
-            "On the third morning, Ako-chan gave Dango a job.\n\n"
-            "\"When Ruka falls asleep in the hall,\" she said, \"you can nudge her. Just gently. With your nose.\"\n\n"
-            "Dango sat very straight. He understood.\n\n"
-            "That afternoon, Ruka ate a piece of apple and a small pile of leafy greens. She chewed for a long time. Then she walked to the middle of the hall and closed her eyes.\n\n"
-            "Dango watched her. He waited exactly three minutes. Then he walked over, lowered his nose, and pushed her shell — very gently.\n\n"
-            "Ruka opened her eyes. \"Oh,\" she said.\n\n"
-            "She looked at Dango. Dango looked at her. She did not look upset at all. She looked, in fact, pleased.\n\n"
-            "\"Oh,\" she said again, and began to move slowly toward the warm corner near the radiator.\n\n"
-            "Dango sat where he was. His collar turned gold.\n\n"
-            "Ako-chan was watching from the kitchen doorway. \"Good job,\" she said.\n\n"
-            "Dango's tail moved once.\n\n"
-            "From that day, this was his job. Every time Ruka fell asleep in the hall, Dango nudged her. Every time, she opened her eyes and said \"Oh.\"\n\n"
-            "They were both very happy with this arrangement."
+            "One morning, Dango tried something.\n\n"
+            "Ruka had finished eating — forty-two bites, as always — and had fallen asleep on the mat near the radiator.\n\n"
+            "Dango sat across the room and watched.\n\n"
+            "He was not sure why he kept watching. Ruka was not his responsibility. And yet he had sat here every morning, watching the small shell rise and fall.\n\n"
+            "He walked over slowly. He lowered his nose to the edge of the shell. He pushed — very gently.\n\n"
+            "Ruka's eyes opened.\n\n"
+            "\"Oh,\" Ruka said.\n\n"
+            "Ruka looked at Dango. Dango looked at Ruka. Ruka did not look upset. Ruka looked calm. Then Ruka turned and walked toward the kitchen.\n\n"
+            "Dango sat where he was.\n\n"
+            "Ako-chan had seen from the doorway. \"Good,\" she said quietly.\n\n"
+            "From that day, it was Dango's job. When Ruka fell asleep, Dango waited. Then he walked over and pushed the shell with his nose. And every time, Ruka opened both eyes and said \"Oh.\"\n\n"
+            "Always \"Oh.\" Every time.\n\n"
+            "Dango's collar was gold when he did this job. He did not know if that was because he was proud, or because he was worried, or because it was something else entirely. But the gold stayed."
         ),
     },
     {
         "ep": 3,
-        "title": "The Signal Changes",
+        "title": "The Stone",
         "text": (
-            "Late in the evening, the house was quiet. Ruka was asleep near the radiator. Dango was curled by the fire. Ako-chan was reading.\n\n"
-            "Obia came in from the garage.\n\n"
-            "\"The signal is different,\" Obia said.\n\n"
-            "Ako-chan looked up.\n\n"
-            "\"The signal from the south,\" said Obia. \"It has been the same for three years. Tonight it changed.\"\n\n"
-            "\"How is it different?\" Ako-chan asked.\n\n"
-            "\"It is shorter,\" said Obia. \"And it repeats. Like a call.\"\n\n"
-            "Ako-chan sat still for a moment. She knew about the signal. After the first journey, Obia had kept listening to the south. Nothing had changed — for three years, nothing had changed.\n\n"
-            "\"Is it a mistake?\" she asked.\n\n"
-            "\"No,\" said Obia. \"It is not a mistake. It is intentional.\"\n\n"
-            "Dango had opened his eyes. He watched Obia from across the room.\n\n"
-            "\"Can you read it?\" Ako-chan asked.\n\n"
-            "\"Not yet,\" said Obia. \"I need time. It is not a simple code.\"\n\n"
-            "Obia went back to the garage.\n\n"
-            "Ako-chan sat with her book in her lap but did not read. Outside, the wind moved through the garden. She could hear it from where she sat.\n\n"
-            "She sat there for a long time."
+            "One afternoon, Ruka came into the room holding something.\n\n"
+            "It was a small stone. Smooth and grey. About the size of Ruka's foot.\n\n"
+            "\"This is from Puglia,\" Ruka said.\n\n"
+            "Ako-chan sat down. \"Where you grew up?\"\n\n"
+            "\"Yes,\" said Ruka. \"I took it with me when I left. I carry it everywhere.\"\n\n"
+            "Ruka put the stone on the floor in the middle of the room. It was ordinary-looking. But Ruka looked at it the way Ruka looked at food before eating — carefully, and with full attention.\n\n"
+            "\"Why do you carry it?\" Ako-chan asked.\n\n"
+            "\"Because wherever I go,\" Ruka said, \"if I have this, I have a place.\"\n\n"
+            "Dango came over and sniffed the stone. He sniffed it for a long time. He lifted his head and looked at Ruka.\n\n"
+            "Ruka looked back at Dango.\n\n"
+            "Obia came in and looked at the stone. Obia made a quiet record of it — a small click. Obia always recorded new things.\n\n"
+            "Ako-chan picked up the stone. It was heavy for its size. Cold. She put it back carefully.\n\n"
+            "\"Will you bring it on the journey?\" she asked.\n\n"
+            "\"Yes,\" said Ruka. \"I always bring it.\"\n\n"
+            "Ruka picked up the stone and walked back to the corner."
         ),
     },
     {
         "ep": 4,
-        "title": "Three Words",
+        "title": "Something Changed",
         "text": (
-            "Obia worked through the night. When Ako-chan came downstairs in the morning, Obia was at the kitchen table. This was unusual. Obia always worked in the garage.\n\n"
-            "\"I finished,\" Obia said.\n\n"
-            "Ako-chan sat down.\n\n"
-            "Obia put a small piece of paper on the table.\n\n"
-            "Three words were written on it.\n\n"
-            "Yu-chan. Help.\n\n"
-            "Ako-chan looked at the words. She did not move.\n\n"
-            "Dango walked in from the hall. He came to Ako-chan's side and sat very close. His collar turned orange.\n\n"
-            "Ruka appeared in the doorway. She saw Dango's orange collar. She looked at the piece of paper on the table and studied it carefully.\n\n"
-            "\"Yu-chan sent this?\" Ako-chan said.\n\n"
-            "\"Yes,\" said Obia.\n\n"
-            "\"From inside the digital world?\"\n\n"
-            "\"Yes,\" said Obia.\n\n"
-            "Ako-chan picked up the paper. She read the three words again. She put the paper down.\n\n"
-            "She thought about the last time she had seen Yu-chan. A tall room. A large screen. A voice that said, \"You are all correct.\"\n\n"
-            "\"We go,\" said Ako-chan.\n\n"
-            "Obia nodded. \"Yes,\" it said.\n\n"
-            "The house was very quiet."
+            "Late at night, Ako-chan was nearly asleep. Dango was curled beside her. Ruka was on the warm mat in the hall.\n\n"
+            "At midnight, Obia came into the house.\n\n"
+            "\"The signal has changed,\" Obia said.\n\n"
+            "Ako-chan sat up.\n\n"
+            "She followed Obia to the garage. Obia showed her the screen. Long rows of numbers filled the display.\n\n"
+            "\"The data stream from the south,\" Obia said. \"It has been the same for three years. Tonight it is different.\"\n\n"
+            "Ako-chan looked at the numbers. They repeated in a short, even pattern. Over and over.\n\n"
+            "\"Is it a mistake?\" she asked.\n\n"
+            "\"No,\" said Obia. \"It is not a mistake. It is not an accident. Someone is sending this on purpose.\"\n\n"
+            "Ako-chan looked at the repeating pattern.\n\n"
+            "\"Something is listening,\" Obia said.\n\n"
+            "Dango had followed them in. He sat near the door. His collar turned orange, very slowly.\n\n"
+            "Ako-chan looked at the screen for a long time.\n\n"
+            "\"Can you read it?\" she asked.\n\n"
+            "\"Not yet,\" said Obia. \"But I will keep working.\"\n\n"
+            "They stood in the cold garage. Above the roof, the stars were very still.\n\n"
+            "Ako-chan went back to bed. She did not sleep for a long time."
         ),
     },
     {
         "ep": 5,
-        "title": "Ruka's Question",
+        "title": "Three Patterns",
         "text": (
-            "That afternoon, Ako-chan sat on the floor of the living room with Ruka. She explained everything — Yu-chan, the digital world, the signal, what Obia had decoded.\n\n"
-            "Ruka listened. She ate a small piece of carrot while she listened.\n\n"
-            "\"It will be a long journey,\" said Ako-chan. \"It will be cold. And we do not know exactly what we will find.\"\n\n"
-            "Ruka finished the carrot. She chewed slowly for a moment.\n\n"
-            "\"Can I come?\" she said.\n\n"
-            "Ako-chan looked at her. Dango was in the doorway. He looked at Ako-chan too.\n\n"
-            "Neither of them could think of a reason to say no.\n\n"
-            "\"Of course,\" said Ako-chan.\n\n"
-            "Ruka nodded once. She walked to her favourite corner and sat down. She looked satisfied.\n\n"
-            "She closed her eyes.\n\n"
-            "Dango came and sat beside Ako-chan.\n\n"
-            "\"She decided very fast,\" Ako-chan said to him.\n\n"
-            "Dango's collar turned gold. He looked at Ruka.\n\n"
-            "Ruka was already asleep.\n\n"
-            "Ako-chan reached out and put her hand on Dango's back. Outside, the January garden was bare and cold. But inside, the house felt full."
+            "Two days later, Obia called them to the garage.\n\n"
+            "Ako-chan came. Dango came. Ruka had just finished eating and was still awake — the forty-two bites had been faster than usual.\n\n"
+            "Obia pointed at the screen.\n\n"
+            "\"Three patterns,\" Obia said. \"The first is a set of numbers — coordinates. Far south. The second is an identification code. The third is something different. I cannot read it yet.\"\n\n"
+            "Ako-chan looked at the three groups on the screen. Once Obia pointed them out, they were very clear.\n\n"
+            "\"How long until you can read the third part?\" Ako-chan asked.\n\n"
+            "\"I do not know,\" said Obia. \"But the signal is getting stronger every day.\"\n\n"
+            "They stood in the garage for a while. No one spoke.\n\n"
+            "Ako-chan went outside. She stood in the garden. The old oak tree was bare. Its branches were empty against the grey sky.\n\n"
+            "She looked at it for a long time.\n\n"
+            "Behind her, the garage light stayed on. Inside, Obia worked.\n\n"
+            "Dango came and sat beside Ako-chan. The garden was cold and still.\n\n"
+            "Far south, the signal was growing stronger. A little more, every day."
         ),
     },
     {
         "ep": 6,
-        "title": "Obia's Blueprint",
+        "title": "The Third Element",
         "text": (
-            "The next morning, Obia came to breakfast with a large roll of paper.\n\n"
-            "\"I have been thinking,\" Obia said. \"We need a different kind of vehicle. Not a ship. Not a plane. Something smaller. Something built for all of us.\"\n\n"
-            "Obia unrolled the paper on the kitchen table. It was a blueprint — long lines, numbers, small labels.\n\n"
-            "Ako-chan leaned over it.\n\n"
-            "\"A flying boat?\" she said.\n\n"
-            "\"Yes,\" said Obia. \"It can cross the ocean. It can land on water or on flat ground. It is quiet. It will fit everyone.\"\n\n"
-            "Ako-chan looked at the blueprint for a long time. She could see a small shelf labelled RUKA. She could see a water unit labelled RIRO.\n\n"
-            "\"Where will you build it?\" she asked.\n\n"
-            "\"The garage,\" said Obia. \"I checked. It will fit.\"\n\n"
-            "Dango had his paws on the edge of the table. He was looking at the part labelled DANGO: REST AREA.\n\n"
-            "\"How long will it take?\" Ako-chan asked.\n\n"
-            "\"Two weeks,\" said Obia.\n\n"
-            "Ruka came in from the hall. She looked at the paper on the table. She walked up to it and touched it with one foot.\n\n"
-            "\"Good,\" she said.\n\n"
-            "Then she went to the kitchen corner and sat down."
+            "Late at night, a knock came at the door.\n\n"
+            "Ako-chan opened her eyes. \"Come in,\" she said.\n\n"
+            "Obia came in. \"I decoded it,\" Obia said.\n\n"
+            "Ako-chan got up. They went to the garage. Obia showed her the screen.\n\n"
+            "The third element was there now. Not numbers. Words.\n\n"
+            "Two things.\n\n"
+            "A name: Yu-chan.\n\n"
+            "A word: help.\n\n"
+            "Ako-chan stood very still. She looked at the name. She had not seen that name for a long time.\n\n"
+            "She looked at the word beside it.\n\n"
+            "Help.\n\n"
+            "She thought about the last time she had seen Yu-chan. The tall room. The big screen. The voice that said: you are all correct.\n\n"
+            "She was still for a long time.\n\n"
+            "\"I will go,\" she said. Just those words.\n\n"
+            "Obia said nothing.\n\n"
+            "\"I will go,\" Ako-chan said again.\n\n"
+            "Dango had come in behind her. He sat near the door. His collar was orange.\n\n"
+            "Ako-chan looked at the screen one more time. Then she turned off the garage light and went back inside.\n\n"
+            "She did not sleep."
         ),
     },
     {
         "ep": 7,
-        "title": "The Skeleton in the Garage",
+        "title": "Of Course",
         "text": (
-            "Three days after Obia started work, Ako-chan opened the garage door.\n\n"
-            "The frame was up.\n\n"
-            "Curved metal arches rose from the floor to the ceiling. Ako-chan could see the shape of it clearly — long and wide, with a flat bottom and high sides. It looked like a boat that had decided to try flying.\n\n"
-            "Obia was working on the left side. Small tools moved quickly.\n\n"
-            "Dango walked around the frame twice. He sniffed each section carefully. Then he sat near the back and looked satisfied.\n\n"
-            "Ruka came in last. She walked slowly along the right side of the frame. She stopped at a wide, low bench near the tail end. It was warm there — the engine unit was closest.\n\n"
-            "She stepped up onto the bench.\n\n"
-            "She turned around once.\n\n"
-            "She sat down.\n\n"
-            "Dango looked at Obia.\n\n"
-            "Obia looked at the bench. Then at Ruka. \"She is light,\" Obia said. \"It will balance.\"\n\n"
-            "Ruka closed her eyes.\n\n"
-            "Ako-chan stood in the doorway. The frame rose around them in the cold light of the garage. Outside, snow had started to fall.\n\n"
-            "Two more weeks, she thought. Two more weeks."
+            "The next morning, Ako-chan sat down with Ruka.\n\n"
+            "She explained everything. Yu-chan — who Yu-chan was, what had happened. The digital world. What it looked like inside. The signal, and what Obia had found.\n\n"
+            "Ruka listened. Ruka was eating a small piece of leaf while listening. Ruka did not talk while eating, but Ruka's eyes were open and watching.\n\n"
+            "Ako-chan explained the danger too. She did not leave that part out.\n\n"
+            "When Ako-chan finished, Ruka was chewing the last bite. Then Ruka swallowed. Ruka's eyes began to close.\n\n"
+            "\"Can I come?\" Ruka said.\n\n"
+            "Ruka's eyes closed all the way.\n\n"
+            "Ruka was asleep.\n\n"
+            "Ako-chan looked at Dango. Dango looked at Ako-chan.\n\n"
+            "\"Of course,\" Ako-chan said quietly.\n\n"
+            "That night, Obia came to the kitchen table and unrolled a large paper. A blueprint — long lines, numbers, small notes.\n\n"
+            "\"A flying boat,\" Obia said. \"Quiet. Large enough for all of us. I have thought about everyone.\"\n\n"
+            "Ako-chan leaned over the paper. She could see a section marked for Riro. A rest area for Dango.\n\n"
+            "\"How long will it take?\" she asked.\n\n"
+            "\"Two weeks,\" said Obia. \"If I start tonight.\"\n\n"
+            "Dango put his paws on the edge of the table to look.\n\n"
+            "Obia went back to the garage."
         ),
     },
     {
         "ep": 8,
-        "title": "Dango Packs",
+        "title": "Two Weeks",
         "text": (
-            "A week before the flight, Dango packed his bag.\n\n"
-            "He brought it to the living room and opened it carefully. He had done this before.\n\n"
-            "First, he put in the old rabbit toy. It was soft and worn. The ears were faded from many years of holding. He placed it at the very bottom — the way he always slept with it below everything else.\n\n"
-            "Then he put in his spare collar. Just in case.\n\n"
-            "Then two dried sweet potato slices, in a small cloth bag.\n\n"
-            "He closed the bag. He sat and looked at it.\n\n"
-            "Ako-chan was watching from the sofa. She did not say anything. She remembered the first time he had packed this bag, years ago, when they were going to France.\n\n"
-            "He always put the rabbit in first.\n\n"
-            "Ruka came in and looked at the bag. She sniffed it once.\n\n"
-            "\"You are ready?\" she said.\n\n"
-            "Dango's collar turned gold.\n\n"
-            "Ako-chan reached over and scratched the top of his head. He sat very still and let her.\n\n"
-            "Outside, the garden was dark and quiet. In the garage, Obia was still working. The flying boat was almost done.\n\n"
-            "Dango curled up beside his bag and slept."
+            "Every morning the flying boat grew.\n\n"
+            "The first day, there were just lines on the garage floor. By the third day, the metal frame was up — curved arches rising from the floor to the ceiling. By the seventh day, the body of the boat began to close in, smooth and clean.\n\n"
+            "Ruka visited the garage every afternoon.\n\n"
+            "On the fourth visit, Ruka found the tail section. There was a low, wide hollow underneath it. Warm air came up from the engine unit nearby. Ruka walked in. Ruka turned around once. Ruka sat down.\n\n"
+            "\"This is my place,\" Ruka said.\n\n"
+            "Obia looked up. \"That space was not planned for anything.\"\n\n"
+            "\"Now it is,\" said Ruka.\n\n"
+            "Ruka closed both eyes.\n\n"
+            "Dango brought the old rabbit toy from the bedroom. He placed it carefully in his rest area near the front. He sniffed it once, then left it there.\n\n"
+            "Each morning Obia added something new. The water unit. The shelter panels. The section for Riro. Each part fitting into the next.\n\n"
+            "Ako-chan watched from the doorway each morning. She could see the shape of the journey in the boat — each friend, each need, each distance.\n\n"
+            "Two weeks, Obia had said.\n\n"
+            "The second week had begun."
         ),
     },
     {
         "ep": 9,
-        "title": "Finished",
-        "text": (
-            "On the twenty-ninth of January, very late at night, Obia came to get everyone.\n\n"
-            "Ako-chan was almost asleep. She heard the soft knock on her door and sat up.\n\n"
-            "\"Come to the garage,\" Obia said.\n\n"
-            "They all came — Ako-chan, Dango, Ruka. They stood in the garage doorway.\n\n"
-            "The flying boat was finished.\n\n"
-            "It was clean and smooth. The light caught the hull in long lines. Every section was in place. Ako-chan could see the water unit, the shelter panels, Ruka's bench. Everything fit together exactly.\n\n"
-            "Obia walked around the outside one last time. It checked the engine. It checked the anchor points. It checked the communication array.\n\n"
-            "\"Ready,\" Obia said.\n\n"
-            "Ruka walked forward. She stepped up to the hull and touched it with one foot.\n\n"
-            "\"I know,\" she said.\n\n"
-            "Dango's collar turned gold.\n\n"
-            "Ako-chan stood at the nose of the boat and put one hand on the metal. It was cool under her fingers.\n\n"
-            "She thought about Yu-chan's three words. She thought about how far south they were going.\n\n"
-            "\"Thank you, Obia,\" she said.\n\n"
-            "\"We leave at dawn,\" said Obia.\n\n"
-            "They went back to sleep. The garage light stayed on."
-        ),
-    },
-    {
-        "ep": 10,
         "title": "Before Dawn",
         "text": (
-            "They left at four in the morning.\n\n"
-            "The garden was dark and still. The hedge stood in a black line against the sky. Ako-chan could see a few stars. The air was very cold.\n\n"
-            "Obia started the engine. It was quiet — almost no sound.\n\n"
-            "Dango went up the ramp first. Then Ruka, stepping very carefully. Then Ako-chan. Obia came last and sealed the door behind them.\n\n"
-            "They rose slowly.\n\n"
-            "Ako-chan looked out of the small side window. The garden shrank below them. She could see the shape of her house, the garage, the road, and then more houses and more roads — all lit in small yellow points of light.\n\n"
-            "England spread out below, and then the clouds came.\n\n"
-            "When they passed through the clouds, there was nothing below but white.\n\n"
-            "Ako-chan opened her journal.\n\n"
-            "She wrote: Gone again. Going again.\n\n"
-            "She closed the journal.\n\n"
-            "Dango was already curled up in his rest area. His collar glowed gold in the dark of the cabin.\n\n"
-            "Ruka was on her bench, eyes closed. She had fallen asleep before they cleared the clouds.\n\n"
-            "Obia flew north-east, toward the first grey light of morning.\n\n"
-            "They were going."
+            "On the thirty-first of January, very late at night, Obia came to find everyone.\n\n"
+            "Ako-chan was nearly asleep. Dango was curled beside her. Ruka was on the mat in the hall.\n\n"
+            "\"Come to the garage,\" Obia said.\n\n"
+            "They all went. Ako-chan put on her coat. Dango padded down the hall. Ruka walked slowly behind.\n\n"
+            "The garage was lit. The flying boat stood in the light, finished. Clean and still. Every section in place — the body, the shelter panels, the water unit, Ruka's hollow space below the tail.\n\n"
+            "Ruka looked at the boat.\n\n"
+            "\"Oh,\" Ruka said.\n\n"
+            "Dango leaned forward and touched Ruka's shell with his nose.\n\n"
+            "\"Oh,\" Ruka said again.\n\n"
+            "Obia walked around the boat one last time, checking each part.\n\n"
+            "\"Ready,\" Obia said.\n\n"
+            "They stood in the quiet of the night. Then they went back inside. Ako-chan climbed into bed. Dango settled beside her. Ruka returned to the mat.\n\n"
+            "At four in the morning, they came back.\n\n"
+            "One by one, they went up the ramp. Obia sealed the door.\n\n"
+            "Outside, a hedgehog crossed the dark garden. It did not look up.\n\n"
+            "The boat rose into the sky before dawn."
         ),
     },
 ]

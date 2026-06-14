@@ -75,13 +75,13 @@ The journey ends back in England — a full circle, with everyone changed.
 - Large field near a village where Dango ran free (02-08)
 - Small farm villages; Belgian sheepdogs; heavy February fog events
 
-**Netherlands / Amsterdam** (02-10 – 02-11)
-- City of canals; old houses lean toward the water; dark still water in winter
-- Canal paths; old stone bridges; moored boats along edges
-- Duck community lives on the canals
+**Netherlands** (02-10 – 02-11)
+- Flat land with wide sky; canals run beside roads through the fields
+- Transit through on the way east; no major stop
 
 **Germany** (02-12 – 02-19)
-- Entry from Belgium/Netherlands; markets with sausage grills
+- Entry from the Netherlands; markets with sausage grills
+- Hamburg: canals run through the city; bridges and slow boats; Obia detected faint electrical signal in canal water (02-12)
 - Southern German forests: old, wide-trunked trees; narrow leaf-and-snow paths; very quiet in winter
 - Rhine river: wide, grey-green, fast-moving; old castle towers on the far bank
 - Rain in February; construction sites in cities
@@ -127,7 +127,7 @@ The journey ends back in England — a full circle, with everyone changed.
 - Sea floor: faint fixed blue glow visible from dock on clear nights; fish avoid the area above it
 - Offshore: fish rise and sink in a perfectly regular nightly cycle — not natural behaviour
 - Small uninhabited island accessible by short boat trip; wild cat colony (15+) led by a grey elder
-- Seawater: anomalous electrical signal detected by Obia, weak but measurable; larger scale than Amsterdam
+- Seawater: anomalous electrical signal detected by Obia, weak but measurable; larger scale than Hamburg
 - Coast road south: vegetation decreases, rocks increase as you go further south toward Greece
 - Natural stone arch: sea-carved arch framing the open Adriatic; a landmark of the coast
 
@@ -322,7 +322,7 @@ The journey ends back in England — a full circle, with everyone changed.
 *(Add location-specific seasonal notes as stories establish them.)*
 
 - **England (January)**: Cold and grey; bare trees; the world feels quiet and waiting
-- **France / Belgium / Netherlands (February)**: Cold and grey; bare trees; Paris smells richly even in winter; Belgian farmland flat and brown; Amsterdam canals dark and still
+- **France / Belgium / Netherlands (February)**: Cold and grey; bare trees; Paris smells richly even in winter; Belgian farmland flat and brown; Netherlands flat with wide sky and canal roads
 - **Germany (February)**: Rainy and cold; southern forests very quiet — bird population notably depleted
 - **Austria (February)**: Alpine winter; heavy snowfall possible; clear days with sharp cold; mountain air distinctly pine-and-rock; blizzards without warning
 - **Balkans (February)**: Smaller roads, colder hills; signs shift language at each border; sparse villages
@@ -363,16 +363,16 @@ The journey ends back in England — a full circle, with everyone changed.
 | 02-05 | Black cat (Paris market) | Strange sound heard underground in Paris last week |
 | 02-05 | Grey cat (Paris market) | Birds flew in circles for one hour near a Paris church |
 | 02-09 | Belgian sheepdog (farm path near village) | Instant odourless fog covered entire valley at midnight; sat completely still ~2 hours; vanished as quickly as it appeared; normal fog has a smell — this had none |
-| 02-11 | Duck (Amsterdam canal bridge) | Water circling slowly under a bridge with no wind or drain; duck was gently pushed out when it tried to swim through; Obia detected faint electrical field — "nothing natural" |
+| 02-12 | Duck (Hamburg canal bridge) | Water circling slowly under a bridge with no wind or drain; duck was gently pushed out when it tried to swim through; Obia detected faint electrical field — "nothing natural" |
 | 02-15 | Obia (internal, not shared) | Faint signal received at 2 a.m. from south; regular pattern (short–pause–long–pause–short short); unknown frequency; not added to shared record device |
-| 02-16 | Ako-chan (Rhine bridge, Germany) | Hundreds/thousands of fish swimming in perfect mechanical formation upstream; exactly equal spacing and speed; "too exact" per Obia; pattern similar to Amsterdam canal |
+| 02-16 | Ako-chan (Rhine bridge, Germany) | Hundreds/thousands of fish swimming in perfect mechanical formation upstream; exactly equal spacing and speed; "too exact" per Obia; pattern similar to Hamburg canal |
 | 02-19 | Roe deer (German forest, south Germany) | Before Christmas: 6 bird species in forest; by February: 2; no bodies found — birds simply became quiet or left; insects also gone from under bark |
 | 02-22 | Marmot (Austrian mountain path) | Woke from hibernation early (normally sleeps Oct–Apr) due to "wrong feeling from south"; warned: "Do not go south — not yet" |
 | 03-01 | Swallows (Vienna) | Group circling the same building all day, unable to stop; "We have to keep going. We cannot stop." — compulsion, not instinct |
 | 03-07 | Ferryman (Danube river crossing) | Danube flooding at 30-year record high with no rain or snowmelt; "In thirty years I have never seen this" |
 | 03-08 | Livestock guardian dog (Serbian hills) | Mountain animals (wolves, deer, foxes) descending to valley weekly; "something up there does not feel right" |
 | 03-18 | Seagull (Dalmatian coast, offshore) | Fish rise from depth to surface on a perfectly regular nightly cycle, then go back down; seagull links explicitly to Vienna swallows — "must do it" |
-| 03-19 | Obia (Dalmatian seawater) | Anomalous electrical signal detected in seawater; below normal instrument threshold; much larger scale than Amsterdam canal; likely connected to 02-15 signal (Obia has not confirmed this to group) |
+| 03-19 | Obia (Dalmatian seawater) | Anomalous electrical signal detected in seawater; below normal instrument threshold; much larger scale than Hamburg canal; likely connected to 02-15 signal (Obia has not confirmed this to group) |
 | 03-21 | Old fisherman's cat (Dalmatian coast) | Sea floor emits fixed faint blue light at night; not drifting (unlike bioluminescence); fish instinctively avoid the area above it; months of observation |
 | 03-22 | Elder cat (uninhabited island, Dalmatian) | Southern tide has a new smell for many months — "something I have not smelled before"; "It comes from the south" |
 | 05-03 | Orange cat (Bosphorus, Istanbul) | Pillar of light seen rising from the south, over the water — once three nights ago, once about two months prior; birds report it in different places, always from the south |

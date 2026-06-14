@@ -49,8 +49,8 @@ STORIES_S1_P02 = [
         "ep": 11,
         "title": "The Second Question",
         "text": (
-            "They crossed into Germany. The fields turned to forests. The sky was low and grey.\n\n"
-            "Ako-chan walked beside Obia on a wide flat road. Dango ran ahead and circled back and ran ahead again.\n\n"
+            "They crossed into the Netherlands. The land was flat. Canals ran beside the roads. The sky felt very wide here.\n\n"
+            "Ako-chan walked beside Obia on a long straight road. Dango ran ahead and circled back and ran ahead again.\n\n"
             "\"Where are you from?\" said Ako-chan.\n\n"
             "Obia kept walking. \"You've asked me that before.\"\n\n"
             "\"I know. You said 'far away.' That's not an answer.\"\n\n"
@@ -59,7 +59,7 @@ STORIES_S1_P02 = [
             "\"I'm not ready.\"\n\n"
             "Ako-chan thought about that. \"Is there a reason? Or do you just not want to?\"\n\n"
             "\"There's a reason,\" said Obia.\n\n"
-            "They walked in silence for a while. The trees on either side were tall and still.\n\n"
+            "They walked in silence for a while. The road stretched long in front of them.\n\n"
             "Ako-chan took out her red notebook. She opened it to a blank page. She held her pen above it for a moment.\n\n"
             "Then she put the pen away. She closed the notebook.\n\n"
             "Dango had stopped ahead and was looking back, waiting.\n\n"
@@ -108,9 +108,9 @@ STORIES_S1_P02 = [
     },
     {
         "ep": 14,
-        "title": "The Amsterdam Signal",
+        "title": "The Hamburg Signal",
         "text": (
-            "Amsterdam. Canals ran through the city in every direction. Bridges crossed them. Boats moved slowly under the bridges.\n\n"
+            "Hamburg. Canals ran through the city in every direction. Bridges crossed them. Boats moved slowly under the bridges.\n\n"
             "Obia stopped beside one of the canals. It was quiet for a moment.\n\n"
             "\"There's something in the water,\" it said. \"An electrical signal. Very faint.\"\n\n"
             "Ako-chan looked at the canal. The surface was still and grey.\n\n"
