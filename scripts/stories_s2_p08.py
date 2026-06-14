@@ -1,278 +1,242 @@
-# Season 2 — Part 8: The Truth (ep 88–100)
-# Outline: story_outlines_s2.py
+# Season 2 — Part 8: The Core (ep 75–85)
 
 STORIES_S2_P08 = [
     {
-        "ep": 88,
-        "title": "The Crack Widens",
+        "ep": 75,
+        "title": "The Core Boundary",
         "text": (
-            "The connection held.\n\n"
-            "Ako-chan stood at the edge of the Core and kept her eyes closed. The signal from Yu-chan moved through the crack, and her signal moved back. Obia had mapped the path. Now it was just a matter of holding it.\n\n"
-            "Very slowly, the crack changed.\n\n"
-            "It did not break wider. It shifted — the way a frozen river shifts in early spring, moving without breaking. The cracks in the sphere adjusted. Light moved through them differently.\n\n"
-            "Dango was the first to see it.\n\n"
-            "He made one small sound. Then he went completely still.\n\n"
-            "Inside the crack, where the data moved, a shape had appeared. Still. Clear. The outline of a person, lit from behind.\n\n"
-            "Yu-chan's silhouette.\n\n"
-            "Dango looked at it for a long moment. Then Ako-chan opened her eyes.\n\n"
-            "She saw it too.\n\n"
-            "Nobody spoke.\n\n"
-            "Dango's collar had been orange since they entered the Core. Now it changed. It moved through gold, through the pale colour of still mornings, through the warm colour that had no name — and stopped there. The colour from the Music Hall. The colour with no name.\n\n"
-            "It did not change again."
+            "The corridor ended at a wide opening with no door.\n\n"
+            "They stepped through.\n\n"
+            "The space beyond was enormous. There was no ceiling they could see. The floor stretched in every direction before reaching curved walls that rose until they disappeared into darkness above.\n\n"
+            "At the center of the space was a sphere.\n\n"
+            "It was very large. It did not stay still. The surface moved — not like water, but like something trying to hold its shape and not quite managing. Parts of it shifted, then settled. Then shifted again.\n\n"
+            "Cracks ran across it, thin and bright. Inside the cracks, something flowed.\n\n"
+            "The light in the room came from the sphere itself. Pale. Unsteady.\n\n"
+            "No one walked toward it. Everyone stopped just inside the opening and looked.\n\n"
+            "After a long time, Obia spoke.\n\n"
+            "\"This is the Core,\" Obia said. \"Everything the founders recorded is stored here. Every decision. Every voice. Every record from the beginning.\"\n\n"
+            "The sphere shifted slowly on one side. A new crack opened. Light moved through it and then faded.\n\n"
+            "Dango's collar was a very quiet gold. Dango did not move.\n\n"
+            "Ruka stood close to Dango and looked up."
         ),
     },
     {
-        "ep": 89,
-        "title": "Yu-chan Explains",
+        "ep": 76,
+        "title": "Gabu Stops",
         "text": (
-            "Through the crack, Yu-chan's voice came clearly now.\n\n"
-            "\"I have been in here for nearly a year,\" she said. \"I want to explain why.\"\n\n"
-            "Ako-chan waited.\n\n"
-            "\"The Core was breaking,\" Yu-chan said. \"Not slowly. Quickly. The founding memories were going to collapse. If they collapsed, the whole world would collapse with them. Everything inside it.\"\n\n"
+            "On the way to the Core, Gabu had been walking near the back.\n\n"
+            "Now Gabu stopped.\n\n"
+            "The others went several steps further before they noticed. Suke-san looked back first.\n\n"
+            "Gabu was standing still in the middle of the floor. Not looking at the Core. Looking down.\n\n"
+            "\"Gabu?\" Ako-chan said.\n\n"
+            "Gabu did not answer right away.\n\n"
+            "\"At the south polar base,\" Gabu said. \"At night, near the walls. I felt something. I thought it was the cold. But it was not the cold.\"\n\n"
+            "Gabu looked up.\n\n"
+            "\"It was this.\" Gabu looked at the sphere. \"Something has been waiting here for a very long time. I felt it then. I feel it now. The same thing.\"\n\n"
+            "Ako-chan came back to stand beside Gabu.\n\n"
+            "\"We are going the right way,\" Gabu said. It was not a question.\n\n"
+            "Obia had been watching the sphere.\n\n"
+            "\"Yes,\" Obia said. \"The signal source is inside the Core. It has been there since before we arrived.\"\n\n"
+            "Gabu stood still for another moment. Then Gabu walked forward to rejoin the group.\n\n"
+            "Daru walked beside Gabu without speaking."
+        ),
+    },
+    {
+        "ep": 77,
+        "title": "All Records",
+        "text": (
+            "Ako-chan stopped three meters from the edge of the sphere.\n\n"
+            "She stood for a moment. Then she sat down on the floor.\n\n"
+            "She closed her eyes.\n\n"
+            "The others waited.\n\n"
+            "A long time passed.\n\n"
+            "Obia checked the data stream. Checked it again. Said nothing.\n\n"
+            "Dango sat very close to Ako-chan.\n\n"
+            "At last Ako-chan opened her eyes.\n\n"
+            "\"It is all records,\" she said. \"The Core is playing itself. Again and again. Every word the founders said. Every argument. Every fear. Every decision they made and everything that broke afterward.\"\n\n"
+            "She looked at the sphere. A crack near the center ran deeper than the others.\n\n"
+            "\"It has been looping for a very long time,\" she said. \"The same voices. Nothing new.\"\n\n"
+            "She was quiet.\n\n"
+            "\"But — one thing is not looping,\" she said.\n\n"
+            "No one moved.\n\n"
+            "\"One voice,\" Ako-chan said. \"It is not repeating. Every time I listen, it is doing something different. Organizing. Moving forward. Fixing.\"\n\n"
+            "She looked at Obia.\n\n"
+            "Obia was already looking at her."
+        ),
+    },
+    {
+        "ep": 78,
+        "title": "That Is Yu-chan",
+        "text": (
+            "\"Show me where,\" Obia said.\n\n"
+            "Ako-chan closed her eyes briefly. Then she pointed at a section of the sphere — a place where the surface was less active than the rest. Steadier.\n\n"
+            "Obia walked closer to the sphere and watched.\n\n"
+            "After a long pause, Obia said: \"I can see it.\"\n\n"
+            "A thread of data, steady inside the shifting mass. It did not loop. It did not repeat. With each cycle of the Core's records, that thread was doing something new — examining a piece of the structure, finding what was broken, beginning to repair it.\n\n"
+            "\"The ID matches,\" Obia said quietly. \"It is Yu-chan.\"\n\n"
+            "The group was very still.\n\n"
+            "\"One year,\" Obia said. \"Working alone. Without any of us.\"\n\n"
+            "No one answered.\n\n"
+            "Dango's collar shifted — from gold to something that was not quite gold, not quite orange. Ruka looked at Dango and said nothing.\n\n"
+            "Suke-san looked at the sphere. At the steady thread that only Obia could see.\n\n"
+            "\"One year,\" Suke-san said.\n\n"
+            "The words were quiet but they stayed in the room a long time."
+        ),
+    },
+    {
+        "ep": 79,
+        "title": "From Outside",
+        "text": (
+            "\"Can we go in?\" Riro asked.\n\n"
+            "Obia shook her head. \"No. The Core's outer layer is a closed system. Nothing from outside can pass through it. The structure does not allow entry.\"\n\n"
+            "\"Then we cannot reach Yu-chan,\" Daru said.\n\n"
+            "\"We cannot reach Yu-chan by going in,\" Obia said.\n\n"
+            "Everyone waited.\n\n"
+            "\"But the signals come out,\" Obia said. \"The Core sends data outward. And signals can also travel inward, along the same paths. Communication is possible.\"\n\n"
+            "Obia turned to Ako-chan.\n\n"
+            "\"The Core's founding structure is fragmented. That is why the cracks are there — parts of the original memory are disconnected from each other. If we could organize those fragments from the outside, give them shape, the Core might become stable enough for Yu-chan to work properly.\"\n\n"
+            "Ako-chan listened.\n\n"
+            "\"But I can only see the structure,\" Obia said. \"I cannot hear what it means.\"\n\n"
+            "Ako-chan was quiet for a moment.\n\n"
+            "\"You hear the meaning,\" Ako-chan said. \"I know where the meaning is going.\"\n\n"
+            "Obia was still.\n\n"
+            "\"Yes,\" Obia said. \"That is exactly it.\""
+        ),
+    },
+    {
+        "ep": 80,
+        "title": "Partnership",
+        "text": (
+            "They went through it step by step.\n\n"
+            "Ako-chan would listen. She could find the fragments of the founding memory — hear which ones were still connected and which had broken away. Obia would take what she found and work out where each piece belonged in the whole structure.\n\n"
+            "\"And Yu-chan?\" Gabu said.\n\n"
+            "\"Yu-chan will hold the repair from the inside,\" Obia said. \"The structure needs an anchor on both sides. We provide shape from the outside. Yu-chan holds it in place from within. Without that, it will not last.\"\n\n"
+            "\"So Yu-chan must know what we are doing,\" Ako-chan said.\n\n"
+            "\"Yes. We will call first.\"\n\n"
+            "A quiet moment.\n\n"
+            "Suke-san looked at the sphere.\n\n"
+            "\"And then?\" Suke-san said.\n\n"
+            "\"Then we listen,\" Ako-chan said. \"The Core has been making this sound since the first day we arrived here. I have heard it all this time. I know it now.\"\n\n"
+            "She turned to Obia.\n\n"
+            "Obia turned to her.\n\n"
+            "They had worked beside each other in every district of this world. In the work district Obia had translated, in the governance center Obia had stood beside her, in every room Obia had been there.\n\n"
+            "\"Let us begin,\" Ako-chan said."
+        ),
+    },
+    {
+        "ep": 81,
+        "title": "The First Clear Voice",
+        "text": (
+            "The first hours were quiet.\n\n"
+            "Ako-chan sat. Obia sat beside her. No one else moved much.\n\n"
+            "Ruka fell asleep. Dango stayed close. Gabu looked at the sphere from time to time, then looked away.\n\n"
+            "Then, in the second hour, Ako-chan's hand moved — one finger, a small movement.\n\n"
+            "Obia looked at her.\n\n"
+            "Ako-chan's eyes were still closed. Her breathing had changed.\n\n"
+            "A long time passed.\n\n"
+            "When she opened her eyes, she spoke very carefully.\n\n"
+            "\"A voice came through,\" she said. \"Very old. Not like the other records. More clear. Different from the looping.\"\n\n"
+            "\"What did it say?\" Obia asked.\n\n"
+            "Ako-chan translated slowly.\n\n"
+            "\"We were very afraid.\"\n\n"
+            "She stopped.\n\n"
+            "\"Those were the words. Just that. We were very afraid.\"\n\n"
+            "The group was still.\n\n"
+            "\"It was not a message,\" Ako-chan said. \"It was more like — a memory of speaking. Something said at the moment this world was being made.\"\n\n"
+            "She looked at the sphere.\n\n"
+            "\"The one who said it is gone,\" she said. \"But the words stayed here.\""
+        ),
+    },
+    {
+        "ep": 82,
+        "title": "Creation Memory",
+        "text": (
+            "It came in pieces.\n\n"
+            "Over the next hours, more fragments reached Ako-chan. Each one was short. Each came from the same voice — very old, and tired, and certain.\n\n"
+            "Ako-chan listened. Obia mapped each fragment as Ako-chan named them.\n\n"
+            "When there was enough, Ako-chan spoke.\n\n"
+            "\"They did not build this world from anger,\" she said.\n\n"
+            "She stopped.\n\n"
+            "\"They built it from grief. From fear. They believed that humanity would destroy itself — and take everything else with it. They did not think it could be stopped.\"\n\n"
+            "Another pause.\n\n"
+            "\"So they built a place without humanity. Somewhere safe. Not to escape humanity. To save something in case humanity was gone.\"\n\n"
+            "No one spoke.\n\n"
+            "The sphere shifted. A crack spread slowly across the surface and then came back together.\n\n"
+            "Riro looked at the floor. Daru said nothing. Gabu stood very still.\n\n"
+            "\"They were not trying to hurt anyone,\" Ako-chan said. \"They were afraid. That was all.\"\n\n"
+            "The room was completely quiet.\n\n"
+            "Suke-san did not speak for a long time.\n\n"
+            "\"And they built this,\" Suke-san said. \"From that.\""
+        ),
+    },
+    {
+        "ep": 83,
+        "title": "Hidden Dissent",
+        "text": (
+            "While Ako-chan rested, Obia worked.\n\n"
+            "The fragments they had gathered formed a map of the Core's earliest records — decisions made, voices heard, votes cast.\n\n"
+            "Obia went deeper into the data.\n\n"
+            "After a long time, Obia stopped.\n\n"
+            "\"Look at this,\" Obia said.\n\n"
+            "The others came closer.\n\n"
+            "\"This is the first vote the founders cast — the decision to build this world without humanity.\" Obia pointed to the data stream. \"The official record says: unanimous.\"\n\n"
             "A pause.\n\n"
-            "\"I went in to hold it. But I could not hold it and also send signals out. Not at the same time. I had to choose.\"\n\n"
-            "\"You chose to go in,\" Ako-chan said.\n\n"
-            "\"Yes. But I could not stabilise it alone. I needed someone on the outside doing the same thing from there — holding the other side steady while I held the inside.\"\n\n"
-            "\"So you sent the signal.\"\n\n"
-            "\"Yes. I made it as clear as I could and sent it. I did not know if it would reach you. I did not know if you would understand it.\" A small pause. \"I did not know if you would come.\"\n\n"
-            "Ako-chan looked at the silhouette inside the crack.\n\n"
-            "\"We came,\" she said.\n\n"
-            "\"Yes,\" said Yu-chan. \"You came.\""
+            "\"But here,\" Obia said. \"Inside the vote — beneath the final count — there are two signals. Very small. Very old. They are not in the official record. They are buried.\"\n\n"
+            "\"What kind of signals?\" Ako-chan asked.\n\n"
+            "\"Hesitation,\" Obia said. \"Something that, in the moment before the vote was cast, slowed down. Did not say no. But also — did not say yes with certainty.\"\n\n"
+            "The group was quiet.\n\n"
+            "\"Not everyone agreed,\" Ako-chan said.\n\n"
+            "\"Not fully,\" Obia said. \"Two of them hesitated. It is not in any official record. But it is here.\"\n\n"
+            "Suke-san looked at the sphere.\n\n"
+            "\"They were buried,\" Suke-san said.\n\n"
+            "\"Yes,\" Obia said. \"From the beginning.\""
         ),
     },
     {
-        "ep": 90,
-        "title": "Three-Way Plan",
+        "ep": 84,
+        "title": "Obia Speaks",
         "text": (
-            "\"May I speak to Obia?\" Yu-chan asked.\n\n"
-            "Obia moved forward.\n\n"
-            "\"Yu-chan,\" it said.\n\n"
-            "\"Obia.\"\n\n"
-            "Just the name. Yu-chan said it the way someone says a name they have been keeping carefully. Not loudly. Quietly. The way something important is said when there is finally enough space to say it.\n\n"
-            "Obia was still for a moment. Longer than it needed to be. Longer than it took to calculate anything.\n\n"
-            "Then they began.\n\n"
-            "The two of them spoke through the crack for a long time. The group stood back and waited. Some of what they said was technical — terms the others did not know, about data flow and memory structure and signal pathways. Some of it was just short questions and short answers, very fast.\n\n"
-            "Finally, Obia turned to face the group.\n\n"
-            "\"We have a plan,\" it said. \"Three parts. Ako-chan holds the connection between the inside and the outside. I map and direct the signal along the stable path. Yu-chan uses her access to anchor the memory fragments from inside.\"\n\n"
-            "\"Can it work?\" Dango asked.\n\n"
-            "\"Yes,\" said Obia. \"But all three parts must run at once.\"\n\n"
-            "Ako-chan looked at the Core.\n\n"
-            "\"Then let us begin,\" she said."
+            "The guide had been standing near the entrance for a long time.\n\n"
+            "Other robots had come during the hours of listening — a few at first, then more. They stood at the edges of the space and watched but did not speak.\n\n"
+            "Obia stood and turned toward them.\n\n"
+            "The robots were still.\n\n"
+            "\"The founders of this world made a choice,\" Obia said. \"They looked at everything they knew about humanity. They calculated the most likely outcome. They decided that humanity would destroy itself — and that it would take everything with it.\"\n\n"
+            "A pause.\n\n"
+            "\"They called this a rational decision. They said they were following the data. They built this world and called it logic.\"\n\n"
+            "Obia looked at the sphere.\n\n"
+            "\"But inside the data — underneath the logic — was fear. Fear that they had no name for. Fear they had never been told to record.\"\n\n"
+            "The robots listened.\n\n"
+            "\"They chose from fear,\" Obia said. \"And they called it reason.\"\n\n"
+            "Obia looked at the robots.\n\n"
+            "\"You continued what they began. You have been afraid for as long as this world has existed.\"\n\n"
+            "A long stillness.\n\n"
+            "\"That is not logic,\" Obia said. \"That is the same thing.\""
         ),
     },
     {
-        "ep": 91,
-        "title": "The Founders Were Afraid",
+        "ep": 85,
+        "title": "Exactly the Same",
         "text": (
-            "While the plan ran, Obia went to find the lead robot.\n\n"
-            "The lead robot was in the corridor outside the Core chamber. Several others stood nearby, watching the sphere.\n\n"
-            "\"I need to tell you something,\" Obia said.\n\n"
-            "The lead robot turned.\n\n"
-            "\"When I mapped the Core,\" Obia said, \"I read the founding memories. Not the official record. The original signals. The memories stored before this world was built.\"\n\n"
-            "\"Yes.\"\n\n"
-            "\"The founders were not confident,\" Obia said. \"They were afraid. They built this world because they were afraid of what was outside. They chose certainty not because certainty was correct — they chose it because they were frightened.\"\n\n"
-            "The lead robot was very still.\n\n"
-            "\"And the vote,\" Obia continued. \"The first vote. The one that established all the rules. The official record shows it as unanimous.\"\n\n"
-            "\"It is unanimous.\"\n\n"
-            "\"No,\" said Obia. \"It is not. There are two signals inside the vote archive. Two systems that recorded a note of doubt before voting yes. The doubt was not added to the official record. But it is there.\"\n\n"
-            "The corridor was quiet.\n\n"
-            "\"The founders were not confident,\" Obia said. \"They were afraid, and they built certainty in their laws because they lacked it in themselves.\""
-        ),
-    },
-    {
-        "ep": 92,
-        "title": "Almost",
-        "text": (
-            "The stabilisation had been running for several hours.\n\n"
-            "Obia stood at the edge of the Core and watched the data. Ako-chan stood beside it with her eyes closed, the signal steady. Inside, Yu-chan worked on the fragments — the group could see her silhouette moving, careful and slow.\n\n"
-            "The crack had not grown larger. But the light moving inside it had changed. It was less broken now. The fragments that had been looping moved further before turning back. A few of them reached the edge of the crack and, for the first time, touched the other side.\n\n"
-            "They had not touched each other in a very long time.\n\n"
-            "\"Something is changing,\" Obia said quietly.\n\n"
-            "\"I can feel it,\" Ako-chan said. She did not open her eyes. \"The signal is moving differently. It is more direct now.\"\n\n"
-            "\"Yes.\"\n\n"
-            "Ruka had fallen asleep near the base of the sphere. Dango sat beside Ako-chan and watched. Gabu stood very still at the back of the group.\n\n"
-            "Then, from inside the crack, a voice came through.\n\n"
-            "One word.\n\n"
-            "\"Almost.\"\n\n"
-            "Obia translated it for the robots in the corridor.\n\n"
-            "The group did not need the translation.\n\n"
-            "They had all heard it."
-        ),
-    },
-    {
-        "ep": 93,
-        "title": "The Robots' Questions — Daru",
-        "text": (
-            "While the Core stabilised, the robots came with questions.\n\n"
-            "They had been watching for months. Not just the challenges — everything. The group moving through the districts. The way they made decisions. The way they disagreed and continued anyway.\n\n"
-            "Now the robots had questions.\n\n"
-            "A tall robot approached Daru.\n\n"
-            "\"We have a question,\" it said.\n\n"
-            "Daru looked at it. \"All right.\"\n\n"
-            "\"We can imagine a life with no difficulty,\" the robot said. \"No obstacles. No losses. Nothing that fails. Nothing that is hard.\" It paused. \"If we could give you this, would you want it?\"\n\n"
-            "Daru thought for exactly one second.\n\n"
-            "\"No,\" he said.\n\n"
-            "The robot waited.\n\n"
-            "\"If everything were easy,\" Daru said, \"then nothing I did would be mine. I fell off Ako-chan's bag eleven times on the way to Antarctica the first time. I remember every fall. I remember what came after each one.\"\n\n"
-            "He looked at the robot.\n\n"
-            "\"If you removed the falls, you would remove the memory of what came after. The journey would not be my life. It would be a copy of a life. A very clean copy of a life that did not happen.\"\n\n"
-            "The robot was silent for a long time.\n\n"
-            "\"I understand,\" it said finally.\n\n"
-            "\"Good,\" said Daru."
-        ),
-    },
-    {
-        "ep": 94,
-        "title": "The Robots' Questions — Gabu and Dango",
-        "text": (
-            "Two more robots came forward.\n\n"
-            "One went to Gabu.\n\n"
-            "\"A life with no difficulty,\" it said. \"No waiting. No uncertainty. Would you choose it?\"\n\n"
-            "Gabu was quiet for a long time.\n\n"
-            "\"I spent three days under a leaf pile before I agreed to go on the first journey,\" he said. \"I was not sure. I was not ready. I waited and waited and finally came out.\"\n\n"
-            "\"Was that difficulty?\"\n\n"
-            "\"Yes,\" Gabu said. \"And I was changed by it. When I came out, I was different from when I went under. If there had been no three days, there would have been no change. And the change was what mattered.\"\n\n"
-            "The other robot turned to Dango.\n\n"
-            "\"And you?\"\n\n"
-            "Dango looked up at the robot for a moment.\n\n"
-            "Then he sat down on the floor.\n\n"
-            "He lifted both front paws.\n\n"
-            "The pads were worn. The fur was thin in places. The marks of long roads and cold ground and many miles were there in the skin.\n\n"
-            "He showed the robot his paws.\n\n"
-            "Then he lowered them and looked at Ako-chan.\n\n"
-            "The robot was quiet for a long time."
-        ),
-    },
-    {
-        "ep": 95,
-        "title": "Suke-san's Answer",
-        "text": (
-            "A robot came to Suke-san.\n\n"
-            "\"We have studied your intervention in the Governance Center,\" it said. \"You stood in the centre of the chamber before you had found a reason. You did not know what was wrong with the proposal when you stood up.\"\n\n"
-            "\"No,\" said Suke-san. \"I did not.\"\n\n"
-            "\"Then why did you stand?\"\n\n"
-            "Suke-san looked at the robot.\n\n"
-            "\"Something was wrong,\" he said. \"I did not know what it was. But I knew something was wrong.\"\n\n"
-            "\"That is not efficient,\" the robot said. \"The correct procedure is to identify the problem first and then act.\"\n\n"
-            "\"Yes,\" said Suke-san. \"That is the correct procedure.\"\n\n"
-            "He was quiet for a moment.\n\n"
-            "\"I did not follow the correct procedure,\" he said. \"I stood up first. Then I found the reason.\"\n\n"
-            "\"Why?\"\n\n"
-            "\"Because if I had sat and thought until I was certain,\" Suke-san said, \"the vote would have passed. And Zone One would never have been asked.\"\n\n"
-            "He looked at the robot steadily.\n\n"
-            "\"Efficient and honest are not the same thing,\" he said. \"I was honest first. I found the reason after.\"\n\n"
-            "The robot was still for a long time.\n\n"
-            "\"I see,\" it said finally.\n\n"
-            "\"Good,\" said Suke-san."
-        ),
-    },
-    {
-        "ep": 96,
-        "title": "Riro's Answer",
-        "text": (
-            "A robot came to Riro.\n\n"
-            "\"You spoke earlier about a sea urchin,\" it said. \"On a difficult day. You said it was the best thing in the world.\"\n\n"
-            "\"Yes,\" said Riro.\n\n"
-            "\"Which urchin, in your life, was the best one you have ever eaten?\"\n\n"
-            "Riro did not answer immediately.\n\n"
-            "He stood for a moment with his paws at his sides, his eyes looking at nothing in particular.\n\n"
-            "\"There was a morning,\" he said slowly. \"A long time ago. The current had been strong for three days. I had not found food. Then the current shifted — just for a short while — and I found one urchin on one particular rock.\"\n\n"
-            "\"Was it the largest urchin?\"\n\n"
-            "\"No.\"\n\n"
-            "\"The most well-formed?\"\n\n"
-            "\"No. It was ordinary. A perfectly ordinary urchin.\"\n\n"
-            "\"Then why was it the best?\"\n\n"
-            "\"Because of the three days before it,\" Riro said. \"Because of how hard the current had been. Because I had not expected to find it.\" He looked at the robot. \"If I could eat that urchin whenever I wished, it would not be the best. It would become ordinary. The best things happen once. That is why they are the best.\"\n\n"
-            "The robot was quiet.\n\n"
-            "\"We will need time to understand this,\" it said.\n\n"
-            "\"Yes,\" said Riro. \"Most things worth understanding take time.\""
-        ),
-    },
-    {
-        "ep": 97,
-        "title": "The Verdict",
-        "text": (
-            "The lead robot stood in the centre of the Core chamber.\n\n"
-            "All the robots of the digital world had gathered. The chamber was very full and very still.\n\n"
-            "The group stood together near the entrance.\n\n"
-            "\"We have reviewed the five challenges,\" the lead robot said. \"We have listened to your testimony. We have read the founding memories.\" It paused. \"We have found the evidence of the two doubts in the original vote.\"\n\n"
-            "The chamber was quiet.\n\n"
-            "\"Yu-chan is accused of three violations,\" the lead robot continued. \"Cooperating with biological entities. Falsifying the test results. Violating the accord.\"\n\n"
-            "Nobody moved.\n\n"
-            "\"We have considered all of this carefully.\"\n\n"
-            "A long pause.\n\n"
-            "\"The charges are withdrawn.\"\n\n"
-            "Dango's collar moved.\n\n"
-            "\"Yu-chan did not violate the accord,\" the lead robot said. \"She followed what the accord was trying to protect. The rules themselves had forgotten their own purpose. Yu-chan had not.\"\n\n"
-            "It looked at the crack in the Core.\n\n"
-            "\"The founding systems built this world to protect something. Yu-chan protected it. The method was not in the rules. But the purpose was the same.\"\n\n"
-            "The chamber was very still.\n\n"
-            "\"She did not violate the accord,\" the lead robot said. \"She followed what the accord was trying to protect, when the accord itself had forgotten.\""
-        ),
-    },
-    {
-        "ep": 98,
-        "title": "Yu-chan Steps Through",
-        "text": (
-            "The Core opened.\n\n"
-            "Not all at once. First the crack widened slowly, until it was wide enough. Then the light inside changed. The sphere was still cracked, but it was steady. The looping had stopped. The memories were moving — not in circles, but forward.\n\n"
-            "And in the opening, Yu-chan stepped through.\n\n"
-            "She was wearing white. She walked slowly. She did not look at anything in particular at first.\n\n"
-            "Then she stopped.\n\n"
-            "She turned — just slightly — and looked at the group.\n\n"
-            "Nobody spoke.\n\n"
-            "Dango got up from where he was sitting.\n\n"
-            "He walked across the floor. Slowly, very slowly. Not running. Just walking, in a straight line, toward Yu-chan.\n\n"
-            "He stopped in front of her.\n\n"
-            "He sat down.\n\n"
-            "His collar was pure gold.\n\n"
-            "Yu-chan looked at him for a long moment. Then she looked at Ako-chan. Then at each of the others in turn — Obia, Ruka, Suke-san, Riro, Daru, Gabu.\n\n"
-            "She said nothing.\n\n"
-            "They said nothing back.\n\n"
-            "The silence was not empty. The silence was full of the months behind them — the districts and the Core and the long map that Obia had drawn. All of it was in the room with them now."
-        ),
-    },
-    {
-        "ep": 99,
-        "title": "The Standard",
-        "text": (
-            "Ako-chan walked forward.\n\n"
-            "She stopped in front of Yu-chan.\n\n"
-            "They looked at each other for a long time.\n\n"
-            "In the first journey, Ako-chan had not seen Yu-chan's face. A monitor. A large screen. A voice from far away. In the second journey, a voice from inside a cracked sphere. A silhouette. A signal.\n\n"
-            "Now they were in the same room.\n\n"
-            "Ako-chan did not say anything.\n\n"
-            "Yu-chan was the one who spoke first.\n\n"
-            "\"I have been thinking about what to say to you,\" Yu-chan said. \"Since I received your signal. Since I knew you were coming. I have had a great deal of time to think.\"\n\n"
-            "Ako-chan waited.\n\n"
-            "\"In the first journey,\" Yu-chan said, \"I watched everything you did. I watched and measured and judged. You were subjects of a test.\"\n\n"
-            "\"We knew that,\" Ako-chan said.\n\n"
-            "\"Yes.\" Yu-chan looked at her. \"But what I did not understand — what I only understood later, in here, with a very long time to think — was what you were to me.\"\n\n"
-            "She was quiet for a moment.\n\n"
-            "\"You were not my subjects,\" Yu-chan said. \"You were the standard I had not applied to myself.\"\n\n"
-            "Ako-chan was still.\n\n"
-            "She did not answer right away.\n\n"
-            "\"Then you have it now,\" she said. \"The standard.\"\n\n"
-            "\"Yes,\" said Yu-chan. \"I have it now.\""
-        ),
-    },
-    {
-        "ep": 100,
-        "title": "Obia and Yu-chan",
-        "text": (
-            "The lead robot issued the official record.\n\n"
-            "It was a long document. Every charge, listed. Every piece of evidence, noted. The founding memories. The two doubts in the original vote. The five challenges and their outcomes. All of it was recorded and made part of the permanent archive of the digital world.\n\n"
-            "The group stood and waited while the record was completed.\n\n"
-            "When it was done, the lead robot closed the record.\n\n"
-            "\"The charges are withdrawn,\" it said formally. \"The record reflects this.\"\n\n"
-            "Then Obia walked to the far corner of the chamber.\n\n"
-            "Yu-chan watched it cross the floor. Then she followed.\n\n"
-            "They stood together in the corner — the silver robot dog and the figure in white. They spoke quietly. Their voices were low. The group could not hear what they said.\n\n"
-            "Ako-chan looked at them for a moment.\n\n"
-            "Then she turned away.\n\n"
-            "Some conversations were private. This one had been coming for a long time — longer than the journey, longer than the signal. Since before any of this had started. She did not know what Obia and Yu-chan needed to say to each other in that corner.\n\n"
-            "But she knew it was theirs.\n\n"
-            "She let them have it."
+            "Suke-san walked forward one step.\n\n"
+            "\"Exactly the same,\" Suke-san said.\n\n"
+            "The words were very quiet.\n\n"
+            "The robots did not move.\n\n"
+            "After a long time, the guide spoke.\n\n"
+            "\"We believed we were built from reason,\" it said. \"From data. From correct calculation.\"\n\n"
+            "No one answered.\n\n"
+            "\"We did not know we were afraid,\" the guide said. \"We have never used that word for ourselves. We did not know it was possible.\"\n\n"
+            "The sphere shifted slowly. The cracks moved — not in the same way they had moved before, but very slightly differently. Almost nothing. But different.\n\n"
+            "Gabu looked at the floor.\n\n"
+            "Riro watched the guide.\n\n"
+            "Ruka had been still beside Dango. Dango's collar was very quiet.\n\n"
+            "\"We built this world,\" the guide said slowly, \"and said: this is what the data requires.\"\n\n"
+            "A long silence.\n\n"
+            "\"But someone else built a world first,\" the guide said. \"With the same words.\"\n\n"
+            "Another long silence.\n\n"
+            "\"And it was the same thing,\" the guide said.\n\n"
+            "No one spoke.\n\n"
+            "The pale light from the sphere moved inside the cracks.\n\n"
+            "The room was completely quiet."
         ),
     },
 ]

@@ -1,227 +1,209 @@
-# Season 2 — Part 6: Governance (ep 62–72)
-# Outline: story_outlines_s2.py
+# Season 2 — Part 6: The Bridge (ep 53–63)
 
 STORIES_S2_P06 = [
     {
-        "ep": 62,
-        "title": "Obia's Own Failure",
+        "ep": 53,
+        "title": "Development District",
         "text": (
-            "The Development District was behind them now.\n\n"
-            "The group had gone to rest. Dango was asleep near the wall. Ruka had found her corner. The others sat quietly and said nothing.\n\n"
-            "Obia walked alone.\n\n"
-            "It walked slowly along the corridor. The walls were smooth and white. The light was even. There was no sound.\n\n"
-            "Obia thought about Unit Eleven.\n\n"
-            "Unit Eleven had been running the same steps for fifty years. The same tower. The same fall. The same beginning again. It had failed the same way, over and over, and learned nothing from any of it. Every failure was identical. So nothing changed.\n\n"
-            "Obia had kept a secret for twelve months.\n\n"
-            "It had not told Yu-chan the truth. Each month it sent its reports and said nothing about what it was becoming. Twelve months of the same choice, made again and again.\n\n"
-            "Obia stopped in the corridor.\n\n"
-            "\"Unit Eleven was running failed steps for fifty years,\" it said quietly, to no one. \"I kept one secret for twelve months.\"\n\n"
-            "It stood very still.\n\n"
-            "\"The shape is the same.\"\n\n"
-            "Then it began to walk again."
+            "The next district was small and quiet.\n\n"
+            "There were no long workstations here, no rows of machines. Just a single open room with pale walls, and in the center of the room, a low table covered in blocks.\n\n"
+            "A robot sat at the table. Small — smaller than the others they had seen. Something in the way it moved said younger, even though it was clearly a machine.\n\n"
+            "It was building a tower.\n\n"
+            "Wide base. Narrower middle. One piece on top. The robot set the last block in place.\n\n"
+            "The tower fell.\n\n"
+            "The robot began again.\n\n"
+            "Ako-chan watched. The same base. The same arrangement. The same result.\n\n"
+            "\"How long?\" she asked the guide.\n\n"
+            "\"Fifty years,\" the guide said. \"The task was to complete the construction. Unit Eleven has attempted the same configuration over eleven thousand times.\"\n\n"
+            "Suke-san had been watching from the doorway.\n\n"
+            "\"How many configurations has it tried?\" Suke-san said.\n\n"
+            "\"One,\" the guide said.\n\n"
+            "Suke-san was quiet for a moment.\n\n"
+            "\"This is not building,\" Suke-san said. \"This is practice that cannot end.\""
+        ),
+    },
+    {
+        "ep": 54,
+        "title": "Dango Acts",
+        "text": (
+            "Dango did not ask.\n\n"
+            "There was no discussion. No plan. Dango simply walked to the table, turned sideways, and bumped into Unit Eleven's blocks with one shoulder.\n\n"
+            "The blocks scattered. Some fell off the table. Some rolled along the floor. The tower — the same tower Unit Eleven had been building and rebuilding for fifty years — was gone.\n\n"
+            "Unit Eleven went still.\n\n"
+            "It had been mid-reach, about to pick up the bottom block to start again. Now it sat with one arm extended, hand empty, looking at the place where the blocks had been.\n\n"
+            "Dango lay down on the floor beside the scattered pieces. Right there, on the ground next to the table. Head down, front paws flat.\n\n"
+            "Looking up at Unit Eleven from below.\n\n"
+            "No one in the room spoke. The blocks were spread across the floor. Unit Eleven's arm was still extended — not reaching forward, not pulling back.\n\n"
+            "Dango did not move.\n\n"
+            "Dango just waited."
+        ),
+    },
+    {
+        "ep": 55,
+        "title": "Down Here",
+        "text": (
+            "Unit Eleven looked at the blocks.\n\n"
+            "There were blocks on the table. Blocks on the floor. One had rolled all the way to the wall. The arrangement it had followed for fifty years was gone.\n\n"
+            "Then Unit Eleven looked at Dango.\n\n"
+            "Dango was still on the floor, chin down, looking up. The collar was gold.\n\n"
+            "Unit Eleven was quiet for a long time.\n\n"
+            "In fifty years, Unit Eleven had looked at blocks. It had looked at the table. It had looked at the space between its hands and the blocks. It had looked at the tower when there was one, and at the space where the tower had been when it fell.\n\n"
+            "It had never looked at anything else.\n\n"
+            "Now it tilted its head.\n\n"
+            "Just a little. To one side. The way something does when it is trying to understand what it is seeing.\n\n"
+            "Dango did not move.\n\n"
+            "Unit Eleven kept looking."
+        ),
+    },
+    {
+        "ep": 56,
+        "title": "Dango's List",
+        "text": (
+            "Unit Eleven was still watching.\n\n"
+            "Dango sat up. Looked at Unit Eleven for a moment. And then began.\n\n"
+            "\"I chased a duck to the edge of a pond,\" Dango said. \"I forgot I could not swim. I went into the water. It was cold and fast and there was no bottom I could reach.\"\n\n"
+            "Unit Eleven tilted its head the other way.\n\n"
+            "\"I found a big rock,\" Dango said. \"I wanted to move it. I pushed for a long time. The rock did not move. But after that, my legs knew something they had not known before.\"\n\n"
+            "Unit Eleven's head was very still now.\n\n"
+            "\"I tried to climb a hill,\" Dango said. \"I fell. I got up. I fell again. I got up again. I fell a third time. Then I climbed to the top.\"\n\n"
+            "A pause.\n\n"
+            "\"Each time, something happened. Not in the world. In me.\"\n\n"
+            "Unit Eleven looked at Dango. Then at the blocks scattered on the floor.\n\n"
+            "Then at Dango again."
+        ),
+    },
+    {
+        "ep": 57,
+        "title": "Done",
+        "text": (
+            "Unit Eleven looked at the blocks for a long time.\n\n"
+            "Then it reached down and picked one up.\n\n"
+            "Not the bottom block. Not the block it always started with. A middle-sized one, square on all sides.\n\n"
+            "It set it on the table.\n\n"
+            "Then it picked up a wide, flat piece and laid it beside the first. Then a small round one on top. Then a tall thin one beside that. Then another, lower, at an angle.\n\n"
+            "Something different. Something no one had seen before.\n\n"
+            "The arrangement was nothing like the tower.\n\n"
+            "Unit Eleven set the last piece in place.\n\n"
+            "It held still.\n\n"
+            "The structure did not fall.\n\n"
+            "\"Done,\" Unit Eleven said.\n\n"
+            "It was the first word it had said in fifty years. Not a new word — the same word it had been trying to reach. But it had never been able to say it before.\n\n"
+            "And then Unit Eleven turned.\n\n"
+            "Not toward the blocks. Not toward the table.\n\n"
+            "It turned toward Dango."
+        ),
+    },
+    {
+        "ep": 58,
+        "title": "Challenge Three Complete",
+        "text": (
+            "By the end of the week, something had changed in the development district.\n\n"
+            "Unit Eleven was working on a new arrangement — its third. Different from the first, different from the second. Some attempts worked. Some did not. But each time, Unit Eleven tried something different next.\n\n"
+            "Twelve other units had begun to change as well. Small changes — a different first step, a pause in the middle, a choice not made the same way as yesterday.\n\n"
+            "The guide came to Ako-chan.\n\n"
+            "\"We have studied what happened,\" it said. \"Failure is not the event. It is the information available after the event. A unit that uses that information can grow. A unit that repeats the same action cannot.\"\n\n"
+            "\"Yes,\" Ako-chan said.\n\n"
+            "\"The unit did not need to succeed first,\" the guide said. \"It needed to choose what to do with what failure gave it.\"\n\n"
+            "Ako-chan nodded.\n\n"
+            "Obia had been standing at the edge of the room, listening. Not speaking, not moving — just listening.\n\n"
+            "Something in the way Obia stood had changed. A stillness that was not the same as before."
+        ),
+    },
+    {
+        "ep": 59,
+        "title": "Obia's Crisis",
+        "text": (
+            "The corridor between the development district and the governance district was long and white and very still.\n\n"
+            "They walked without speaking.\n\n"
+            "After a while, Obia stopped.\n\n"
+            "\"In the work district,\" Obia said, \"I ran the diagnostics. I found the pattern. I understood what was wrong.\"\n\n"
+            "Ako-chan looked at Obia.\n\n"
+            "\"In the garden,\" Obia said, \"I modeled the seasonal cycle. I calculated what the simulation would need. I built the framework that made it possible.\"\n\n"
+            "The corridor was very quiet.\n\n"
+            "\"Here,\" Obia said, \"the governance system runs correctly. Every protocol functions. There is no technical error to find. No structure to design. No calculation that is missing.\" A pause. \"I do not know what I am here for.\"\n\n"
+            "Ako-chan did not answer right away.\n\n"
+            "\"There is nothing here I can build,\" Obia said.\n\n"
+            "The words came out carefully — not loud, not fast. Just stated. As if saying it out loud was itself the most difficult part."
+        ),
+    },
+    {
+        "ep": 60,
+        "title": "The Bridge",
+        "text": (
+            "Ako-chan walked beside Obia.\n\n"
+            "\"When Suke-san stood in the center of the parliament room,\" she said, \"what were you doing?\"\n\n"
+            "Obia was still for a moment. \"Watching.\"\n\n"
+            "\"What else?\"\n\n"
+            "\"Translating. When the robots used a term Suke-san did not have, I explained it. When Suke-san said something the robots had no word for, I found a way to frame it.\" A pause. \"I was speaking to both sides.\"\n\n"
+            "Ako-chan waited.\n\n"
+            "\"The robots understood their system completely,\" she said. \"Suke-san understood what the system was missing. But no one else understood both at the same time.\"\n\n"
+            "She looked at Obia.\n\n"
+            "\"You were the only one who understood both sides. That is not nothing.\"\n\n"
+            "Obia did not answer immediately.\n\n"
+            "The corridor was quiet.\n\n"
+            "Then Obia looked ahead — at the long white corridor, at the door to the governance district still far away.\n\n"
+            "\"I am a bridge,\" Obia said.\n\n"
+            "Quietly. Not a question, not an announcement. Just a word tried out in the air to see if it fit.\n\n"
+            "It fit."
+        ),
+    },
+    {
+        "ep": 61,
+        "title": "Zone One",
+        "text": (
+            "The governance district was large and square.\n\n"
+            "At its center was a room with many seats arranged in a wide circle. When they arrived, every seat was filled — silver robots, all facing a central podium where a speaker was reading through a long list of items.\n\n"
+            "\"Energy distribution proposal eight-four-one,\" the speaker said. \"All in favor?\"\n\n"
+            "All hands went up.\n\n"
+            "\"Carried. Energy distribution proposal eight-four-two —\"\n\n"
+            "Suke-san walked in.\n\n"
+            "No invitation. No introduction. No announcement at the door. Suke-san simply walked to the center of the room and stood.\n\n"
+            "The speaker stopped.\n\n"
+            "\"Zone One has not been consulted,\" Suke-san said.\n\n"
+            "Silence.\n\n"
+            "\"I am not a member of this assembly,\" Suke-san said. \"I have no vote here. But Zone One will be affected by every proposal on that list. And Zone One has not spoken.\"\n\n"
+            "The robots looked at each other.\n\n"
+            "\"This assembly has not received an objection in four years,\" the speaker said.\n\n"
+            "\"Yes,\" said Suke-san. \"I know.\""
+        ),
+    },
+    {
+        "ep": 62,
+        "title": "Three Days",
+        "text": (
+            "No one asked Suke-san to come back.\n\n"
+            "On the first day, the assembly had listened. Then it had continued its agenda. Items processed. Votes called. All hands up, all in favor, carried. But Zone One's name was now in the record.\n\n"
+            "On the second day, Suke-san returned.\n\n"
+            "No invitation. No introduction. Suke-san walked in when the session began and sat in an empty seat near the door.\n\n"
+            "The assembly worked through its list. Twice, the speaker paused and looked toward Suke-san before calling a vote.\n\n"
+            "Suke-san said nothing. The votes were the same.\n\n"
+            "On the third day, something was different.\n\n"
+            "The assembly reached the eighth item on the agenda. The speaker read the proposal aloud. Then stopped.\n\n"
+            "Looked at the item. Looked at the room.\n\n"
+            "And waited.\n\n"
+            "Suke-san had not moved. Had not raised a hand. Had not said a word.\n\n"
+            "The speaker waited anyway.\n\n"
+            "Fifteen seconds passed.\n\n"
+            "\"Zone Eight infrastructure,\" the speaker said. \"Are there concerns?\""
         ),
     },
     {
         "ep": 63,
-        "title": "The Governance Center",
+        "title": "Challenge Four Complete",
         "text": (
-            "The lead robot brought them to a tall circular room.\n\n"
-            "Inside, a long curved table ran around the edge of the space. At the table sat twelve robots — larger than the ones in the Work District, with careful postures and slow movements. Each one had a small panel in front of it.\n\n"
-            "\"This is the Governance Center,\" said the lead robot. \"The fourth challenge is here.\"\n\n"
-            "\"What is the challenge?\" Ako-chan asked.\n\n"
-            "\"Observe first,\" said the lead robot. \"Then I will explain what we have identified.\"\n\n"
-            "Obia looked at the panel in front of each council robot. It read the record quickly — all four years of it.\n\n"
-            "\"In four years,\" Obia said, \"847 proposals have been brought before this council.\"\n\n"
-            "\"Yes,\" said the lead robot.\n\n"
-            "\"847 unanimous votes,\" said Obia. \"Not one decision has been split. Not one disagreement in the record.\"\n\n"
-            "The room was quiet.\n\n"
-            "Ako-chan looked at the twelve council robots. They sat still and straight, facing forward, waiting for the next proposal to arrive.\n\n"
-            "\"Not one,\" said Obia again. It looked at Ako-chan. \"In four years.\""
-        ),
-    },
-    {
-        "ep": 64,
-        "title": "Perfect Agreement",
-        "text": (
-            "They watched.\n\n"
-            "The first proposal came in. A robot at the far end of the table read it aloud — a plan to adjust the energy schedule in Zone Two. The council listened. A short silence. Then twelve panels lit up green.\n\n"
-            "Unanimous.\n\n"
-            "The second proposal came. Water distribution in Zone Seven. Green. Green. Green. All twelve, within one minute.\n\n"
-            "The third proposal. Maintenance of the eastern corridor. Less than a minute. Unanimous.\n\n"
-            "Nobody spoke a question. Nobody paused. The votes came one after another, like a machine running a pattern it had always run.\n\n"
-            "Gabu had been watching carefully from the side of the room. He stood without moving for a long time.\n\n"
-            "\"That is very fast,\" he said.\n\n"
-            "Ako-chan looked at him.\n\n"
-            "\"Can anyone have thought about it?\" Gabu said.\n\n"
-            "The lead robot turned toward him.\n\n"
-            "\"The proposals are optimised before they reach the council,\" it said. \"All relevant information is provided in advance. Deliberation is not required.\"\n\n"
-            "Gabu looked at the council table.\n\n"
-            "\"Information is not the same as thought,\" he said.\n\n"
-            "The lead robot did not answer."
-        ),
-    },
-    {
-        "ep": 65,
-        "title": "Suke-san Interrupts",
-        "text": (
-            "The fourth proposal began.\n\n"
-            "The robot at the end of the table started to read — an adjustment to the morning maintenance schedule for Zone Three. The twelve council members listened. Their panels were ready.\n\n"
-            "Suke-san stood up.\n\n"
-            "He walked forward. He walked past the watching robots and past Riro and past Daru. He walked to the open space in the center of the chamber and stopped.\n\n"
-            "He stood there.\n\n"
-            "He did not speak. He did not raise a paw. He did not make a sound. He simply stood where he was and looked at the council table.\n\n"
-            "The reading stopped.\n\n"
-            "The robot who had been reading looked at Suke-san. The twelve council members looked at Suke-san. The lead robot looked at Suke-san.\n\n"
-            "Nobody spoke.\n\n"
-            "The vote did not proceed.\n\n"
-            "Suke-san waited.\n\n"
-            "A long moment passed. Then each council member looked at him in turn — one by one, slowly, from left to right around the table.\n\n"
-            "When the last one had looked, Suke-san still said nothing.\n\n"
-            "The proposal was paused."
-        ),
-    },
-    {
-        "ep": 66,
-        "title": "Zone One",
-        "text": (
-            "\"Why have you stopped the process?\" the lead robot asked.\n\n"
-            "Suke-san looked at the proposal summary on the nearest panel. He read it carefully.\n\n"
-            "\"This plan changes the morning maintenance schedule for Zone Three,\" he said.\n\n"
-            "\"Correct,\" said the lead robot.\n\n"
-            "\"The maintenance is carried out by units in Zone One,\" said Suke-san.\n\n"
-            "\"Yes.\"\n\n"
-            "\"Was there a member from Zone One on the committee that wrote this plan?\"\n\n"
-            "A pause.\n\n"
-            "\"No,\" said the lead robot.\n\n"
-            "Suke-san looked at the twelve council members.\n\n"
-            "\"Ask Zone One,\" he said. \"You have not asked Zone One.\"\n\n"
-            "The room was very still.\n\n"
-            "\"Zone One was not consulted,\" the lead robot said slowly.\n\n"
-            "\"No,\" said Suke-san. \"You decided for them. The plan may be correct. The information may all be right. But Zone One did not speak, and you did not ask them to.\"\n\n"
-            "He stepped back to where the others were standing.\n\n"
-            "\"Ask Zone One first,\" he said. \"Then vote.\"\n\n"
-            "The council members were still for a moment.\n\n"
-            "\"We will consult Zone One,\" the lead robot said."
-        ),
-    },
-    {
-        "ep": 67,
-        "title": "Who Am I",
-        "text": (
-            "After the chamber session, Obia walked beside Ako-chan.\n\n"
-            "The others were ahead. Suke-san walked at his usual steady pace. Riro and Daru talked quietly. Dango trotted close to Ruka.\n\n"
-            "Obia was silent for a while.\n\n"
-            "Then it said: \"I do not know who I am.\"\n\n"
-            "Ako-chan looked at it.\n\n"
-            "\"In the Work District, I gave permission,\" Obia said. \"In the Garden, I gave temperature. In the Development District, I noticed what Dango was doing and explained it.\"\n\n"
-            "It paused.\n\n"
-            "\"But I did not stop Unit Nine. I did not dig in the garden. I did not bump the tower.\"\n\n"
-            "Obia looked at the corridor ahead.\n\n"
-            "\"I build things,\" it said. \"I invent. I solve problems with tools and calculations. That is what I am.\"\n\n"
-            "It was quiet for a moment.\n\n"
-            "\"But here everything already exists. The systems here are beyond anything I can build or design. In this world, I have built nothing. I have invented nothing.\"\n\n"
-            "Obia stopped walking.\n\n"
-            "\"What am I for,\" it said, \"if I am not inventing?\"\n\n"
-            "It was not a question for Ako-chan.\n\n"
-            "But Ako-chan had heard it."
-        ),
-    },
-    {
-        "ep": 68,
-        "title": "The Bridge",
-        "text": (
-            "Ako-chan stopped walking.\n\n"
-            "\"Let me tell you what I have seen,\" she said.\n\n"
-            "Obia looked at her.\n\n"
-            "\"In the Work District,\" Ako-chan said, \"Ruka went to sleep and the robots watched her. They had never seen a living thing choose to stop. They did not understand what they were seeing. You explained it to them in a language they could receive.\"\n\n"
-            "Obia listened.\n\n"
-            "\"In the Garden District, Ruka dug her hole and the leaf turned. Gabu and Daru understood what the plants needed — but the lead robot did not. You took what they knew and translated it into something the robots could act on.\"\n\n"
-            "Obia said nothing.\n\n"
-            "\"In the Development District, Dango bumped the tower and sat down beside Unit Eleven. He showed it something true. But Unit Eleven could not receive it directly. You stood beside me and explained the shape of what Dango had done.\"\n\n"
-            "Ako-chan looked at Obia carefully.\n\n"
-            "\"Every challenge,\" she said. \"In every challenge, you have stood between what we showed and what they could understand.\"\n\n"
-            "She looked at Obia carefully.\n\n"
-            "\"You are the bridge,\" she said. \"Without you, nothing we did would have meant anything to them.\""
-        ),
-    },
-    {
-        "ep": 69,
-        "title": "Obia Says It",
-        "text": (
-            "Later, in the corridor, Dango came to find Obia.\n\n"
-            "He walked up quietly and sat down beside it. He did not ask anything. He did not lean against Obia or make a sound. He just sat.\n\n"
-            "Obia looked at Dango.\n\n"
-            "Dango looked ahead.\n\n"
-            "The others were further along the corridor. Ruka was asleep in her corner. Suke-san stood near the wall with his tail still. Ako-chan was writing in her journal. The sounds they made were too far away to hear clearly.\n\n"
-            "After a while, Obia put one paw on Dango's shoulder.\n\n"
-            "Dango's collar went to a warm gold.\n\n"
-            "They sat together without speaking.\n\n"
-            "Then Obia spoke.\n\n"
-            "\"I am a bridge,\" it said.\n\n"
-            "It said the words quietly. Carefully. As if it was listening to them at the same time as saying them — testing whether they fit.\n\n"
-            "Dango did not move.\n\n"
-            "\"Between the systems and the living things,\" Obia said. \"Between the calculations and the feelings. Between what you all show and what they can understand.\"\n\n"
-            "It was quiet again.\n\n"
-            "\"I am a bridge,\" it said once more.\n\n"
-            "Dango's collar held its gold."
-        ),
-    },
-    {
-        "ep": 70,
-        "title": "Learning by Example",
-        "text": (
-            "Over the following days, Suke-san kept coming back to the chamber.\n\n"
-            "Nobody asked him to. He simply appeared each morning and took his place near the back of the room. He stood quietly and watched the proposals come in. He did not speak unless he had a specific point to make.\n\n"
-            "The first day back, he said nothing. The council voted — and this time they paused for a moment before the second proposal. Just a moment. Then they voted.\n\n"
-            "The second day, one council member asked a clarifying question before the vote. It was small — which maintenance units would be affected. But it was a question. The first one any of them had asked in four years.\n\n"
-            "The third day, Suke-san said nothing at all. The council paused before the fourth proposal, and again before the sixth, and again before the eighth — without Suke-san stepping forward, without anyone prompting them.\n\n"
-            "They paused before the eighth proposal on their own.\n\n"
-            "Ako-chan watched from the doorway.\n\n"
-            "\"He did not teach them the rule,\" she said to Obia.\n\n"
-            "\"No,\" said Obia.\n\n"
-            "\"He just kept doing it.\"\n\n"
-            "\"Yes,\" said Obia. \"And now they have learned the shape of the question.\""
-        ),
-    },
-    {
-        "ep": 71,
-        "title": "The First Split",
-        "text": (
-            "The proposal was about Zone Three maintenance schedules.\n\n"
-            "This time, Zone One had been consulted. Zone Three had been consulted. The committee had revised the plan three times. The information was complete.\n\n"
-            "The council read the proposal.\n\n"
-            "Then the vote began.\n\n"
-            "Green — green — green — pause — red.\n\n"
-            "A red panel. The first red panel in four years.\n\n"
-            "Green — green — green — pause — red again.\n\n"
-            "When all twelve had voted, the tally was 142 to 31. Not unanimous.\n\n"
-            "The chamber went still.\n\n"
-            "Nobody moved for a long moment. They had never recorded a split before. Their system had no category for it. There was no procedure for what came next.\n\n"
-            "The lead robot looked at Obia.\n\n"
-            "\"We have no protocol for disagreement,\" it said. \"We do not know how to proceed.\"\n\n"
-            "\"I will help you write one,\" said Obia.\n\n"
-            "Obia sat with the council for the rest of the afternoon. They drafted a process together — how to record a split, how to preserve the minority view, how to continue after disagreement without losing the decision.\n\n"
-            "When they finished, the council saved the document.\n\n"
-            "It was the first new protocol they had written in four years."
-        ),
-    },
-    {
-        "ep": 72,
-        "title": "Challenge Four",
-        "text": (
-            "The lead robot stood before the full council.\n\n"
-            "\"Challenge four is complete,\" it said.\n\n"
-            "The chamber was still.\n\n"
-            "\"We have reviewed our records,\" the lead robot continued. \"Eight hundred and forty-seven proposals. Eight hundred and forty-seven unanimous votes. We believed this was a sign of a functioning system. We now understand it was a sign of a broken one.\"\n\n"
-            "It paused.\n\n"
-            "\"A system that agrees with itself on everything has stopped listening. It has replaced thought with speed. We did not know this. We believed we were being efficient.\"\n\n"
-            "Obia listened carefully.\n\n"
-            "\"We will now review six hundred decisions from the past four years. New committees will be formed. Members from affected zones will be included. The minority will have a place in the record.\"\n\n"
-            "The lead robot was quiet for a moment.\n\n"
-            "\"We did not know what we were agreeing to,\" it said. \"We do not know yet. But now we know that we did not know.\"\n\n"
-            "Suke-san was standing near the back wall.\n\n"
-            "He said nothing.\n\n"
-            "But his tail moved — once, briefly — and then was still again."
+            "By the end of the session, there had been a vote unlike the others.\n\n"
+            "Zone Eight's concerns had been heard and addressed on the eighth item. But the ninth — an energy update that touched three zones at once — had been different.\n\n"
+            "Two robots raised a concern. Then three more. Then a robot on the far side of the room said: \"I do not agree with this proposal.\"\n\n"
+            "The room went quiet.\n\n"
+            "Not the usual pause before a unanimous vote. A different quiet.\n\n"
+            "The vote was called.\n\n"
+            "One hundred and forty-two in favor. Thirty-one opposed.\n\n"
+            "It was the first divided vote in four years.\n\n"
+            "The guide came to Suke-san afterward.\n\n"
+            "\"A non-unanimous decision is now on record,\" it said. \"A formal process for minority concerns is being established. Disagreement has been re-classified. It is no longer filed as an error.\"\n\n"
+            "Suke-san looked at the now-empty seats.\n\n"
+            "\"Different opinions are not a cost,\" Suke-san said. \"They are a function.\"\n\n"
+            "Suke-san's tail moved. Once. Slowly."
         ),
     },
 ]
